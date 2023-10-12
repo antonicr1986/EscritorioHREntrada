@@ -188,29 +188,40 @@ public class MainForm extends javax.swing.JFrame {
 
             mensajeServer = lector.readLine();
 
-            String[] textElements = mensajeServer.split(",");
-            for (int i = 0; i < textElements.length; i++) {
-                palabra = textElements[0];
-                pass = textElements[1];
-                number = textElements[2];
-                codigo = textElements[3];             
-            }
-            
-            //recibimos la respuesta
-            if (palabra.equals(jTextFieldUsuario.getText())
-                    && pass.equals(jPasswordField.getText())
-                    && number.equals("0")) {
-                adminForm.setVisible(true);
-                this.setVisible(salir);
-            } else if (palabra.equals(jTextFieldUsuario.getText())
-                    && pass.equals(jPasswordField.getText())
-                    && number.equals("1")) {
-                usuarioForm.setVisible(true);
-                this.setVisible(salir);
-            }
-            lector.close();
-            escriptor.close();
-            socket.close();
+           //Leemos lo que nos devuelve el servidor del usuario y se lo asignamos a las variables indicadas.
+            if (mensajeServer!=null){
+                String[] textElements = mensajeServer.split(",");
+                for (int i = 0; i < textElements.length; i++) {
+                    palabra = textElements[0];
+                    pass = textElements[1];
+                    number = textElements[2];
+                    codigo = textElements[3];             
+                }
+                
+                    //recibimos la respuesta
+                if (palabra.equals(jTextFieldUsuario.getText())
+                        && pass.equals(jPasswordField.getText())
+                        && number.equals("0")) {//Codigo admin
+                    adminForm.setjLabel1(codigo);
+                    adminForm.setVisible(true);
+                    this.setVisible(salir);
+
+                } else if (palabra.equals(jTextFieldUsuario.getText())
+                        && pass.equals(jPasswordField.getText())
+                        && number.equals("1")) {//Codigo usuario
+                    usuarioForm.setjLabel1(codigo);
+                    usuarioForm.setVisible(true);
+                    this.setVisible(salir);
+                }
+
+                lector.close();
+                escriptor.close();
+                socket.close();
+                
+            }else{
+                 JOptionPane.showMessageDialog(null, 
+                             "Usuario-contraseña incorrecta");
+            }        
         } catch (UnknownHostException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

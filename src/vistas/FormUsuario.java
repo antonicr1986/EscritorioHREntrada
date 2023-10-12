@@ -1,6 +1,7 @@
 package vistas;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -8,6 +9,16 @@ import javax.swing.JFrame;
  */
 public class FormUsuario extends javax.swing.JFrame {
 
+    JLabel jlabel;
+    
+    public JLabel getjLabel1() {
+        return jLabelUserCode;
+    }
+
+    public void setjLabel1(String nuevoTexto) {
+        jLabelUserCode.setText("Codigo: "+nuevoTexto);
+    }
+    
     /**
      * Creates new form FormUsuario
      */
@@ -28,6 +39,7 @@ public class FormUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelFormUsuario = new javax.swing.JLabel();
         jButtonLogoutSession = new javax.swing.JButton();
+        jLabelUserCode = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +53,8 @@ public class FormUsuario extends javax.swing.JFrame {
             }
         });
 
+        jLabelUserCode.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -50,14 +64,21 @@ public class FormUsuario extends javax.swing.JFrame {
                 .addComponent(jLabelFormUsuario)
                 .addGap(43, 43, 43))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(203, 203, 203)
-                .addComponent(jButtonLogoutSession)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(203, 203, 203)
+                        .addComponent(jButtonLogoutSession))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabelUserCode)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(138, 138, 138)
+                .addGap(33, 33, 33)
+                .addComponent(jLabelUserCode)
+                .addGap(89, 89, 89)
                 .addComponent(jLabelFormUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(jButtonLogoutSession)
@@ -126,6 +147,7 @@ public class FormUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogoutSession;
     private javax.swing.JLabel jLabelFormUsuario;
+    private javax.swing.JLabel jLabelUserCode;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
