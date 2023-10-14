@@ -5,7 +5,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
@@ -18,6 +20,16 @@ import javax.swing.JOptionPane;
  */
 public class MainForm extends javax.swing.JFrame {
 
+    String palabra = "";
+
+    public String getPalabra() {
+        return palabra;
+    }
+
+    public void setPalabra(String palabra) {
+        this.palabra = palabra;
+    }
+    
     /**
      * Creates new form MainForm
      */
@@ -63,6 +75,8 @@ public class MainForm extends javax.swing.JFrame {
         jLabelUsuario.setText("Usuario");
 
         jLabelContraseña.setText("Contraseña");
+
+        jTextFieldIPServidor.setText("localhost");
 
         jTextFieldUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -168,8 +182,14 @@ public class MainForm extends javax.swing.JFrame {
         try {
             //IMPLEMENTA
             Socket socket = new Socket(jTextFieldIPServidor.getText(), 8888);
+            JOptionPane.showMessageDialog(null, 
+                             "Conexion IP correcta");
             BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));//flujo lectura del server
             BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));//flujo envio al server
+            
+            ObjectInputStream perEnt;
+            
+            String codigo = "0";
             
             ///Llegeix del servidor el mensaje de bienvenida, y la pregunta que nos hace ///           
             String mensajeServer = lector.readLine();
@@ -178,54 +198,66 @@ public class MainForm extends javax.swing.JFrame {
             String palabra = jTextFieldUsuario.getText();
             String pass = jPasswordField.getText();
             String number = null;
-            String codigo = null;
 
-            String login = palabra + "," + pass;
+            String login = palabra + ":" + pass;
 
             escriptor.write(login);
             escriptor.newLine();
             escriptor.flush();
 
+            //leemos la respuesta
             mensajeServer = lector.readLine();
 
-           //Leemos lo que nos devuelve el servidor del usuario y se lo asignamos a las variables indicadas.
-            if (mensajeServer!=null){
-                String[] textElements = mensajeServer.split(",");
-                for (int i = 0; i < textElements.length; i++) {
-                    palabra = textElements[0];
-                    pass = textElements[1];
-                    number = textElements[2];
-                    codigo = textElements[3];             
-                }
-                
-                    //recibimos la respuesta
-                if (palabra.equals(jTextFieldUsuario.getText())
-                        && pass.equals(jPasswordField.getText())
-                        && number.equals("0")) {//Codigo admin
-                    adminForm.setjLabel1(codigo);
-                    adminForm.setVisible(true);
-                    this.setVisible(salir);
-
-                } else if (palabra.equals(jTextFieldUsuario.getText())
-                        && pass.equals(jPasswordField.getText())
-                        && number.equals("1")) {//Codigo usuario
-                    usuarioForm.setjLabel1(codigo);
-                    usuarioForm.setVisible(true);
-                    this.setVisible(salir);
-                }
-
+            if (mensajeServer.equalsIgnoreCase("-1")) {
+                JOptionPane.showMessageDialog(null, "El login es erroneo");//vemos el código
+                salir = true;
                 lector.close();
                 escriptor.close();
                 socket.close();
+
+            } else if (mensajeServer.equalsIgnoreCase("-2")) {
+                JOptionPane.showMessageDialog(null,".El usuario ya esta conectado");//vemos el código
+                salir = true;
+                lector.close();
+                escriptor.close();
+                socket.close();
+            } else {
+                codigo = mensajeServer;
+                JOptionPane.showMessageDialog(null,"Mensaje server: "+mensajeServer+
+                        "\nEl codigo es: "+codigo);
+
+                // Comprueba si la primera letra es una "u" o una "a"
+                if (mensajeServer.charAt(0) == 'U'){
+                     usuarioForm.setjLabel1(codigo);
+                     usuarioForm.setVisible(true);
+                }else if(mensajeServer.charAt(0) == 'A'){
+                     adminForm.setjLabel1(codigo);//***
+                     adminForm.setVisible(true);
+                }                  
+                this.setVisible(salir);  
+
+                JOptionPane.showMessageDialog(null, 
+                         "antes del if que manda exit al server, la palabra es: "+usuarioForm.getPalabra());
+                escriptor.write(palabra);
+                    escriptor.newLine();
+                    escriptor.flush();
                 
-            }else{
-                 JOptionPane.showMessageDialog(null, 
-                             "Usuario-contraseña incorrecta");
-            }        
+                if (usuarioForm.getPalabra().equalsIgnoreCase("exit")||adminForm.getPalabra().equalsIgnoreCase("exit")){
+                    palabra = "exit";            
+                    salir = true;
+                    lector.close();
+                    escriptor.close();
+                    socket.close();
+                }                   
+            }
+        }catch (ConnectException e) {
+           Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);
         } catch (UnknownHostException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (Exception e) {   
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);
         }
     }
     
@@ -248,8 +280,7 @@ public class MainForm extends javax.swing.JFrame {
                    JOptionPane.showMessageDialog(null, 
                              "Rellena el campo IP.");
             }else{//Esta la ip rellena
-                if (!jTextFieldUsuario.getText().equals("") && !jPasswordField.getText().equals("")) {                     
-                                          
+                if (!jTextFieldUsuario.getText().equals("") && !jPasswordField.getText().equals("")) {                                                              
                         conexionSocket(ventanaSecundariaAdmin, ventanaSecundariaUser);
                     }
                 }

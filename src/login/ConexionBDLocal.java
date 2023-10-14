@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import modelo.User;
+import modelo.Users;
 import vistas.MainForm;
 import java.util.ArrayList;
 import vistas.FormUsuarioAdmin;
@@ -30,7 +30,7 @@ public class ConexionBDLocal {
     
     String user = "admin";
     String password = "admin";
-    String bd ="HREntrada2";
+    String bd ="HREntrada";
     String puerto ="5432";
     String ip = "";
     String admin = "gus"; //Substituir por datos en BD del user admin
@@ -42,8 +42,8 @@ public class ConexionBDLocal {
     
     //String connectionString = "jdbc:postgresql://"+ip+":"+puerto+"/"+bd;
     
-    // Crear un ArrayList de objetos User
-    private static ArrayList<User> userList = new ArrayList<>();
+    // Crear un ArrayList de objetos Users
+    private static ArrayList<Users> userList = new ArrayList<>();
 
     public ConexionBDLocal(String ip) {
         this.ip = ip;
@@ -57,10 +57,10 @@ public class ConexionBDLocal {
     
     //***Primeros pasos para loguearme con sockets.
     public void logInSocketsInfo(String usuario, String contraseña){
-       userList.add(new User (usuario,contraseña));
+       userList.add(new Users (usuario,contraseña));
        
        //Ahora querremo enviar este user creado al logearnos por sockets al servidor
-       for (User user: userList){
+       for (Users user: userList){
            JOptionPane.showMessageDialog(null,"Usuario creado como objeto: "+user.toString()
                    +"\nNombre: "+user.getLogin()+"\nPassword: "+user.getPass());
        }     

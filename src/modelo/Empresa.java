@@ -7,12 +7,12 @@ package modelo;
 public class Empresa {
     private String nom;
     private String address;
-    private int telephone;
+    private int telephon;
 
-    public Empresa(String nom, String address, int telephone) {
+    public Empresa(String nom, String address, int telephon) {
         this.nom = nom;
         this.address = address;
-        this.telephone = telephone;
+        this.telephon = telephon;
     }
 
     public String getNom() {
@@ -31,12 +31,12 @@ public class Empresa {
         this.address = address;
     }
 
-    public int getTelephone() {
-        return telephone;
+    public int getTelephon() {
+        return telephon;
     }
 
-    public void setTelephone(int telephone) {
-        this.telephone = telephone;
+    public void setTelephon(int telephon) {
+        this.telephon = telephon;
     }
     
     

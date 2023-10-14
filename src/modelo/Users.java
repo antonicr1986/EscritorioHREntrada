@@ -4,13 +4,13 @@ package modelo;
  *
  * @author antonio minero
  */
-public class User {
+public class Users {
     private String login;
     private String pass;
     private int numType;
     private String dni;
 
-    public User(String login, String pass) {
+    public Users(String login, String pass) {
         this.login = login;
         this.pass = pass;       
     }  
