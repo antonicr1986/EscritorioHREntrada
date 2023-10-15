@@ -248,6 +248,9 @@ public class FormUsuario extends javax.swing.JFrame {
         mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
         mainForm.setVisible(true);     
         mainForm.setPalabra(palabra);
+        
+        
+        JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"Palabra: "+mainForm.getPalabra());
     }//GEN-LAST:event_jButtonLogoutSessionActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed

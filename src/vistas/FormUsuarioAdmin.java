@@ -122,8 +122,8 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
-        // TODO add your handling code here:
-        try {
+        //Enviamos datos al servidor para que sepas que hemos cerrado sesion
+         try {
             //IMPLEMENTA
             Socket socket = new Socket("localhost", 8888);//***Poner el metodo get del campo de texto de IPServidor
 
@@ -131,14 +131,13 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
             BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-            // Aquí deberías enviar la señal de "logout" al servidor.
+            // Aquí enviamos la señal de "logout" al servidor.
             String logoutSignal = "exit";
             escriptor.write(logoutSignal);
             escriptor.newLine();
             escriptor.flush();
 
             // Resto de la lógica de cierre de sesión.
-
             lector.close();
             escriptor.close();
             socket.close();
@@ -155,6 +154,9 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
         mainForm.setVisible(true);     
         mainForm.setPalabra(palabra);
+        
+        
+        JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"Palabra: "+mainForm.getPalabra());
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
     /**

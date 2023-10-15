@@ -21,16 +21,7 @@ import javax.swing.JOptionPane;
 public class MainForm extends javax.swing.JFrame {
 
     String palabra = "";
-    String IPServidor = "";
 
-    public String getIPServidor() {
-        return IPServidor;
-    }
-
-    public void setIPServidor(String IPServidor) {
-        this.IPServidor = IPServidor;
-    }
-    
     public String getPalabra() {
         return palabra;
     }
@@ -191,7 +182,7 @@ public class MainForm extends javax.swing.JFrame {
         try {
             //IMPLEMENTA
             Socket socket = new Socket(jTextFieldIPServidor.getText(), 8888);
-            this.IPServidor = jTextFieldIPServidor.getText();
+
             BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));//flujo lectura del server
             BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));//flujo envio al server
             
@@ -247,6 +238,12 @@ public class MainForm extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 
+                if (this.palabra.equalsIgnoreCase("exit")){
+                    salir = true;
+                    lector.close();
+                    escriptor.close();
+                    socket.close();
+                }
                 if (usuarioForm.getPalabra().equalsIgnoreCase("exit")||adminForm.getPalabra().equalsIgnoreCase("exit")){
                     this.palabra = "exit"; 
                     salir = true;
