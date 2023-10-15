@@ -21,7 +21,16 @@ import javax.swing.JOptionPane;
 public class MainForm extends javax.swing.JFrame {
 
     String palabra = "";
+    String IPServidor = "";
 
+    public String getIPServidor() {
+        return IPServidor;
+    }
+
+    public void setIPServidor(String IPServidor) {
+        this.IPServidor = IPServidor;
+    }
+    
     public String getPalabra() {
         return palabra;
     }
@@ -182,8 +191,7 @@ public class MainForm extends javax.swing.JFrame {
         try {
             //IMPLEMENTA
             Socket socket = new Socket(jTextFieldIPServidor.getText(), 8888);
-            JOptionPane.showMessageDialog(null, 
-                             "Conexion IP correcta");
+            this.IPServidor = jTextFieldIPServidor.getText();
             BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));//flujo lectura del server
             BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));//flujo envio al server
             
@@ -223,8 +231,7 @@ public class MainForm extends javax.swing.JFrame {
                 socket.close();
             } else {
                 codigo = mensajeServer;
-                JOptionPane.showMessageDialog(null,"Mensaje server: "+mensajeServer+
-                        "\nEl codigo es: "+codigo);
+                JOptionPane.showMessageDialog(null,"El codigo es: "+codigo);
 
                 // Comprueba si la primera letra es una "u" o una "a"
                 if (mensajeServer.charAt(0) == 'U'){
@@ -235,20 +242,18 @@ public class MainForm extends javax.swing.JFrame {
                      adminForm.setVisible(true);
                 }                  
                 this.setVisible(salir);  
-
-                JOptionPane.showMessageDialog(null, 
-                         "antes del if que manda exit al server, la palabra es: "+usuarioForm.getPalabra());
+                
                 escriptor.write(palabra);
-                    escriptor.newLine();
-                    escriptor.flush();
+                escriptor.newLine();
+                escriptor.flush();
                 
                 if (usuarioForm.getPalabra().equalsIgnoreCase("exit")||adminForm.getPalabra().equalsIgnoreCase("exit")){
-                    palabra = "exit";            
+                    this.palabra = "exit"; 
                     salir = true;
                     lector.close();
                     escriptor.close();
                     socket.close();
-                }                   
+                }                                                 
             }
         }catch (ConnectException e) {
            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);

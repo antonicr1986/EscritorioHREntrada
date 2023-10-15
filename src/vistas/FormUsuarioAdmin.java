@@ -1,7 +1,16 @@
 package vistas;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import paneles.PanelAñadir;
 import paneles.PanelDelete;
@@ -114,11 +123,38 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
 
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        try {
+            //IMPLEMENTA
+            Socket socket = new Socket("localhost", 8888);//***Poner el metodo get del campo de texto de IPServidor
+
+            // Obtener flujos de entrada y salida.
+            BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+
+            // Aquí deberías enviar la señal de "logout" al servidor.
+            String logoutSignal = "exit";
+            escriptor.write(logoutSignal);
+            escriptor.newLine();
+            escriptor.flush();
+
+            // Resto de la lógica de cierre de sesión.
+
+            lector.close();
+            escriptor.close();
+            socket.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+        palabra = "exit";
+
+        //Cerramos ventana actual y abrimos la principal
+        this.setVisible(false);
+        
         MainForm mainForm = new MainForm();
         mainForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        mainForm.setLocation(mainForm.getX(),mainForm.getY());
-        mainForm.setVisible(true); 
+        mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
+        mainForm.setVisible(true);     
+        mainForm.setPalabra(palabra);
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
     /**

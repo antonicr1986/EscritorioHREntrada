@@ -217,6 +217,27 @@ public class FormUsuario extends javax.swing.JFrame {
 
     private void jButtonLogoutSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutSessionActionPerformed
         //Enviamos datos al servidor para que sepas que hemos cerrado sesion
+         try {
+            //IMPLEMENTA
+            Socket socket = new Socket("localhost", 8888);//***Poner el metodo get del campo de texto de IPServidor
+
+            // Obtener flujos de entrada y salida.
+            BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+
+            // Aquí enviamos la señal de "logout" al servidor.
+            String logoutSignal = "exit";
+            escriptor.write(logoutSignal);
+            escriptor.newLine();
+            escriptor.flush();
+
+            // Resto de la lógica de cierre de sesión.
+            lector.close();
+            escriptor.close();
+            socket.close();
+        } catch (IOException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }       
         palabra = "exit";
 
         //Cerramos ventana actual y abrimos la principal
@@ -226,8 +247,6 @@ public class FormUsuario extends javax.swing.JFrame {
         mainForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
         mainForm.setVisible(true);     
-        JOptionPane.showMessageDialog(null, 
-                             "After this.setVisible: "+palabra);
         mainForm.setPalabra(palabra);
     }//GEN-LAST:event_jButtonLogoutSessionActionPerformed
 

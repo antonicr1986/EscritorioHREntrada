@@ -1,3 +1,4 @@
+package inicio;
 
 import vistas.MainForm;
 
@@ -7,7 +8,7 @@ import vistas.MainForm;
  */
 public class MainClass {
     public static void main(String[] args) {
-         MainForm ventana = new MainForm();
+        MainForm ventana = new MainForm();
         ventana.setVisible(true);
     }
 }
