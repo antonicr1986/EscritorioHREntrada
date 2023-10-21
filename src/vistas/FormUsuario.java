@@ -1,5 +1,6 @@
 package vistas;
 
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -24,7 +25,7 @@ import modelo.*;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
  */
 public class FormUsuario extends javax.swing.JFrame {
     
@@ -50,6 +51,7 @@ public class FormUsuario extends javax.swing.JFrame {
      * Creates new form FormUsuario
      */
     public FormUsuario() {
+        this.setMinimumSize(new Dimension(450, 400));
         this.setTitle("Logeado como usuario");
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -82,6 +84,9 @@ public class FormUsuario extends javax.swing.JFrame {
         jButtonBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setMaximumSize(new java.awt.Dimension(800, 800));
+        jPanel1.setMinimumSize(new java.awt.Dimension(498, 335));
 
         jButtonLogoutSession.setText("Logout Session");
         jButtonLogoutSession.addActionListener(new java.awt.event.ActionListener() {
@@ -140,9 +145,7 @@ public class FormUsuario extends javax.swing.JFrame {
                                 .addGap(22, 22, 22)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jComboBoxTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(11, 11, 11))))
+                                    .addComponent(jComboBoxTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelColumna)
@@ -220,7 +223,7 @@ public class FormUsuario extends javax.swing.JFrame {
         //Enviamos datos al servidor para que sepas que hemos cerrado sesion
          try {
             //IMPLEMENTA
-            Socket socket = new Socket("localhost", 8888);//***Poner el metodo get del campo de texto de IPServidor
+            Socket socket = MainForm.socket;
 
             // Obtener flujos de entrada y salida.
             BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -235,7 +238,7 @@ public class FormUsuario extends javax.swing.JFrame {
             // Resto de la lógica de cierre de sesión.
             lector.close();
             escriptor.close();
-            socket.close();
+            //socket.close();
             
             palabra = "exit";
 

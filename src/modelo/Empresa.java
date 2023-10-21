@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Antonio Company Rodríguez
+ * @author Antonio Company Rodriguez
  */
 public class Empresa implements Serializable{
     private String nom;

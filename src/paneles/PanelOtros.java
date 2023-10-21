@@ -2,7 +2,7 @@ package paneles;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
  */
 public class PanelOtros extends javax.swing.JPanel {
 

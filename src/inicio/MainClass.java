@@ -4,7 +4,7 @@ import vistas.MainForm;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
  */
 public class MainClass {
     public static void main(String[] args) {

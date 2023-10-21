@@ -1,5 +1,6 @@
 package vistas;
 
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -19,7 +20,7 @@ import paneles.PanelSelect;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
  */
 public class FormUsuarioAdmin extends javax.swing.JFrame {
 
@@ -45,6 +46,8 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
      * Creates new form FormUsuarioAdmin
      */
     public FormUsuarioAdmin() {
+        this.setMinimumSize(new Dimension(450, 400));
+        this.setResizable(false);
         this.setTitle("Logeado como administrador");
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -73,6 +76,9 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         jButtonLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel.setMaximumSize(new java.awt.Dimension(800, 800));
+        jPanel.setMinimumSize(new java.awt.Dimension(472, 353));
 
         jLabelAdminCode.setText("jLabelAdminCode");
 
@@ -125,7 +131,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         //Enviamos datos al servidor para que sepas que hemos cerrado sesion
          try {
             //IMPLEMENTA
-            Socket socket = new Socket("localhost", 8888);//***Poner el metodo get del campo de texto de IPServidor
+           Socket socket = MainForm.socket;
 
             // Obtener flujos de entrada y salida.
             BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));

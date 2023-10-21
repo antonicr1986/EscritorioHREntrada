@@ -16,11 +16,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
  */
 public class MainForm extends javax.swing.JFrame {
 
     String palabra = "";
+    public static Socket socket;
 
     public String getPalabra() {
         return palabra;
@@ -182,7 +183,7 @@ public class MainForm extends javax.swing.JFrame {
 
         try {
             //IMPLEMENTA
-            Socket socket = new Socket(jTextFieldIPServidor.getText(), 8888);
+            socket = new Socket(jTextFieldIPServidor.getText(), 8888);
 
             BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));//flujo lectura del server
             BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));//flujo envio al server
@@ -233,7 +234,7 @@ public class MainForm extends javax.swing.JFrame {
                      adminForm.setjLabel1(codigo);//***
                      adminForm.setVisible(true);
                 }                  
-                this.setVisible(salir);  
+                this.setVisible(false);  
                 
                 escriptor.write(palabra);
                 escriptor.newLine();
@@ -252,7 +253,7 @@ public class MainForm extends javax.swing.JFrame {
                     escriptor.close();
                     //socket.close();
                 }
-                socket.close();
+                //socket.close();
             }
         }catch (ConnectException e) {
            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);

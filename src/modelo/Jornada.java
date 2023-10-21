@@ -5,7 +5,7 @@ import java.sql.*;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
  */
 public class Jornada implements Serializable{
     

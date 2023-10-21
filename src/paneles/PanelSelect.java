@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
  */
 public class PanelSelect extends javax.swing.JPanel {
 

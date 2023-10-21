@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
  */
 public class Empleados implements Serializable{
     private String dni;
