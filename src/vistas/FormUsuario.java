@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
+import java.io.StreamCorruptedException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -235,22 +236,24 @@ public class FormUsuario extends javax.swing.JFrame {
             lector.close();
             escriptor.close();
             socket.close();
-        } catch (IOException ex) {
-            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
-        }       
-        palabra = "exit";
+            
+            palabra = "exit";
 
-        //Cerramos ventana actual y abrimos la principal
-        this.setVisible(false);
+            //Cerramos ventana actual y abrimos la principal
+            //this.setVisible(false);
+            this.dispose();//***
+
+            MainForm mainForm = new MainForm();
+            mainForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
+            mainForm.setVisible(true);     
+            mainForm.setPalabra(palabra);
+
+            JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"\nPalabra: "+mainForm.getPalabra());
         
-        MainForm mainForm = new MainForm();
-        mainForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
-        mainForm.setVisible(true);     
-        mainForm.setPalabra(palabra);
-        
-        
-        JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"Palabra: "+mainForm.getPalabra());
+         } catch (IOException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }//GEN-LAST:event_jButtonLogoutSessionActionPerformed
 
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
@@ -302,7 +305,7 @@ public class FormUsuario extends javax.swing.JFrame {
                         System.out.println("Dni: " + listaPersonas.get(i).getDni() + "\n"
                                 + "Nombre: " + listaPersonas.get(i).getNom() + "\n"
                                         + "Apellido: " + listaPersonas.get(i).getApellido() + "\n"
-                                                + "Nombre empresa: " + listaPersonas.get(i).getNomEmpresa() + "\n"
+                                                + "Nombre empresa: " + listaPersonas.get(i).getNomempresa() + "\n"
                                                         + "Departamento: " + listaPersonas.get(i).getDepartament() + "\n"
                                                                 + "Codigo tarjeta: " + listaPersonas.get(i).getCodiCard() + "\n"
                                                                         + "Mail: " + listaPersonas.get(i).getMail() + "\n"
@@ -330,14 +333,17 @@ public class FormUsuario extends javax.swing.JFrame {
                     escriptor.flush();
                     System.out.println("Le enviamos esto al server: " + palabra);
                     List<Users> listaUsers = new ArrayList<>();
+                    System.out.println("despues de crear list users");
                     perEnt = new ObjectInputStream(socket.getInputStream());
+                    System.out.println("despues de meter objeto en la variable perEnt");
                     listaUsers = (ArrayList) perEnt.readObject();
+                    System.out.println("Despues de asignar a listaUser el valor de perEnt.readObject()");
                     System.out.println("____________________________________________________________________");
                     //recibo objeto
                     for (int i = 0; i < listaUsers.size(); i++) {
                         System.out.println("Login: " + listaUsers.get(i).getLogin() + "\n"
                                 + "Password: " + listaUsers.get(i).getPass() + "\n"
-                                        + "Tipo de user: " + listaUsers.get(i).getNumType() + "\n"
+                                        + "Tipo de user: " + listaUsers.get(i).getNumtipe() + "\n"
                                                 + "DNI: " + listaUsers.get(i).getDni());
                         System.out.println("____________________________________________________________________");
                     }
@@ -400,10 +406,10 @@ public class FormUsuario extends javax.swing.JFrame {
                         System.out.println("Dni: " + listaJorandas.get(i).getDni() + "\n"
                                 + "Nombre: " + listaJorandas.get(i).getNom() + "\n"
                                         + "Apellido: " + listaJorandas.get(i).getApellido() + "\n"
-                                                + "Código tarjeta: " + listaJorandas.get(i).getCodiCard() + "\n"
-                                                        + "Hora entrada: " + listaJorandas.get(i).getHoraEntrada() + "\n"
-                                                                + "Hora salida: " + listaJorandas.get(i).getHoraSalida() + "\n"
-                                                                        + "Total: " + listaJorandas.get(i).getTotalTiempo() + "\n"
+                                                + "Código tarjeta: " + listaJorandas.get(i).getCodicard() + "\n"
+                                                        + "Hora entrada: " + listaJorandas.get(i).getHoraentrada() + "\n"
+                                                                + "Hora salida: " + listaJorandas.get(i).getHorasalida() + "\n"
+                                                                        + "Total: " + listaJorandas.get(i).getTotal() + "\n"
                                                                                 + "Fecha: " + listaJorandas.get(i).getFecha());
                         System.out.println("____________________________________________________________________");
                     }
@@ -416,44 +422,10 @@ public class FormUsuario extends javax.swing.JFrame {
             Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(Exception ex){
+            Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormUsuario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;

@@ -1,19 +1,37 @@
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author antonio minero
  */
-public class Users {
+public class Users implements Serializable{
+    
     private String login;
     private String pass;
-    private int numType;
+    private int numtipe;
     private String dni;
+    private int codigo;
 
-    public Users(String login, String pass) {
+    public Users(String login, String pass, int numtipe, String dni, int codigo) {
         this.login = login;
-        this.pass = pass;       
-    }  
+        this.pass = pass;
+        this.numtipe = numtipe;
+        this.dni = dni;
+        this.codigo = codigo;
+    }
+
+    public Users(String login, String pass, int numtipe, String dni) {
+        this.login = login;
+        this.pass = pass;
+        this.numtipe = numtipe;
+        this.dni = dni;
+    }
+
+    public Users() {
+        
+    }
 
     public String getLogin() {
         return login;
@@ -30,12 +48,13 @@ public class Users {
     public void setPass(String pass) {
         this.pass = pass;
     }
-    public int getNumType() {
-        return numType;
+
+    public int getNumtipe() {
+        return numtipe;
     }
 
-    public void setNumType(int numType) {
-        this.numType = numType;
+    public void setNumtipe(int numtipe) {
+        this.numtipe = numtipe;
     }
 
     public String getDni() {
@@ -44,5 +63,13 @@ public class Users {
 
     public void setDni(String dni) {
         this.dni = dni;
-    }  
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    } 
 }

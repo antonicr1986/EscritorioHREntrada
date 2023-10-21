@@ -1,28 +1,30 @@
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author antonio minero
  */
-public class Empleados {
+public class Empleados implements Serializable{
     private String dni;
     private String nom;
     private String apellido;
-    private String nomEmpresa;
+    private String nomempresa;
     private String departament;
-    private int codiCard;
+    private int codicard;
     private String mail;
-    private int telephone;
+    private int telephon;
 
-    public Empleados(String dni, String nom, String apellido, String nomEmpresa, String departament, int codiCard, String mail, int telephone) {
+    public Empleados(String dni, String nom, String apellido, String nomempresa, String departament, int codicard, String mail, int telephone) {
         this.dni = dni;
         this.nom = nom;
         this.apellido = apellido;
-        this.nomEmpresa = nomEmpresa;
+        this.nomempresa = nomempresa;
         this.departament = departament;
-        this.codiCard = codiCard;
+        this.codicard = codicard;
         this.mail = mail;
-        this.telephone = telephone;
+        this.telephon = telephon;
     }
 
     public String getDni() {
@@ -49,12 +51,12 @@ public class Empleados {
         this.apellido = apellido;
     }
 
-    public String getNomEmpresa() {
-        return nomEmpresa;
+    public String getNomempresa() {
+        return nomempresa;
     }
 
-    public void setNomEmpresa(String nomEmpresa) {
-        this.nomEmpresa = nomEmpresa;
+    public void setNomEmpresa(String nomempresa) {
+        this.nomempresa = nomempresa;
     }
 
     public String getDepartament() {
@@ -66,11 +68,11 @@ public class Empleados {
     }
 
     public int getCodiCard() {
-        return codiCard;
+        return codicard;
     }
 
-    public void setCodiCard(int codiCard) {
-        this.codiCard = codiCard;
+    public void setCodiCard(int codicard) {
+        this.codicard = codicard;
     }
 
     public String getMail() {
@@ -82,11 +84,11 @@ public class Empleados {
     }
 
     public int getTelephone() {
-        return telephone;
+        return telephon;
     }
 
-    public void setTelephone(int telephone) {
-        this.telephone = telephone;
+    public void setTelephone(int telephon) {
+        this.telephon = telephon;
     }
     
     

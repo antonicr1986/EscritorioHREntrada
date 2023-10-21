@@ -38,6 +38,7 @@ public class MainForm extends javax.swing.JFrame {
         this.setTitle("Ventana Login usuarios");
         // Establece la ubicación de la ventana en el centro de la pantalla
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         jCheckBoxVerContraseña.setEnabled(false);
         jButtonConfirmar.setEnabled(false);
         jPasswordField.setEnabled(false);   
@@ -198,7 +199,7 @@ public class MainForm extends javax.swing.JFrame {
             String pass = jPasswordField.getText();
             String number = null;
 
-            String login = palabra + ":" + pass;
+            String login = palabra + "," + pass;
 
             escriptor.write(login);
             escriptor.newLine();
@@ -222,7 +223,7 @@ public class MainForm extends javax.swing.JFrame {
                 socket.close();
             } else {
                 codigo = mensajeServer;
-                JOptionPane.showMessageDialog(null,"El codigo es: "+codigo);
+                //JOptionPane.showMessageDialog(null,"El codigo es: "+codigo);
 
                 // Comprueba si la primera letra es una "u" o una "a"
                 if (mensajeServer.charAt(0) == 'U'){
@@ -242,15 +243,16 @@ public class MainForm extends javax.swing.JFrame {
                     salir = true;
                     lector.close();
                     escriptor.close();
-                    socket.close();
+                    //socket.close();
                 }
                 if (usuarioForm.getPalabra().equalsIgnoreCase("exit")||adminForm.getPalabra().equalsIgnoreCase("exit")){
                     this.palabra = "exit"; 
                     salir = true;
                     lector.close();
                     escriptor.close();
-                    socket.close();
-                }                                                 
+                    //socket.close();
+                }
+                socket.close();
             }
         }catch (ConnectException e) {
            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);
@@ -318,42 +320,7 @@ public class MainForm extends javax.swing.JFrame {
             jCheckBoxVerContraseña.setEnabled(false);
         }
     }//GEN-LAST:event_jPasswordFieldKeyReleased
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainForm().setVisible(true);
-            }
-        });
-    }
-
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConfirmar;
     private javax.swing.JButton jButtonLimpiar;

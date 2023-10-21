@@ -1,4 +1,5 @@
 package modelo;
+import java.io.Serializable;
 import java.time.*;
 import java.sql.*;
 
@@ -6,24 +7,24 @@ import java.sql.*;
  *
  * @author antonio minero
  */
-public class Jornada {
+public class Jornada implements Serializable{
+    
     private String dni;
     private String nom;
     private String apellido;
-    private int codiCard;
-    private LocalDateTime horaEntrada;
-    private LocalDateTime horaSalida;
-    private Duration totalTiempo;
-    private Date fecha;
+    private int codicard;
+    private String horaentrada;
+    private String horasalida;
+    private String total;
+    private String fecha;
 
-    public Jornada(String dni, String nom, String apellido, int codiCard, LocalDateTime horaEntrada, LocalDateTime horaSalida, Duration totalTiempo, Date fecha) {
+    public Jornada(String dni, String nom, String apellido, String horaentrada, String horasalida, String total, String fecha) {
         this.dni = dni;
         this.nom = nom;
         this.apellido = apellido;
-        this.codiCard = codiCard;
-        this.horaEntrada = horaEntrada;
-        this.horaSalida = horaSalida;
-        this.totalTiempo = totalTiempo;
+        this.horaentrada = horaentrada;
+        this.horasalida = horasalida;
+        this.total = total;
         this.fecha = fecha;
     }
 
@@ -51,45 +52,43 @@ public class Jornada {
         this.apellido = apellido;
     }
 
-    public int getCodiCard() {
-        return codiCard;
+    public int getCodicard() {
+        return codicard;
     }
 
-    public void setCodiCard(int codiCard) {
-        this.codiCard = codiCard;
+    public void setCodicard(int codicard) {
+        this.codicard = codicard;
     }
 
-    public LocalDateTime getHoraEntrada() {
-        return horaEntrada;
+    public String getHoraentrada() {
+        return horaentrada;
     }
 
-    public void setHoraEntrada(LocalDateTime horaEntrada) {
-        this.horaEntrada = horaEntrada;
+    public void setHoraentrada(String horaentrada) {
+        this.horaentrada = horaentrada;
     }
 
-    public LocalDateTime getHoraSalida() {
-        return horaSalida;
+    public String getHorasalida() {
+        return horasalida;
     }
 
-    public void setHoraSalida(LocalDateTime horaSalida) {
-        this.horaSalida = horaSalida;
+    public void setHorasalida(String horasalida) {
+        this.horasalida = horasalida;
     }
 
-    public Duration getTotalTiempo() {
-        return totalTiempo;
+    public String getTotal() {
+        return total;
     }
 
-    public void setTotalTiempo(Duration totalTiempo) {
-        this.totalTiempo = totalTiempo;
+    public void setTotal(String total) {
+        this.total = total;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
-    
-    
+    } 
 }

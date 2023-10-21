@@ -1,10 +1,12 @@
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Antonio Company Rodríguez
  */
-public class Empresa {
+public class Empresa implements Serializable{
     private String nom;
     private String address;
     private int telephon;
