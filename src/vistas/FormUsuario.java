@@ -1,6 +1,8 @@
 package vistas;
 
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
 import java.io.StreamCorruptedException;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +59,14 @@ public class FormUsuario extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         initComponents();
+        // Agrega un WindowListener para controlar el evento de cierre de la ventana
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Coloca aquí el código que deseas ejecutar antes de cerrar la ventana
+                logout();
+            }
+        });      
     }
 
     /**
@@ -221,44 +232,52 @@ public class FormUsuario extends javax.swing.JFrame {
 
     private void jButtonLogoutSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutSessionActionPerformed
         //Enviamos datos al servidor para que sepas que hemos cerrado sesion
-         try {
+         logout();
+    }//GEN-LAST:event_jButtonLogoutSessionActionPerformed
+
+    private void logout(){
+        try {
             //IMPLEMENTA
             Socket socket = MainForm.socket;
 
-            // Obtener flujos de entrada y salida.
-            BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            if (socket != null && socket.isConnected()) {
+                // Obtener flujos de entrada y salida.
+                BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-            // Aquí enviamos la señal de "logout" al servidor.
-            String logoutSignal = "exit";
-            escriptor.write(logoutSignal);
-            escriptor.newLine();
-            escriptor.flush();
+                // Aquí enviamos la señal de "logout" al servidor.
+                String logoutSignal = "exit";
+                escriptor.write(logoutSignal);
+                escriptor.newLine();
+                escriptor.flush();
 
-            // Resto de la lógica de cierre de sesión.
-            lector.close();
-            escriptor.close();
-            //socket.close();
-            
-            palabra = "exit";
+                // Resto de la lógica de cierre de sesión.
+                lector.close();
+                escriptor.close();
+                socket.close();
 
-            //Cerramos ventana actual y abrimos la principal
-            //this.setVisible(false);
-            this.dispose();//***
+                palabra = "exit";
 
-            MainForm mainForm = new MainForm();
-            mainForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
-            mainForm.setVisible(true);     
-            mainForm.setPalabra(palabra);
+                //Cerramos ventana actual y abrimos la principal
+                this.dispose();
 
-            JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"\nPalabra: "+mainForm.getPalabra());
-        
+                MainForm mainForm = new MainForm();
+                mainForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
+                mainForm.setVisible(true);     
+                mainForm.setPalabra(palabra);
+
+                JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"\nPalabra: "+mainForm.getPalabra());     
+            }
+            else{
+                 JOptionPane.showMessageDialog(null,"Problemas con la conexión al socket.");     
+            }
          } catch (IOException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
-        }   
-    }//GEN-LAST:event_jButtonLogoutSessionActionPerformed
-
+        }
+    }
+    
+    
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         try {
             // TODO add your handling code here:

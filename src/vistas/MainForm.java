@@ -12,6 +12,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,6 +38,7 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         this.setTitle("Ventana Login usuarios");
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         // Establece la ubicación de la ventana en el centro de la pantalla
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -235,25 +237,6 @@ public class MainForm extends javax.swing.JFrame {
                      adminForm.setVisible(true);
                 }                  
                 this.setVisible(false);  
-                
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                
-                if (this.palabra.equalsIgnoreCase("exit")){
-                    salir = true;
-                    lector.close();
-                    escriptor.close();
-                    //socket.close();
-                }
-                if (usuarioForm.getPalabra().equalsIgnoreCase("exit")||adminForm.getPalabra().equalsIgnoreCase("exit")){
-                    this.palabra = "exit"; 
-                    salir = true;
-                    lector.close();
-                    escriptor.close();
-                    //socket.close();
-                }
-                //socket.close();
             }
         }catch (ConnectException e) {
            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);
