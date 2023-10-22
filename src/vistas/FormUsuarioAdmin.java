@@ -50,17 +50,17 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
     public FormUsuarioAdmin() {
         this.setMinimumSize(new Dimension(450, 400));
         this.setResizable(false);
-        this.setTitle("Logeado como administrador");
+        //this.setTitle("Logeado como administrador");
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         // Agrega un WindowListener para controlar el evento de cierre de la ventana
-        addWindowListener(new WindowAdapter() {
+        /*addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 // Coloca aquí el código que deseas ejecutar antes de cerrar la ventana
                 logout();
             }
-        });
+        });*/
         initComponents();
     }
     

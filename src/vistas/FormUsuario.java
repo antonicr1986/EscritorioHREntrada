@@ -47,7 +47,7 @@ public class FormUsuario extends javax.swing.JFrame {
     }
 
     public void setjLabel1(String nuevoTexto) {
-        jLabelUserCode.setText("Codigo: "+nuevoTexto);
+        jLabelUserCode.setText(nuevoTexto);
     }
     
     /**
@@ -55,18 +55,18 @@ public class FormUsuario extends javax.swing.JFrame {
      */
     public FormUsuario() {
         this.setMinimumSize(new Dimension(450, 400));
-        this.setTitle("Logeado como usuario");
+        //this.setTitle("Logeado como usuario");
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         initComponents();
         // Agrega un WindowListener para controlar el evento de cierre de la ventana
-        addWindowListener(new WindowAdapter() {
+        /*addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 // Coloca aquí el código que deseas ejecutar antes de cerrar la ventana
                 logout();
             }
-        });      
+        });*/    
     }
 
     /**
@@ -93,6 +93,7 @@ public class FormUsuario extends javax.swing.JFrame {
         jTextAreaResultado = new javax.swing.JTextArea();
         jLabelResultadoBusqueda = new javax.swing.JLabel();
         jButtonBuscar = new javax.swing.JButton();
+        jLabelCodigo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,6 +141,8 @@ public class FormUsuario extends javax.swing.JFrame {
             }
         });
 
+        jLabelCodigo.setText("Codigo:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -152,11 +155,13 @@ public class FormUsuario extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelPalabra)
-                                    .addComponent(jLabelTablas))
+                                    .addComponent(jLabelTablas)
+                                    .addComponent(jLabelCodigo))
                                 .addGap(22, 22, 22)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jComboBoxTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelUserCode)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelColumna)
@@ -172,9 +177,6 @@ public class FormUsuario extends javax.swing.JFrame {
                                 .addComponent(jLabelResultadoBusqueda)
                                 .addGap(55, 55, 55))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelUserCode)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
@@ -185,9 +187,11 @@ public class FormUsuario extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabelUserCode)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUserCode)
+                    .addComponent(jLabelCodigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -281,7 +285,8 @@ public class FormUsuario extends javax.swing.JFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         try {
             // TODO add your handling code here:
-            Socket socket = new Socket("localhost", 8888);//***
+            Socket socket = MainForm.socket;
+            
             BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));//flujo lectura del server
             BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));//flujo envio al server
             
@@ -347,7 +352,7 @@ public class FormUsuario extends javax.swing.JFrame {
                         orden = "0";
                     }
                     
-                    palabra = codigoUserRecibido + ":" + nombreTabla + ":" + columna + ":" + palabraAbuscar + ":" + orden;
+                    palabra = codigoUserRecibido + "," + nombreTabla + "," + columna + "," + palabraAbuscar + "," + orden;
                     
                     //ahora si enviamos al server los datos que queremos, sin errores
                     escriptor.write(palabra);
@@ -437,7 +442,7 @@ public class FormUsuario extends javax.swing.JFrame {
                     }
                     break;
             }
-            socket.close();
+            //socket.close();//***
         }  catch (UnknownHostException ex) {
             Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex) {
@@ -453,6 +458,7 @@ public class FormUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonLogoutSession;
     private javax.swing.JComboBox<String> jComboBoxTablas;
+    private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelColumna;
     private javax.swing.JLabel jLabelOrden;
     private javax.swing.JLabel jLabelPalabra;

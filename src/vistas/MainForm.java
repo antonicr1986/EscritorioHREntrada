@@ -226,14 +226,15 @@ public class MainForm extends javax.swing.JFrame {
                 socket.close();
             } else {
                 codigo = mensajeServer;
-                //JOptionPane.showMessageDialog(null,"El codigo es: "+codigo);
 
                 // Comprueba si la primera letra es una "u" o una "a"
                 if (mensajeServer.charAt(0) == 'U'){
                      usuarioForm.setjLabel1(codigo);
-                     usuarioForm.setVisible(true);
+                     usuarioForm.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());
+                     usuarioForm.setVisible(true);                  
                 }else if(mensajeServer.charAt(0) == 'A'){
                      adminForm.setjLabel1(codigo);//***
+                     adminForm.setTitle("Logeado como administrador: "+jTextFieldUsuario.getText());
                      adminForm.setVisible(true);
                 }                  
                 this.setVisible(false);  
