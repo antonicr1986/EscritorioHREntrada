@@ -38,7 +38,7 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         this.setTitle("Ventana Login usuarios");
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Establece la ubicación de la ventana en el centro de la pantalla
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -295,6 +295,11 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jTextFieldUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioKeyReleased
         // TODO add your handling code here:
+        if (jTextFieldUsuario.getText()==""||jTextFieldUsuario.getText().isEmpty()){
+            jButtonConfirmar.setEnabled(false);
+        }else{
+            jButtonConfirmar.setEnabled(true);
+        }
          jPasswordField.setEnabled(true);
     }//GEN-LAST:event_jTextFieldUsuarioKeyReleased
 
