@@ -23,70 +23,259 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel">
+    <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[800, 800]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[472, 353]"/>
+          <Dimension value="[498, 335]"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabelAdminCode" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonBuscar" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="jButtonLogout" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelPalabra" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelTablas" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelCodigo" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldPalabra" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxTablas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAdminCode" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelColumna" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelOrden" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTextFieldOrden" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldColumna" min="-2" pref="103" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxTipoOperacion" min="-2" pref="114" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Component id="jLabelResultadoBusqueda" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jButtonLogoutSession" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane1" min="-2" pref="309" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="226" max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="jLabelAdminCode" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="250" max="32767" attributes="0"/>
-                  <Component id="jButtonLogout" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAdminCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelResultadoBusqueda" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxTipoOperacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jComboBoxTablas" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelTablas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelPalabra" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPalabra" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldColumna" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelColumna" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelOrden" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldOrden" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="207" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jButtonBuscar" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="jButtonLogoutSession" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabelAdminCode">
+        <Component class="javax.swing.JButton" name="jButtonLogoutSession">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabelAdminCode"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButtonLogout">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="LOGOUT"/>
+            <Property name="text" type="java.lang.String" value="Logout Session"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLogoutActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLogoutSessionActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdminCode">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabelUserCode"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxTablas">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="empleados"/>
+                <StringItem index="1" value="users"/>
+                <StringItem index="2" value="empresa"/>
+                <StringItem index="3" value="jornada"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelTablas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tabla:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPalabra">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Palabra:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldPalabra">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelColumna">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Columna:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldColumna">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldOrden">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="4"/>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelOrden">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Orden:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelResultadoBusqueda">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="RESULTADO B&#xda;SQUEDA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonBuscar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BUSCAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCodigo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Codigo:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipo operacion:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxTipoOperacion">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="select"/>
+                <StringItem index="1" value="insert"/>
+                <StringItem index="2" value="update"/>
+                <StringItem index="3" value="delete"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
