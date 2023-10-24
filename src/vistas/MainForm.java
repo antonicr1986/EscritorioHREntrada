@@ -23,6 +23,7 @@ public class MainForm extends javax.swing.JFrame {
 
     String palabra = "";
     public static Socket socket;
+    private static MainForm mainForm;
 
     public String getPalabra() {
         return palabra;
@@ -37,11 +38,11 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
-        this.setTitle("Ventana Login usuarios");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Ventana Login usuarios");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Establece la ubicación de la ventana en el centro de la pantalla
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        setLocationRelativeTo(null);
+        setResizable(false);
         jCheckBoxVerContraseña.setEnabled(false);
         jButtonConfirmar.setEnabled(false);
         jPasswordField.setEnabled(false);   
@@ -229,12 +230,16 @@ public class MainForm extends javax.swing.JFrame {
 
                 // Comprueba si la primera letra es una "u" o una "a"
                 if (mensajeServer.charAt(0) == 'U'){
+                     usuarioForm = new FormUsuario();
                      usuarioForm.setjLabel1(codigo);
                      usuarioForm.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());
+                     usuarioForm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                      usuarioForm.setVisible(true);                  
                 }else if(mensajeServer.charAt(0) == 'A'){
+                     adminForm = new FormUsuarioAdmin();
                      adminForm.setjLabel1(codigo);//***
                      adminForm.setTitle("Logeado como administrador: "+jTextFieldUsuario.getText());
+                     adminForm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                      adminForm.setVisible(true);
                 }                  
                 this.setVisible(false);  
