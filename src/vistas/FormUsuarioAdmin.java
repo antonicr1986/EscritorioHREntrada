@@ -367,9 +367,9 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                                         + "Apellido: " + listaPersonas.get(i).getApellido() + "\n"
                                                 + "Nombre empresa: " + listaPersonas.get(i).getNomempresa() + "\n"
                                                         + "Departamento: " + listaPersonas.get(i).getDepartament() + "\n"
-                                                                + "Codigo tarjeta: " + listaPersonas.get(i).getCodiCard() + "\n"
+                                                                + "Codigo tarjeta: " + listaPersonas.get(i).getCodicard() + "\n"
                                                                         + "Mail: " + listaPersonas.get(i).getMail() + "\n"
-                                                                                + "Teléfono: " + listaPersonas.get(i).getTelephone() + "\n");
+                                                                                + "Teléfono: " + listaPersonas.get(i).getTelephon() + "\n");
                         System.out.println("____________________________________________________________________");
                     }
                     break;

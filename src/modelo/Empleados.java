@@ -7,6 +7,8 @@ import java.io.Serializable;
  * @author Antonio Company Rodriguez
  */
 public class Empleados implements Serializable{
+    private static final long serialVersionUID = 6529685098267757690L;
+    
     private String dni;
     private String nom;
     private String apellido;
@@ -16,7 +18,7 @@ public class Empleados implements Serializable{
     private String mail;
     private int telephon;
 
-    public Empleados(String dni, String nom, String apellido, String nomempresa, String departament, int codicard, String mail, int telephone) {
+    public Empleados(String dni, String nom, String apellido, String nomempresa, String departament, int codicard, String mail, int telephon) {
         this.dni = dni;
         this.nom = nom;
         this.apellido = apellido;
@@ -67,11 +69,11 @@ public class Empleados implements Serializable{
         this.departament = departament;
     }
 
-    public int getCodiCard() {
+    public int getCodicard() {
         return codicard;
     }
 
-    public void setCodiCard(int codicard) {
+    public void setCodicard(int codicard) {
         this.codicard = codicard;
     }
 
@@ -83,11 +85,11 @@ public class Empleados implements Serializable{
         this.mail = mail;
     }
 
-    public int getTelephone() {
+    public int getTelephon() {
         return telephon;
     }
 
-    public void setTelephone(int telephon) {
+    public void setTelephon(int telephon) {
         this.telephon = telephon;
     }
     

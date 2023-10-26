@@ -7,6 +7,7 @@ import java.io.Serializable;
  * @author Antonio Company Rodriguez
  */
 public class Users implements Serializable{
+    private static final long serialVersionUID = 6529685098267757690L;
     
     private String login;
     private String pass;
