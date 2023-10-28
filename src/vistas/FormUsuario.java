@@ -129,11 +129,21 @@ public class FormUsuario extends javax.swing.JFrame {
 
         jTextFieldPalabra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextFieldPalabra.setText("0");
+        jTextFieldPalabra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldPalabraKeyReleased(evt);
+            }
+        });
 
         jLabelColumna.setText("Columna:");
 
         jTextFieldColumna.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextFieldColumna.setText("0");
+        jTextFieldColumna.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldColumnaKeyReleased(evt);
+            }
+        });
 
         jTextFieldOrden.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextFieldOrden.setText("0");
@@ -290,7 +300,7 @@ public class FormUsuario extends javax.swing.JFrame {
                 this.dispose();
 
                 MainForm mainForm = new MainForm();
-                mainForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
                 mainForm.setVisible(true);     
                 mainForm.setPalabra(palabra);
@@ -1020,6 +1030,26 @@ public class FormUsuario extends javax.swing.JFrame {
                 }
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPalabraKeyReleased
+        // TODO add your handling code here:
+        if (!jTextFieldPalabra.getText().equals("0") || !jTextFieldPalabra.getText().equals("")){
+            jButtonBuscar.setEnabled(false);
+        }
+        if ((!jTextFieldPalabra.getText().equals("0"))&&(!jTextFieldColumna.getText().equals("0"))){
+            jButtonBuscar.setEnabled(true);
+        }
+    }//GEN-LAST:event_jTextFieldPalabraKeyReleased
+
+    private void jTextFieldColumnaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldColumnaKeyReleased
+        // TODO add your handling code here:
+        if (!jTextFieldColumna.getText().equals("0") || !jTextFieldColumna.getText().equals("")){
+            jButtonBuscar.setEnabled(false);
+        }
+         if ((!jTextFieldPalabra.getText().equals("0"))&&(!jTextFieldColumna.getText().equals("0"))){
+            jButtonBuscar.setEnabled(true);
+        }
+    }//GEN-LAST:event_jTextFieldColumnaKeyReleased
 
     public void operacionesConInsertEmpresas( String []insertEmpresas)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpresas[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado

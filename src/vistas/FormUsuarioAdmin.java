@@ -129,6 +129,11 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
 
         jTextFieldPalabra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextFieldPalabra.setText("0");
+        jTextFieldPalabra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldPalabraKeyReleased(evt);
+            }
+        });
 
         jLabelColumna.setText("Columna:");
 
@@ -298,7 +303,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                 this.dispose();
 
                 MainForm mainForm = new MainForm();
-                mainForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                mainForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
                 mainForm.setVisible(true);     
                 mainForm.setPalabra(palabra);
@@ -1442,6 +1447,10 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
             Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPalabraKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPalabraKeyReleased
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
