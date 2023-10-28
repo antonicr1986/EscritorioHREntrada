@@ -167,20 +167,30 @@ public class FormUsuario extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabelCodigo)
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabelUserCode)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonLogoutSession)
+                                .addContainerGap(636, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(144, 144, 144)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelResultadoBusqueda))
+                                .addGap(0, 27, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelPalabra)
-                                    .addComponent(jLabelTablas)
-                                    .addComponent(jLabelCodigo))
+                                    .addComponent(jLabelTablas))
                                 .addGap(22, 22, 22)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelUserCode)))
+                                    .addComponent(jComboBoxTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelColumna)
@@ -192,17 +202,9 @@ public class FormUsuario extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(97, 97, 97)
-                                .addComponent(jLabelResultadoBusqueda))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonLogoutSession)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                                .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +214,7 @@ public class FormUsuario extends javax.swing.JFrame {
                     .addComponent(jLabelUserCode)
                     .addComponent(jLabelCodigo)
                     .addComponent(jLabelResultadoBusqueda))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -234,10 +236,9 @@ public class FormUsuario extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelOrden)
                             .addComponent(jTextFieldOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGap(0, 232, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonLogoutSession))
@@ -248,7 +249,7 @@ public class FormUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,6 +322,8 @@ public class FormUsuario extends javax.swing.JFrame {
             String palabraAbuscar = jTextFieldPalabra.getText();// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
             orden = jTextFieldOrden.getText();// si es el caso el orden, si no hay ponemos 0
             
+            jTextArea1.setText("");
+            
             //Canviamos los valores de los combo box a los numericos correspondientes          
             switch (crud){
                 case "select":
@@ -353,7 +356,7 @@ public class FormUsuario extends javax.swing.JFrame {
             }         
             
             palabra = codigo + "," + crud + "," + nombreTabla + "," + columna + "," + palabraAbuscar + "," + orden;
-            JOptionPane.showMessageDialog(null,"Frase enviada al server: "+palabra); 
+            //JOptionPane.showMessageDialog(null,"Frase enviada al server: "+palabra); 
              
             
             // y ahora comprobamos que la frase este correcta si no enviamos una establecida (menos el codigo que sera error, es por si fallan las otras palabras)
@@ -394,14 +397,14 @@ public class FormUsuario extends javax.swing.JFrame {
                 palabraAbuscar = frase[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
                 orden = frase[5];// si es el caso el orden, si no hay ponemos 0
 
-                System.out.println("____________________________________________________________________");
-                System.out.println("codigoUserRecibido: " + codigoUserRecibido);
-                System.out.println("crud: " + crud);
-                System.out.println("nombreTabla: " + nombreTabla);
-                System.out.println("columna: " + columna);
-                System.out.println("palabraAbuscar: " + palabraAbuscar);
-                System.out.println("orden: " + orden);
-                System.out.println("____________________________________________________________________");
+                jTextArea1.append("____________________________________________________________________"+ "\n"
+                    +"codigoUserRecibido: " + codigoUserRecibido + "\n"
+                    +"crud: " + crud+ "\n"
+                    +"nombreTabla: " + nombreTabla+ "\n"
+                    +"columna: " + columna+ "\n"
+                    +"palabraAbuscar: " + palabraAbuscar+ "\n"
+                    +"orden: " + orden + "\n"
+                    +"____________________________________________________________________" + "\n");
 
                 palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + columna + "," + palabraAbuscar + "," + orden;
 
@@ -446,8 +449,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> listaPersonasdni = new ArrayList<>();
 
@@ -456,15 +459,15 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaPersonasdni.size(); i++) {
                     if (columna.equals("dni") && palabraAbuscar.equals(listaPersonasdni.get(i).getDni())) {
-                        System.out.println("Dni: " + listaPersonasdni.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaPersonasdni.get(i).getDni() + "\n"
                                 + "Nombre: " + listaPersonasdni.get(i).getNom() + "\n"
                                 + "Apellido: " + listaPersonasdni.get(i).getApellido() + "\n"
                                 + "Nombre empresa: " + listaPersonasdni.get(i).getNomempresa() + "\n"
                                 + "Departamento: " + listaPersonasdni.get(i).getDepartament() + "\n"
                                 + "Codigo tarjeta: " + listaPersonasdni.get(i).getCodicard() + "\n"
                                 + "Mail: " + listaPersonasdni.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaPersonasdni.get(i).getTelephon() + "\n");
-                        System.out.println("____________________________________________________________________");
+                                + "Teléfono: " + listaPersonasdni.get(i).getTelephon() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -472,8 +475,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosNomEmpresa = new ArrayList<>();
 
@@ -482,15 +485,15 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalEmpleadosNomEmpresa.size(); i++) {
                     if (columna.equals("nomempresa") && palabraAbuscar.equals(listaTotalEmpleadosNomEmpresa.get(i).getNomempresa())) {
-                        System.out.println("Dni: " + listaTotalEmpleadosNomEmpresa.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaTotalEmpleadosNomEmpresa.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosNomEmpresa.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosNomEmpresa.get(i).getApellido() + "\n"
                                 + "Nombre empresa: " + listaTotalEmpleadosNomEmpresa.get(i).getNomempresa() + "\n"
                                 + "Departamento: " + listaTotalEmpleadosNomEmpresa.get(i).getDepartament() + "\n"
                                 + "Codigo tarjeta: " + listaTotalEmpleadosNomEmpresa.get(i).getCodicard() + "\n"
                                 + "Mail: " + listaTotalEmpleadosNomEmpresa.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosNomEmpresa.get(i).getTelephon() + "\n");
-                        System.out.println("____________________________________________________________________");
+                                + "Teléfono: " + listaTotalEmpleadosNomEmpresa.get(i).getTelephon() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -500,7 +503,7 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosDepart = new ArrayList<>();
 
@@ -509,15 +512,15 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalEmpleadosDepart.size(); i++) {
                     if (columna.equals("departament") && palabraAbuscar.equals(listaTotalEmpleadosDepart.get(i).getDepartament())) {
-                        System.out.println("Dni: " + listaTotalEmpleadosDepart.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaTotalEmpleadosDepart.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosDepart.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosDepart.get(i).getApellido() + "\n"
                                 + "Nombre empresa: " + listaTotalEmpleadosDepart.get(i).getNomempresa() + "\n"
                                 + "Departamento: " + listaTotalEmpleadosDepart.get(i).getDepartament() + "\n"
                                 + "Codigo tarjeta: " + listaTotalEmpleadosDepart.get(i).getCodicard() + "\n"
                                 + "Mail: " + listaTotalEmpleadosDepart.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosDepart.get(i).getTelephon() + "\n");
-                        System.out.println("____________________________________________________________________");
+                                + "Teléfono: " + listaTotalEmpleadosDepart.get(i).getTelephon() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -525,8 +528,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosCodiCard = new ArrayList<>();
 
@@ -536,15 +539,15 @@ public class FormUsuario extends javax.swing.JFrame {
                 for (int i = 0; i < listaTotalEmpleadosCodiCard.size(); i++) {
                     String codicard = String.valueOf(listaTotalEmpleadosCodiCard.get(i).getCodicard());
                     if (columna.equals("codicard") && palabraAbuscar.equals(codicard)) {
-                        System.out.println("Dni: " + listaTotalEmpleadosCodiCard.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaTotalEmpleadosCodiCard.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosCodiCard.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosCodiCard.get(i).getApellido() + "\n"
                                 + "Nombre empresa: " + listaTotalEmpleadosCodiCard.get(i).getNomempresa() + "\n"
                                 + "Departamento: " + listaTotalEmpleadosCodiCard.get(i).getDepartament() + "\n"
                                 + "Codigo tarjeta: " + listaTotalEmpleadosCodiCard.get(i).getCodicard() + "\n"
                                 + "Mail: " + listaTotalEmpleadosCodiCard.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosCodiCard.get(i).getTelephon() + "\n");
-                        System.out.println("____________________________________________________________________");
+                                + "Teléfono: " + listaTotalEmpleadosCodiCard.get(i).getTelephon() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -552,8 +555,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosMail = new ArrayList<>();
 
@@ -562,15 +565,15 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalEmpleadosMail.size(); i++) {
                     if (columna.equals("mail") && palabraAbuscar.equals(listaTotalEmpleadosMail.get(i).getMail())) {
-                        System.out.println("Dni: " + listaTotalEmpleadosMail.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaTotalEmpleadosMail.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosMail.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosMail.get(i).getApellido() + "\n"
                                 + "Nombre empresa: " + listaTotalEmpleadosMail.get(i).getNomempresa() + "\n"
                                 + "Departamento: " + listaTotalEmpleadosMail.get(i).getDepartament() + "\n"
                                 + "Codigo tarjeta: " + listaTotalEmpleadosMail.get(i).getCodicard() + "\n"
                                 + "Mail: " + listaTotalEmpleadosMail.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosMail.get(i).getTelephon() + "\n");
-                        System.out.println("____________________________________________________________________");
+                                + "Teléfono: " + listaTotalEmpleadosMail.get(i).getTelephon() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -578,8 +581,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                       + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosTelf = new ArrayList<>();
 
@@ -589,15 +592,15 @@ public class FormUsuario extends javax.swing.JFrame {
                 for (int i = 0; i < listaTotalEmpleadosTelf.size(); i++) {
                     String telephon = String.valueOf(listaTotalEmpleadosTelf.get(i).getTelephon());
                     if (columna.equals("telephon") && palabraAbuscar.equals(telephon)) {
-                        System.out.println("Dni: " + listaTotalEmpleadosTelf.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaTotalEmpleadosTelf.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosTelf.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosTelf.get(i).getApellido() + "\n"
                                 + "Nombre empresa: " + listaTotalEmpleadosTelf.get(i).getNomempresa() + "\n"
                                 + "Departamento: " + listaTotalEmpleadosTelf.get(i).getDepartament() + "\n"
                                 + "Codigo tarjeta: " + listaTotalEmpleadosTelf.get(i).getCodicard() + "\n"
                                 + "Mail: " + listaTotalEmpleadosTelf.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosTelf.get(i).getTelephon() + "\n");
-                        System.out.println("____________________________________________________________________");
+                                + "Teléfono: " + listaTotalEmpleadosTelf.get(i).getTelephon() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -606,8 +609,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Users> listaToUsersDni = new ArrayList<>();
 
@@ -616,11 +619,11 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaToUsersDni.size(); i++) {
                     if (columna.equals("dni") && palabraAbuscar.equals(listaToUsersDni.get(i).getDni())) {
-                        System.out.println("Login: " + listaToUsersDni.get(i).getLogin() + "\n"
+                        jTextArea1.append("Login: " + listaToUsersDni.get(i).getLogin() + "\n"
                                 + "Password: " + listaToUsersDni.get(i).getPass() + "\n"
                                 + "Tipo de user: " + listaToUsersDni.get(i).getNumtipe() + "\n"
-                                + "DNI: " + listaToUsersDni.get(i).getDni());
-                        System.out.println("____________________________________________________________________");
+                                + "DNI: " + listaToUsersDni.get(i).getDni()+ "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -628,8 +631,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Users> listaTotalUsersLogin = new ArrayList<>();
 
@@ -638,11 +641,11 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalUsersLogin.size(); i++) {
                     if (columna.equals("login") && palabraAbuscar.equals(listaTotalUsersLogin.get(i).getLogin())) {
-                        System.out.println("Login: " + listaTotalUsersLogin.get(i).getLogin() + "\n"
+                        jTextArea1.append("Login: " + listaTotalUsersLogin.get(i).getLogin() + "\n"
                                 + "Password: " + listaTotalUsersLogin.get(i).getPass() + "\n"
                                 + "Tipo de user: " + listaTotalUsersLogin.get(i).getNumtipe() + "\n"
-                                + "DNI: " + listaTotalUsersLogin.get(i).getDni());
-                        System.out.println("____________________________________________________________________");
+                                + "DNI: " + listaTotalUsersLogin.get(i).getDni()+ "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -650,8 +653,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Users> listaTotalUsersTipe = new ArrayList<>();
 
@@ -661,11 +664,11 @@ public class FormUsuario extends javax.swing.JFrame {
                 for (int i = 0; i < listaTotalUsersTipe.size(); i++) {
                     String numtipe = String.valueOf(listaTotalUsersTipe.get(i).getNumtipe());
                     if (columna.equals("numtipe") && palabraAbuscar.equals(numtipe)) {
-                        System.out.println("Login: " + listaTotalUsersTipe.get(i).getLogin() + "\n"
+                        jTextArea1.append("Login: " + listaTotalUsersTipe.get(i).getLogin() + "\n"
                                 + "Password: " + listaTotalUsersTipe.get(i).getPass() + "\n"
                                 + "Tipo de user: " + listaTotalUsersTipe.get(i).getNumtipe() + "\n"
-                                + "DNI: " + listaTotalUsersTipe.get(i).getDni());
-                        System.out.println("____________________________________________________________________");
+                                + "DNI: " + listaTotalUsersTipe.get(i).getDni() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -674,8 +677,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                       + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empresa> listaEmpresasNom = new ArrayList<>();
 
@@ -684,11 +687,11 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaEmpresasNom.size(); i++) {
                     if (columna.equals("nom") && palabraAbuscar.equals(listaEmpresasNom.get(i).getNom())) {
-                        System.out.println("____________________________________________________________________");
-                        System.out.println("Nombre empresa: " + listaEmpresasNom.get(i).getNom() + "\n"
-                                + "Dirección: " + listaEmpresasNom.get(i).getAddress() + "\n"
-                                + "Teléfono: " + listaEmpresasNom.get(i).getTelephon());
-                        System.out.println("____________________________________________________________________");
+                        jTextArea1.append("____________________________________________________________________" + "\n"
+                            +"Nombre empresa: " + listaEmpresasNom.get(i).getNom() + "\n"
+                            + "Dirección: " + listaEmpresasNom.get(i).getAddress() + "\n"
+                            + "Teléfono: " + listaEmpresasNom.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -696,8 +699,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empresa> listaEmpresasAddress = new ArrayList<>();
 
@@ -706,11 +709,11 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaEmpresasAddress.size(); i++) {
                     if (columna.equals("address") && palabraAbuscar.equals(listaEmpresasAddress.get(i).getAddress())) {
-                        System.out.println("____________________________________________________________________");
-                        System.out.println("Nombre empresa: " + listaEmpresasAddress.get(i).getNom() + "\n"
-                                + "Dirección: " + listaEmpresasAddress.get(i).getAddress() + "\n"
-                                + "Teléfono: " + listaEmpresasAddress.get(i).getTelephon());
-                        System.out.println("____________________________________________________________________");
+                        jTextArea1.append("____________________________________________________________________" + "\n"
+                            +"Nombre empresa: " + listaEmpresasAddress.get(i).getNom() + "\n"
+                            + "Dirección: " + listaEmpresasAddress.get(i).getAddress() + "\n"
+                            + "Teléfono: " + listaEmpresasAddress.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -718,8 +721,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empresa> listaEmpresasTelepho = new ArrayList<>();
 
@@ -729,11 +732,11 @@ public class FormUsuario extends javax.swing.JFrame {
                 for (int i = 0; i < listaEmpresasTelepho.size(); i++) {
                     String telephon = String.valueOf(listaEmpresasTelepho.get(i).getTelephon());
                     if (columna.equals("telephon") && palabraAbuscar.equals(telephon)) {
-                        System.out.println("____________________________________________________________________");
-                        System.out.println("Nombre empresa: " + listaEmpresasTelepho.get(i).getNom() + "\n"
-                                + "Dirección: " + listaEmpresasTelepho.get(i).getAddress() + "\n"
-                                + "Teléfono: " + listaEmpresasTelepho.get(i).getTelephon());
-                        System.out.println("____________________________________________________________________");
+                        jTextArea1.append("____________________________________________________________________" + "\n"
+                            +"Nombre empresa: " + listaEmpresasTelepho.get(i).getNom() + "\n"
+                            + "Dirección: " + listaEmpresasTelepho.get(i).getAddress() + "\n"
+                            + "Teléfono: " + listaEmpresasTelepho.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -742,8 +745,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Jornada> listaToJornadaDni = new ArrayList<>();
 
@@ -752,15 +755,15 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaToJornadaDni.size(); i++) {
                     if (columna.equals("dni") && palabraAbuscar.equals(listaToJornadaDni.get(i).getDni())) {
-                        System.out.println("Dni: " + listaToJornadaDni.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaToJornadaDni.get(i).getDni() + "\n"
                                 + "Nombre: " + listaToJornadaDni.get(i).getNom() + "\n"
                                 + "Apellido: " + listaToJornadaDni.get(i).getApellido() + "\n"
                                 + "Codigo tarjeta: " + listaToJornadaDni.get(i).getCodicard() + "\n"
                                 + "Hora entrada: " + listaToJornadaDni.get(i).getHoraentrada() + "\n"
                                 + "Hora salida: " + listaToJornadaDni.get(i).getHorasalida() + "\n"
                                 + "Total: " + listaToJornadaDni.get(i).getTotal() + "\n"
-                                + "Fecha: " + listaToJornadaDni.get(i).getFecha());
-                        System.out.println("____________________________________________________________________");
+                                + "Fecha: " + listaToJornadaDni.get(i).getFecha() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -768,8 +771,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Jornada> listaJornadaCodiCard = new ArrayList<>();
 
@@ -779,15 +782,15 @@ public class FormUsuario extends javax.swing.JFrame {
                 for (int i = 0; i < listaJornadaCodiCard.size(); i++) {
                     String codicard = String.valueOf(listaJornadaCodiCard.get(i).getCodicard());
                     if (columna.equals("codicard") && palabraAbuscar.equals(codicard)) {
-                        System.out.println("Dni: " + listaJornadaCodiCard.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaJornadaCodiCard.get(i).getDni() + "\n"
                                 + "Nombre: " + listaJornadaCodiCard.get(i).getNom() + "\n"
                                 + "Apellido: " + listaJornadaCodiCard.get(i).getApellido() + "\n"
                                 + "Codigo tarjeta: " + listaJornadaCodiCard.get(i).getCodicard() + "\n"
                                 + "Hora entrada: " + listaJornadaCodiCard.get(i).getHoraentrada() + "\n"
                                 + "Hora salida: " + listaJornadaCodiCard.get(i).getHorasalida() + "\n"
                                 + "Total: " + listaJornadaCodiCard.get(i).getTotal() + "\n"
-                                + "Fecha: " + listaJornadaCodiCard.get(i).getFecha());
-                        System.out.println("____________________________________________________________________");
+                                + "Fecha: " + listaJornadaCodiCard.get(i).getFecha() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -795,8 +798,8 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Jornada> listaTotalJornadaFecha = new ArrayList<>();
 
@@ -805,15 +808,15 @@ public class FormUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalJornadaFecha.size(); i++) {
                     if (columna.equals("fecha") && palabraAbuscar.equals(listaTotalJornadaFecha.get(i).getFecha())) {
-                        System.out.println("Dni: " + listaTotalJornadaFecha.get(i).getDni() + "\n"
+                        jTextArea1.append("Dni: " + listaTotalJornadaFecha.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalJornadaFecha.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalJornadaFecha.get(i).getApellido() + "\n"
                                 + "Codigo tarjeta: " + listaTotalJornadaFecha.get(i).getCodicard() + "\n"
                                 + "Hora entrada: " + listaTotalJornadaFecha.get(i).getHoraentrada() + "\n"
                                 + "Hora salida: " + listaTotalJornadaFecha.get(i).getHorasalida() + "\n"
-                                + "Total: " + listaTotalJornadaFecha.get(i).getTotal()
-                                + "Fecha: " + listaTotalJornadaFecha.get(i).getFecha());
-                        System.out.println("____________________________________________________________________");
+                                + "Total: " + listaTotalJornadaFecha.get(i).getTotal() + "\n"
+                                + "Fecha: " + listaTotalJornadaFecha.get(i).getFecha() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
                 }
                 perEnt.getObjectInputFilter();
@@ -829,25 +832,25 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> listaPersonas = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaPersonas = (ArrayList) perEnt.readObject();
-                System.out.println("____________________________________________________________________");
+                jTextArea1.append("____________________________________________________________________"+ "\n");
                 //recibo objeto
                 for (int i = 0; i < listaPersonas.size(); i++) {
-                    System.out.println("Dni: " + listaPersonas.get(i).getDni() + "\n"
+                    jTextArea1.append("Dni: " + listaPersonas.get(i).getDni() + "\n"
                             + "Nombre: " + listaPersonas.get(i).getNom() + "\n"
                             + "Apellido: " + listaPersonas.get(i).getApellido() + "\n"
                             + "Nombre empresa: " + listaPersonas.get(i).getNomempresa() + "\n"
                             + "Departamento: " + listaPersonas.get(i).getDepartament() + "\n"
                             + "Codigo tarjeta: " + listaPersonas.get(i).getCodicard() + "\n"
                             + "Mail: " + listaPersonas.get(i).getMail() + "\n"
-                            + "Telefono: " + listaPersonas.get(i).getTelephon() + "\n");
-                    System.out.println("____________________________________________________________________");
+                            + "Telefono: " + listaPersonas.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
                 }
                 perEnt.getObjectInputFilter();
                 break;
@@ -858,22 +861,22 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
 
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
                 List<Users> listaUsers = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaUsers = (ArrayList) perEnt.readObject();
 
-                System.out.println("____________________________________________________________________");
+                jTextArea1.append("____________________________________________________________________"+ "\n");
                 //recibo objeto
 
                 for (int i = 0; i < listaUsers.size(); i++) {
-                    System.out.println("Login: " + listaUsers.get(i).getLogin() + "\n"
+                    jTextArea1.append("Login: " + listaUsers.get(i).getLogin() + "\n"
                             + "Password: " + listaUsers.get(i).getPass() + "\n"
                             + "Tipo de user: " + listaUsers.get(i).getNumtipe() + "\n"
-                            + "DNI: " + listaUsers.get(i).getDni());
-                    System.out.println("____________________________________________________________________");
+                            + "DNI: " + listaUsers.get(i).getDni() + "\n"
+                            +"____________________________________________________________________" + "\n");
                 }
                 perEnt.getObjectInputFilter();
                 break;
@@ -884,18 +887,18 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                       + "\nenvia los datos siguientes: "+ palabra + "\n");
                 List<Empresa> listaEmpresa = new ArrayList<>();
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaEmpresa = (ArrayList) perEnt.readObject();
-                System.out.println("____________________________________________________________________");
+                jTextArea1.append("____________________________________________________________________"+ "\n");
                 //recibo objeto
                 for (int i = 0; i < listaEmpresa.size(); i++) {
-                    System.out.println("Nombre empresa: " + listaEmpresa.get(i).getNom() + "\n"
+                    jTextArea1.append("Nombre empresa: " + listaEmpresa.get(i).getNom() + "\n"
                             + "Dirección: " + listaEmpresa.get(i).getAddress() + "\n"
-                            + "Telefono: " + listaEmpresa.get(i).getTelephon());
-                    System.out.println("____________________________________________________________________");
+                            + "Telefono: " + listaEmpresa.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
                 }
                 perEnt.getObjectInputFilter();
                 break;
@@ -905,24 +908,24 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
                 List<Jornada> listaJorandas = new ArrayList<>();
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaJorandas = (ArrayList) perEnt.readObject();
 
-                System.out.println("____________________________________________________________________");
+                jTextArea1.append("____________________________________________________________________"+ "\n");
                 //recibo objeto
                 for (int i = 0; i < listaJorandas.size(); i++) {
-                    System.out.println("Dni: " + listaJorandas.get(i).getDni() + "\n"
+                    jTextArea1.append("Dni: " + listaJorandas.get(i).getDni() + "\n"
                             + "Nombre: " + listaJorandas.get(i).getNom() + "\n"
                             + "Apellido: " + listaJorandas.get(i).getApellido() + "\n"
                             + "Codigo tarjeta: " + listaJorandas.get(i).getCodicard() + "\n"
                             + "Hora entrada: " + listaJorandas.get(i).getHoraentrada() + "\n"
                             + "Hora salida: " + listaJorandas.get(i).getHorasalida() + "\n"
                             + "Total: " + listaJorandas.get(i).getTotal() + "\n"
-                            + "Fecha: " + listaJorandas.get(i).getFecha());
-                    System.out.println("____________________________________________________________________");
+                            + "Fecha: " + listaJorandas.get(i).getFecha() + "\n"
+                            + "____________________________________________________________________");
                 }
                 perEnt.getObjectInputFilter();
                 break;
@@ -939,16 +942,16 @@ public class FormUsuario extends javax.swing.JFrame {
             String datoApellido = NomApellido[6];
             orden = NomApellido[7];// si es el caso el orden, si no hay ponemos 0
 
-            System.out.println("____________________________________________________________________");
-            System.out.println("codigoUserRecibido: " + codigoUserRecibido);
-            System.out.println("crud: " + crud);
-            System.out.println("nombreTabla: " + nombreTabla);
-            System.out.println("nom: " + nom);
-            System.out.println("datoNom: " + datoNom);
-            System.out.println("apellido: " + apellido);
-            System.out.println("datoApellido: " + datoApellido);
-            System.out.println("orden: " + orden);
-            System.out.println("____________________________________________________________________");
+            jTextArea1.append("____________________________________________________________________" + "\n"
+                +"codigoUserRecibido: " + codigoUserRecibido + "\n"
+                +"crud: " + crud + "\n"
+                +"nombreTabla: " + nombreTabla + "\n"
+                +"nom: " + nom + "\n"
+                +"datoNom: " + datoNom + "\n"
+                +"apellido: " + apellido + "\n"
+                +"datoApellido: " + datoApellido + "\n"
+                +"orden: " + orden + "\n"
+                +"____________________________________________________________________" + "\n");
 
             palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + nom + "," + datoNom + "," + apellido + "," + datoApellido + "," + orden;
 
@@ -961,8 +964,8 @@ public class FormUsuario extends javax.swing.JFrame {
                     escriptor.write(palabra);
                     escriptor.newLine();
                     escriptor.flush();
-                    System.out.println("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguiente: \n" + palabra);
+                    jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                            + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                     List<Empleados> listaEmpleadosNomApellido = new ArrayList<>();
 
@@ -974,15 +977,15 @@ public class FormUsuario extends javax.swing.JFrame {
                                 && datoNom.equals(listaEmpleadosNomApellido.get(i).getNom())
                                 && apellido.equals("apellido")
                                 && datoApellido.equals(listaEmpleadosNomApellido.get(i).getApellido())) {
-                            System.out.println("Dni: " + listaEmpleadosNomApellido.get(i).getDni() + "\n"
+                            jTextArea1.append("Dni: " + listaEmpleadosNomApellido.get(i).getDni() + "\n"
                                     + "Nombre: " + listaEmpleadosNomApellido.get(i).getNom() + "\n"
                                     + "Apellido: " + listaEmpleadosNomApellido.get(i).getApellido() + "\n"
                                     + "Nombre empresa: " + listaEmpleadosNomApellido.get(i).getNomempresa() + "\n"
                                     + "Departamento: " + listaEmpleadosNomApellido.get(i).getDepartament() + "\n"
                                     + "Codigo tarjeta: " + listaEmpleadosNomApellido.get(i).getCodicard() + "\n"
                                     + "Mail: " + listaEmpleadosNomApellido.get(i).getMail() + "\n"
-                                    + "Telefono: " + listaEmpleadosNomApellido.get(i).getTelephon() + "\n");
-                            System.out.println("____________________________________________________________________");
+                                    + "Telefono: " + listaEmpleadosNomApellido.get(i).getTelephon() + "\n"
+                                    +"____________________________________________________________________" + "\n");
                         }
                     }
                     perEnt.getObjectInputFilter();
@@ -990,8 +993,8 @@ public class FormUsuario extends javax.swing.JFrame {
                     escriptor.write(palabra);
                     escriptor.newLine();
                     escriptor.flush();
-                    System.out.println("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguiente: \n" + palabra);
+                    jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                           + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                     List<Jornada> listaJornadaNomApellido = new ArrayList<>();
 
@@ -1002,15 +1005,15 @@ public class FormUsuario extends javax.swing.JFrame {
                                 && datoNom.equals(listaJornadaNomApellido.get(i).getNom())
                                 && apellido.equals("apellido")
                                 && datoApellido.equals(listaJornadaNomApellido.get(i).getApellido())) {
-                            System.out.println("Dni: " + listaJornadaNomApellido.get(i).getDni() + "\n"
+                            jTextArea1.append("Dni: " + listaJornadaNomApellido.get(i).getDni() + "\n"
                                     + "Nombre: " + listaJornadaNomApellido.get(i).getNom() + "\n"
                                     + "Apellido: " + listaJornadaNomApellido.get(i).getApellido() + "\n"
                                     + "Codigo tarjeta: " + listaJornadaNomApellido.get(i).getCodicard() + "\n"
                                     + "Hora entrada: " + listaJornadaNomApellido.get(i).getHoraentrada() + "\n"
                                     + "Hora salida: " + listaJornadaNomApellido.get(i).getHorasalida() + "\n"
                                     + "Total: " + listaJornadaNomApellido.get(i).getTotal() + "\n"
-                                    + "Fecha: " + listaJornadaNomApellido.get(i).getFecha());
-                            System.out.println("____________________________________________________________________");
+                                    + "Fecha: " + listaJornadaNomApellido.get(i).getFecha() + "\n"
+                                    +"____________________________________________________________________");
                         }
                     }
                     perEnt.getObjectInputFilter();
@@ -1030,18 +1033,18 @@ public class FormUsuario extends javax.swing.JFrame {
         String datoTelephon = insertEmpresas[8];
         orden = insertEmpresas[9];// si es el caso el orden, si no hay ponemos 0
 
-        System.out.println("____________________________________________________________________");
-        System.out.println("codigoUserRecibido: " + codigoUserRecibido);
-        System.out.println("crud: " + crud);
-        System.out.println("nombreTabla: " + nombreTabla);
-        System.out.println("nom: " + nom);
-        System.out.println("datoNom: " + datoNom);
-        System.out.println("address: " + address);
-        System.out.println("datoApellido: " + datoAddress);
-        System.out.println("telephon: " + telephon);
-        System.out.println("datoTelephon: " + datoTelephon);
-        System.out.println("orden: " + orden);
-        System.out.println("____________________________________________________________________");
+        jTextArea1.append("____________________________________________________________________" + "\n"
+            +"codigoUserRecibido: " + codigoUserRecibido + "\n"
+            +"crud: " + crud + "\n"
+            +"nombreTabla: " + nombreTabla + "\n"
+            +"nom: " + nom + "\n"
+            +"datoNom: " + datoNom + "\n"
+            +"address: " + address + "\n"
+            +"datoApellido: " + datoAddress + "\n"
+            +"telephon: " + telephon + "\n"
+            +"datoTelephon: " + datoTelephon + "\n"
+            +"orden: " + orden + "\n"
+            +"____________________________________________________________________" + "\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + nom + "," + datoNom + "," + address
                 + "," + datoAddress + "," + telephon + "," + datoTelephon + "," + orden;
@@ -1056,18 +1059,18 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empresa> insertEmpresa = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 insertEmpresa = (ArrayList) perEnt.readObject();
-                System.out.println(("Empleado creado correctamente, sus datos son: \n"));
-                System.out.println("Nombre: " + datoNom + "\n"
+                jTextArea1.append(("Empleado creado correctamente, sus datos son: \n"));
+                jTextArea1.append("Nombre: " + datoNom + "\n"
                         + "Adrress: " + datoAddress + "\n"
-                        + "Telefono: " + datoTelephon + "\n");
-                System.out.println("____________________________________________________________________");
+                        + "Telefono: " + datoTelephon + "\n"
+                        +"____________________________________________________________________");
                 perEnt.getObjectInputFilter();
             }
         }
@@ -1087,20 +1090,20 @@ public class FormUsuario extends javax.swing.JFrame {
                 String datoDni = insertUsuarios[10];
                 orden = insertUsuarios[11];// si es el caso el orden, si no hay ponemos 0
 
-                System.out.println("____________________________________________________________________");
-                System.out.println("codigoUserRecibido: " + codigoUserRecibido);
-                System.out.println("crud: " + crud);
-                System.out.println("nombreTabla: " + nombreTabla);
-                System.out.println("login: " + login);
-                System.out.println("datoLogin: " + datoLogin);
-                System.out.println("pass: " + pass);
-                System.out.println("datoPass: " + datoPass);
-                System.out.println("numTipe: " + numTipe);
-                System.out.println("datoNumTipe: " + datoNumTipe);
-                System.out.println("dni: " + dni);
-                System.out.println("datoDni: " + datoDni);
-                System.out.println("orden: " + orden);
-                System.out.println("____________________________________________________________________");
+                jTextArea1.append("____________________________________________________________________" + "\n"
+                    +"codigoUserRecibido: " + codigoUserRecibido + "\n"
+                    +"crud: " + crud + "\n"
+                    +"nombreTabla: " + nombreTabla + "\n"
+                    +"login: " + login + "\n"
+                    +"datoLogin: " + datoLogin + "\n"
+                    +"pass: " + pass + "\n"
+                    +"datoPass: " + datoPass + "\n"
+                    +"numTipe: " + numTipe + "\n"
+                    +"datoNumTipe: " + datoNumTipe + "\n"
+                    +"dni: " + dni + "\n"
+                    +"datoDni: " + datoDni + "\n"
+                    +"orden: " + orden + "\n"
+                    +"____________________________________________________________________" + "\n");
 
                 palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + login + "," + datoLogin + "," + pass
                         + "," + datoPass + "," + numTipe + "," + datoNumTipe + "," + dni + "," + datoDni + "," + orden;
@@ -1115,19 +1118,19 @@ public class FormUsuario extends javax.swing.JFrame {
                         escriptor.write(palabra);
                         escriptor.newLine();
                         escriptor.flush();
-                        System.out.println("El usuario con codigo: " + codigoUserRecibido
-                                + "\nenvia los datos siguiente: \n" + palabra);
+                        jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                                + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                         List<Empresa> insertUser = new ArrayList<>();
 
                         perEnt = new ObjectInputStream(socket.getInputStream());
                         insertUser = (ArrayList) perEnt.readObject();
-                        System.out.println(("Empleado creado correctamente, sus datos son: \n"));
-                        System.out.println("Login: " + datoLogin + "\n"
+                        jTextArea1.append(("Empleado creado correctamente, sus datos son: \n"));
+                        jTextArea1.append("Login: " + datoLogin + "\n"
                                 + "Pass: " + datoPass + "\n"
                                 + "Num Tipe: " + datoNumTipe + "\n"
-                                + "Dni: " + datoDni + "\n");
-                        System.out.println("____________________________________________________________________");
+                                + "Dni: " + datoDni + "\n"
+                                +"____________________________________________________________________");
                         perEnt.getObjectInputFilter();
                     }
                 }
@@ -1151,24 +1154,24 @@ public class FormUsuario extends javax.swing.JFrame {
         String datoCodicard = insertEmpleadoMailTelf[14];
         orden = insertEmpleadoMailTelf[15];// si es el caso el orden, si no hay ponemos 0
 
-        System.out.println("____________________________________________________________________");
-        System.out.println("codigoUserRecibido: " + codigoUserRecibido);
-        System.out.println("crud: " + crud);
-        System.out.println("nombreTabla: " + nombreTabla);
-        System.out.println("dni: " + dni);
-        System.out.println("datoDni: " + datoDni);
-        System.out.println("nom: " + nom);
-        System.out.println("datoNom: " + datoNom);
-        System.out.println("apellido: " + apellido);
-        System.out.println("datoApellido: " + datoApellido);
-        System.out.println("nomempresa: " + nomempresa);
-        System.out.println("datoNomempresa: " + datoNomempresa);
-        System.out.println("departament: " + departament);
-        System.out.println("datoDepartament: " + datoDepartament);
-        System.out.println("codicard: " + codicard);
-        System.out.println("datoCodicar: " + datoCodicard);
-        System.out.println("orden: " + orden);
-        System.out.println("____________________________________________________________________");
+        jTextArea1.append("____________________________________________________________________"+ "\n" 
+                +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
+                + "crud: " + crud + "\n" 
+                +"nombreTabla: " + nombreTabla + "\n" 
+                +"dni: " + dni + "\n" 
+                + "datoDni: " + datoDni +  "\n" 
+                +"nom: " + nom + "\n" 
+                + "datoNom: " + datoNom + "\n" 
+                + "apellido: " + apellido + "\n" 
+                + "datoApellido: " + datoApellido + "\n" 
+                + "nomempresa: " + nomempresa + "\n" 
+                +"datoNomempresa: " + datoNomempresa + "\n" 
+                + "departament: " + departament + "\n" 
+                +"datoDepartament: " + datoDepartament + "\n" 
+                + "codicard: " + codicard + "\n" 
+                +"datoCodicar: " + datoCodicard + "\n" 
+                + "orden: " + orden + "\n" 
+                + "____________________________________________________________________" + "\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
                 + "," + datoApellido + "," + nomempresa + "," + datoNomempresa + "," + departament + "," + datoDepartament + "," + codicard + "," + datoCodicard
@@ -1184,21 +1187,21 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> insertEmpleadosMailTelf = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 insertEmpleadosMailTelf = (ArrayList) perEnt.readObject();
-                System.out.println(("Empleado creado correctamente, sus datos son: \n"));
-                System.out.println("Dni: " + datoDni + "\n"
+                jTextArea1.append(("Empleado creado correctamente, sus datos son: \n"));
+                jTextArea1.append("Dni: " + datoDni + "\n"
                         + "Nombre: " + datoNom + "\n"
                         + "Apellido: " + datoApellido + "\n"
                         + "Nombre empresa: " + datoNomempresa + "\n"
                         + "Departamento: " + datoDepartament + "\n"
-                        + "Codigo tarjeta: " + datoCodicard + "\n");
-                System.out.println("____________________________________________________________________");
+                        + "Codigo tarjeta: " + datoCodicard + "\n"
+                        +"____________________________________________________________________");
                 perEnt.getObjectInputFilter();
             }
         }
@@ -1227,26 +1230,24 @@ public class FormUsuario extends javax.swing.JFrame {
             String datoMail = insertEmpleadoMT[16];
             orden = insertEmpleadoMT[17];// si es el caso el orden, si no hay ponemos 0
 
-            System.out.println("____________________________________________________________________");
-            System.out.println("codigoUserRecibido: " + codigoUserRecibido);
-            System.out.println("crud: " + crud);
-            System.out.println("nombreTabla: " + nombreTabla);
-            System.out.println("dni: " + dni);
-            System.out.println("datoDni: " + datoDni);
-            System.out.println("nom: " + nom);
-            System.out.println("datoNom: " + datoNom);
-            System.out.println("apellido: " + apellido);
-            System.out.println("datoApellido: " + datoApellido);
-            System.out.println("nomempresa: " + nomempresa);
-            System.out.println("datoNomempresa: " + datoNomempresa);
-            System.out.println("departament: " + departament);
-            System.out.println("datoDepartament: " + datoDepartament);
-            System.out.println("codicard: " + codicard);
-            System.out.println("datoCodicar: " + datoCodicard);
-            System.out.println("mail: " + mail);
-            System.out.println("datoMail: " + datoMail);
-            System.out.println("orden: " + orden);
-            System.out.println("____________________________________________________________________");
+            jTextArea1.append("____________________________________________________________________"+ "\n" 
+                +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
+                + "crud: " + crud + "\n" 
+                +"nombreTabla: " + nombreTabla + "\n" 
+                +"dni: " + dni + "\n" 
+                + "datoDni: " + datoDni +  "\n" 
+                +"nom: " + nom + "\n" 
+                + "datoNom: " + datoNom + "\n" 
+                + "apellido: " + apellido + "\n" 
+                + "datoApellido: " + datoApellido + "\n" 
+                + "nomempresa: " + nomempresa + "\n" 
+                +"datoNomempresa: " + datoNomempresa + "\n" 
+                + "departament: " + departament + "\n" 
+                +"datoDepartament: " + datoDepartament + "\n" 
+                + "codicard: " + codicard + "\n" 
+                +"datoCodicar: " + datoCodicard + "\n" 
+                + "orden: " + orden + "\n" 
+                + "____________________________________________________________________" + "\n");
 
             palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
                     + "," + datoApellido + "," + nomempresa + "," + datoNomempresa + "," + departament + "," + datoDepartament + "," + codicard + "," + datoCodicard
@@ -1262,22 +1263,22 @@ public class FormUsuario extends javax.swing.JFrame {
                     escriptor.write(palabra);
                     escriptor.newLine();
                     escriptor.flush();
-                    System.out.println("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguiente: \n" + palabra);
+                     jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                            + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                     List<Empleados> insertEmpleadosMail = new ArrayList<>();
 
                     perEnt = new ObjectInputStream(socket.getInputStream());
                     insertEmpleadosMail = (ArrayList) perEnt.readObject();
-                    System.out.println(("Empleado creado correctamente, sus datos son: \n"));
-                    System.out.println("Dni: " + datoDni + "\n"
+                     jTextArea1.append(("Empleado creado correctamente, sus datos son: \n"));
+                     jTextArea1.append("Dni: " + datoDni + "\n"
                             + "Nombre: " + datoNom + "\n"
                             + "Apellido: " + datoApellido + "\n"
                             + "Nombre empresa: " + datoNomempresa + "\n"
                             + "Departamento: " + datoDepartament + "\n"
                             + "Codigo tarjeta: " + datoCodicard + "\n"
-                            + "Mail: " + datoMail);
-                    System.out.println("____________________________________________________________________");
+                            + "Mail: " + datoMail + "\n"
+                            +"____________________________________________________________________");
                     perEnt.getObjectInputFilter();
                 }
             }
@@ -1303,26 +1304,24 @@ public class FormUsuario extends javax.swing.JFrame {
             String datoTelephon = insertEmpleadoMT[16];
             orden = insertEmpleadoMT[17];// si es el caso el orden, si no hay ponemos 0
 
-            System.out.println("____________________________________________________________________");
-            System.out.println("codigoUserRecibido: " + codigoUserRecibido);
-            System.out.println("crud: " + crud);
-            System.out.println("nombreTabla: " + nombreTabla);
-            System.out.println("dni: " + dni);
-            System.out.println("datoDni: " + datoDni);
-            System.out.println("nom: " + nom);
-            System.out.println("datoNom: " + datoNom);
-            System.out.println("apellido: " + apellido);
-            System.out.println("datoApellido: " + datoApellido);
-            System.out.println("nomempresa: " + nomempresa);
-            System.out.println("datoNomempresa: " + datoNomempresa);
-            System.out.println("departament: " + departament);
-            System.out.println("datoDepartament: " + datoDepartament);
-            System.out.println("codicard: " + codicard);
-            System.out.println("datoCodicar: " + datoCodicard);
-            System.out.println("telephon: " + telephon);
-            System.out.println("datoTelephon: " + datoTelephon);
-            System.out.println("orden: " + orden);
-            System.out.println("____________________________________________________________________");
+            jTextArea1.append("____________________________________________________________________"+ "\n" 
+                +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
+                + "crud: " + crud + "\n" 
+                +"nombreTabla: " + nombreTabla + "\n" 
+                +"dni: " + dni + "\n" 
+                + "datoDni: " + datoDni +  "\n" 
+                +"nom: " + nom + "\n" 
+                + "datoNom: " + datoNom + "\n" 
+                + "apellido: " + apellido + "\n" 
+                + "datoApellido: " + datoApellido + "\n" 
+                + "nomempresa: " + nomempresa + "\n" 
+                +"datoNomempresa: " + datoNomempresa + "\n" 
+                + "departament: " + departament + "\n" 
+                +"datoDepartament: " + datoDepartament + "\n" 
+                + "codicard: " + codicard + "\n" 
+                +"datoCodicar: " + datoCodicard + "\n" 
+                + "orden: " + orden + "\n" 
+                + "____________________________________________________________________" + "\n");
 
             palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
                     + "," + datoApellido + "," + nomempresa + "," + datoNomempresa + "," + departament + "," + datoDepartament + "," + codicard + "," + datoCodicard
@@ -1338,22 +1337,22 @@ public class FormUsuario extends javax.swing.JFrame {
                     escriptor.write(palabra);
                     escriptor.newLine();
                     escriptor.flush();
-                    System.out.println("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguiente: \n" + palabra);
+                    jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                            + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                     List<Empleados> insertEmpleadosTelf = new ArrayList<>();
 
                     perEnt = new ObjectInputStream(socket.getInputStream());
                     insertEmpleadosTelf = (ArrayList) perEnt.readObject();
-                    System.out.println(("Empleado creado correctamente, sus datos son: \n"));
-                    System.out.println("Dni: " + datoDni + "\n"
+                    jTextArea1.append(("Empleado creado correctamente, sus datos son: \n"));
+                    jTextArea1.append("Dni: " + datoDni + "\n"
                             + "Nombre: " + datoNom + "\n"
                             + "Apellido: " + datoApellido + "\n"
                             + "Nombre empresa: " + datoNomempresa + "\n"
                             + "Departamento: " + datoDepartament + "\n"
                             + "Codigo tarjeta: " + datoCodicard + "\n"
-                            + "Telephon: " + datoTelephon);
-                    System.out.println("____________________________________________________________________");
+                            + "Telephon: " + datoTelephon + "\n"
+                            +"____________________________________________________________________");
                     perEnt.getObjectInputFilter();
                 }
             }
@@ -1382,28 +1381,24 @@ public class FormUsuario extends javax.swing.JFrame {
         String datoTelephon = insertEmpleado[18];
         orden = insertEmpleado[19];// si es el caso el orden, si no hay ponemos 0
 
-        System.out.println("____________________________________________________________________");
-        System.out.println("codigoUserRecibido: " + codigoUserRecibido);
-        System.out.println("crud: " + crud);
-        System.out.println("nombreTabla: " + nombreTabla);
-        System.out.println("dni: " + dni);
-        System.out.println("datoDni: " + datoDni);
-        System.out.println("nom: " + nom);
-        System.out.println("datoNom: " + datoNom);
-        System.out.println("apellido: " + apellido);
-        System.out.println("datoApellido: " + datoApellido);
-        System.out.println("nomempresa: " + nomempresa);
-        System.out.println("datoNomempresa: " + datoNomempresa);
-        System.out.println("departament: " + departament);
-        System.out.println("datoDepartament: " + datoDepartament);
-        System.out.println("codicard: " + codicard);
-        System.out.println("datoCodicar: " + datoCodicard);
-        System.out.println("mail: " + mail);
-        System.out.println("datoMail: " + datoMail);
-        System.out.println("telephon: " + telephon);
-        System.out.println("datoTelephon: " + datoTelephon);
-        System.out.println("orden: " + orden);
-        System.out.println("____________________________________________________________________");
+        jTextArea1.append("____________________________________________________________________"+ "\n" 
+                +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
+                + "crud: " + crud + "\n" 
+                +"nombreTabla: " + nombreTabla + "\n" 
+                +"dni: " + dni + "\n" 
+                + "datoDni: " + datoDni +  "\n" 
+                +"nom: " + nom + "\n" 
+                + "datoNom: " + datoNom + "\n" 
+                + "apellido: " + apellido + "\n" 
+                + "datoApellido: " + datoApellido + "\n" 
+                + "nomempresa: " + nomempresa + "\n" 
+                +"datoNomempresa: " + datoNomempresa + "\n" 
+                + "departament: " + departament + "\n" 
+                +"datoDepartament: " + datoDepartament + "\n" 
+                + "codicard: " + codicard + "\n" 
+                +"datoCodicar: " + datoCodicard + "\n" 
+                + "orden: " + orden + "\n" 
+                + "____________________________________________________________________" + "\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
                 + "," + datoApellido + "," + nomempresa + "," + datoNomempresa + "," + departament + "," + datoDepartament + "," + codicard + "," + datoCodicard
@@ -1419,23 +1414,23 @@ public class FormUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra);
+                 jTextArea1.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: "+ palabra + "\n");
 
                 List<Empleados> insertEmpleados = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 insertEmpleados = (ArrayList) perEnt.readObject();
-                System.out.println(("Empleado creado correctamente, sus datos son: \n"));
-                System.out.println("Dni: " + datoDni + "\n"
+                 jTextArea1.append(("Empleado creado correctamente, sus datos son: \n"));
+                 jTextArea1.append("Dni: " + datoDni + "\n"
                         + "Nombre: " + datoNom + "\n"
                         + "Apellido: " + datoApellido + "\n"
                         + "Nombre empresa: " + datoNomempresa + "\n"
                         + "Departamento: " + datoDepartament + "\n"
                         + "Codigo tarjeta: " + datoCodicard + "\n"
                         + "Mail: " + datoMail + "\n"
-                        + "Telefono: " + datoTelephon + "\n");
-                System.out.println("____________________________________________________________________");
+                        + "Telefono: " + datoTelephon + "\n"
+                        +"____________________________________________________________________");
                 perEnt.getObjectInputFilter();
             }
         }
