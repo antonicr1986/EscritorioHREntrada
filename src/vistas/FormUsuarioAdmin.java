@@ -158,7 +158,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
 
         jLabel1.setText("Tipo operacion:");
 
-        jComboBoxTipoOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "insert", "update", "delete" }));
+        jComboBoxTipoOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "update", "insert", "delete" }));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);

@@ -106,6 +106,8 @@ public class FormUsuario extends javax.swing.JFrame {
         jComboBoxTipoOperacion = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButtonCambiarContraseña = new javax.swing.JButton();
+        jComboBoxColumna = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,11 +123,11 @@ public class FormUsuario extends javax.swing.JFrame {
 
         jLabelUserCode.setText("jLabelUserCode");
 
-        jComboBoxTablas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
+        jComboBoxTablas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "empresa", "jornada" }));
 
         jLabelTablas.setText("Tabla:");
 
-        jLabelPalabra.setText("Palabra:");
+        jLabelPalabra.setText("Palabra a buscar:");
 
         jTextFieldPalabra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextFieldPalabra.setText("0");
@@ -163,11 +165,21 @@ public class FormUsuario extends javax.swing.JFrame {
 
         jLabel1.setText("Tipo operacion:");
 
-        jComboBoxTipoOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select" }));
+        jComboBoxTipoOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "update", "insert", "delete" }));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
+
+        jButtonCambiarContraseña.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jButtonCambiarContraseña.setText("Cambiar contraseña usuario");
+        jButtonCambiarContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCambiarContraseñaActionPerformed(evt);
+            }
+        });
+
+        jComboBoxColumna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -180,41 +192,48 @@ public class FormUsuario extends javax.swing.JFrame {
                         .addComponent(jLabelCodigo)
                         .addGap(22, 22, 22)
                         .addComponent(jLabelUserCode)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonLogoutSession)
-                                .addContainerGap(636, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelResultadoBusqueda))
-                                .addGap(0, 27, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addComponent(jButtonLogoutSession)
+                        .addContainerGap(681, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelPalabra)
-                                    .addComponent(jLabelTablas))
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButtonCambiarContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelColumna)
                                     .addComponent(jLabelOrden))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldOrden)
-                                    .addComponent(jTextFieldColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jComboBoxColumna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldOrden, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldColumna))
+                                        .addGap(11, 11, 11))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelPalabra)
+                                            .addComponent(jLabelTablas))
+                                        .addGap(9, 9, 9)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldPalabra)
+                                            .addComponent(jComboBoxTablas, 0, 106, Short.MAX_VALUE)))
+                                    .addComponent(jButtonBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(21, 21, 21)
+                                        .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(10, 10, 10)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelResultadoBusqueda))
+                        .addGap(0, 98, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +265,11 @@ public class FormUsuario extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelOrden)
                             .addComponent(jTextFieldOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 232, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)
+                        .addComponent(jComboBoxColumna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jButtonCambiarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 92, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1036,7 +1059,7 @@ public class FormUsuario extends javax.swing.JFrame {
         if (!jTextFieldPalabra.getText().equals("0") || !jTextFieldPalabra.getText().equals("")){
             jButtonBuscar.setEnabled(false);
         }
-        if ((!jTextFieldPalabra.getText().equals("0"))&&(!jTextFieldColumna.getText().equals("0"))){
+        if ((jTextFieldPalabra.getText().equals("0"))&&(!jTextFieldColumna.getText().equals("0"))){
             jButtonBuscar.setEnabled(true);
         }
     }//GEN-LAST:event_jTextFieldPalabraKeyReleased
@@ -1046,10 +1069,16 @@ public class FormUsuario extends javax.swing.JFrame {
         if (!jTextFieldColumna.getText().equals("0") || !jTextFieldColumna.getText().equals("")){
             jButtonBuscar.setEnabled(false);
         }
-         if ((!jTextFieldPalabra.getText().equals("0"))&&(!jTextFieldColumna.getText().equals("0"))){
+         if ((jTextFieldPalabra.getText().equals("0"))&&(!jTextFieldColumna.getText().equals("0"))){
             jButtonBuscar.setEnabled(true);
         }
     }//GEN-LAST:event_jTextFieldColumnaKeyReleased
+
+    private void jButtonCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarContraseñaActionPerformed
+        // TODO add your handling code here:
+        CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm ();
+        ventanaCambioPass.setVisible(true);
+    }//GEN-LAST:event_jButtonCambiarContraseñaActionPerformed
 
     public void operacionesConInsertEmpresas( String []insertEmpresas)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpresas[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
@@ -1468,7 +1497,9 @@ public class FormUsuario extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonCambiarContraseña;
     private javax.swing.JButton jButtonLogoutSession;
+    private javax.swing.JComboBox<String> jComboBoxColumna;
     private javax.swing.JComboBox<String> jComboBoxTablas;
     private javax.swing.JComboBox<String> jComboBoxTipoOperacion;
     private javax.swing.JLabel jLabel1;

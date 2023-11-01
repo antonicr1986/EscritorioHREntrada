@@ -264,8 +264,8 @@
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
                 <StringItem index="0" value="select"/>
-                <StringItem index="1" value="insert"/>
-                <StringItem index="2" value="update"/>
+                <StringItem index="1" value="update"/>
+                <StringItem index="2" value="insert"/>
                 <StringItem index="3" value="delete"/>
               </StringArray>
             </Property>
