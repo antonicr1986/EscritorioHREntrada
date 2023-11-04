@@ -24,11 +24,6 @@ public class MainForm extends javax.swing.JFrame {
     String palabra = "";
     public static Socket socket;
     private static MainForm mainForm;
-    
-    String[] tablaEmpleadosColumnas = {"dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon"};
-    String[] tablaEmpresaColumnas = {"nom", "address", "telephon"};
-    String[] tablaJornadaColumnas = {"dni", "nom", "apellido", "codicard", "horaentrada", "horasalida", "total", "fecha"};
-    String[] tablaUsersColumnas = {"login", "pass", "numtipe", "dni"};
 
     public String getPalabra() {
         return palabra;
