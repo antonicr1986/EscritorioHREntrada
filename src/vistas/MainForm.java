@@ -181,7 +181,7 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void conexionSocket(FormUsuarioAdmin adminForm, FormUsuario usuarioForm){
+    public void conexionSocket(FormUsuarioAdmin adminForm, FormUsuario usuarioForm, FormVentanasUsuario usuarioFormPestañas){
         boolean salir = false;
 
         try {
@@ -230,11 +230,20 @@ public class MainForm extends javax.swing.JFrame {
 
                 // Comprueba si la primera letra es una "u" o una "a"
                 if (mensajeServer.charAt(0) == 'U'){
-                     usuarioForm = new FormUsuario();
+                     usuarioFormPestañas = new FormVentanasUsuario();
+                     usuarioFormPestañas.setjLabel1(codigo);
+                     usuarioFormPestañas.setjUserCode1(codigo);
+                     usuarioFormPestañas.setjUserCode2(codigo);
+                     usuarioFormPestañas.setjUserCode3(codigo);
+                     usuarioFormPestañas.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());
+                     usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                     usuarioFormPestañas.setVisible(true);
+                    
+                     /*usuarioForm = new FormUsuario();
                      usuarioForm.setjLabel1(codigo);
                      usuarioForm.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());
                      usuarioForm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                     usuarioForm.setVisible(true);                  
+                     usuarioForm.setVisible(true);*/                  
                 }else if(mensajeServer.charAt(0) == 'A'){
                      adminForm = new FormUsuarioAdmin();
                      adminForm.setjLabel1(codigo);//***
@@ -268,6 +277,7 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         FormUsuarioAdmin ventanaSecundariaAdmin= new FormUsuarioAdmin();
         FormUsuario ventanaSecundariaUser=new FormUsuario();
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario();
         try{
             // TODO add your handling code here:
             if (jTextFieldIPServidor.getText().isEmpty()||jTextFieldIPServidor.getText().isBlank()||jTextFieldIPServidor.getText() =="" ){
@@ -275,7 +285,7 @@ public class MainForm extends javax.swing.JFrame {
                              "Rellena el campo IP.");
             }else{//Esta la ip rellena
                 if (!jTextFieldUsuario.getText().equals("") && !jPasswordField.getText().equals("")) {                                                              
-                        conexionSocket(ventanaSecundariaAdmin, ventanaSecundariaUser);
+                        conexionSocket(ventanaSecundariaAdmin, ventanaSecundariaUser, usuarioFormPestañas);
                     }
                 }
         } catch (Exception ex) {
