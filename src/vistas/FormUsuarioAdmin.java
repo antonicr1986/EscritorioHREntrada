@@ -94,11 +94,11 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         jLabelAdminCode = new javax.swing.JLabel();
         jComboBoxTablas = new javax.swing.JComboBox<>();
         jLabelTablas = new javax.swing.JLabel();
-        jLabelPalabra = new javax.swing.JLabel();
+        jLabelPalabras = new javax.swing.JLabel();
         jTextFieldPalabra = new javax.swing.JTextField();
         jLabelColumna = new javax.swing.JLabel();
         jLabelOrden = new javax.swing.JLabel();
-        jLabelResultadoBusqueda = new javax.swing.JLabel();
+        jLabelResultadoOperación = new javax.swing.JLabel();
         jButtonBuscar = new javax.swing.JButton();
         jLabelCodigo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -132,7 +132,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
 
         jLabelTablas.setText("Tabla:");
 
-        jLabelPalabra.setText("Palabra:");
+        jLabelPalabras.setText("Palabra/s:");
 
         jTextFieldPalabra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextFieldPalabra.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -145,7 +145,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
 
         jLabelOrden.setText("Orden:");
 
-        jLabelResultadoBusqueda.setText("RESULTADO BÚSQUEDA");
+        jLabelResultadoOperación.setText("RESULTADO OPERACIÓN");
 
         jButtonBuscar.setText("BUSCAR");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -202,12 +202,12 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabelPalabra)
+                                        .addComponent(jLabelPalabras)
                                         .addComponent(jLabelTablas))
-                                    .addGap(22, 22, 22)
+                                    .addGap(48, 48, 48)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                        .addComponent(jComboBoxTablas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addComponent(jComboBoxTablas, 0, 114, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldPalabra)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addGap(18, 18, 18)
@@ -216,14 +216,14 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabelColumna)
                                         .addComponent(jLabelOrden))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGap(48, 48, 48)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jComboBoxOrdenar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jComboBoxColumna, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .addComponent(jComboBoxColumna, 0, 114, Short.MAX_VALUE)
+                                        .addComponent(jComboBoxOrdenar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(97, 97, 97)
-                                .addComponent(jLabelResultadoBusqueda)
+                                .addComponent(jLabelResultadoOperación)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
@@ -239,7 +239,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAdminCode)
                     .addComponent(jLabelCodigo)
-                    .addComponent(jLabelResultadoBusqueda))
+                    .addComponent(jLabelResultadoOperación))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -252,7 +252,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                             .addComponent(jLabelTablas))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelPalabra)
+                            .addComponent(jLabelPalabras)
                             .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1555,6 +1555,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
     private void jButtonCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarContraseñaActionPerformed
         // TODO add your handling code here:
         CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm ();
+        ventanaCambioPass.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         ventanaCambioPass.setVisible(true);
     }//GEN-LAST:event_jButtonCambiarContraseñaActionPerformed
 
@@ -1571,8 +1572,8 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelColumna;
     private javax.swing.JLabel jLabelOrden;
-    private javax.swing.JLabel jLabelPalabra;
-    private javax.swing.JLabel jLabelResultadoBusqueda;
+    private javax.swing.JLabel jLabelPalabras;
+    private javax.swing.JLabel jLabelResultadoOperación;
     private javax.swing.JLabel jLabelTablas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

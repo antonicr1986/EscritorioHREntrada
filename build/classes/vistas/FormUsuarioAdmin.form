@@ -72,13 +72,13 @@
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabelPalabra" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelPalabras" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelTablas" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextFieldPalabra" pref="103" max="32767" attributes="0"/>
-                                          <Component id="jComboBoxTablas" max="32767" attributes="0"/>
+                                          <Component id="jComboBoxTablas" pref="114" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldPalabra" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -91,10 +91,10 @@
                                           <Component id="jLabelColumna" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelOrden" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jComboBoxColumna" pref="114" max="32767" attributes="0"/>
                                           <Component id="jComboBoxOrdenar" max="32767" attributes="0"/>
-                                          <Component id="jComboBoxColumna" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -102,7 +102,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="jLabelResultadoBusqueda" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelResultadoOperación" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -126,7 +126,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelAdminCode" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelResultadoBusqueda" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelResultadoOperación" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -142,7 +142,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelPalabra" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPalabras" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldPalabra" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -207,9 +207,9 @@
             <Property name="text" type="java.lang.String" value="Tabla:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelPalabra">
+        <Component class="javax.swing.JLabel" name="jLabelPalabras">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Palabra:"/>
+            <Property name="text" type="java.lang.String" value="Palabra/s:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPalabra">
@@ -230,9 +230,9 @@
             <Property name="text" type="java.lang.String" value="Orden:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelResultadoBusqueda">
+        <Component class="javax.swing.JLabel" name="jLabelResultadoOperaci&#xf3;n">
           <Properties>
-            <Property name="text" type="java.lang.String" value="RESULTADO B&#xda;SQUEDA"/>
+            <Property name="text" type="java.lang.String" value="RESULTADO OPERACI&#xd3;N"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonBuscar">

@@ -1085,6 +1085,7 @@ public class FormUsuario extends javax.swing.JFrame {
     private void jButtonCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarContraseñaActionPerformed
         // TODO add your handling code here:
         CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm ();
+        ventanaCambioPass.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         ventanaCambioPass.setVisible(true);
     }//GEN-LAST:event_jButtonCambiarContraseñaActionPerformed
 
