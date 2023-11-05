@@ -12,6 +12,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
      * Creates new form CambiarPasswordForm
      */
     public CambiarPasswordForm() {
+        setLocationRelativeTo(null);
         initComponents();
     }
 

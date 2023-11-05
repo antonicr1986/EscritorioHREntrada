@@ -1,6 +1,8 @@
 package vistas;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
@@ -69,8 +71,7 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         setMinimumSize(new Dimension(450, 400));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        initComponents();
-       
+        initComponents();     
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -96,8 +97,6 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         jLabelPalabra = new javax.swing.JLabel();
         jTextFieldPalabra = new javax.swing.JTextField();
         jLabelColumna = new javax.swing.JLabel();
-        jTextFieldColumna = new javax.swing.JTextField();
-        jTextFieldOrden = new javax.swing.JTextField();
         jLabelOrden = new javax.swing.JLabel();
         jLabelResultadoBusqueda = new javax.swing.JLabel();
         jButtonBuscar = new javax.swing.JButton();
@@ -106,6 +105,9 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         jComboBoxTipoOperacion = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jComboBoxColumna = new javax.swing.JComboBox<>();
+        jComboBoxOrdenar = new javax.swing.JComboBox<>();
+        jButtonCambiarContraseña = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,13 +124,17 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         jLabelAdminCode.setText("jLabelUserCode");
 
         jComboBoxTablas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
+        jComboBoxTablas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTablasActionPerformed(evt);
+            }
+        });
 
         jLabelTablas.setText("Tabla:");
 
         jLabelPalabra.setText("Palabra:");
 
         jTextFieldPalabra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldPalabra.setText("0");
         jTextFieldPalabra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldPalabraKeyReleased(evt);
@@ -136,12 +142,6 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         });
 
         jLabelColumna.setText("Columna:");
-
-        jTextFieldColumna.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldColumna.setText("0");
-
-        jTextFieldOrden.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextFieldOrden.setText("0");
 
         jLabelOrden.setText("Orden:");
 
@@ -163,6 +163,22 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
+
+        jComboBoxColumna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
+        jComboBoxColumna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxColumnaActionPerformed(evt);
+            }
+        });
+
+        jComboBoxOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+
+        jButtonCambiarContraseña.setText("Cambiar contraseña administrador");
+        jButtonCambiarContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCambiarContraseñaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,21 +205,21 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                                         .addComponent(jLabelPalabra)
                                         .addComponent(jLabelTablas))
                                     .addGap(22, 22, 22)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jComboBoxTablas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                        .addComponent(jComboBoxTablas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabelColumna)
                                         .addComponent(jLabelOrden))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextFieldOrden)
-                                        .addComponent(jTextFieldColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jComboBoxOrdenar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jComboBoxColumna, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(97, 97, 97)
@@ -211,7 +227,9 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(39, 39, 39)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonCambiarContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(40, Short.MAX_VALUE))))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -238,18 +256,19 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                             .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldColumna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelColumna))
+                            .addComponent(jLabelColumna)
+                            .addComponent(jComboBoxColumna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelOrden)
-                            .addComponent(jTextFieldOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 234, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonLogoutSession))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(jButtonLogoutSession)
+                    .addComponent(jButtonCambiarContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(33, 33, 33))
         );
 
@@ -895,6 +914,22 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
         }
     }                                                   
 
+    
+    private void activarDesactivarBusqueda(){
+        if (jComboBoxColumna.getSelectedItem()!=null){
+            if (!jTextFieldPalabra.getText().equals("")&&(jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
+            jButtonBuscar.setEnabled(false);
+            }else if (jTextFieldPalabra.getText().equals("")&&(!jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
+                jButtonBuscar.setEnabled(false);
+            }else{
+                jButtonBuscar.setEnabled(true);
+            }
+            /*if ((jTextFieldPalabra.getText().equals(""))&&(jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
+                jButtonBuscar.setEnabled(true);
+            }*/       
+        }
+    }
+    
     public void operacionesConInsertEmpresas( String []insertEmpresas)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpresas[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
         crud = insertEmpresas[1];
@@ -1322,9 +1357,9 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
             codigo = jLabelAdminCode.getText(); //el codigo recibido tiene que ser el mismo que le hemos asignado
             crud = jComboBoxTipoOperacion.getSelectedItem().toString(); //Tipo de operacion
             nombreTabla = jComboBoxTablas.getSelectedItem().toString(); //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
-            columna = jTextFieldColumna.getText(); //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
+            columna = jComboBoxColumna.getSelectedItem().toString(); //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
             String palabraAbuscar = jTextFieldPalabra.getText();// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
-            orden = jTextFieldOrden.getText();// si es el caso el orden, si no hay ponemos 0
+            orden = jComboBoxOrdenar.getSelectedItem().toString();// si es el caso el orden, si no hay ponemos 0
             
             jTextArea1.setText("");
             
@@ -1357,7 +1392,22 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
                 case "jornada":
                     nombreTabla = "3";
                     break;
-            }         
+            }
+            
+            switch (columna){
+                case "todas":
+                    columna = "0";
+                    break;
+            }
+            
+            switch (orden){
+                case "Si":
+                    orden = "0";
+                    break;
+                case "No":
+                    orden = "1";
+                    break;
+            }
             
             palabra = codigo + "," + crud + "," + nombreTabla + "," + columna + "," + palabraAbuscar + "," + orden;
             //JOptionPane.showMessageDialog(null,"Frase enviada al server: "+palabra); 
@@ -1450,11 +1500,70 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
 
     private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPalabraKeyReleased
         // TODO add your handling code here:
+        activarDesactivarBusqueda();
     }//GEN-LAST:event_jTextFieldPalabraKeyReleased
+
+    private void jComboBoxTablasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTablasActionPerformed
+        // TODO add your handling code here:
+        jComboBoxTablas.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String seleccion = (String) jComboBoxTablas.getSelectedItem();
+                // Limpia el modelo actual
+                jComboBoxColumna.removeAllItems();
+                if ("empleados".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("dni");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("apellido");
+                    jComboBoxColumna.addItem("nomempresa");
+                    jComboBoxColumna.addItem("departament");
+                    jComboBoxColumna.addItem("codicard");
+                    jComboBoxColumna.addItem("mail");
+                    jComboBoxColumna.addItem("telephon");
+                } else if ("empresa".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("address");
+                    jComboBoxColumna.addItem("telephon");
+                } else if ("jornada".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("dni");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("apellido");
+                    jComboBoxColumna.addItem("codicard");
+                    jComboBoxColumna.addItem("horaentrada");
+                    jComboBoxColumna.addItem("horasalida");
+                    jComboBoxColumna.addItem("total");
+                    jComboBoxColumna.addItem("fecha");
+                }else if ("users".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("login");
+                    jComboBoxColumna.addItem("pass");
+                    jComboBoxColumna.addItem("numtipe");
+                    jComboBoxColumna.addItem("dni");
+                }            
+            }
+        });
+    }//GEN-LAST:event_jComboBoxTablasActionPerformed
+
+    private void jComboBoxColumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColumnaActionPerformed
+        // TODO add your handling code here:
+         activarDesactivarBusqueda();
+    }//GEN-LAST:event_jComboBoxColumnaActionPerformed
+
+    private void jButtonCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarContraseñaActionPerformed
+        // TODO add your handling code here:
+        CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm ();
+        ventanaCambioPass.setVisible(true);
+    }//GEN-LAST:event_jButtonCambiarContraseñaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonCambiarContraseña;
     private javax.swing.JButton jButtonLogoutSession;
+    private javax.swing.JComboBox<String> jComboBoxColumna;
+    private javax.swing.JComboBox<String> jComboBoxOrdenar;
     private javax.swing.JComboBox<String> jComboBoxTablas;
     private javax.swing.JComboBox<String> jComboBoxTipoOperacion;
     private javax.swing.JLabel jLabel1;
@@ -1468,8 +1577,6 @@ public class FormUsuarioAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextFieldColumna;
-    private javax.swing.JTextField jTextFieldOrden;
     private javax.swing.JTextField jTextFieldPalabra;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,6 +24,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import logs.Logout;
 import paneles.PanelOtros;
 
 import modelo.*;
@@ -320,7 +321,6 @@ public class FormUsuario extends javax.swing.JFrame {
                 mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
                 mainForm.setVisible(true);     
                 mainForm.setPalabra(palabra);
-
                 //JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"\nPalabra: "+mainForm.getPalabra());     
             }
             else{
