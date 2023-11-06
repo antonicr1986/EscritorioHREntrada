@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -102,6 +103,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         setResizable(false);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);   
         initComponents();
+
         buttonGroup.add(jRadioButtonEmpresa);
         buttonGroup.add(jRadioButtonEmpleado);
         buttonGroup.add(jRadioButtonJornada);
@@ -245,12 +247,16 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextFieldPalabra = new javax.swing.JTextField();
         jLabelUserCode = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jPanelAcercaDe = new javax.swing.JPanel();
+        jLabelHREntrada = new javax.swing.JLabel();
+        jLabelDescripcion = new javax.swing.JLabel();
+        jLabelAutores = new javax.swing.JLabel();
+        jLabel_Imagen = new javax.swing.JLabel();
+        jPanelOtros = new javax.swing.JPanel();
+        jLabel_ImagenOtros = new javax.swing.JLabel();
         jPanelGestionUsuario = new javax.swing.JPanel();
         jButtonLogout = new javax.swing.JButton();
         jButtonCambiarContraseña = new javax.swing.JButton();
-        jPanelAcercaDe = new javax.swing.JPanel();
-        jLabelHREntrada = new javax.swing.JLabel();
-        jPanelOtros = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -307,6 +313,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelCamposAIntroducir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelCamposAIntroducir.setText("CAMPOS A INTRODUCIR:");
 
+        jRadioButtonEmpresa.setBackground(new java.awt.Color(204, 255, 204));
         jRadioButtonEmpresa.setText("empresa");
         jRadioButtonEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,6 +321,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
+        jRadioButtonEmpleado.setBackground(new java.awt.Color(204, 255, 204));
         jRadioButtonEmpleado.setText("empleados");
         jRadioButtonEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -321,6 +329,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
+        jRadioButtonJornada.setBackground(new java.awt.Color(204, 255, 204));
         jRadioButtonJornada.setText("jornada");
         jRadioButtonJornada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,6 +337,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
+        jRadioButtonUsers.setBackground(new java.awt.Color(204, 255, 204));
         jRadioButtonUsers.setText("users");
         jRadioButtonUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,7 +353,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jButtonAñadirATabla)
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(jLabelUserCode3))
@@ -355,7 +364,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButtonEmpleado)
-                            .addComponent(jRadioButtonUsers))))
+                            .addComponent(jRadioButtonUsers)))
+                    .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jButtonAñadirATabla)))
                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
@@ -395,7 +407,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBusqueda3Layout.setVerticalGroup(
             jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,16 +448,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda3Layout.createSequentialGroup()
-                        .addComponent(jButtonAñadirATabla)
-                        .addGap(17, 17, 17))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda3Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jButtonAñadirATabla)
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout jPanelAñadirLayout = new javax.swing.GroupLayout(jPanelAñadir);
@@ -463,7 +472,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jPanelBusqueda1.setBackground(new java.awt.Color(255, 255, 204));
 
-        jButtonActualizarTabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButtonActualizarTabla.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonActualizarTabla.setText("ACTUALIZAR TABLA");
         jButtonActualizarTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -582,7 +591,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jPanelBusqueda2.setBackground(new java.awt.Color(255, 204, 204));
 
-        jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonBorrar.setText("BORRAR");
         jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -691,7 +700,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jPanelBusqueda.setBackground(new java.awt.Color(153, 204, 255));
 
-        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonBuscar.setText("BUSCAR");
         jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -804,6 +813,82 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Búsqueda", jPanelBusqueda);
 
+        jPanelAcercaDe.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabelHREntrada.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabelHREntrada.setText("HREntrada ©");
+
+        jLabelDescripcion.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabelDescripcion.setText("Trabajo final de CFGS DAM");
+
+        jLabelAutores.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
+        jLabelAutores.setText("By David Valentin, Gustavo Señorans y Antonio Company");
+
+        jLabel_Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/HREntrada.jpg"))); // NOI18N
+        jLabel_Imagen.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel_Imagen.setIconTextGap(0);
+
+        javax.swing.GroupLayout jPanelAcercaDeLayout = new javax.swing.GroupLayout(jPanelAcercaDe);
+        jPanelAcercaDe.setLayout(jPanelAcercaDeLayout);
+        jPanelAcercaDeLayout.setHorizontalGroup(
+            jPanelAcercaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAcercaDeLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanelAcercaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_Imagen)
+                    .addComponent(jLabelAutores)
+                    .addComponent(jLabelDescripcion)
+                    .addComponent(jLabelHREntrada))
+                .addContainerGap(316, Short.MAX_VALUE))
+        );
+        jPanelAcercaDeLayout.setVerticalGroup(
+            jPanelAcercaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAcercaDeLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabelHREntrada)
+                .addGap(26, 26, 26)
+                .addComponent(jLabelDescripcion)
+                .addGap(26, 26, 26)
+                .addComponent(jLabelAutores)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel_Imagen)
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Acerca de", jPanelAcercaDe);
+
+        jPanelOtros.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelOtros.setMaximumSize(new java.awt.Dimension(1200, 1000));
+        jPanelOtros.setMinimumSize(new java.awt.Dimension(950, 500));
+        jPanelOtros.setPreferredSize(new java.awt.Dimension(950, 500));
+
+        jLabel_ImagenOtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/HREntrada.jpg"))); // NOI18N
+        jLabel_ImagenOtros.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout jPanelOtrosLayout = new javax.swing.GroupLayout(jPanelOtros);
+        jPanelOtros.setLayout(jPanelOtrosLayout);
+        jPanelOtrosLayout.setHorizontalGroup(
+            jPanelOtrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelOtrosLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel_ImagenOtros)
+                .addContainerGap(642, Short.MAX_VALUE))
+        );
+        jPanelOtrosLayout.setVerticalGroup(
+            jPanelOtrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOtrosLayout.createSequentialGroup()
+                .addContainerGap(265, Short.MAX_VALUE)
+                .addComponent(jLabel_ImagenOtros)
+                .addGap(60, 60, 60))
+        );
+
+        jTabbedPane1.addTab("Otros", jPanelOtros);
+
+        jPanelGestionUsuario.setBackground(new java.awt.Color(153, 153, 153));
+
+        jButtonLogout.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonLogout.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButtonLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PowerOff.jpg"))); // NOI18N
         jButtonLogout.setText("Logout Session");
         jButtonLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -811,6 +896,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
+        jButtonCambiarContraseña.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButtonCambiarContraseña.setText("Cambiar contraseña usuario");
         jButtonCambiarContraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -827,60 +913,19 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGroup(jPanelGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCambiarContraseña)
                     .addComponent(jButtonLogout))
-                .addContainerGap(760, Short.MAX_VALUE))
+                .addContainerGap(679, Short.MAX_VALUE))
         );
         jPanelGestionUsuarioLayout.setVerticalGroup(
             jPanelGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGestionUsuarioLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButtonLogout)
-                .addGap(45, 45, 45)
+                .addGap(98, 98, 98)
                 .addComponent(jButtonCambiarContraseña)
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
+                .addComponent(jButtonLogout)
+                .addGap(43, 43, 43))
         );
 
         jTabbedPane1.addTab("Gestión usuario", jPanelGestionUsuario);
-
-        jPanelAcercaDe.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabelHREntrada.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabelHREntrada.setText("HREntrada");
-
-        javax.swing.GroupLayout jPanelAcercaDeLayout = new javax.swing.GroupLayout(jPanelAcercaDe);
-        jPanelAcercaDe.setLayout(jPanelAcercaDeLayout);
-        jPanelAcercaDeLayout.setHorizontalGroup(
-            jPanelAcercaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAcercaDeLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabelHREntrada)
-                .addContainerGap(823, Short.MAX_VALUE))
-        );
-        jPanelAcercaDeLayout.setVerticalGroup(
-            jPanelAcercaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAcercaDeLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabelHREntrada)
-                .addContainerGap(488, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Acerca de", jPanelAcercaDe);
-
-        jPanelOtros.setMaximumSize(new java.awt.Dimension(1200, 1000));
-        jPanelOtros.setMinimumSize(new java.awt.Dimension(950, 500));
-        jPanelOtros.setPreferredSize(new java.awt.Dimension(950, 500));
-
-        javax.swing.GroupLayout jPanelOtrosLayout = new javax.swing.GroupLayout(jPanelOtros);
-        jPanelOtros.setLayout(jPanelOtrosLayout);
-        jPanelOtrosLayout.setHorizontalGroup(
-            jPanelOtrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 976, Short.MAX_VALUE)
-        );
-        jPanelOtrosLayout.setVerticalGroup(
-            jPanelOtrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Otros", jPanelOtros);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2362,6 +2407,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelAutores;
     private javax.swing.JLabel jLabelCamposAIntroducir;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelCodigo1;
@@ -2370,6 +2416,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelColumna;
     private javax.swing.JLabel jLabelColumna1;
     private javax.swing.JLabel jLabelColumna2;
+    private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelHREntrada;
     private javax.swing.JLabel jLabelOperacion;
     private javax.swing.JLabel jLabelOrdenar;
@@ -2383,6 +2430,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUserCode1;
     private javax.swing.JLabel jLabelUserCode2;
     private javax.swing.JLabel jLabelUserCode3;
+    private javax.swing.JLabel jLabel_Imagen;
+    private javax.swing.JLabel jLabel_ImagenOtros;
     private javax.swing.JPanel jPanelAcercaDe;
     private javax.swing.JPanel jPanelActualizar;
     private javax.swing.JPanel jPanelAñadir;
