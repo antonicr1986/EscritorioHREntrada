@@ -95,7 +95,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     /**
      * Creates new form FormVentanasUsuario
      */
-    public FormVentanasUsuario() {
+    public FormVentanasUsuario(String codigo) {
         setMinimumSize(new Dimension(950, 550));
         setMaximumSize(new Dimension(1100,1000));
         setLocationRelativeTo(null);
@@ -105,7 +105,15 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         buttonGroup.add(jRadioButtonEmpresa);
         buttonGroup.add(jRadioButtonEmpleado);
         buttonGroup.add(jRadioButtonJornada);
-        buttonGroup.add(jRadioButtonUsers);
+        
+        //JOptionPane.showMessageDialog(null,"codigo: "+codigo);
+        if (codigo !=null && codigo.charAt(0) == 'A'){
+             buttonGroup.add(jRadioButtonUsers);
+             jRadioButtonUsers.setVisible(true);
+        }else{
+            jComboBoxTablas.removeItemAt(1);
+            jRadioButtonUsers.setVisible(false);
+        }
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -250,7 +258,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jPanelBusqueda3.setBackground(new java.awt.Color(204, 255, 204));
 
-        jButtonAñadirATabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButtonAñadirATabla.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonAñadirATabla.setText("AÑADIR A TABLA");
         jButtonAñadirATabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -572,7 +580,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jPanelBorrar.setBackground(new java.awt.Color(255, 102, 102));
 
-        jPanelBusqueda2.setBackground(new java.awt.Color(255, 102, 102));
+        jPanelBusqueda2.setBackground(new java.awt.Color(255, 204, 204));
 
         jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonBorrar.setText("BORRAR");
@@ -833,6 +841,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Gestión usuario", jPanelGestionUsuario);
 
+        jPanelAcercaDe.setBackground(new java.awt.Color(153, 153, 153));
+
         jLabelHREntrada.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabelHREntrada.setText("HREntrada");
 
@@ -888,22 +898,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
-        // TODO add your handling code here:
-         logout();
-    }//GEN-LAST:event_jButtonLogoutActionPerformed
-
-    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
-      select = true;
-      
-      insert = false;
-      update = false;
-      delete = false;
-      ejecutarAccion();
-    }//GEN-LAST:event_jButtonBuscarActionPerformed
-
-    
     private void jButtonCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarContraseñaActionPerformed
         // TODO add your handling code here:
         CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm ();
@@ -911,50 +905,87 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         ventanaCambioPass.setVisible(true);
     }//GEN-LAST:event_jButtonCambiarContraseñaActionPerformed
 
-    private void jButtonActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarTablaActionPerformed
+    private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
         // TODO add your handling code here:
-        update = true;
-        
-        select = false;
+        logout();
+    }//GEN-LAST:event_jButtonLogoutActionPerformed
+
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+        // TODO add your handling code here:
+        select = true;
+
         insert = false;
+        update = false;
         delete = false;
-        
         ejecutarAccion();
-    }//GEN-LAST:event_jButtonActualizarTablaActionPerformed
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
         select = false;
         insert = false;
         update = false;
-        
+
         delete = true;
-        
+
         ejecutarAccion();
     }//GEN-LAST:event_jButtonBorrarActionPerformed
+
+    private void jButtonActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarTablaActionPerformed
+        // TODO add your handling code here:
+        update = true;
+
+        select = false;
+        insert = false;
+        delete = false;
+
+        ejecutarAccion();
+    }//GEN-LAST:event_jButtonActualizarTablaActionPerformed
+
+    private void jRadioButtonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsersActionPerformed
+        // TODO add your handling code here:
+        activarDesactivarTextFields();
+    }//GEN-LAST:event_jRadioButtonUsersActionPerformed
+
+    private void jRadioButtonJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaActionPerformed
+        // TODO add your handling code here:
+        activarDesactivarTextFields();
+    }//GEN-LAST:event_jRadioButtonJornadaActionPerformed
+
+    private void jRadioButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleadoActionPerformed
+        // TODO add your handling code here:
+        activarDesactivarTextFields();
+    }//GEN-LAST:event_jRadioButtonEmpleadoActionPerformed
+
+     //RADIO BUTTONS EVENTOS QUE SE DISPARAN AL HACER CLICK EN ALGUNO DE ELLOS
+    private void jRadioButtonEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresaActionPerformed
+        // TODO add your handling code here:
+        activarDesactivarTextFields();
+    }//GEN-LAST:event_jRadioButtonEmpresaActionPerformed
 
     private void jButtonAñadirATablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirATablaActionPerformed
         // TODO add your handling code here:
         insert = true;
-        
+
         select = false;
         update = false;
         delete = false;
-        
+
         jComboBoxTipoOperacion.setSelectedItem("insert");
-        
+
         if (jRadioButtonEmpresa.isSelected()){
             nombreTabla = "empresa";
         }else if (jRadioButtonEmpleado.isSelected()){
-             nombreTabla = "empleados";
+            nombreTabla = "empleados";
         }else if (jRadioButtonJornada.isSelected()){
             nombreTabla = "jornada";
         }else if (jRadioButtonUsers.isSelected()){
-             nombreTabla = "users";
-        }      
+            nombreTabla = "users";
+        }
         ejecutarAccion();
     }//GEN-LAST:event_jButtonAñadirATablaActionPerformed
 
+    
      private void ejecutarAccion(){
         try {
             // TODO add your handling code here:
@@ -1129,38 +1160,17 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 operacionesConInsertEmpleado19(insertEmpleado);             
             }
         }  catch (UnknownHostException ex) {
-            Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex) {
-            Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }catch(Exception ex){
-            Logger.getLogger(FormUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
      
-     //RADIO BUTTONS EVENTOS QUE SE DISPARAN AL HACER CLICK EN ALGUNO DE ELLOS
-    private void jRadioButtonEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresaActionPerformed
-        // TODO add your handling code here:
-        activarDesactivarTextFields();
-    }//GEN-LAST:event_jRadioButtonEmpresaActionPerformed
-
-    private void jRadioButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleadoActionPerformed
-        // TODO add your handling code here:
-        activarDesactivarTextFields();
-    }//GEN-LAST:event_jRadioButtonEmpleadoActionPerformed
-
-    private void jRadioButtonJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaActionPerformed
-        // TODO add your handling code here:
-        activarDesactivarTextFields();
-    }//GEN-LAST:event_jRadioButtonJornadaActionPerformed
-
-    private void jRadioButtonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsersActionPerformed
-        // TODO add your handling code here:
-        activarDesactivarTextFields();
-    }//GEN-LAST:event_jRadioButtonUsersActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -1191,7 +1201,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormVentanasUsuario().setVisible(true);
+                //new FormVentanasUsuario().setVisible(true);
             }
         });
     }

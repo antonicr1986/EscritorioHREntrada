@@ -24,6 +24,8 @@ public class MainForm extends javax.swing.JFrame {
     String palabra = "";
     public static Socket socket;
     private static MainForm mainForm;
+    
+    String codigo;
 
     public String getPalabra() {
         return palabra;
@@ -181,7 +183,7 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void conexionSocket(FormUsuarioAdmin adminForm, FormUsuario usuarioForm, FormVentanasUsuario usuarioFormPestañas){
+    public void conexionSocket(FormVentanasUsuario usuarioFormPestañas){
         boolean salir = false;
 
         try {
@@ -193,7 +195,7 @@ public class MainForm extends javax.swing.JFrame {
             
             ObjectInputStream perEnt;
             
-            String codigo = "0";
+            codigo = "0";
             
             ///Llegeix del servidor el mensaje de bienvenida, y la pregunta que nos hace ///           
             String mensajeServer = lector.readLine();
@@ -230,14 +232,14 @@ public class MainForm extends javax.swing.JFrame {
 
                 // Comprueba si la primera letra es una "u" o una "a"
                 if (mensajeServer.charAt(0) == 'U'){
-                     usuarioFormPestañas = new FormVentanasUsuario();
-                     usuarioFormPestañas.setjLabel1(codigo);
-                     usuarioFormPestañas.setjUserCode1(codigo);
-                     usuarioFormPestañas.setjUserCode2(codigo);
-                     usuarioFormPestañas.setjUserCode3(codigo);
-                     usuarioFormPestañas.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());
-                     usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                     usuarioFormPestañas.setVisible(true);
+                    usuarioFormPestañas = new FormVentanasUsuario(codigo);
+                    usuarioFormPestañas.setjLabel1(codigo);
+                    usuarioFormPestañas.setjUserCode1(codigo);
+                    usuarioFormPestañas.setjUserCode2(codigo);
+                    usuarioFormPestañas.setjUserCode3(codigo);
+                    usuarioFormPestañas.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());
+                    usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                    usuarioFormPestañas.setVisible(true);
                     
                      /*usuarioForm = new FormUsuario();
                      usuarioForm.setjLabel1(codigo);
@@ -245,11 +247,20 @@ public class MainForm extends javax.swing.JFrame {
                      usuarioForm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                      usuarioForm.setVisible(true);*/                  
                 }else if(mensajeServer.charAt(0) == 'A'){
-                     adminForm = new FormUsuarioAdmin();
+                    usuarioFormPestañas = new FormVentanasUsuario(codigo);
+                    usuarioFormPestañas.setjLabel1(codigo);
+                    usuarioFormPestañas.setjUserCode1(codigo);
+                    usuarioFormPestañas.setjUserCode2(codigo);
+                    usuarioFormPestañas.setjUserCode3(codigo);
+                    usuarioFormPestañas.setTitle("Logeado como administrador: "+jTextFieldUsuario.getText());
+                    usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                    usuarioFormPestañas.setVisible(true);
+                     
+                     /*adminForm = new FormUsuarioAdmin();
                      adminForm.setjLabel1(codigo);//***
                      adminForm.setTitle("Logeado como administrador: "+jTextFieldUsuario.getText());
                      adminForm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                     adminForm.setVisible(true);
+                     adminForm.setVisible(true);*/
                 }                  
                 this.setVisible(false);  
             }
@@ -275,9 +286,7 @@ public class MainForm extends javax.swing.JFrame {
     
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         // TODO add your handling code here:
-        FormUsuarioAdmin ventanaSecundariaAdmin= new FormUsuarioAdmin();
-        FormUsuario ventanaSecundariaUser=new FormUsuario();
-        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario();
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(codigo);
         try{
             // TODO add your handling code here:
             if (jTextFieldIPServidor.getText().isEmpty()||jTextFieldIPServidor.getText().isBlank()||jTextFieldIPServidor.getText() =="" ){
@@ -285,7 +294,7 @@ public class MainForm extends javax.swing.JFrame {
                              "Rellena el campo IP.");
             }else{//Esta la ip rellena
                 if (!jTextFieldUsuario.getText().equals("") && !jPasswordField.getText().equals("")) {                                                              
-                        conexionSocket(ventanaSecundariaAdmin, ventanaSecundariaUser, usuarioFormPestañas);
+                        conexionSocket(usuarioFormPestañas);
                     }
                 }
         } catch (Exception ex) {

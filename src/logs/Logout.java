@@ -11,8 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import vistas.FormUsuario;
 import vistas.MainForm;
+import vistas.FormVentanasUsuario;
 
 /**
  *
@@ -31,7 +31,6 @@ public class Logout {
     String columna;
     String orden;
     
-    FormUsuario formUsuario;
 
     public String getPalabra() {
         return palabra;
@@ -41,7 +40,7 @@ public class Logout {
         this.palabra = palabra;
     }
     
-    private void logout(FormUsuario formUsuario){
+    private void logout(FormVentanasUsuario formUsuario){
         try {
             //IMPLEMENTA
             Socket socket = MainForm.socket;
