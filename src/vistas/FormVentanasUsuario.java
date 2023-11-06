@@ -96,8 +96,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
      * Creates new form FormVentanasUsuario
      */
     public FormVentanasUsuario() {
-        setMinimumSize(new Dimension(1000, 550));
+        setMinimumSize(new Dimension(950, 550));
+        setMaximumSize(new Dimension(1100,1000));
         setLocationRelativeTo(null);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);   
         initComponents();
         buttonGroup.add(jRadioButtonEmpresa);
@@ -210,11 +212,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextAreaDelete = new javax.swing.JTextArea();
         jLabelCodigo2 = new javax.swing.JLabel();
-        jLabelOperacion2 = new javax.swing.JLabel();
         jLabelTabla2 = new javax.swing.JLabel();
         jLabelPalabra2 = new javax.swing.JLabel();
         jLabelColumna2 = new javax.swing.JLabel();
-        jComboBoxTipoOperacion2 = new javax.swing.JComboBox<>();
         jComboBoxTablas2 = new javax.swing.JComboBox<>();
         jComboBoxColumna2 = new javax.swing.JComboBox<>();
         jTextFieldPalabra2 = new javax.swing.JTextField();
@@ -245,6 +245,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelOtros = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.setMaximumSize(new java.awt.Dimension(1200, 1200));
+
+        jPanelBusqueda3.setBackground(new java.awt.Color(204, 255, 204));
 
         jButtonAñadirATabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonAñadirATabla.setText("AÑADIR A TABLA");
@@ -344,46 +348,46 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButtonEmpleado)
                             .addComponent(jRadioButtonUsers))))
-                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
-                        .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBusqueda3Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
+                        .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabelCamposAIntroducir)
+                            .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
-                                        .addGap(135, 135, 135)
-                                        .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(42, 42, 42)
-                                        .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
-                                        .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextFieldDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(29, 29, 29)
                                         .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldCodicard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(42, 42, 42)
-                                        .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextFieldMail, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldPass))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
+                                                .addGap(37, 37, 37)
+                                                .addComponent(jTextFieldDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTextFieldAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda3Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(23, 23, 23)))
+                                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda3Layout.createSequentialGroup()
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextFieldCodicard, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldPass, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldMail)
+                                    .addComponent(jTextFieldApellido))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldTelephon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldNomEmpresa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBusqueda3Layout.createSequentialGroup()
-                                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelCamposAIntroducir, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                                    .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanelBusqueda3Layout.setVerticalGroup(
             jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -424,7 +428,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda3Layout.createSequentialGroup()
                         .addComponent(jButtonAñadirATabla)
@@ -440,18 +444,16 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelAñadir.setLayout(jPanelAñadirLayout);
         jPanelAñadirLayout.setHorizontalGroup(
             jPanelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAñadirLayout.createSequentialGroup()
-                .addComponent(jPanelBusqueda3, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 47, Short.MAX_VALUE))
+            .addComponent(jPanelBusqueda3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelAñadirLayout.setVerticalGroup(
             jPanelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAñadirLayout.createSequentialGroup()
-                .addComponent(jPanelBusqueda3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelBusqueda3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Añadir", jPanelAñadir);
+
+        jPanelBusqueda1.setBackground(new java.awt.Color(255, 255, 204));
 
         jButtonActualizarTabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonActualizarTabla.setText("ACTUALIZAR TABLA");
@@ -505,8 +507,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         jPanelBusqueda1Layout.setVerticalGroup(
             jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -544,7 +546,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                 .addComponent(jTextFieldPalabra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(44, 44, 44))
                             .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)))
                 .addComponent(jButtonActualizarTabla)
                 .addGap(34, 34, 34))
         );
@@ -553,24 +555,24 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelActualizar.setLayout(jPanelActualizarLayout);
         jPanelActualizarLayout.setHorizontalGroup(
             jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1042, Short.MAX_VALUE)
+            .addGap(0, 1048, Short.MAX_VALUE)
             .addGroup(jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelActualizarLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelBusqueda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanelActualizarLayout.setVerticalGroup(
             jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
             .addGroup(jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelActualizarLayout.createSequentialGroup()
-                    .addGap(0, 16, Short.MAX_VALUE)
-                    .addComponent(jPanelBusqueda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 17, Short.MAX_VALUE)))
+                .addComponent(jPanelBusqueda1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Actualizar", jPanelActualizar);
+
+        jPanelBorrar.setBackground(new java.awt.Color(255, 102, 102));
+
+        jPanelBusqueda2.setBackground(new java.awt.Color(255, 102, 102));
 
         jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonBorrar.setText("BORRAR");
@@ -586,15 +588,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelCodigo2.setText("Codigo:");
 
-        jLabelOperacion2.setText("Tipo de operacion:");
-
         jLabelTabla2.setText("Tabla:");
 
         jLabelPalabra2.setText("Palabra a buscar:");
 
         jLabelColumna2.setText("Columna:");
-
-        jComboBoxTipoOperacion2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delete" }));
 
         jComboBoxTablas2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "empresa", "jornada", "users" }));
 
@@ -618,7 +616,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addGap(168, 168, 168))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda2Layout.createSequentialGroup()
                             .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelOperacion2)
                                 .addComponent(jLabelTabla2)
                                 .addComponent(jLabelPalabra2)
                                 .addComponent(jLabelColumna2))
@@ -627,7 +624,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                 .addComponent(jComboBoxColumna2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextFieldPalabra2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jComboBoxTablas2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBoxTipoOperacion2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelUserCode2, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGap(43, 43, 43)))
                     .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
@@ -652,11 +648,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addComponent(jScrollPane3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelOperacion2)
-                            .addComponent(jComboBoxTipoOperacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
+                        .addGap(81, 81, 81)
                         .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTabla2)
                             .addComponent(jComboBoxTablas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -669,7 +661,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(jLabelColumna2))
                             .addComponent(jComboBoxColumna2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)))
                 .addComponent(jButtonBorrar)
                 .addGap(34, 34, 34))
         );
@@ -684,12 +676,12 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         );
         jPanelBorrarLayout.setVerticalGroup(
             jPanelBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelBorrarLayout.createSequentialGroup()
-                .addComponent(jPanelBusqueda2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 33, Short.MAX_VALUE))
+            .addComponent(jPanelBusqueda2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Borrar", jPanelBorrar);
+
+        jPanelBusqueda.setBackground(new java.awt.Color(153, 204, 255));
 
         jButtonBuscar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButtonBuscar.setText("BUSCAR");
@@ -794,7 +786,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelOrdenar)
                             .addComponent(jComboBoxOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
                         .addComponent(jButtonBuscar))
                     .addGroup(jPanelBusquedaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -836,7 +828,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addComponent(jButtonLogout)
                 .addGap(45, 45, 45)
                 .addComponent(jButtonCambiarContraseña)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addContainerGap(438, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Gestión usuario", jPanelGestionUsuario);
@@ -858,10 +850,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             .addGroup(jPanelAcercaDeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabelHREntrada)
-                .addContainerGap(403, Short.MAX_VALUE))
+                .addContainerGap(488, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Acerca de", jPanelAcercaDe);
+
+        jPanelOtros.setMaximumSize(new java.awt.Dimension(1200, 1000));
+        jPanelOtros.setMinimumSize(new java.awt.Dimension(950, 500));
+        jPanelOtros.setPreferredSize(new java.awt.Dimension(950, 500));
 
         javax.swing.GroupLayout jPanelOtrosLayout = new javax.swing.GroupLayout(jPanelOtros);
         jPanelOtros.setLayout(jPanelOtrosLayout);
@@ -871,7 +867,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         );
         jPanelOtrosLayout.setVerticalGroup(
             jPanelOtrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Otros", jPanelOtros);
@@ -886,7 +882,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -2351,7 +2347,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxTablas1;
     private javax.swing.JComboBox<String> jComboBoxTablas2;
     private javax.swing.JComboBox<String> jComboBoxTipoOperacion;
-    private javax.swing.JComboBox<String> jComboBoxTipoOperacion2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2367,7 +2362,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelColumna2;
     private javax.swing.JLabel jLabelHREntrada;
     private javax.swing.JLabel jLabelOperacion;
-    private javax.swing.JLabel jLabelOperacion2;
     private javax.swing.JLabel jLabelOrdenar;
     private javax.swing.JLabel jLabelPalabra;
     private javax.swing.JLabel jLabelPalabra1;
