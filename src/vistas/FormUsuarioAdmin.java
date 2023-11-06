@@ -24,7 +24,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
-import paneles.PanelOtros;
 
 import modelo.*;
 

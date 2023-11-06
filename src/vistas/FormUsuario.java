@@ -25,7 +25,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import logs.Logout;
-import paneles.PanelOtros;
 
 import modelo.*;
 
