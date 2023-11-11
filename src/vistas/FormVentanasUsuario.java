@@ -336,8 +336,18 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelVariosFiltros.setBackground(new java.awt.Color(153, 204, 255));
 
         jTextFieldNom2.setText("nom");
+        jTextFieldNom2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNom2KeyReleased(evt);
+            }
+        });
 
         jTextFieldApellido2.setText("apellido");
+        jTextFieldApellido2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldApellido2KeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelVariosFiltrosLayout = new javax.swing.GroupLayout(jPanelVariosFiltros);
         jPanelVariosFiltros.setLayout(jPanelVariosFiltrosLayout);
@@ -1167,6 +1177,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         buscarPorVariosFiltrosONo();
         activarDesactivarBusqueda();
+        if (jCheckBoxBuscarVariosFiltros.isSelected()){
+            jButtonBuscar.setEnabled(false);
+        }
     }//GEN-LAST:event_jCheckBoxBuscarVariosFiltrosActionPerformed
 
     private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPalabraKeyReleased
@@ -1175,6 +1188,26 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         activarDesactivarBusqueda();
     }//GEN-LAST:event_jTextFieldPalabraKeyReleased
 
+    private void jTextFieldNom2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNom2KeyReleased
+        // TODO add your handling code here:
+        comprobarTextFieldsBusquedaDoble();
+    }//GEN-LAST:event_jTextFieldNom2KeyReleased
+
+    private void jTextFieldApellido2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldApellido2KeyReleased
+        // TODO add your handling code here:
+        comprobarTextFieldsBusquedaDoble();
+    }//GEN-LAST:event_jTextFieldApellido2KeyReleased
+
+    private void comprobarTextFieldsBusquedaDoble(){
+        if (jTextFieldNom2.getText().equals("nom")){
+            jButtonBuscar.setEnabled(false);
+        }if (jTextFieldApellido2.getText().equals("apellido")){
+             jButtonBuscar.setEnabled(false);
+        }if (!jTextFieldNom2.getText().equals("nom") && !jTextFieldApellido2.getText().equals("apellido")){
+            jButtonBuscar.setEnabled(true);
+        }
+    }
+    
     private void buscarPorVariosFiltrosONo(){
         if (jCheckBoxBuscarVariosFiltros.isSelected()){
             if ( jComboBoxTablas.getSelectedItem().toString() == "empleados"){

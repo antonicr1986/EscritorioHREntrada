@@ -352,11 +352,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="nom"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNom2KeyReleased"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldApellido2">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="apellido"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldApellido2KeyReleased"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
