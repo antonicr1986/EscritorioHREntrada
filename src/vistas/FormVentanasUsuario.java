@@ -448,12 +448,12 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addComponent(jButtonAñadirATabla)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAñadirATabla)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
 
@@ -465,7 +465,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         );
         jPanelAñadirLayout.setVerticalGroup(
             jPanelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBusqueda3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelBusqueda3, javax.swing.GroupLayout.PREFERRED_SIZE, 565, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Añadir", jPanelAñadir);
@@ -1856,7 +1856,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         String datoTelephon = insertEmpresas[8];
         orden = insertEmpresas[9];// si es el caso el orden, si no hay ponemos 0
 
-        jTextAreaSelect.append("____________________________________________________________________" + "\n"
+        jTextAreaInsert.append("____________________________________________________________________" + "\n"
             +"codigoUserRecibido: " + codigoUserRecibido + "\n"
             +"crud: " + crud + "\n"
             +"nombreTabla: " + nombreTabla + "\n"
@@ -1889,11 +1889,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 insertEmpresa = (ArrayList) perEnt.readObject();
-                jTextAreaSelect.append(("Empleado creado correctamente, sus datos son: \n"));
-                jTextAreaSelect.append("Nombre: " + datoNom + "\n"
+                jTextAreaInsert.append(("Empresa creada correctamente, sus datos son: \n"));
+                jTextAreaInsert.append("Nombre: " + datoNom + "\n"
                         + "Adrress: " + datoAddress + "\n"
                         + "Telefono: " + datoTelephon + "\n"
-                        +"____________________________________________________________________");
+                        +"____________________________________________________________________\n");
                 perEnt.getObjectInputFilter();
             }
         }
@@ -1913,7 +1913,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 String datoDni = insertUsuarios[10];
                 orden = insertUsuarios[11];// si es el caso el orden, si no hay ponemos 0
 
-                jTextAreaSelect.append("____________________________________________________________________" + "\n"
+                jTextAreaInsert.append("____________________________________________________________________" + "\n"
                     +"codigoUserRecibido: " + codigoUserRecibido + "\n"
                     +"crud: " + crud + "\n"
                     +"nombreTabla: " + nombreTabla + "\n"
@@ -1941,19 +1941,20 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         escriptor.write(palabra);
                         escriptor.newLine();
                         escriptor.flush();
-                        jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                        jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
                                 + "\nenvia los datos siguiente: \n" + palabra + "\n");
 
                         List<Empresa> insertUser = new ArrayList<>();
 
                         perEnt = new ObjectInputStream(socket.getInputStream());
                         insertUser = (ArrayList) perEnt.readObject();
-                        jTextAreaSelect.append(("Empleado creado correctamente, sus datos son: \n"));
-                        jTextAreaSelect.append("Login: " + datoLogin + "\n"
+                        jTextAreaInsert.append(("\n____________________________________________________________________\n+"
+                                + "User creado correctamente, sus datos son: \n"));
+                        jTextAreaInsert.append("Login: " + datoLogin + "\n"
                                 + "Pass: " + datoPass + "\n"
                                 + "Num Tipe: " + datoNumTipe + "\n"
                                 + "Dni: " + datoDni + "\n"
-                                +"____________________________________________________________________");
+                                +"____________________________________________________________________\n");
                         perEnt.getObjectInputFilter();
                     }
                 }
@@ -1977,7 +1978,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         String datoCodicard = insertEmpleadoMailTelf[14];
         orden = insertEmpleadoMailTelf[15];// si es el caso el orden, si no hay ponemos 0
 
-        jTextAreaSelect.append("____________________________________________________________________"+ "\n" 
+        jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
                 + "crud: " + crud + "\n" 
                 +"nombreTabla: " + nombreTabla + "\n" 
@@ -2017,14 +2018,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 insertEmpleadosMailTelf = (ArrayList) perEnt.readObject();
-                jTextAreaSelect.append(("Empleado creado correctamente, sus datos son: \n"));
-                jTextAreaSelect.append("Dni: " + datoDni + "\n"
+                jTextAreaInsert.append(("Empleado creado correctamente, sus datos son: \n"));
+                jTextAreaInsert.append("Dni: " + datoDni + "\n"
                         + "Nombre: " + datoNom + "\n"
                         + "Apellido: " + datoApellido + "\n"
                         + "Nombre empresa: " + datoNomempresa + "\n"
                         + "Departamento: " + datoDepartament + "\n"
                         + "Codigo tarjeta: " + datoCodicard + "\n"
-                        +"____________________________________________________________________");
+                        +"____________________________________________________________________\n");
                 perEnt.getObjectInputFilter();
             }
         }
@@ -2053,7 +2054,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             String datoMail = insertEmpleadoMT[16];
             orden = insertEmpleadoMT[17];// si es el caso el orden, si no hay ponemos 0
 
-            jTextAreaSelect.append("____________________________________________________________________"+ "\n" 
+            jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
                 + "crud: " + crud + "\n" 
                 +"nombreTabla: " + nombreTabla + "\n" 
@@ -2086,22 +2087,22 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     escriptor.write(palabra);
                     escriptor.newLine();
                     escriptor.flush();
-                     jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                     jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
                             + "\nenvia los datos siguiente: \n" + palabra + "\n");
 
                     List<Empleados> insertEmpleadosMail = new ArrayList<>();
 
                     perEnt = new ObjectInputStream(socket.getInputStream());
                     insertEmpleadosMail = (ArrayList) perEnt.readObject();
-                     jTextAreaSelect.append(("Empleado creado correctamente, sus datos son: \n"));
-                     jTextAreaSelect.append("Dni: " + datoDni + "\n"
+                     jTextAreaInsert.append(("Empleado creado correctamente, sus datos son: \n"));
+                     jTextAreaInsert.append("Dni: " + datoDni + "\n"
                             + "Nombre: " + datoNom + "\n"
                             + "Apellido: " + datoApellido + "\n"
                             + "Nombre empresa: " + datoNomempresa + "\n"
                             + "Departamento: " + datoDepartament + "\n"
                             + "Codigo tarjeta: " + datoCodicard + "\n"
                             + "Mail: " + datoMail + "\n"
-                            +"____________________________________________________________________");
+                            +"____________________________________________________________________\n");
                     perEnt.getObjectInputFilter();
                 }
             }
@@ -2127,7 +2128,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             String datoTelephon = insertEmpleadoMT[16];
             orden = insertEmpleadoMT[17];// si es el caso el orden, si no hay ponemos 0
 
-            jTextAreaSelect.append("____________________________________________________________________"+ "\n" 
+            jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
                 + "crud: " + crud + "\n" 
                 +"nombreTabla: " + nombreTabla + "\n" 
@@ -2160,22 +2161,23 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     escriptor.write(palabra);
                     escriptor.newLine();
                     escriptor.flush();
-                    jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
                             + "\nenvia los datos siguiente: \n" + palabra + "\n");
 
                     List<Empleados> insertEmpleadosTelf = new ArrayList<>();
 
                     perEnt = new ObjectInputStream(socket.getInputStream());
                     insertEmpleadosTelf = (ArrayList) perEnt.readObject();
-                    jTextAreaSelect.append(("Empleado creado correctamente, sus datos son: \n"));
-                    jTextAreaSelect.append("Dni: " + datoDni + "\n"
+                    jTextAreaInsert.append(("\n____________________________________________________________________\n+"
+                            + "Empleado creado correctamente, sus datos son: \n"));
+                    jTextAreaInsert.append("Dni: " + datoDni + "\n"
                             + "Nombre: " + datoNom + "\n"
                             + "Apellido: " + datoApellido + "\n"
                             + "Nombre empresa: " + datoNomempresa + "\n"
                             + "Departamento: " + datoDepartament + "\n"
                             + "Codigo tarjeta: " + datoCodicard + "\n"
                             + "Telephon: " + datoTelephon + "\n"
-                            +"____________________________________________________________________");
+                            +"____________________________________________________________________\n");
                     perEnt.getObjectInputFilter();
                 }
             }
@@ -2204,7 +2206,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         String datoTelephon = insertEmpleado[18];
         orden = insertEmpleado[19];// si es el caso el orden, si no hay ponemos 0
 
-        jTextAreaSelect.append("____________________________________________________________________"+ "\n" 
+        jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
                 + "crud: " + crud + "\n" 
                 +"nombreTabla: " + nombreTabla + "\n" 
@@ -2237,15 +2239,16 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                 jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
                         + "\nenvia los datos siguiente: \n" + palabra + "\n");
 
                 List<Empleados> insertEmpleados = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 insertEmpleados = (ArrayList) perEnt.readObject();
-                 jTextAreaSelect.append(("Empleado creado correctamente, sus datos son: \n"));
-                 jTextAreaSelect.append("Dni: " + datoDni + "\n"
+                 jTextAreaInsert.append(("\n____________________________________________________________________" 
+                         + "\nEmpleado creado correctamente, sus datos son: \n"));
+                 jTextAreaInsert.append("Dni: " + datoDni + "\n"
                         + "Nombre: " + datoNom + "\n"
                         + "Apellido: " + datoApellido + "\n"
                         + "Nombre empresa: " + datoNomempresa + "\n"
@@ -2253,7 +2256,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         + "Codigo tarjeta: " + datoCodicard + "\n"
                         + "Mail: " + datoMail + "\n"
                         + "Telefono: " + datoTelephon + "\n"
-                        +"____________________________________________________________________");
+                        +"____________________________________________________________________\n");
                 perEnt.getObjectInputFilter();
             }
         }
