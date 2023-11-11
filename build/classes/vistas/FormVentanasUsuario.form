@@ -449,7 +449,7 @@
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jComboBoxColumna1" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jTextFieldPalabra1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBoxTablas1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jComboBoxTablasUpdate" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jLabelUserCode1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -499,7 +499,7 @@
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                   <Component id="jLabelUserCode1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                                  <Component id="jComboBoxTablas1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxTablasUpdate" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
@@ -564,14 +564,14 @@
                     <Property name="text" type="java.lang.String" value="Columna:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxTablas1">
+                <Component class="javax.swing.JComboBox" name="jComboBoxTablasUpdate">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
                         <StringItem index="0" value="empleados"/>
-                        <StringItem index="1" value="empresa"/>
-                        <StringItem index="2" value="jornada"/>
-                        <StringItem index="3" value="users"/>
+                        <StringItem index="1" value="users"/>
+                        <StringItem index="2" value="empresa"/>
+                        <StringItem index="3" value="jornada"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -676,7 +676,7 @@
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="jComboBoxColumna2" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jTextFieldPalabra2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jComboBoxTablas2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jComboBoxTablasBorrar" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jLabelUserCode2" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
@@ -714,7 +714,7 @@
                                   <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelTabla2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBoxTablas2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxTablasBorrar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -784,14 +784,14 @@
                     <Property name="text" type="java.lang.String" value="Columna:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxTablas2">
+                <Component class="javax.swing.JComboBox" name="jComboBoxTablasBorrar">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
                         <StringItem index="0" value="empleados"/>
-                        <StringItem index="1" value="empresa"/>
-                        <StringItem index="2" value="jornada"/>
-                        <StringItem index="3" value="users"/>
+                        <StringItem index="1" value="users"/>
+                        <StringItem index="2" value="empresa"/>
+                        <StringItem index="3" value="jornada"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -1023,6 +1023,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxTablasActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -1043,6 +1046,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxColumnaActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -1066,6 +1072,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldPalabra">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPalabraActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelUserCode">
               <Properties>

@@ -114,6 +114,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
              jRadioButtonUsers.setVisible(true);
         }else{
             jComboBoxTablas.removeItemAt(1);
+            jComboBoxTablasBorrar.removeItemAt(1);
+            jComboBoxTablasUpdate.removeItemAt(1);
             jRadioButtonUsers.setVisible(false);
         }
         addWindowListener(new WindowAdapter() {
@@ -211,7 +213,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelTabla1 = new javax.swing.JLabel();
         jLabelPalabra1 = new javax.swing.JLabel();
         jLabelColumna1 = new javax.swing.JLabel();
-        jComboBoxTablas1 = new javax.swing.JComboBox<>();
+        jComboBoxTablasUpdate = new javax.swing.JComboBox<>();
         jComboBoxColumna1 = new javax.swing.JComboBox<>();
         jTextFieldPalabra1 = new javax.swing.JTextField();
         jLabelUserCode1 = new javax.swing.JLabel();
@@ -225,7 +227,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelTabla2 = new javax.swing.JLabel();
         jLabelPalabra2 = new javax.swing.JLabel();
         jLabelColumna2 = new javax.swing.JLabel();
-        jComboBoxTablas2 = new javax.swing.JComboBox<>();
+        jComboBoxTablasBorrar = new javax.swing.JComboBox<>();
         jComboBoxColumna2 = new javax.swing.JComboBox<>();
         jTextFieldPalabra2 = new javax.swing.JTextField();
         jLabelUserCode2 = new javax.swing.JLabel();
@@ -492,7 +494,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelColumna1.setText("Columna:");
 
-        jComboBoxTablas1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "empresa", "jornada", "users" }));
+        jComboBoxTablasUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
 
         jComboBoxColumna1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
 
@@ -519,7 +521,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextFieldPalabra1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxTablas1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxTablasUpdate, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabelUserCode1, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addGap(48, 48, 48)
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -556,7 +558,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addComponent(jLabelUserCode1)
                         .addGap(81, 81, 81)
-                        .addComponent(jComboBoxTablas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxTablasUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23)
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
@@ -611,7 +613,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelColumna2.setText("Columna:");
 
-        jComboBoxTablas2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "empresa", "jornada", "users" }));
+        jComboBoxTablasBorrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
 
         jComboBoxColumna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
 
@@ -640,7 +642,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jComboBoxColumna2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextFieldPalabra2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBoxTablas2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jComboBoxTablasBorrar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelUserCode2, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGap(43, 43, 43)))
                     .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
@@ -668,7 +670,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTabla2)
-                            .addComponent(jComboBoxTablas2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxTablasBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
@@ -725,12 +727,28 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jComboBoxTipoOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "insert" }));
 
         jComboBoxTablas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
+        jComboBoxTablas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTablasActionPerformed(evt);
+            }
+        });
 
         jComboBoxColumna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
+        jComboBoxColumna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxColumnaActionPerformed(evt);
+            }
+        });
 
         jLabelOrdenar.setText("Ordenar:");
 
         jComboBoxOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
+
+        jTextFieldPalabra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPalabraActionPerformed(evt);
+            }
+        });
 
         jLabelUserCode.setText("jLabelUserCode");
 
@@ -1029,6 +1047,60 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
         ejecutarAccion();
     }//GEN-LAST:event_jButtonAñadirATablaActionPerformed
+
+    private void jTextFieldPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPalabraActionPerformed
+        // TODO add your handling code here:
+        activarDesactivarBusqueda();
+    }//GEN-LAST:event_jTextFieldPalabraActionPerformed
+
+    private void jComboBoxTablasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTablasActionPerformed
+        // TODO add your handling code here:
+         jComboBoxTablas.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String seleccion = (String) jComboBoxTablas.getSelectedItem();
+                // Limpia el modelo actual
+                jComboBoxColumna.removeAllItems();
+                if ("empleados".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("dni");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("apellido");
+                    jComboBoxColumna.addItem("nomempresa");
+                    jComboBoxColumna.addItem("departament");
+                    jComboBoxColumna.addItem("codicard");
+                    jComboBoxColumna.addItem("mail");
+                    jComboBoxColumna.addItem("telephon");
+                } else if ("empresa".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("address");
+                    jComboBoxColumna.addItem("telephon");
+                } else if ("jornada".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("dni");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("apellido");
+                    jComboBoxColumna.addItem("codicard");
+                    jComboBoxColumna.addItem("horaentrada");
+                    jComboBoxColumna.addItem("horasalida");
+                    jComboBoxColumna.addItem("total");
+                    jComboBoxColumna.addItem("fecha");
+                }else if ("users".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("login");
+                    jComboBoxColumna.addItem("pass");
+                    jComboBoxColumna.addItem("numtipe");
+                    jComboBoxColumna.addItem("dni");
+                }            
+            }
+        });
+    }//GEN-LAST:event_jComboBoxTablasActionPerformed
+
+    private void jComboBoxColumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColumnaActionPerformed
+        // TODO add your handling code here:
+        activarDesactivarBusqueda();
+    }//GEN-LAST:event_jComboBoxColumnaActionPerformed
 
     
      private void ejecutarAccion(){
@@ -2260,61 +2332,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 perEnt.getObjectInputFilter();
             }
         }
-    }                
-
-    private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {                                              
-        // TODO add your handling code here:
-        activarDesactivarBusqueda();
-    }                                             
-
-    private void jComboBoxTablasActionPerformed(java.awt.event.ActionEvent evt) {                                                
-        // TODO add your handling code here:
-        jComboBoxTablas.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String seleccion = (String) jComboBoxTablas.getSelectedItem();
-                // Limpia el modelo actual
-                jComboBoxColumna.removeAllItems();
-                if ("empleados".equals(seleccion)) {
-                    jComboBoxColumna.addItem("todas");
-                    jComboBoxColumna.addItem("dni");
-                    jComboBoxColumna.addItem("nom");
-                    jComboBoxColumna.addItem("apellido");
-                    jComboBoxColumna.addItem("nomempresa");
-                    jComboBoxColumna.addItem("departament");
-                    jComboBoxColumna.addItem("codicard");
-                    jComboBoxColumna.addItem("mail");
-                    jComboBoxColumna.addItem("telephon");
-                } else if ("empresa".equals(seleccion)) {
-                    jComboBoxColumna.addItem("todas");
-                    jComboBoxColumna.addItem("nom");
-                    jComboBoxColumna.addItem("address");
-                    jComboBoxColumna.addItem("telephon");
-                } else if ("jornada".equals(seleccion)) {
-                    jComboBoxColumna.addItem("todas");
-                    jComboBoxColumna.addItem("dni");
-                    jComboBoxColumna.addItem("nom");
-                    jComboBoxColumna.addItem("apellido");
-                    jComboBoxColumna.addItem("codicard");
-                    jComboBoxColumna.addItem("horaentrada");
-                    jComboBoxColumna.addItem("horasalida");
-                    jComboBoxColumna.addItem("total");
-                    jComboBoxColumna.addItem("fecha");
-                }else if ("users".equals(seleccion)) {
-                    jComboBoxColumna.addItem("todas");
-                    jComboBoxColumna.addItem("login");
-                    jComboBoxColumna.addItem("pass");
-                    jComboBoxColumna.addItem("numtipe");
-                    jComboBoxColumna.addItem("dni");
-                }            
-            }
-        });
-    }                                               
-
-    private void jComboBoxColumnaActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
-         activarDesactivarBusqueda();
-    }   
+    }                                                                                              
     
     private void activarDesactivarTextFields(){
         if (jRadioButtonEmpresa.isSelected()){
@@ -2402,8 +2420,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxColumna2;
     private javax.swing.JComboBox<String> jComboBoxOrdenar;
     private javax.swing.JComboBox<String> jComboBoxTablas;
-    private javax.swing.JComboBox<String> jComboBoxTablas1;
-    private javax.swing.JComboBox<String> jComboBoxTablas2;
+    private javax.swing.JComboBox<String> jComboBoxTablasBorrar;
+    private javax.swing.JComboBox<String> jComboBoxTablasUpdate;
     private javax.swing.JComboBox<String> jComboBoxTipoOperacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
