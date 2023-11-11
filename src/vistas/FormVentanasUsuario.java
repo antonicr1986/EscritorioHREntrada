@@ -370,6 +370,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
+        jCheckBoxBuscarVariosFiltros.setBackground(new java.awt.Color(153, 204, 255));
         jCheckBoxBuscarVariosFiltros.setText("Buscar por varios filtros");
         jCheckBoxBuscarVariosFiltros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1205,6 +1206,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
              jButtonBuscar.setEnabled(false);
         }if (!jTextFieldNom2.getText().equals("nom") && !jTextFieldApellido2.getText().equals("apellido")){
             jButtonBuscar.setEnabled(true);
+        }if (jTextFieldNom2.getText().equals("") || jTextFieldApellido2.getText().equals("")){
+            jButtonBuscar.setEnabled(false);
         }
     }
     
