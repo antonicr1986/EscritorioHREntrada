@@ -247,11 +247,6 @@ public class MainForm extends javax.swing.JFrame {
                     usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                     usuarioFormPestañas.setVisible(true);
                     
-                     /*usuarioForm = new FormUsuario();
-                     usuarioForm.setjLabel1(codigo);
-                     usuarioForm.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());
-                     usuarioForm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                     usuarioForm.setVisible(true);*/                  
                 }else if(mensajeServer.charAt(0) == 'A'){
                     usuarioFormPestañas = new FormVentanasUsuario(codigo, jTextFieldUsuario.getText());
                     usuarioFormPestañas.setjLabel1(codigo);
@@ -260,13 +255,7 @@ public class MainForm extends javax.swing.JFrame {
                     usuarioFormPestañas.setjUserCode3(codigo);
                     usuarioFormPestañas.setTitle("Logeado como administrador: "+jTextFieldUsuario.getText());
                     usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                    usuarioFormPestañas.setVisible(true);
-                     
-                     /*adminForm = new FormUsuarioAdmin();
-                     adminForm.setjLabel1(codigo);//***
-                     adminForm.setTitle("Logeado como administrador: "+jTextFieldUsuario.getText());
-                     adminForm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                     adminForm.setVisible(true);*/
+                    usuarioFormPestañas.setVisible(true);                 
                 }                  
                 this.setVisible(false);  
             }

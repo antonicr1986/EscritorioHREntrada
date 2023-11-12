@@ -125,17 +125,21 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jComboBoxTablasBorrar.removeItemAt(1);
             jComboBoxTablasUpdate.removeItemAt(1);
             jRadioButtonUsers.setVisible(false);
-        }
+        }           
+        
+        //ComboBox Busqueda y ordenar no visibles
+        //Etiqueta añadir info y panel varios filtros no visibles
+        jLabelOperacion.setVisible(false);
+        jComboBoxTipoOperacion.setVisible(false);
+        
+        jLabelOrdenar.setVisible(false);
+        jComboBoxOrdenar.setVisible(false);
+        
+        jLabelAñadirInfo.setVisible(false);
         
         jPanelVariosFiltros.setVisible(false);
         jLabelVariosFiltrosNoPosible.setVisible(false);
         
-        //Etiquetas info añadir
-        jLabelAñadirInfo.setVisible(false);
-        
-        //ComboBox Busqueda hacer no visible
-        jLabelOperacion.setVisible(false);
-        jComboBoxTipoOperacion.setVisible(false);
         
         addWindowListener(new WindowAdapter() {
             @Override
@@ -143,7 +147,48 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 logout();
                 
             }
-        });  
+        }); 
+        
+        jComboBoxTablas.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String seleccion = (String) jComboBoxTablas.getSelectedItem().toString();
+                // Limpia el modelo actual
+                jComboBoxColumna.removeAllItems();
+                if ("empleados".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("dni");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("apellido");
+                    jComboBoxColumna.addItem("nomempresa");
+                    jComboBoxColumna.addItem("departament");
+                    jComboBoxColumna.addItem("codicard");
+                    jComboBoxColumna.addItem("mail");
+                    jComboBoxColumna.addItem("telephon");
+                } else if ("empresa".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("address");
+                    jComboBoxColumna.addItem("telephon");
+                } else if ("jornada".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("dni");
+                    jComboBoxColumna.addItem("nom");
+                    jComboBoxColumna.addItem("apellido");
+                    jComboBoxColumna.addItem("codicard");
+                    jComboBoxColumna.addItem("horaentrada");
+                    jComboBoxColumna.addItem("horasalida");
+                    jComboBoxColumna.addItem("total");
+                    jComboBoxColumna.addItem("fecha");
+                }else if ("users".equals(seleccion)) {
+                    jComboBoxColumna.addItem("todas");
+                    jComboBoxColumna.addItem("login");
+                    jComboBoxColumna.addItem("pass");
+                    jComboBoxColumna.addItem("numtipe");
+                    jComboBoxColumna.addItem("dni");                 
+                }         
+            }
+        });
     }
     
     private void logout(){
@@ -1173,51 +1218,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:      
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
-        modificarComboBoxColumnas();
     }//GEN-LAST:event_jComboBoxTablasActionPerformed
 
-    private void modificarComboBoxColumnas(){
-         jComboBoxTablas.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String seleccion = (String) jComboBoxTablas.getSelectedItem().toString();
-                // Limpia el modelo actual
-                jComboBoxColumna.removeAllItems();
-                if ("empleados".equals(seleccion)) {
-                    jComboBoxColumna.addItem("todas");
-                    jComboBoxColumna.addItem("dni");
-                    jComboBoxColumna.addItem("nom");
-                    jComboBoxColumna.addItem("apellido");
-                    jComboBoxColumna.addItem("nomempresa");
-                    jComboBoxColumna.addItem("departament");
-                    jComboBoxColumna.addItem("codicard");
-                    jComboBoxColumna.addItem("mail");
-                    jComboBoxColumna.addItem("telephon");
-                } else if ("empresa".equals(seleccion)) {
-                    jComboBoxColumna.addItem("todas");
-                    jComboBoxColumna.addItem("nom");
-                    jComboBoxColumna.addItem("address");
-                    jComboBoxColumna.addItem("telephon");
-                } else if ("jornada".equals(seleccion)) {
-                    jComboBoxColumna.addItem("todas");
-                    jComboBoxColumna.addItem("dni");
-                    jComboBoxColumna.addItem("nom");
-                    jComboBoxColumna.addItem("apellido");
-                    jComboBoxColumna.addItem("codicard");
-                    jComboBoxColumna.addItem("horaentrada");
-                    jComboBoxColumna.addItem("horasalida");
-                    jComboBoxColumna.addItem("total");
-                    jComboBoxColumna.addItem("fecha");
-                }else if ("users".equals(seleccion)) {
-                    jComboBoxColumna.addItem("todas");
-                    jComboBoxColumna.addItem("login");
-                    jComboBoxColumna.addItem("pass");
-                    jComboBoxColumna.addItem("numtipe");
-                    jComboBoxColumna.addItem("dni");
-                }         
-            }
-        });
-    }
     
     private void jComboBoxColumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColumnaActionPerformed
         // TODO add your handling code here:
