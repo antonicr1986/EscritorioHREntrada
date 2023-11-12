@@ -12,6 +12,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -26,6 +27,8 @@ public class MainForm extends javax.swing.JFrame {
     private static MainForm mainForm;
     
     String codigo;
+    
+    String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
 
     public String getPalabra() {
         return palabra;
@@ -47,7 +50,10 @@ public class MainForm extends javax.swing.JFrame {
         setResizable(false);
         jCheckBoxVerContraseña.setEnabled(false);
         jButtonConfirmar.setEnabled(false);
-        jPasswordField.setEnabled(false);   
+        jPasswordField.setEnabled(false);  
+        
+        ImageIcon icono = new ImageIcon(rutaImagen);
+        setIconImage(icono.getImage());
     }
 
     /**

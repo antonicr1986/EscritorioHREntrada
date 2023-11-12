@@ -42,6 +42,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     ObjectInputStream perEnt;
     String codigoUserRecibido;
     static String user;
+    String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
     
     String codigo;
     String crud;
@@ -106,6 +107,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         setResizable(false);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);   
         initComponents();
+        
+        //Añadir icono
+        ImageIcon icono = new ImageIcon(rutaImagen);
+        setIconImage(icono.getImage());
 
         buttonGroup.add(jRadioButtonEmpresa);
         buttonGroup.add(jRadioButtonEmpleado);
@@ -127,7 +132,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         
         //Etiquetas info añadir
         jLabelAñadirInfo.setVisible(false);
-             
+        
+        //ComboBox Busqueda hacer no visible
+        jLabelOperacion.setVisible(false);
+        jComboBoxTipoOperacion.setVisible(false);
         
         addWindowListener(new WindowAdapter() {
             @Override
@@ -135,7 +143,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 logout();
                 
             }
-        });   
+        });  
     }
     
     private void logout(){
@@ -310,6 +318,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jComboBoxTipoOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select", "insert" }));
 
         jComboBoxTablas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
+        jComboBoxTablas.setMinimumSize(new java.awt.Dimension(110, 22));
+        jComboBoxTablas.setPreferredSize(new java.awt.Dimension(110, 22));
         jComboBoxTablas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTablasActionPerformed(evt);
@@ -317,6 +327,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         });
 
         jComboBoxColumna.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
+        jComboBoxColumna.setMinimumSize(new java.awt.Dimension(110, 22));
+        jComboBoxColumna.setPreferredSize(new java.awt.Dimension(110, 22));
         jComboBoxColumna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxColumnaActionPerformed(evt);
@@ -404,7 +416,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabelVariosFiltrosNoPosible.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelVariosFiltrosNoPosible.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelVariosFiltrosNoPosible.setText("Opción no disponible");
 
         javax.swing.GroupLayout jPanelBusquedaLayout = new javax.swing.GroupLayout(jPanelBusqueda);
@@ -415,39 +427,36 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                        .addComponent(jLabelCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel8)
                         .addGap(502, 502, 502))
                     .addGroup(jPanelBusquedaLayout.createSequentialGroup()
                         .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
                                 .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelVariosFiltrosNoPosible, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBoxBuscarVariosFiltros)))
+                            .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelOperacion)
+                                        .addComponent(jLabelTabla)
+                                        .addComponent(jLabelOrdenar)
+                                        .addComponent(jLabelColumna)
+                                        .addComponent(jLabelPalabra)
+                                        .addComponent(jLabelCodigo))
                                     .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelVariosFiltrosNoPosible, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jCheckBoxBuscarVariosFiltros)))
-                                    .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabelOperacion)
-                                                .addComponent(jLabelTabla)
-                                                .addComponent(jLabelOrdenar)
-                                                .addComponent(jLabelColumna)
-                                                .addComponent(jLabelPalabra))
-                                            .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                                                .addComponent(jButtonBuscar)
-                                                .addGap(9, 9, 9)))
-                                        .addGap(24, 24, 24)
-                                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jComboBoxOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBoxColumna, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBoxTablas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabelUserCode, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(jButtonBuscar)
+                                        .addGap(9, 9, 9)))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jComboBoxOrdenar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelUserCode, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBoxColumna, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxTablas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusquedaLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jPanelVariosFiltros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -495,7 +504,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addComponent(jLabelVariosFiltrosNoPosible)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanelVariosFiltros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addComponent(jButtonBuscar)
                         .addGap(19, 19, 19))))
         );
@@ -747,10 +756,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelBusqueda1Layout.setHorizontalGroup(
             jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonActualizarTabla)
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jButtonActualizarTabla)
+                        .addGap(79, 79, 79))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelTabla1)
                             .addComponent(jLabelPalabra1)
@@ -760,9 +772,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextFieldPalabra1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxTablasUpdate, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelUserCode1, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addGap(48, 48, 48)
+                            .addComponent(jComboBoxTablasUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelUserCode1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(39, 39, 39)))
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -771,34 +783,34 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelBusqueda1Layout.setVerticalGroup(
             jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE))
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabelCodigo1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel9)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabelUserCode1)
-                        .addGap(81, 81, 81)
-                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxTablasUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTabla1))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelColumna1))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelPalabra1)
-                            .addComponent(jTextFieldPalabra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)))
+                                .addComponent(jLabelCodigo1)
+                                .addGap(204, 204, 204))
+                            .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabelUserCode1)
+                                .addGap(81, 81, 81)
+                                .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jComboBoxTablasUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelTabla1))
+                                .addGap(28, 28, 28)
+                                .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelColumna1))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabelPalabra1)
+                                    .addComponent(jTextFieldPalabra1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonActualizarTabla)
                 .addGap(34, 34, 34))
         );
@@ -807,17 +819,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelActualizar.setLayout(jPanelActualizarLayout);
         jPanelActualizarLayout.setHorizontalGroup(
             jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1048, Short.MAX_VALUE)
-            .addGroup(jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelActualizarLayout.createSequentialGroup()
-                    .addComponent(jPanelBusqueda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelActualizarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanelBusqueda1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelActualizarLayout.setVerticalGroup(
             jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
-            .addGroup(jPanelActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelBusqueda1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelBusqueda1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Actualizar", jPanelActualizar);
@@ -1082,16 +1090,17 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         insert = false;
         update = false;
         delete = false;
+        
         ejecutarAccion();
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
+        delete = true;
+        
         select = false;
         insert = false;
         update = false;
-
-        delete = true;
 
         ejecutarAccion();
     }//GEN-LAST:event_jButtonBorrarActionPerformed
@@ -1109,26 +1118,26 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
     private void jRadioButtonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsersActionPerformed
         // TODO add your handling code here:
-        activarDesactivarTextFields();
+        activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonUsersActionPerformed
 
     private void jRadioButtonJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaActionPerformed
         // TODO add your handling code here:
-        activarDesactivarTextFields();
+        activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonJornadaActionPerformed
 
     private void jRadioButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleadoActionPerformed
         // TODO add your handling code here:
-        activarDesactivarTextFields();
+        activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpleadoActionPerformed
 
      //RADIO BUTTONS EVENTOS QUE SE DISPARAN AL HACER CLICK EN ALGUNO DE ELLOS
     private void jRadioButtonEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresaActionPerformed
         // TODO add your handling code here:
-        activarDesactivarTextFields();
+        activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpresaActionPerformed
 
@@ -1157,15 +1166,21 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private void jTextFieldPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPalabraActionPerformed
         // TODO add your handling code here:
         buscarPorVariosFiltrosONo();
-        activarDesactivarBusqueda();
+        activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jTextFieldPalabraActionPerformed
 
     private void jComboBoxTablasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTablasActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:      
+        buscarPorVariosFiltrosONo();
+        activarDesactivarBotonBusqueda();
+        modificarComboBoxColumnas();
+    }//GEN-LAST:event_jComboBoxTablasActionPerformed
+
+    private void modificarComboBoxColumnas(){
          jComboBoxTablas.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                String seleccion = (String) jComboBoxTablas.getSelectedItem();
+                String seleccion = (String) jComboBoxTablas.getSelectedItem().toString();
                 // Limpia el modelo actual
                 jComboBoxColumna.removeAllItems();
                 if ("empleados".equals(seleccion)) {
@@ -1199,23 +1214,21 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     jComboBoxColumna.addItem("pass");
                     jComboBoxColumna.addItem("numtipe");
                     jComboBoxColumna.addItem("dni");
-                }            
+                }         
             }
         });
-        buscarPorVariosFiltrosONo();
-        activarDesactivarBusqueda();
-    }//GEN-LAST:event_jComboBoxTablasActionPerformed
-
+    }
+    
     private void jComboBoxColumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColumnaActionPerformed
         // TODO add your handling code here:
         buscarPorVariosFiltrosONo();
-        activarDesactivarBusqueda();
+        activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jComboBoxColumnaActionPerformed
 
     private void jCheckBoxBuscarVariosFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBuscarVariosFiltrosActionPerformed
         // TODO add your handling code here:
         buscarPorVariosFiltrosONo();
-        activarDesactivarBusqueda();
+        activarDesactivarBotonBusqueda();
         if (jCheckBoxBuscarVariosFiltros.isSelected()){
             jButtonBuscar.setEnabled(false);
         }
@@ -1224,20 +1237,20 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPalabraKeyReleased
         // TODO add your handling code here:
          buscarPorVariosFiltrosONo();
-        activarDesactivarBusqueda();
+        activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jTextFieldPalabraKeyReleased
 
     private void jTextFieldNom2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNom2KeyReleased
         // TODO add your handling code here:
-        comprobarTextFieldsBusquedaDoble();
+        comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar();
     }//GEN-LAST:event_jTextFieldNom2KeyReleased
 
     private void jTextFieldApellido2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldApellido2KeyReleased
         // TODO add your handling code here:
-        comprobarTextFieldsBusquedaDoble();
+        comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar();
     }//GEN-LAST:event_jTextFieldApellido2KeyReleased
 
-    private void comprobarTextFieldsBusquedaDoble(){
+    private void comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar(){
         if (jTextFieldNom2.getText().equals("nom")){
             jButtonBuscar.setEnabled(false);
         }if (jTextFieldApellido2.getText().equals("apellido")){
@@ -2083,7 +2096,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
     }                                                   
     
-    private void activarDesactivarBusqueda(){
+    private void activarDesactivarBotonBusqueda(){
         if (jComboBoxColumna.getSelectedItem()!=null){
             if (!jTextFieldPalabra.getText().equals("")&&(jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
             jButtonBuscar.setEnabled(false);
@@ -2534,7 +2547,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
     }
     
-    private void activarDesactivarTextFields(){
+    private void activarDesactivarTextFieldsAñadir(){
         if (jRadioButtonEmpresa.isSelected()){
             jTextFieldNom.setEnabled(true);
             jTextFieldAddress.setEnabled(true);

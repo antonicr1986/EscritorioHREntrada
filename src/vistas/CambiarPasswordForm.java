@@ -1,5 +1,6 @@
 package vistas;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -8,6 +9,8 @@ import javax.swing.JOptionPane;
  */
 public class CambiarPasswordForm extends javax.swing.JFrame {
 
+    String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    
     /**
      * Creates new form CambiarPasswordForm
      */
@@ -15,6 +18,10 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setTitle("Cambiar contraseña usuario: "+user);
         initComponents();
+        
+        //Añadir icono
+        ImageIcon icono = new ImageIcon(rutaImagen);
+        setIconImage(icono.getImage());
     }
 
     /**
