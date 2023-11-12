@@ -232,7 +232,7 @@ public class MainForm extends javax.swing.JFrame {
 
                 // Comprueba si la primera letra es una "u" o una "a"
                 if (mensajeServer.charAt(0) == 'U'){
-                    usuarioFormPestañas = new FormVentanasUsuario(codigo);
+                    usuarioFormPestañas = new FormVentanasUsuario(codigo, jTextFieldUsuario.getText());
                     usuarioFormPestañas.setjLabel1(codigo);
                     usuarioFormPestañas.setjUserCode1(codigo);
                     usuarioFormPestañas.setjUserCode2(codigo);
@@ -247,7 +247,7 @@ public class MainForm extends javax.swing.JFrame {
                      usuarioForm.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                      usuarioForm.setVisible(true);*/                  
                 }else if(mensajeServer.charAt(0) == 'A'){
-                    usuarioFormPestañas = new FormVentanasUsuario(codigo);
+                    usuarioFormPestañas = new FormVentanasUsuario(codigo, jTextFieldUsuario.getText());
                     usuarioFormPestañas.setjLabel1(codigo);
                     usuarioFormPestañas.setjUserCode1(codigo);
                     usuarioFormPestañas.setjUserCode2(codigo);
@@ -286,7 +286,7 @@ public class MainForm extends javax.swing.JFrame {
     
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         // TODO add your handling code here:
-        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(codigo);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(codigo, jTextFieldUsuario.getText());
         try{
             // TODO add your handling code here:
             if (jTextFieldIPServidor.getText().isEmpty()||jTextFieldIPServidor.getText().isBlank()||jTextFieldIPServidor.getText() =="" ){

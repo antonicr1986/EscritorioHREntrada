@@ -41,12 +41,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     BufferedWriter escriptor;
     ObjectInputStream perEnt;
     String codigoUserRecibido;
+    static String user;
     
     String codigo;
     String crud;
     String nombreTabla;
     String columna;
-    String orden;
+    String orden;    
     
     boolean select = false;
     boolean insert = false;
@@ -97,7 +98,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     /**
      * Creates new form FormVentanasUsuario
      */
-    public FormVentanasUsuario(String codigo) {
+    public FormVentanasUsuario(String codigo, String user) {
+        this.user = user;
         setMinimumSize(new Dimension(950, 550));
         setMaximumSize(new Dimension(1100,1000));
         setLocationRelativeTo(null);
@@ -1063,7 +1065,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
     private void jButtonCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarContraseñaActionPerformed
         // TODO add your handling code here:
-        CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm ();
+        CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm (user);
         ventanaCambioPass.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         ventanaCambioPass.setVisible(true);
     }//GEN-LAST:event_jButtonCambiarContraseñaActionPerformed
@@ -1499,7 +1501,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormVentanasUsuario("A").setVisible(true);
+                new FormVentanasUsuario("A", user).setVisible(true);
             }
         });
     }

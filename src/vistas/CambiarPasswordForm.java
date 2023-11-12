@@ -11,8 +11,9 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
     /**
      * Creates new form CambiarPasswordForm
      */
-    public CambiarPasswordForm() {
+    public CambiarPasswordForm(String user) {
         setLocationRelativeTo(null);
+        setTitle("Cambiar contraseña usuario: "+user);
         initComponents();
     }
 
