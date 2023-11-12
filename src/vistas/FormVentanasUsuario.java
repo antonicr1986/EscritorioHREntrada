@@ -7,6 +7,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
@@ -122,6 +123,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelVariosFiltros.setVisible(false);
         jLabelVariosFiltrosNoPosible.setVisible(false);
         
+        //Etiquetas info añadir
+        jLabelAñadirEmpresaInfo.setVisible(true);
+        jLabelAñadirEmpleadosInfo.setVisible(false);
+        jLabelAñadirJornadaInfo.setVisible(false);
+        jLabelAñadirUsersInfo.setVisible(false);
+             
+        
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -200,8 +208,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelUserCode = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanelVariosFiltros = new javax.swing.JPanel();
-        jTextFieldNom2 = new javax.swing.JTextField();
         jTextFieldApellido2 = new javax.swing.JTextField();
+        jTextFieldNom2 = new javax.swing.JTextField();
+        jLabelNom2 = new javax.swing.JLabel();
+        jLabelApellido2 = new javax.swing.JLabel();
         jCheckBoxBuscarVariosFiltros = new javax.swing.JCheckBox();
         jLabelVariosFiltrosNoPosible = new javax.swing.JLabel();
         jPanelAñadir = new javax.swing.JPanel();
@@ -230,6 +240,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jRadioButtonEmpleado = new javax.swing.JRadioButton();
         jRadioButtonJornada = new javax.swing.JRadioButton();
         jRadioButtonUsers = new javax.swing.JRadioButton();
+        jLabelAñadirEmpresaInfo = new javax.swing.JLabel();
+        jLabelAñadirEmpleadosInfo = new javax.swing.JLabel();
+        jLabelAñadirJornadaInfo = new javax.swing.JLabel();
+        jLabelAñadirUsersInfo = new javax.swing.JLabel();
         jPanelActualizar = new javax.swing.JPanel();
         jPanelBusqueda1 = new javax.swing.JPanel();
         jButtonActualizarTabla = new javax.swing.JButton();
@@ -335,13 +349,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jPanelVariosFiltros.setBackground(new java.awt.Color(153, 204, 255));
 
-        jTextFieldNom2.setText("nom");
-        jTextFieldNom2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldNom2KeyReleased(evt);
-            }
-        });
-
         jTextFieldApellido2.setText("apellido");
         jTextFieldApellido2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -349,25 +356,48 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldNom2.setText("nom");
+        jTextFieldNom2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNom2KeyReleased(evt);
+            }
+        });
+
+        jLabelNom2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelNom2.setText("Nom");
+
+        jLabelApellido2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelApellido2.setText("Apellido");
+
         javax.swing.GroupLayout jPanelVariosFiltrosLayout = new javax.swing.GroupLayout(jPanelVariosFiltros);
         jPanelVariosFiltros.setLayout(jPanelVariosFiltrosLayout);
         jPanelVariosFiltrosLayout.setHorizontalGroup(
             jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVariosFiltrosLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldNom2)
-                    .addComponent(jTextFieldApellido2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelVariosFiltrosLayout.createSequentialGroup()
+                        .addComponent(jLabelApellido2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelVariosFiltrosLayout.createSequentialGroup()
+                        .addComponent(jLabelNom2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldNom2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanelVariosFiltrosLayout.setVerticalGroup(
             jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVariosFiltrosLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jTextFieldNom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jTextFieldApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldNom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNom2))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelApellido2))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jCheckBoxBuscarVariosFiltros.setBackground(new java.awt.Color(153, 204, 255));
@@ -389,38 +419,45 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelCodigo)
-                            .addComponent(jPanelVariosFiltros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelVariosFiltrosNoPosible, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBoxBuscarVariosFiltros))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10))
+                        .addComponent(jLabelCodigo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(502, 502, 502))
                     .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelOperacion)
-                                .addComponent(jLabelTabla)
-                                .addComponent(jLabelOrdenar)
-                                .addComponent(jLabelColumna)
-                                .addComponent(jLabelPalabra))
+                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBusquedaLayout.createSequentialGroup()
-                                .addComponent(jButtonBuscar)
-                                .addGap(9, 9, 9)))
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jComboBoxOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxColumna, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxTablas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelUserCode, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelVariosFiltrosNoPosible, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jCheckBoxBuscarVariosFiltros)))
+                                    .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabelOperacion)
+                                                .addComponent(jLabelTabla)
+                                                .addComponent(jLabelOrdenar)
+                                                .addComponent(jLabelColumna)
+                                                .addComponent(jLabelPalabra))
+                                            .addGroup(jPanelBusquedaLayout.createSequentialGroup()
+                                                .addComponent(jButtonBuscar)
+                                                .addGap(9, 9, 9)))
+                                        .addGap(24, 24, 24)
+                                        .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jComboBoxOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxColumna, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxTablas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabelUserCode, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusquedaLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jPanelVariosFiltros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(121, 121, 121))))
         );
         jPanelBusquedaLayout.setVerticalGroup(
             jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -552,6 +589,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
+        jLabelAñadirEmpresaInfo.setText("Comienza por añadir una empresa");
+
+        jLabelAñadirEmpleadosInfo.setText("Introduce Nomempresa existente");
+
+        jLabelAñadirJornadaInfo.setText("Introduce dni de empleado existente");
+
+        jLabelAñadirUsersInfo.setText("Introduce dni de empleado existente");
+
         javax.swing.GroupLayout jPanelBusqueda3Layout = new javax.swing.GroupLayout(jPanelBusqueda3);
         jPanelBusqueda3.setLayout(jPanelBusqueda3Layout);
         jPanelBusqueda3Layout.setHorizontalGroup(
@@ -574,26 +619,25 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addComponent(jRadioButtonUsers)))
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jButtonAñadirATabla)))
-                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButtonAñadirATabla))
+                    .addComponent(jLabelAñadirEmpresaInfo)
+                    .addComponent(jLabelAñadirEmpleadosInfo)
+                    .addComponent(jLabelAñadirJornadaInfo)
+                    .addComponent(jLabelAñadirUsersInfo))
+                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
                         .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabelCamposAIntroducir)
                             .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
                                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
-                                        .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
-                                                .addGap(37, 37, 37)
-                                                .addComponent(jTextFieldDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jTextFieldAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda3Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(23, 23, 23)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextFieldDepartament, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(23, 23, 23)
                                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda3Layout.createSequentialGroup()
                                         .addGap(5, 5, 5)
@@ -603,18 +647,18 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                         .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldPass, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldMail)
-                                    .addComponent(jTextFieldApellido))
+                                    .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldMail, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldTelephon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldNomEmpresa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanelBusqueda3Layout.setVerticalGroup(
             jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -658,8 +702,17 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonAñadirATabla)
+                .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
+                        .addComponent(jLabelAñadirEmpresaInfo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelAñadirEmpleadosInfo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelAñadirJornadaInfo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelAñadirUsersInfo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAñadirATabla))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
@@ -1076,22 +1129,26 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private void jRadioButtonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsersActionPerformed
         // TODO add your handling code here:
         activarDesactivarTextFields();
+        activarDesactivarLabelsInfoAñadir();
     }//GEN-LAST:event_jRadioButtonUsersActionPerformed
 
     private void jRadioButtonJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaActionPerformed
         // TODO add your handling code here:
         activarDesactivarTextFields();
+        activarDesactivarLabelsInfoAñadir();
     }//GEN-LAST:event_jRadioButtonJornadaActionPerformed
 
     private void jRadioButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleadoActionPerformed
         // TODO add your handling code here:
         activarDesactivarTextFields();
+        activarDesactivarLabelsInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpleadoActionPerformed
 
      //RADIO BUTTONS EVENTOS QUE SE DISPARAN AL HACER CLICK EN ALGUNO DE ELLOS
     private void jRadioButtonEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresaActionPerformed
         // TODO add your handling code here:
         activarDesactivarTextFields();
+        activarDesactivarLabelsInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpresaActionPerformed
 
     private void jButtonAñadirATablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirATablaActionPerformed
@@ -1250,7 +1307,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             crud = jComboBoxTipoOperacion.getSelectedItem().toString(); //Tipo de operacion
             if (select){
                 nombreTabla = jComboBoxTablas.getSelectedItem().toString(); //Será el numero de tabla. (ej: 0->empleados 1->users 2-empresa 3->jornada) 
-            }    
+            }
             columna = jComboBoxColumna.getSelectedItem().toString(); //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
             String palabraAbuscar = jTextFieldPalabra.getText();// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
             if (jTextFieldPalabra.getText().isEmpty()||jTextFieldPalabra.getText().isBlank()){//Para que cambie el valor de vacio a 0 para enviar al server.
@@ -1285,10 +1342,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                          palabraAbuscar = "dni,"+jTextFieldDni.getText()+",nom,"+jTextFieldNom.getText()+",apellido,"+jTextFieldApellido.getText()
                             +",nomempresa,"+jTextFieldNomEmpresa.getText()+",departament,"+jTextFieldDepartament.getText()
                             +",codicard,"+jTextFieldCodicard.getText()+",mail,"+jTextFieldMail.getText()+",telephon,"+jTextFieldTelephon.getText();
-                    }
-                    if (jCheckBoxBuscarVariosFiltros.isSelected()){
+                    }else{
+                        if (jCheckBoxBuscarVariosFiltros.isSelected()){
                         palabraAbuscar = "nom,"+jTextFieldNom2.getText()+",apellido,"+jTextFieldApellido2.getText();
-                    }
+                        }
+                    }                
                     break;
                 case "users":
                     nombreTabla = "1";
@@ -1307,10 +1365,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     nombreTabla = "3";
                     if (insert){
                         palabraAbuscar = "dni,"+jTextFieldDni.getText();
-                    }        
-                    if (jCheckBoxBuscarVariosFiltros.isSelected()){
+                    }else{
+                        if (jCheckBoxBuscarVariosFiltros.isSelected()){
                         palabraAbuscar = "nom,"+jTextFieldNom2.getText()+",apellido,"+jTextFieldApellido2.getText();
-                    }
+                        }
+                    }                           
                     break;
             }
             
@@ -1419,7 +1478,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) {
                 operacionesConInsertEmpleado19(insertEmpleado);             
             }
-        }  catch (UnknownHostException ex) {
+        }catch (UnknownHostException ex) {
             Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }catch (IOException ex) {
             Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -2476,6 +2535,35 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
     }                                                                                              
     
+    private void activarDesactivarLabelsInfoAñadir(){
+        if (jRadioButtonEmpresa.isSelected()){
+            jLabelAñadirEmpresaInfo.setVisible(true);
+            jLabelAñadirEmpleadosInfo.setVisible(false);
+            jLabelAñadirJornadaInfo.setVisible(false);
+            jLabelAñadirUsersInfo.setVisible(false);
+              
+        }else if (jRadioButtonEmpleado.isSelected()){
+            jLabelAñadirEmpresaInfo.setVisible(false);
+            jLabelAñadirEmpleadosInfo.setVisible(true);
+            jLabelAñadirJornadaInfo.setVisible(false);
+            jLabelAñadirUsersInfo.setVisible(false);
+              
+        }else if (jRadioButtonJornada.isSelected()){
+            jLabelAñadirEmpresaInfo.setVisible(false);
+            jLabelAñadirEmpleadosInfo.setVisible(false);
+            jLabelAñadirJornadaInfo.setVisible(true);
+            jLabelAñadirUsersInfo.setVisible(false);
+            
+        }else if (jRadioButtonUsers.isSelected()){
+            jLabelAñadirEmpresaInfo.setVisible(false);
+            jLabelAñadirEmpleadosInfo.setVisible(false);
+            jLabelAñadirJornadaInfo.setVisible(false);
+            jLabelAñadirUsersInfo.setVisible(true);
+            
+        }else{  
+        }
+    }
+    
     private void activarDesactivarTextFields(){
         if (jRadioButtonEmpresa.isSelected()){
             jTextFieldNom.setEnabled(true);
@@ -2518,7 +2606,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldAddress.setEnabled(false);   
             jTextFieldLogin.setEnabled(false);
             jTextFieldPass.setEnabled(false);
-            jTextFieldNumtipe.setVisible(false);
+            jTextFieldNumtipe.setEnabled(false);
         }else if (jRadioButtonUsers.isSelected()){
             jTextFieldLogin.setEnabled(true);
             jTextFieldPass.setEnabled(true);
@@ -2571,7 +2659,12 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelApellido2;
     private javax.swing.JLabel jLabelAutores;
+    private javax.swing.JLabel jLabelAñadirEmpleadosInfo;
+    private javax.swing.JLabel jLabelAñadirEmpresaInfo;
+    private javax.swing.JLabel jLabelAñadirJornadaInfo;
+    private javax.swing.JLabel jLabelAñadirUsersInfo;
     private javax.swing.JLabel jLabelCamposAIntroducir;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelCodigo1;
@@ -2582,6 +2675,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelColumna2;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelHREntrada;
+    private javax.swing.JLabel jLabelNom2;
     private javax.swing.JLabel jLabelOperacion;
     private javax.swing.JLabel jLabelOrdenar;
     private javax.swing.JLabel jLabelPalabra;
