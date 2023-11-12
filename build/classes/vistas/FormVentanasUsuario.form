@@ -483,10 +483,7 @@
                                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                   <Component id="jButtonAñadirATabla" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jLabelAñadirEmpresaInfo" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelAñadirEmpleadosInfo" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelAñadirJornadaInfo" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelAñadirUsersInfo" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAñadirInfo" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -591,13 +588,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="jLabelAñadirEmpresaInfo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabelAñadirEmpleadosInfo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabelAñadirJornadaInfo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jLabelAñadirUsersInfo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAñadirInfo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jButtonAñadirATabla" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -773,24 +764,9 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonUsersActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelA&#xf1;adirEmpresaInfo">
+                <Component class="javax.swing.JLabel" name="jLabelA&#xf1;adirInfo">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Comienza por a&#xf1;adir una empresa"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelA&#xf1;adirEmpleadosInfo">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Introduce Nomempresa existente"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelA&#xf1;adirJornadaInfo">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Introduce dni de empleado existente"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabelA&#xf1;adirUsersInfo">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Introduce dni de empleado existente"/>
                   </Properties>
                 </Component>
               </SubComponents>

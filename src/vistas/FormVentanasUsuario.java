@@ -124,10 +124,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelVariosFiltrosNoPosible.setVisible(false);
         
         //Etiquetas info añadir
-        jLabelAñadirEmpresaInfo.setVisible(true);
-        jLabelAñadirEmpleadosInfo.setVisible(false);
-        jLabelAñadirJornadaInfo.setVisible(false);
-        jLabelAñadirUsersInfo.setVisible(false);
+        jLabelAñadirInfo.setVisible(false);
              
         
         addWindowListener(new WindowAdapter() {
@@ -240,10 +237,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jRadioButtonEmpleado = new javax.swing.JRadioButton();
         jRadioButtonJornada = new javax.swing.JRadioButton();
         jRadioButtonUsers = new javax.swing.JRadioButton();
-        jLabelAñadirEmpresaInfo = new javax.swing.JLabel();
-        jLabelAñadirEmpleadosInfo = new javax.swing.JLabel();
-        jLabelAñadirJornadaInfo = new javax.swing.JLabel();
-        jLabelAñadirUsersInfo = new javax.swing.JLabel();
+        jLabelAñadirInfo = new javax.swing.JLabel();
         jPanelActualizar = new javax.swing.JPanel();
         jPanelBusqueda1 = new javax.swing.JPanel();
         jButtonActualizarTabla = new javax.swing.JButton();
@@ -589,13 +583,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabelAñadirEmpresaInfo.setText("Comienza por añadir una empresa");
-
-        jLabelAñadirEmpleadosInfo.setText("Introduce Nomempresa existente");
-
-        jLabelAñadirJornadaInfo.setText("Introduce dni de empleado existente");
-
-        jLabelAñadirUsersInfo.setText("Introduce dni de empleado existente");
+        jLabelAñadirInfo.setText("Comienza por añadir una empresa");
 
         javax.swing.GroupLayout jPanelBusqueda3Layout = new javax.swing.GroupLayout(jPanelBusqueda3);
         jPanelBusqueda3.setLayout(jPanelBusqueda3Layout);
@@ -620,10 +608,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jButtonAñadirATabla))
-                    .addComponent(jLabelAñadirEmpresaInfo)
-                    .addComponent(jLabelAñadirEmpleadosInfo)
-                    .addComponent(jLabelAñadirJornadaInfo)
-                    .addComponent(jLabelAñadirUsersInfo))
+                    .addComponent(jLabelAñadirInfo))
                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
@@ -704,13 +689,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
-                        .addComponent(jLabelAñadirEmpresaInfo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelAñadirEmpleadosInfo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelAñadirJornadaInfo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelAñadirUsersInfo)
+                        .addComponent(jLabelAñadirInfo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonAñadirATabla))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1129,26 +1108,26 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private void jRadioButtonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsersActionPerformed
         // TODO add your handling code here:
         activarDesactivarTextFields();
-        activarDesactivarLabelsInfoAñadir();
+        cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonUsersActionPerformed
 
     private void jRadioButtonJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaActionPerformed
         // TODO add your handling code here:
         activarDesactivarTextFields();
-        activarDesactivarLabelsInfoAñadir();
+        cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonJornadaActionPerformed
 
     private void jRadioButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleadoActionPerformed
         // TODO add your handling code here:
         activarDesactivarTextFields();
-        activarDesactivarLabelsInfoAñadir();
+        cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpleadoActionPerformed
 
      //RADIO BUTTONS EVENTOS QUE SE DISPARAN AL HACER CLICK EN ALGUNO DE ELLOS
     private void jRadioButtonEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresaActionPerformed
         // TODO add your handling code here:
         activarDesactivarTextFields();
-        activarDesactivarLabelsInfoAñadir();
+        cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpresaActionPerformed
 
     private void jButtonAñadirATablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirATablaActionPerformed
@@ -2535,32 +2514,21 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
     }                                                                                              
     
-    private void activarDesactivarLabelsInfoAñadir(){
+    private void cambiarTextoActivarDesactivarLabelInfoAñadir(){
         if (jRadioButtonEmpresa.isSelected()){
-            jLabelAñadirEmpresaInfo.setVisible(true);
-            jLabelAñadirEmpleadosInfo.setVisible(false);
-            jLabelAñadirJornadaInfo.setVisible(false);
-            jLabelAñadirUsersInfo.setVisible(false);
+            jLabelAñadirInfo.setVisible(true);
+            jLabelAñadirInfo.setText("Comienza por añadir una empresa");
               
         }else if (jRadioButtonEmpleado.isSelected()){
-            jLabelAñadirEmpresaInfo.setVisible(false);
-            jLabelAñadirEmpleadosInfo.setVisible(true);
-            jLabelAñadirJornadaInfo.setVisible(false);
-            jLabelAñadirUsersInfo.setVisible(false);
-              
-        }else if (jRadioButtonJornada.isSelected()){
-            jLabelAñadirEmpresaInfo.setVisible(false);
-            jLabelAñadirEmpleadosInfo.setVisible(false);
-            jLabelAñadirJornadaInfo.setVisible(true);
-            jLabelAñadirUsersInfo.setVisible(false);
+            jLabelAñadirInfo.setVisible(true);
+            jLabelAñadirInfo.setText("Introduce nom empresa existente");
             
-        }else if (jRadioButtonUsers.isSelected()){
-            jLabelAñadirEmpresaInfo.setVisible(false);
-            jLabelAñadirEmpleadosInfo.setVisible(false);
-            jLabelAñadirJornadaInfo.setVisible(false);
-            jLabelAñadirUsersInfo.setVisible(true);
+        }else if (jRadioButtonJornada.isSelected()||jRadioButtonUsers.isSelected()){
+            jLabelAñadirInfo.setVisible(true);
+            jLabelAñadirInfo.setText("Introduce dni empleado existente");
             
         }else{  
+            jLabelAñadirInfo.setVisible (false);
         }
     }
     
@@ -2661,10 +2629,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelApellido2;
     private javax.swing.JLabel jLabelAutores;
-    private javax.swing.JLabel jLabelAñadirEmpleadosInfo;
-    private javax.swing.JLabel jLabelAñadirEmpresaInfo;
-    private javax.swing.JLabel jLabelAñadirJornadaInfo;
-    private javax.swing.JLabel jLabelAñadirUsersInfo;
+    private javax.swing.JLabel jLabelAñadirInfo;
     private javax.swing.JLabel jLabelCamposAIntroducir;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelCodigo1;
