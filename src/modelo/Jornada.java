@@ -6,6 +6,8 @@ import java.sql.*;
 /**
  *
  * @author Antonio Company Rodriguez
+ * 
+ * Clase para crear objetos de tipo Jornada con todos sus atributos
  */
 public class Jornada implements Serializable{
     private static final long serialVersionUID = 6529685098267757690L;

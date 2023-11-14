@@ -30,30 +30,32 @@ import modelo.Users;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
+ * 
+ * Clase para crear la ventana principal del programa una vez nos hemos logueado
  */
 public class FormVentanasUsuario extends javax.swing.JFrame {
 
-    Socket socket;
+    private Socket socket;
     
-    String palabra ="";
-    BufferedReader lector;
-    BufferedWriter escriptor;
-    ObjectInputStream perEnt;
-    String codigoUserRecibido;
-    static String user;
-    String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    private String palabra ="";
+    private BufferedReader lector;
+    private BufferedWriter escriptor;
+    private ObjectInputStream perEnt;
+    private String codigoUserRecibido;
+    private static String user;
+    private String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
     
-    String codigo;
-    String crud;
-    String nombreTabla;
-    String columna;
-    String orden;    
+    private String codigo;
+    private String crud;
+    private String nombreTabla;
+    private String columna;
+    private String orden;    
     
-    boolean select = false;
-    boolean insert = false;
-    boolean update = false;
-    boolean delete = false;
+    private boolean select = false;
+    private boolean insert = false;
+    private boolean update = false;
+    private boolean delete = false;
 
     public String getPalabra() {
         return palabra;
@@ -152,7 +154,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jComboBoxTablas.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                String seleccion = (String) jComboBoxTablas.getSelectedItem().toString();
+               cambiarItemsComboBoxColumna();
+            }
+        });
+    }
+    
+    private void cambiarItemsComboBoxColumna(){
+         String seleccion = (String) jComboBoxTablas.getSelectedItem().toString();
                 // Limpia el modelo actual
                 jComboBoxColumna.removeAllItems();
                 if ("empleados".equals(seleccion)) {
@@ -187,14 +195,19 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     jComboBoxColumna.addItem("numtipe");
                     jComboBoxColumna.addItem("dni");                 
                 }         
-            }
-        });
     }
     
+    /**
+    * Descripción del método.
+    *
+    * @param formUsuario objeto del tipo FormVentanasUsuario que usaremos para
+    * cerrar la ventana que tengamos abierta de este tipo de Forms 
+    * 
+    */
     private void logout(){
         try {
             //IMPLEMENTA
-            Socket socket = MainForm.socket;
+            Socket socket = MainForm.getSocket();
 
             if (socket != null && socket.isConnected()) {
                 // Obtener flujos de entrada y salida.
@@ -262,7 +275,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelVariosFiltros = new javax.swing.JPanel();
         jTextFieldApellido2 = new javax.swing.JTextField();
         jTextFieldNom2 = new javax.swing.JTextField();
-        jLabelNom2 = new javax.swing.JLabel();
+        jLabelNombre2 = new javax.swing.JLabel();
         jLabelApellido2 = new javax.swing.JLabel();
         jCheckBoxBuscarVariosFiltros = new javax.swing.JCheckBox();
         jLabelVariosFiltrosNoPosible = new javax.swing.JLabel();
@@ -331,6 +344,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelDescripcion = new javax.swing.JLabel();
         jLabelAutores = new javax.swing.JLabel();
         jLabel_Imagen = new javax.swing.JLabel();
+        jLabelVersion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -350,7 +364,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaSelect.setRows(5);
         jScrollPane1.setViewportView(jTextAreaSelect);
 
-        jLabelCodigo.setText("Codigo:");
+        jLabelCodigo.setText("Código:");
 
         jLabelOperacion.setText("Tipo de operacion:");
 
@@ -402,22 +416,20 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jPanelVariosFiltros.setBackground(new java.awt.Color(153, 204, 255));
 
-        jTextFieldApellido2.setText("apellido");
         jTextFieldApellido2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldApellido2KeyReleased(evt);
             }
         });
 
-        jTextFieldNom2.setText("nom");
         jTextFieldNom2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextFieldNom2KeyReleased(evt);
             }
         });
 
-        jLabelNom2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelNom2.setText("Nom");
+        jLabelNombre2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelNombre2.setText("Nombre");
 
         jLabelApellido2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelApellido2.setText("Apellido");
@@ -428,15 +440,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVariosFiltrosLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelVariosFiltrosLayout.createSequentialGroup()
-                        .addComponent(jLabelApellido2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelVariosFiltrosLayout.createSequentialGroup()
-                        .addComponent(jLabelNom2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldNom2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelApellido2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelNombre2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldNom2, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(jTextFieldApellido2))
                 .addContainerGap())
         );
         jPanelVariosFiltrosLayout.setVerticalGroup(
@@ -445,7 +455,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldNom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNom2))
+                    .addComponent(jLabelNombre2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelVariosFiltrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -570,7 +580,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaInsert.setRows(5);
         jScrollPane4.setViewportView(jTextAreaInsert);
 
-        jLabelCodigo3.setText("Codigo:");
+        jLabelCodigo3.setText("Código:");
 
         jLabelUserCode3.setText("jLabelUserCode");
 
@@ -779,7 +789,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaUpdate.setRows(5);
         jScrollPane2.setViewportView(jTextAreaUpdate);
 
-        jLabelCodigo1.setText("Codigo:");
+        jLabelCodigo1.setText("Código:");
 
         jLabelTabla1.setText("Tabla:");
 
@@ -836,9 +846,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE))
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                                .addComponent(jLabelCodigo1)
-                                .addGap(204, 204, 204))
+                            .addComponent(jLabelCodigo1)
                             .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(jLabelUserCode1)
@@ -891,7 +899,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaDelete.setRows(5);
         jScrollPane3.setViewportView(jTextAreaDelete);
 
-        jLabelCodigo2.setText("Codigo:");
+        jLabelCodigo2.setText("Código:");
 
         jLabelTabla2.setText("Tabla:");
 
@@ -1071,6 +1079,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabel_Imagen.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel_Imagen.setIconTextGap(0);
 
+        jLabelVersion.setText("v1.4");
+
         javax.swing.GroupLayout jPanelAcercaDeLayout = new javax.swing.GroupLayout(jPanelAcercaDe);
         jPanelAcercaDe.setLayout(jPanelAcercaDeLayout);
         jPanelAcercaDeLayout.setHorizontalGroup(
@@ -1078,20 +1088,23 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             .addGroup(jPanelAcercaDeLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(jPanelAcercaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelVersion)
                     .addComponent(jLabel_Imagen)
                     .addComponent(jLabelAutores)
                     .addComponent(jLabelDescripcion)
                     .addComponent(jLabelHREntrada))
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         jPanelAcercaDeLayout.setVerticalGroup(
             jPanelAcercaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAcercaDeLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabelHREntrada)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelVersion)
+                .addGap(12, 12, 12)
                 .addComponent(jLabelDescripcion)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelAutores)
                 .addGap(49, 49, 49)
                 .addComponent(jLabel_Imagen)
@@ -1293,7 +1306,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
      private void ejecutarAccion(){
         try {
             // TODO add your handling code here:
-            socket = MainForm.socket;
+            socket = MainForm.getSocket();
             
             lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));//flujo lectura del server
             escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));//flujo envio al server
@@ -1527,7 +1540,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> listaPersonasdni = new ArrayList<>();
 
@@ -1536,6 +1549,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaPersonasdni.size(); i++) {
                     if (columna.equals("dni") && palabraAbuscar.equals(listaPersonasdni.get(i).getDni())) {
+                         jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                         jTextAreaSelect.append("Dni: " + listaPersonasdni.get(i).getDni() + "\n"
                                 + "Nombre: " + listaPersonasdni.get(i).getNom() + "\n"
                                 + "Apellido: " + listaPersonasdni.get(i).getApellido() + "\n"
@@ -1553,7 +1567,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosNomEmpresa = new ArrayList<>();
 
@@ -1562,6 +1576,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalEmpleadosNomEmpresa.size(); i++) {
                     if (columna.equals("nomempresa") && palabraAbuscar.equals(listaTotalEmpleadosNomEmpresa.get(i).getNomempresa())) {
+                         jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                         jTextAreaSelect.append("Dni: " + listaTotalEmpleadosNomEmpresa.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosNomEmpresa.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosNomEmpresa.get(i).getApellido() + "\n"
@@ -1580,7 +1595,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosDepart = new ArrayList<>();
 
@@ -1589,6 +1604,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalEmpleadosDepart.size(); i++) {
                     if (columna.equals("departament") && palabraAbuscar.equals(listaTotalEmpleadosDepart.get(i).getDepartament())) {
+                         jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                         jTextAreaSelect.append("Dni: " + listaTotalEmpleadosDepart.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosDepart.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosDepart.get(i).getApellido() + "\n"
@@ -1606,7 +1622,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosCodiCard = new ArrayList<>();
 
@@ -1616,6 +1632,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 for (int i = 0; i < listaTotalEmpleadosCodiCard.size(); i++) {
                     String codicard = String.valueOf(listaTotalEmpleadosCodiCard.get(i).getCodicard());
                     if (columna.equals("codicard") && palabraAbuscar.equals(codicard)) {
+                        jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                         jTextAreaSelect.append("Dni: " + listaTotalEmpleadosCodiCard.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosCodiCard.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosCodiCard.get(i).getApellido() + "\n"
@@ -1633,7 +1650,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosMail = new ArrayList<>();
 
@@ -1642,6 +1659,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalEmpleadosMail.size(); i++) {
                     if (columna.equals("mail") && palabraAbuscar.equals(listaTotalEmpleadosMail.get(i).getMail())) {
+                        jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                         jTextAreaSelect.append("Dni: " + listaTotalEmpleadosMail.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosMail.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosMail.get(i).getApellido() + "\n"
@@ -1659,7 +1677,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> listaTotalEmpleadosTelf = new ArrayList<>();
 
@@ -1669,6 +1687,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 for (int i = 0; i < listaTotalEmpleadosTelf.size(); i++) {
                     String telephon = String.valueOf(listaTotalEmpleadosTelf.get(i).getTelephon());
                     if (columna.equals("telephon") && palabraAbuscar.equals(telephon)) {
+                        jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                         jTextAreaSelect.append("Dni: " + listaTotalEmpleadosTelf.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalEmpleadosTelf.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalEmpleadosTelf.get(i).getApellido() + "\n"
@@ -1687,7 +1706,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Users> listaToUsersDni = new ArrayList<>();
 
@@ -1709,7 +1728,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Users> listaTotalUsersLogin = new ArrayList<>();
 
@@ -1731,7 +1750,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Users> listaTotalUsersTipe = new ArrayList<>();
 
@@ -1755,7 +1774,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra+ "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra+ "\n");
 
                 List<Empresa> listaEmpresasNom = new ArrayList<>();
 
@@ -1777,7 +1796,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empresa> listaEmpresasAddress = new ArrayList<>();
 
@@ -1799,7 +1818,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empresa> listaEmpresasTelepho = new ArrayList<>();
 
@@ -1823,7 +1842,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Jornada> listaToJornadaDni = new ArrayList<>();
 
@@ -1832,7 +1851,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaToJornadaDni.size(); i++) {
                     if (columna.equals("dni") && palabraAbuscar.equals(listaToJornadaDni.get(i).getDni())) {
-                        jTextAreaSelect.append("Dni: " + listaToJornadaDni.get(i).getDni() + "\n"
+                        jTextAreaSelect.append("\nDni: " + listaToJornadaDni.get(i).getDni() + "\n"
                                 + "Nombre: " + listaToJornadaDni.get(i).getNom() + "\n"
                                 + "Apellido: " + listaToJornadaDni.get(i).getApellido() + "\n"
                                 + "Codigo tarjeta: " + listaToJornadaDni.get(i).getCodicard() + "\n"
@@ -1849,7 +1868,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Jornada> listaJornadaCodiCard = new ArrayList<>();
 
@@ -1859,7 +1878,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 for (int i = 0; i < listaJornadaCodiCard.size(); i++) {
                     String codicard = String.valueOf(listaJornadaCodiCard.get(i).getCodicard());
                     if (columna.equals("codicard") && palabraAbuscar.equals(codicard)) {
-                        jTextAreaSelect.append("Dni: " + listaJornadaCodiCard.get(i).getDni() + "\n"
+                        jTextAreaSelect.append("\nDni: " + listaJornadaCodiCard.get(i).getDni() + "\n"
                                 + "Nombre: " + listaJornadaCodiCard.get(i).getNom() + "\n"
                                 + "Apellido: " + listaJornadaCodiCard.get(i).getApellido() + "\n"
                                 + "Codigo tarjeta: " + listaJornadaCodiCard.get(i).getCodicard() + "\n"
@@ -1876,7 +1895,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Jornada> listaTotalJornadaFecha = new ArrayList<>();
 
@@ -1885,7 +1904,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 for (int i = 0; i < listaTotalJornadaFecha.size(); i++) {
                     if (columna.equals("fecha") && palabraAbuscar.equals(listaTotalJornadaFecha.get(i).getFecha())) {
-                        jTextAreaSelect.append("Dni: " + listaTotalJornadaFecha.get(i).getDni() + "\n"
+                        jTextAreaSelect.append("\nDni: " + listaTotalJornadaFecha.get(i).getDni() + "\n"
                                 + "Nombre: " + listaTotalJornadaFecha.get(i).getNom() + "\n"
                                 + "Apellido: " + listaTotalJornadaFecha.get(i).getApellido() + "\n"
                                 + "Codigo tarjeta: " + listaTotalJornadaFecha.get(i).getCodicard() + "\n"
@@ -1910,7 +1929,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> listaPersonas = new ArrayList<>();
 
@@ -1939,7 +1958,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.flush();
 
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
                 List<Users> listaUsers = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
@@ -1965,7 +1984,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
                 List<Empresa> listaEmpresa = new ArrayList<>();
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaEmpresa = (ArrayList) perEnt.readObject();
@@ -1986,7 +2005,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
                 List<Jornada> listaJorandas = new ArrayList<>();
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaJorandas = (ArrayList) perEnt.readObject();
@@ -1994,7 +2013,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                 //recibo objeto
                 for (int i = 0; i < listaJorandas.size(); i++) {
-                    jTextAreaSelect.append("Dni: " + listaJorandas.get(i).getDni() + "\n"
+                    jTextAreaSelect.append("\nDni: " + listaJorandas.get(i).getDni() + "\n"
                             + "Nombre: " + listaJorandas.get(i).getNom() + "\n"
                             + "Apellido: " + listaJorandas.get(i).getApellido() + "\n"
                             + "Codigo tarjeta: " + listaJorandas.get(i).getCodicard() + "\n"
@@ -2042,7 +2061,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     escriptor.newLine();
                     escriptor.flush();
                     jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                            + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                     List<Empleados> listaEmpleadosNomApellido = new ArrayList<>();
 
@@ -2054,6 +2073,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                 && datoNom.equals(listaEmpleadosNomApellido.get(i).getNom())
                                 && apellido.equals("apellido")
                                 && datoApellido.equals(listaEmpleadosNomApellido.get(i).getApellido())) {
+                            jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                             jTextAreaSelect.append("Dni: " + listaEmpleadosNomApellido.get(i).getDni() + "\n"
                                     + "Nombre: " + listaEmpleadosNomApellido.get(i).getNom() + "\n"
                                     + "Apellido: " + listaEmpleadosNomApellido.get(i).getApellido() + "\n"
@@ -2071,7 +2091,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     escriptor.newLine();
                     escriptor.flush();
                     jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                            + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                     List<Jornada> listaJornadaNomApellido = new ArrayList<>();
 
@@ -2082,7 +2102,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                 && datoNom.equals(listaJornadaNomApellido.get(i).getNom())
                                 && apellido.equals("apellido")
                                 && datoApellido.equals(listaJornadaNomApellido.get(i).getApellido())) {
-                            jTextAreaSelect.append("Dni: " + listaJornadaNomApellido.get(i).getDni() + "\n"
+                            jTextAreaSelect.append("\nDni: " + listaJornadaNomApellido.get(i).getDni() + "\n"
                                     + "Nombre: " + listaJornadaNomApellido.get(i).getNom() + "\n"
                                     + "Apellido: " + listaJornadaNomApellido.get(i).getApellido() + "\n"
                                     + "Codigo tarjeta: " + listaJornadaNomApellido.get(i).getCodicard() + "\n"
@@ -2151,8 +2171,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                jTextAreaSelect.append("El usuario con código: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empresa> insertEmpresa = new ArrayList<>();
 
@@ -2211,7 +2231,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         escriptor.newLine();
                         escriptor.flush();
                         jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
-                                + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                                + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                         List<Empresa> insertUser = new ArrayList<>();
 
@@ -2281,7 +2301,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                 jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> insertEmpleadosMailTelf = new ArrayList<>();
 
@@ -2357,7 +2377,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     escriptor.newLine();
                     escriptor.flush();
                      jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                            + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                     List<Empleados> insertEmpleadosMail = new ArrayList<>();
 
@@ -2431,7 +2451,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     escriptor.newLine();
                     escriptor.flush();
                     jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                            + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                     List<Empleados> insertEmpleadosTelf = new ArrayList<>();
 
@@ -2509,7 +2529,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.newLine();
                 escriptor.flush();
                  jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguiente: \n" + palabra + "\n");
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> insertEmpleados = new ArrayList<>();
 
@@ -2657,7 +2677,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelColumna2;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelHREntrada;
-    private javax.swing.JLabel jLabelNom2;
+    private javax.swing.JLabel jLabelNombre2;
     private javax.swing.JLabel jLabelOperacion;
     private javax.swing.JLabel jLabelOrdenar;
     private javax.swing.JLabel jLabelPalabra;
@@ -2671,6 +2691,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUserCode2;
     private javax.swing.JLabel jLabelUserCode3;
     private javax.swing.JLabel jLabelVariosFiltrosNoPosible;
+    private javax.swing.JLabel jLabelVersion;
     private javax.swing.JLabel jLabel_Imagen;
     private javax.swing.JLabel jLabel_ImagenOtros;
     private javax.swing.JPanel jPanelAcercaDe;

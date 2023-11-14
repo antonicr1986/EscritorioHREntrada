@@ -5,6 +5,8 @@ import java.io.Serializable;
 /**
  *
  * @author Antonio Company Rodriguez
+ * 
+ * Clase para crear objetos de tipo Empresa con todos sus atributos
  */
 public class Empresa implements Serializable{
     private static final long serialVersionUID = 6529685098267757690L;

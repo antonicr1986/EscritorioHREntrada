@@ -16,20 +16,25 @@ import vistas.FormVentanasUsuario;
 
 /**
  *
- * @author antonio minero
+ * @author Antonio Company Rodriguez
+ * 
+ * Clase que de momento no utilizamos pero que quiero utilizar cuando deje de usar su
+ * método logout() de la clase MainForm.java
+ * 
  */
+
 public class Logout {
-    String palabra ="";
-    BufferedReader lector;
-    BufferedWriter escriptor;
-    ObjectInputStream perEnt;
-    String codigoUserRecibido;
+    private String palabra ="";
+    private BufferedReader lector;
+    private BufferedWriter escriptor;
+    private ObjectInputStream perEnt;
+    private String codigoUserRecibido;
     
-    String codigo;
-    String crud;
-    String nombreTabla;
-    String columna;
-    String orden;
+    private String codigo;
+    private String crud;
+    private String nombreTabla;
+    private String columna;
+    private String orden;
     
 
     public String getPalabra() {
@@ -40,10 +45,17 @@ public class Logout {
         this.palabra = palabra;
     }
     
+    /**
+    * Descripción del método.
+    *
+    * @param formUsuario objeto del tipo FormVentanasUsuario que usaremos para
+    * cerrar la ventana que tengamos abierta de este tipo de Forms 
+    * 
+    */
     private void logout(FormVentanasUsuario formUsuario){
         try {
             //IMPLEMENTA
-            Socket socket = MainForm.socket;
+            Socket socket = MainForm.getSocket();
 
             if (socket != null && socket.isConnected()) {
                 // Obtener flujos de entrada y salida.

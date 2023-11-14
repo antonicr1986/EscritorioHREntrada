@@ -19,16 +19,26 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Antonio Company Rodriguez
+ * 
+ * Clase para crear la ventana inicial del programa en la cual iniciaremos sesión
  */
 public class MainForm extends javax.swing.JFrame {
 
-    String palabra = "";
-    public static Socket socket;
+    private String palabra = "";
+    private static Socket socket;
     private static MainForm mainForm;
     
-    String codigo;
+    private String codigo;
     
-    String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    private String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+
+    public static Socket getSocket() {
+        return socket;
+    }
+
+    public static void setSocket(Socket socket) {
+        MainForm.socket = socket;
+    }  
 
     public String getPalabra() {
         return palabra;
@@ -40,6 +50,8 @@ public class MainForm extends javax.swing.JFrame {
     
     /**
      * Creates new form MainForm
+     * 
+     * Con las características establecidas dentro de este método
      */
     public MainForm() {
         initComponents();
@@ -189,6 +201,14 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Método que comprueba que el login és correcto o no y si lo es comprueba que tipo de usuario
+    * se ha logeado para crear un título o otro al crear un objeto del tipo FormVentanasUsuario
+    *
+    * @param usuarioFormPestañas objeto del tipo FormVentanasUsuario que usaremos para
+    * crear la ventana del menú principal de la aplicación una vez iniciada sesión 
+    */
+    
     public void conexionSocket(FormVentanasUsuario usuarioFormPestañas){
         boolean salir = false;
 
@@ -236,27 +256,20 @@ public class MainForm extends javax.swing.JFrame {
             } else {
                 codigo = mensajeServer;
 
+                usuarioFormPestañas = new FormVentanasUsuario(codigo, jTextFieldUsuario.getText());
+                usuarioFormPestañas.setjLabel1(codigo);
+                usuarioFormPestañas.setjUserCode1(codigo);
+                usuarioFormPestañas.setjUserCode2(codigo);
+                usuarioFormPestañas.setjUserCode3(codigo);
                 // Comprueba si la primera letra es una "u" o una "a"
-                if (mensajeServer.charAt(0) == 'U'){
-                    usuarioFormPestañas = new FormVentanasUsuario(codigo, jTextFieldUsuario.getText());
-                    usuarioFormPestañas.setjLabel1(codigo);
-                    usuarioFormPestañas.setjUserCode1(codigo);
-                    usuarioFormPestañas.setjUserCode2(codigo);
-                    usuarioFormPestañas.setjUserCode3(codigo);
-                    usuarioFormPestañas.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());
-                    usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                    usuarioFormPestañas.setVisible(true);
-                    
+                if (mensajeServer.charAt(0) == 'U'){                  
+                    usuarioFormPestañas.setTitle("Logeado como usuario: "+jTextFieldUsuario.getText());                
                 }else if(mensajeServer.charAt(0) == 'A'){
-                    usuarioFormPestañas = new FormVentanasUsuario(codigo, jTextFieldUsuario.getText());
-                    usuarioFormPestañas.setjLabel1(codigo);
-                    usuarioFormPestañas.setjUserCode1(codigo);
-                    usuarioFormPestañas.setjUserCode2(codigo);
-                    usuarioFormPestañas.setjUserCode3(codigo);
-                    usuarioFormPestañas.setTitle("Logeado como administrador: "+jTextFieldUsuario.getText());
-                    usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                    usuarioFormPestañas.setVisible(true);                 
-                }                  
+                    usuarioFormPestañas.setTitle("Logeado como administrador: "+jTextFieldUsuario.getText());                            
+                } 
+                usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                usuarioFormPestañas.setVisible(true);
+                
                 this.setVisible(false);  
             }
         }catch (ConnectException e) {
@@ -270,6 +283,12 @@ public class MainForm extends javax.swing.JFrame {
         }
     }
     
+   /**
+    * Método que comprueba si el campo de Usuario y Contraseña estan vacíos o no para así
+    * poder habilitar el boton de confirmar y el checkBox de ver contraseña o no.
+    * 
+    */
+    
     public void habilitarBotones() {
         if (!jTextFieldUsuario.getText().isEmpty() && !jPasswordField.getText().isEmpty()) {
             jButtonConfirmar.setEnabled(true);
@@ -278,6 +297,14 @@ public class MainForm extends javax.swing.JFrame {
             jButtonConfirmar.setEnabled(false);
         }
     }
+    
+    /**
+    * Método que se ejecutar al hacer click en el boton Confirmar y que comprueba si la IP
+    * introducida esta vacia para mandar un mensaje de información, o en caso contrario
+    * ejecuta el método conexionSocket(usuarioFormPestañas);
+    *
+    * @param evt Evento de acción generado al interactuar con el botón Confirmar
+    */
     
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
         // TODO add your handling code here:
@@ -297,12 +324,24 @@ public class MainForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonConfirmarActionPerformed
 
+    /**
+    * Al ejecutar el método borramos todo el contenido de los campos Usuario y Contraseña
+    *
+    * @param evt Evento de acción generado al interactuar con el botón Limpiar
+    */
+    
     private void jButtonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpiarActionPerformed
         // TODO add your handling code here:
         jTextFieldUsuario.setText("");
         jPasswordField.setText("");
     }//GEN-LAST:event_jButtonLimpiarActionPerformed
 
+    /**
+    * Método que se ejecuta al hacer click en el checkBox de ver contraseña
+    *
+    * @param evt Evento de acción generado al interactuar con el checkbox
+    */
+    
     private void jCheckBoxVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxVerContraseñaActionPerformed
         // TODO add your handling code here:
         if (jCheckBoxVerContraseña.isSelected()) {
@@ -312,6 +351,14 @@ public class MainForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBoxVerContraseñaActionPerformed
 
+    /**
+    * Al teclear algo el método se ejecutará y si el texto del campo Usuario esta vacío
+    * el botón de confirmar se deshabilitará, en cambio si no esta vacío se habilitará.
+    * En todas las situaciones el campo de Contraseña se habilitará.
+    *
+    * @param evt Evento de acción generado al interactuar con el textField Usuario
+    */
+    
     private void jTextFieldUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioKeyReleased
         // TODO add your handling code here:
         if (jTextFieldUsuario.getText()==""||jTextFieldUsuario.getText().isEmpty()){
@@ -322,6 +369,13 @@ public class MainForm extends javax.swing.JFrame {
          jPasswordField.setEnabled(true);
     }//GEN-LAST:event_jTextFieldUsuarioKeyReleased
 
+    /**
+    * Al ejecutar el método podremos activar o desactivar el checkBox ver contraseña si
+    * el campo de Contraseña no esta vacío.
+    *
+    * @param evt Evento de acción generado al teclear algo en el campo Contraseña
+    */
+    
     private void jPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyReleased
         // TODO add your handling code here:
         habilitarBotones();

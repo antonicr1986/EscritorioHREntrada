@@ -5,19 +5,28 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author anton
+ * @author Antonio Company Rodriguez
+ * 
+ * Clase para crear ventanas para cambio de contraseña del usuario logueado
  */
 public class CambiarPasswordForm extends javax.swing.JFrame {
 
-    String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    private String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
     
     /**
      * Creates new form CambiarPasswordForm
+     * Añadiremos características iniciales como la posición centrada, el título y el icono personalizados
+     * 
+     * @param user És un string con el nombre del usuario que haya iniciado sesión que pasaremos
+     * por parámetro al crear un tipo de ventanas de este
      */
     public CambiarPasswordForm(String user) {
         setLocationRelativeTo(null);
         setTitle("Cambiar contraseña usuario: "+user);
         initComponents();
+        
+        jButtonConfirmarNuevaContraseña.setEnabled(false);
+        jCheckBoxVerContraseñas.setEnabled(false);
         
         //Añadir icono
         ImageIcon icono = new ImageIcon(rutaImagen);
@@ -58,6 +67,18 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         jCheckBoxVerContraseñas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxVerContraseñasActionPerformed(evt);
+            }
+        });
+
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyReleased(evt);
+            }
+        });
+
+        jPasswordField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordField2KeyReleased(evt);
             }
         });
 
@@ -115,6 +136,15 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Acción ejecutada al clicar en el botón confirmar nueva contraseña, que comprueba
+    * que las dos contraseñas escritas en los jPasswordFields sean iguales y muestra
+    * un JOptionPane informando si lo són o no lo són.
+    *
+    * @param evt Evento de acción generado al interactuar con el boton
+    * 
+    */
+    
     private void jButtonConfirmarNuevaContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarNuevaContraseñaActionPerformed
         // TODO add your handling code here:
         char[] password1 = jPasswordField1.getPassword();
@@ -134,6 +164,14 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonConfirmarNuevaContraseñaActionPerformed
 
+    /**
+    * Método que lo que hace es si el checkBox determinado esta seleccionado dejaremos ver
+    * los carácteres de jPasswordField1 y jPasswordField2, en cambio sino esta seleccionado
+    * lo que haremos será poner todos los carácteres de su contenido como '*'
+    *
+    * @param evt Evento de acción generado al interactuar con el JCheckBox
+    */
+    
     private void jCheckBoxVerContraseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxVerContraseñasActionPerformed
         // TODO add your handling code here:
         if (jCheckBoxVerContraseñas.isSelected()) {
@@ -145,6 +183,60 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jCheckBoxVerContraseñasActionPerformed
 
+    /**
+    * Habilitaremos o no el boton de confirmar contraseña y el checkbox según
+    * las condiciones de los métodos internos.
+    *
+    * @param evt Evento de acción generado al teclear algo en la Contraseña
+    */
+    
+    private void jPasswordField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyReleased
+        // TODO add your handling code here:
+        habilitarDeshabilitarBotonConfirmarContraseña();
+        habilitarDeshabilitarCheckBoxVerContraseñas();
+    }//GEN-LAST:event_jPasswordField1KeyReleased
+
+    /**
+    * Habilitaremos o no el boton de confirmar contraseña y el checkbox según
+    * las condiciones de los métodos internos.
+    *
+    * @param evt Evento de acción generado al teclear algo en la Contraseña2
+    */
+    
+    private void jPasswordField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField2KeyReleased
+        // TODO add your handling code here:
+        habilitarDeshabilitarBotonConfirmarContraseña();
+        habilitarDeshabilitarCheckBoxVerContraseñas();
+    }//GEN-LAST:event_jPasswordField2KeyReleased
+
+    /**
+    * Habilita o deshabilita el botón de confirmar cambio de contraseña
+    * dependiendo de si alguna de las contraseñas introducida esta vacía.
+    *
+    */
+    
+    public void habilitarDeshabilitarBotonConfirmarContraseña(){
+        if ((jPasswordField1.getText().equals(""))||(jPasswordField2.getText().equals(""))){
+            jButtonConfirmarNuevaContraseña.setEnabled(false);
+        }else{
+            jButtonConfirmarNuevaContraseña.setEnabled(true);
+        }
+    }
+    
+    /**
+    * Habilita o deshabilita el checkBox para ver contraseñas dependiendo de si alguna de las 
+    * contraseñas introducida no esta vacía.
+    *
+    */
+    
+    public void habilitarDeshabilitarCheckBoxVerContraseñas(){
+        if ((!jPasswordField1.getText().equals(""))||(!jPasswordField2.getText().equals(""))){
+            jCheckBoxVerContraseñas.setEnabled(true);
+        }
+        else{
+             jCheckBoxVerContraseñas.setEnabled(false);
+        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConfirmarNuevaContraseña;
