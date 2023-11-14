@@ -307,10 +307,9 @@ public class MainForm extends javax.swing.JFrame {
     */
     
     private void jButtonConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarActionPerformed
-        // TODO add your handling code here:
+       
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(codigo, jTextFieldUsuario.getText());
         try{
-            // TODO add your handling code here:
             if (jTextFieldIPServidor.getText().isEmpty()||jTextFieldIPServidor.getText().isBlank()||jTextFieldIPServidor.getText() =="" ){
                    JOptionPane.showMessageDialog(null, 
                              "Rellena el campo IP.");
@@ -343,7 +342,7 @@ public class MainForm extends javax.swing.JFrame {
     */
     
     private void jCheckBoxVerContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxVerContraseñaActionPerformed
-        // TODO add your handling code here:
+
         if (jCheckBoxVerContraseña.isSelected()) {
             jPasswordField.setEchoChar((char) 0);
         } else {
@@ -360,7 +359,7 @@ public class MainForm extends javax.swing.JFrame {
     */
     
     private void jTextFieldUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioKeyReleased
-        // TODO add your handling code here:
+
         if (jTextFieldUsuario.getText()==""||jTextFieldUsuario.getText().isEmpty()){
             jButtonConfirmar.setEnabled(false);
         }else{
@@ -377,7 +376,7 @@ public class MainForm extends javax.swing.JFrame {
     */
     
     private void jPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyReleased
-        // TODO add your handling code here:
+
         habilitarBotones();
         if(jPasswordField.getText()==""||jPasswordField.getText().isEmpty()){
             jCheckBoxVerContraseña.setEnabled(false);

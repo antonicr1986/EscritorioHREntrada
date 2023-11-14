@@ -100,6 +100,15 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     
     /**
      * Creates new form FormVentanasUsuario
+     * con caracteristicas iniciales una de las cuales mas importantes es la de
+     * segun el codigo que hayamos recibido por parametro tipo String activaremos
+     * o no todas las opciones referentes a la tabla users
+     * 
+     * @param codigo lo usaremos para determinar si el usuario tiene acceso a opciones
+     * referentes a la tabla users o no segun si empieza por 'A' admin o 'U' user
+     * 
+     * @param user lo utilizaremos para almacenar el nombre del usuario en la variable
+     * de clase llamada user
      */
     public FormVentanasUsuario(String codigo, String user) {
         this.user = user;
@@ -159,6 +168,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         });
     }
     
+    /**
+    * Método que al ejecutarse borra el contenido del comboBoxColumna
+    * y lo rellena con diferentes valores segun el contenido de la 
+    * variable seleccion.
+    * 
+    */
+    
     private void cambiarItemsComboBoxColumna(){
          String seleccion = (String) jComboBoxTablas.getSelectedItem().toString();
                 // Limpia el modelo actual
@@ -198,7 +214,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     }
     
     /**
-    * Descripción del método.
+    * Método que obtiene el socket de Mainform y lo asigna a una variable tipo socket
+    * y luego entabla un dialogo con el servidor para hacer logout de la sesión, 
+    * cierra la ventana abierta actualmente y abre una nueva tipo MainForm.
     *
     * @param formUsuario objeto del tipo FormVentanasUsuario que usaremos para
     * cerrar la ventana que tengamos abierta de este tipo de Forms 
@@ -1129,20 +1147,45 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+    * Método que al ejecutarse abre una ventana del tipo CambiarPasswordForm
+    *
+    * @param evt Evento de acción que se dispara al clicar en el boton
+    * cambiar contraseña
+    * 
+    */
+    
     private void jButtonCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarContraseñaActionPerformed
-        // TODO add your handling code here:
+
         CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm (user);
         ventanaCambioPass.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         ventanaCambioPass.setVisible(true);
     }//GEN-LAST:event_jButtonCambiarContraseñaActionPerformed
 
+    /**
+    * Método que ejecuta el método logout()
+    *
+    * @param evt Evento de acción que se dispara al clicar en el boton
+    * logout session 
+    * 
+    */
+    
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
-        // TODO add your handling code here:
+
         logout();
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
+    /**
+    * Método que al ejecutarse asigna unos valores a unas variables booleanas
+    * y después ejecuta el método ejecutarAccion();
+    *
+    * @param evt Evento de acción que se dispara al clicar en el 
+    * boton Buscar
+    * 
+    */
+    
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
-        // TODO add your handling code here:
+
         select = true;
 
         insert = false;
@@ -1152,8 +1195,17 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         ejecutarAccion();
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
+    /**
+    * Método que al ejecutarse asigna unos valores a unas variables booleanas
+    * y después ejecuta el método ejecutarAccion();
+    *
+    * @param evt Evento de acción que se dispara al clicar en el 
+    * boton Borrar
+    * 
+    */
+    
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
-        // TODO add your handling code here:
+
         delete = true;
         
         select = false;
@@ -1163,8 +1215,17 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         ejecutarAccion();
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
+    /**
+    * Método que al ejecutarse asigna unos valores a unas variables booleanas
+    * y después ejecuta el método ejecutarAccion();
+    *
+    * @param evt Evento de acción que se dispara al clicar en el 
+    * boton Actualizar
+    * 
+    */
+    
     private void jButtonActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarTablaActionPerformed
-        // TODO add your handling code here:
+
         update = true;
 
         select = false;
@@ -1174,33 +1235,75 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         ejecutarAccion();
     }//GEN-LAST:event_jButtonActualizarTablaActionPerformed
 
+    /**
+    * Método que ejecuta los métodos activarDesactivarTextFieldsAñadir() y
+    * cambiarTextoActivarDesactivarLabelInfoAñadir()
+    *
+    * @param evt Evento de acción que se dispara al clicar en el 
+    * radio button users.
+    * 
+    */
+    
     private void jRadioButtonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsersActionPerformed
-        // TODO add your handling code here:
+    
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonUsersActionPerformed
 
+    /**
+    * Método que ejecuta los métodos activarDesactivarTextFieldsAñadir() y
+    * cambiarTextoActivarDesactivarLabelInfoAñadir()
+    *
+    * @param evt Evento de acción que se dispara al clicar en el 
+    * radio button jornada.
+    * 
+    */
+    
     private void jRadioButtonJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaActionPerformed
-        // TODO add your handling code here:
+    
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonJornadaActionPerformed
 
+    /**
+    * Método que ejecuta los métodos activarDesactivarTextFieldsAñadir() y
+    * cambiarTextoActivarDesactivarLabelInfoAñadir()
+    *
+    * @param evt Evento de acción que se dispara al clicar en el 
+    * radio button empleados.
+    * 
+    */
+    
     private void jRadioButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleadoActionPerformed
-        // TODO add your handling code here:
+      
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpleadoActionPerformed
 
-     //RADIO BUTTONS EVENTOS QUE SE DISPARAN AL HACER CLICK EN ALGUNO DE ELLOS
+    /**
+    * Método que ejecuta los métodos activarDesactivarTextFieldsAñadir() y
+    * cambiarTextoActivarDesactivarLabelInfoAñadir()
+    *
+    * @param evt Evento de acción que se dispara al clicar en el 
+    * radio button empresa.
+    * 
+    */
     private void jRadioButtonEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresaActionPerformed
-        // TODO add your handling code here:
+        
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpresaActionPerformed
 
+    /**
+    * Método que asigna valores a ciertas variables tipo booleanas y al String nombreTabla
+    * y después ejecuta el método principal ejecutarAccion();
+    *
+    * @param evt Evento de acción que se dispara al clicar en el 
+    * botton Añadir.
+    */
+    
     private void jButtonAñadirATablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAñadirATablaActionPerformed
-        // TODO add your handling code here:
+      
         insert = true;
 
         select = false;
@@ -1221,27 +1324,28 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         ejecutarAccion();
     }//GEN-LAST:event_jButtonAñadirATablaActionPerformed
 
+    
     private void jTextFieldPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPalabraActionPerformed
-        // TODO add your handling code here:
+      
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jTextFieldPalabraActionPerformed
 
     private void jComboBoxTablasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTablasActionPerformed
-        // TODO add your handling code here:      
+            
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jComboBoxTablasActionPerformed
 
     
     private void jComboBoxColumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColumnaActionPerformed
-        // TODO add your handling code here:
+     
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jComboBoxColumnaActionPerformed
 
     private void jCheckBoxBuscarVariosFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBuscarVariosFiltrosActionPerformed
-        // TODO add your handling code here:
+        
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
         if (jCheckBoxBuscarVariosFiltros.isSelected()){
@@ -1250,21 +1354,28 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxBuscarVariosFiltrosActionPerformed
 
     private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPalabraKeyReleased
-        // TODO add your handling code here:
+      
          buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jTextFieldPalabraKeyReleased
 
     private void jTextFieldNom2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNom2KeyReleased
-        // TODO add your handling code here:
+      
         comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar();
     }//GEN-LAST:event_jTextFieldNom2KeyReleased
 
     private void jTextFieldApellido2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldApellido2KeyReleased
-        // TODO add your handling code here:
+        
         comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar();
     }//GEN-LAST:event_jTextFieldApellido2KeyReleased
 
+     /**
+    * Método que gestiona el estado activo/inactivo del boton Buscar
+    * segun el estado de los campos de texto de la busqueda con 
+    * varios filtros
+    * 
+    */
+    
     private void comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar(){
         if (jTextFieldNom2.getText().equals("nom")){
             jButtonBuscar.setEnabled(false);
@@ -1276,6 +1387,12 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jButtonBuscar.setEnabled(false);
         }
     }
+    
+    /**
+    * Método que maneja los componentes a mostrar o no y habilitar o no
+    * para poder gestionar el uso de varios filtros en la busqueda
+    * 
+    */
     
     private void buscarPorVariosFiltrosONo(){
         if (jCheckBoxBuscarVariosFiltros.isSelected()){
@@ -1302,6 +1419,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
            jComboBoxOrdenar.setEnabled(true);
         }
     }
+    
+    /**
+    * Método principal de accion de la clase, el cual contiene toda la lógica asociada
+    * a métodos para buscar, añadir, borrar, actualizar datos mediante conexión con 
+    * socket con el servidor
+    * 
+    */
     
      private void ejecutarAccion(){
         try {
@@ -1471,7 +1595,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 }
 
             } else if (NomApellido[7].equals("0") || NomApellido[7].equals("1")) { //NomApellido7
-                operacionesConApellidos7( NomApellido);
+                operacionesConNomYApellidos7( NomApellido);
                 
             } else if (insertEmpresas[9].equals("0") || insertEmpresas[9].equals("1")) {
                 operacionesConInsertEmpresas( insertEmpresas);
@@ -1534,393 +1658,408 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         });
     }
     
+    /**
+    * Método que gestiona y muestra por pantalla cuando la acción que ejecutamos 
+    * és buscar
+    *
+    * @param columna string contiene el valor de la columna en la cual buscaremos
+    * @param palabra string cotiene el valor de la palabra a buscar
+    * @param palabraAbuscasr string contiene los valores separados por comas de la operacion a realizar
+    */
+    
     public void operacionesConSelect ( String columna, String palabra, String palabraAbuscar) throws IOException, ClassNotFoundException{
          if (nombreTabla.equals("0") && columna.equals("dni")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            System.out.println("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
-                List<Empleados> listaPersonasdni = new ArrayList<>();
+            List<Empleados> listaPersonasdni = new ArrayList<>();
 
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaPersonasdni = (ArrayList) perEnt.readObject();
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaPersonasdni = (ArrayList) perEnt.readObject();
 
-                for (int i = 0; i < listaPersonasdni.size(); i++) {
-                    if (columna.equals("dni") && palabraAbuscar.equals(listaPersonasdni.get(i).getDni())) {
-                         jTextAreaSelect.append("____________________________________________________________________"+ "\n");
-                        jTextAreaSelect.append("Dni: " + listaPersonasdni.get(i).getDni() + "\n"
-                                + "Nombre: " + listaPersonasdni.get(i).getNom() + "\n"
-                                + "Apellido: " + listaPersonasdni.get(i).getApellido() + "\n"
-                                + "Nombre empresa: " + listaPersonasdni.get(i).getNomempresa() + "\n"
-                                + "Departamento: " + listaPersonasdni.get(i).getDepartament() + "\n"
-                                + "Codigo tarjeta: " + listaPersonasdni.get(i).getCodicard() + "\n"
-                                + "Mail: " + listaPersonasdni.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaPersonasdni.get(i).getTelephon() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("0") && columna.equals("nomempresa")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Empleados> listaTotalEmpleadosNomEmpresa = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaTotalEmpleadosNomEmpresa = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaTotalEmpleadosNomEmpresa.size(); i++) {
-                    if (columna.equals("nomempresa") && palabraAbuscar.equals(listaTotalEmpleadosNomEmpresa.get(i).getNomempresa())) {
-                         jTextAreaSelect.append("____________________________________________________________________"+ "\n");
-                        jTextAreaSelect.append("Dni: " + listaTotalEmpleadosNomEmpresa.get(i).getDni() + "\n"
-                                + "Nombre: " + listaTotalEmpleadosNomEmpresa.get(i).getNom() + "\n"
-                                + "Apellido: " + listaTotalEmpleadosNomEmpresa.get(i).getApellido() + "\n"
-                                + "Nombre empresa: " + listaTotalEmpleadosNomEmpresa.get(i).getNomempresa() + "\n"
-                                + "Departamento: " + listaTotalEmpleadosNomEmpresa.get(i).getDepartament() + "\n"
-                                + "Codigo tarjeta: " + listaTotalEmpleadosNomEmpresa.get(i).getCodicard() + "\n"
-                                + "Mail: " + listaTotalEmpleadosNomEmpresa.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosNomEmpresa.get(i).getTelephon() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("0") && columna.equals("departament")) {
-
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                System.out.println("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Empleados> listaTotalEmpleadosDepart = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaTotalEmpleadosDepart = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaTotalEmpleadosDepart.size(); i++) {
-                    if (columna.equals("departament") && palabraAbuscar.equals(listaTotalEmpleadosDepart.get(i).getDepartament())) {
-                         jTextAreaSelect.append("____________________________________________________________________"+ "\n");
-                        jTextAreaSelect.append("Dni: " + listaTotalEmpleadosDepart.get(i).getDni() + "\n"
-                                + "Nombre: " + listaTotalEmpleadosDepart.get(i).getNom() + "\n"
-                                + "Apellido: " + listaTotalEmpleadosDepart.get(i).getApellido() + "\n"
-                                + "Nombre empresa: " + listaTotalEmpleadosDepart.get(i).getNomempresa() + "\n"
-                                + "Departamento: " + listaTotalEmpleadosDepart.get(i).getDepartament() + "\n"
-                                + "Codigo tarjeta: " + listaTotalEmpleadosDepart.get(i).getCodicard() + "\n"
-                                + "Mail: " + listaTotalEmpleadosDepart.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosDepart.get(i).getTelephon() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("0") && columna.equals("codicard")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Empleados> listaTotalEmpleadosCodiCard = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaTotalEmpleadosCodiCard = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaTotalEmpleadosCodiCard.size(); i++) {
-                    String codicard = String.valueOf(listaTotalEmpleadosCodiCard.get(i).getCodicard());
-                    if (columna.equals("codicard") && palabraAbuscar.equals(codicard)) {
-                        jTextAreaSelect.append("____________________________________________________________________"+ "\n");
-                        jTextAreaSelect.append("Dni: " + listaTotalEmpleadosCodiCard.get(i).getDni() + "\n"
-                                + "Nombre: " + listaTotalEmpleadosCodiCard.get(i).getNom() + "\n"
-                                + "Apellido: " + listaTotalEmpleadosCodiCard.get(i).getApellido() + "\n"
-                                + "Nombre empresa: " + listaTotalEmpleadosCodiCard.get(i).getNomempresa() + "\n"
-                                + "Departamento: " + listaTotalEmpleadosCodiCard.get(i).getDepartament() + "\n"
-                                + "Codigo tarjeta: " + listaTotalEmpleadosCodiCard.get(i).getCodicard() + "\n"
-                                + "Mail: " + listaTotalEmpleadosCodiCard.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosCodiCard.get(i).getTelephon() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("0") && columna.equals("mail")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Empleados> listaTotalEmpleadosMail = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaTotalEmpleadosMail = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaTotalEmpleadosMail.size(); i++) {
-                    if (columna.equals("mail") && palabraAbuscar.equals(listaTotalEmpleadosMail.get(i).getMail())) {
-                        jTextAreaSelect.append("____________________________________________________________________"+ "\n");
-                        jTextAreaSelect.append("Dni: " + listaTotalEmpleadosMail.get(i).getDni() + "\n"
-                                + "Nombre: " + listaTotalEmpleadosMail.get(i).getNom() + "\n"
-                                + "Apellido: " + listaTotalEmpleadosMail.get(i).getApellido() + "\n"
-                                + "Nombre empresa: " + listaTotalEmpleadosMail.get(i).getNomempresa() + "\n"
-                                + "Departamento: " + listaTotalEmpleadosMail.get(i).getDepartament() + "\n"
-                                + "Codigo tarjeta: " + listaTotalEmpleadosMail.get(i).getCodicard() + "\n"
-                                + "Mail: " + listaTotalEmpleadosMail.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosMail.get(i).getTelephon() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("0") && columna.equals("telephon")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Empleados> listaTotalEmpleadosTelf = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaTotalEmpleadosTelf = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaTotalEmpleadosTelf.size(); i++) {
-                    String telephon = String.valueOf(listaTotalEmpleadosTelf.get(i).getTelephon());
-                    if (columna.equals("telephon") && palabraAbuscar.equals(telephon)) {
-                        jTextAreaSelect.append("____________________________________________________________________"+ "\n");
-                        jTextAreaSelect.append("Dni: " + listaTotalEmpleadosTelf.get(i).getDni() + "\n"
-                                + "Nombre: " + listaTotalEmpleadosTelf.get(i).getNom() + "\n"
-                                + "Apellido: " + listaTotalEmpleadosTelf.get(i).getApellido() + "\n"
-                                + "Nombre empresa: " + listaTotalEmpleadosTelf.get(i).getNomempresa() + "\n"
-                                + "Departamento: " + listaTotalEmpleadosTelf.get(i).getDepartament() + "\n"
-                                + "Codigo tarjeta: " + listaTotalEmpleadosTelf.get(i).getCodicard() + "\n"
-                                + "Mail: " + listaTotalEmpleadosTelf.get(i).getMail() + "\n"
-                                + "Teléfono: " + listaTotalEmpleadosTelf.get(i).getTelephon() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-
-            } else if (nombreTabla.equals("1") && columna.equals("dni")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Users> listaToUsersDni = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaToUsersDni = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaToUsersDni.size(); i++) {
-                    if (columna.equals("dni") && palabraAbuscar.equals(listaToUsersDni.get(i).getDni())) {
-                        jTextAreaSelect.append("Login: " + listaToUsersDni.get(i).getLogin() + "\n"
-                                + "Password: " + listaToUsersDni.get(i).getPass() + "\n"
-                                + "Tipo de user: " + listaToUsersDni.get(i).getNumtipe() + "\n"
-                                + "DNI: " + listaToUsersDni.get(i).getDni()+ "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("1") && columna.equals("login")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Users> listaTotalUsersLogin = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaTotalUsersLogin = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaTotalUsersLogin.size(); i++) {
-                    if (columna.equals("login") && palabraAbuscar.equals(listaTotalUsersLogin.get(i).getLogin())) {
-                        jTextAreaSelect.append("Login: " + listaTotalUsersLogin.get(i).getLogin() + "\n"
-                                + "Password: " + listaTotalUsersLogin.get(i).getPass() + "\n"
-                                + "Tipo de user: " + listaTotalUsersLogin.get(i).getNumtipe() + "\n"
-                                + "DNI: " + listaTotalUsersLogin.get(i).getDni()+ "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("1") && columna.equals("numtipe")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Users> listaTotalUsersTipe = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaTotalUsersTipe = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaTotalUsersTipe.size(); i++) {
-                    String numtipe = String.valueOf(listaTotalUsersTipe.get(i).getNumtipe());
-                    if (columna.equals("numtipe") && palabraAbuscar.equals(numtipe)) {
-                        jTextAreaSelect.append("Login: " + listaTotalUsersTipe.get(i).getLogin() + "\n"
-                                + "Password: " + listaTotalUsersTipe.get(i).getPass() + "\n"
-                                + "Tipo de user: " + listaTotalUsersTipe.get(i).getNumtipe() + "\n"
-                                + "DNI: " + listaTotalUsersTipe.get(i).getDni() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-
-            } else if (nombreTabla.equals("2") && columna.equals("nom")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra+ "\n");
-
-                List<Empresa> listaEmpresasNom = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaEmpresasNom = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaEmpresasNom.size(); i++) {
-                    if (columna.equals("nom") && palabraAbuscar.equals(listaEmpresasNom.get(i).getNom())) {
-                        jTextAreaSelect.append("____________________________________________________________________" + "\n"
-                            +"Nombre empresa: " + listaEmpresasNom.get(i).getNom() + "\n"
-                            + "Dirección: " + listaEmpresasNom.get(i).getAddress() + "\n"
-                            + "Teléfono: " + listaEmpresasNom.get(i).getTelephon() + "\n"
+            for (int i = 0; i < listaPersonasdni.size(); i++) {
+                if (columna.equals("dni") && palabraAbuscar.equals(listaPersonasdni.get(i).getDni())) {
+                     jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                    jTextAreaSelect.append("Dni: " + listaPersonasdni.get(i).getDni() + "\n"
+                            + "Nombre: " + listaPersonasdni.get(i).getNom() + "\n"
+                            + "Apellido: " + listaPersonasdni.get(i).getApellido() + "\n"
+                            + "Nombre empresa: " + listaPersonasdni.get(i).getNomempresa() + "\n"
+                            + "Departamento: " + listaPersonasdni.get(i).getDepartament() + "\n"
+                            + "Codigo tarjeta: " + listaPersonasdni.get(i).getCodicard() + "\n"
+                            + "Mail: " + listaPersonasdni.get(i).getMail() + "\n"
+                            + "Teléfono: " + listaPersonasdni.get(i).getTelephon() + "\n"
                             +"____________________________________________________________________" + "\n");
-                    }
                 }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("2") && columna.equals("address")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Empresa> listaEmpresasAddress = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaEmpresasAddress = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaEmpresasAddress.size(); i++) {
-                    if (columna.equals("address") && palabraAbuscar.equals(listaEmpresasAddress.get(i).getAddress())) {
-                        jTextAreaSelect.append("____________________________________________________________________" + "\n"
-                            +"Nombre empresa: " + listaEmpresasAddress.get(i).getNom() + "\n"
-                            + "Dirección: " + listaEmpresasAddress.get(i).getAddress() + "\n"
-                            + "Teléfono: " + listaEmpresasAddress.get(i).getTelephon() + "\n"
-                            +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("2") && columna.equals("telephon")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Empresa> listaEmpresasTelepho = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaEmpresasTelepho = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaEmpresasTelepho.size(); i++) {
-                    String telephon = String.valueOf(listaEmpresasTelepho.get(i).getTelephon());
-                    if (columna.equals("telephon") && palabraAbuscar.equals(telephon)) {
-                        jTextAreaSelect.append("____________________________________________________________________" + "\n"
-                            +"Nombre empresa: " + listaEmpresasTelepho.get(i).getNom() + "\n"
-                            + "Dirección: " + listaEmpresasTelepho.get(i).getAddress() + "\n"
-                            + "Teléfono: " + listaEmpresasTelepho.get(i).getTelephon() + "\n"
-                            +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-
-            } else if (nombreTabla.equals("3") && columna.equals("dni")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Jornada> listaToJornadaDni = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaToJornadaDni = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaToJornadaDni.size(); i++) {
-                    if (columna.equals("dni") && palabraAbuscar.equals(listaToJornadaDni.get(i).getDni())) {
-                        jTextAreaSelect.append("\nDni: " + listaToJornadaDni.get(i).getDni() + "\n"
-                                + "Nombre: " + listaToJornadaDni.get(i).getNom() + "\n"
-                                + "Apellido: " + listaToJornadaDni.get(i).getApellido() + "\n"
-                                + "Codigo tarjeta: " + listaToJornadaDni.get(i).getCodicard() + "\n"
-                                + "Hora entrada: " + listaToJornadaDni.get(i).getHoraentrada() + "\n"
-                                + "Hora salida: " + listaToJornadaDni.get(i).getHorasalida() + "\n"
-                                + "Total: " + listaToJornadaDni.get(i).getTotal() + "\n"
-                                + "Fecha: " + listaToJornadaDni.get(i).getFecha() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("3") && columna.equals("codicard")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Jornada> listaJornadaCodiCard = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaJornadaCodiCard = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaJornadaCodiCard.size(); i++) {
-                    String codicard = String.valueOf(listaJornadaCodiCard.get(i).getCodicard());
-                    if (columna.equals("codicard") && palabraAbuscar.equals(codicard)) {
-                        jTextAreaSelect.append("\nDni: " + listaJornadaCodiCard.get(i).getDni() + "\n"
-                                + "Nombre: " + listaJornadaCodiCard.get(i).getNom() + "\n"
-                                + "Apellido: " + listaJornadaCodiCard.get(i).getApellido() + "\n"
-                                + "Codigo tarjeta: " + listaJornadaCodiCard.get(i).getCodicard() + "\n"
-                                + "Hora entrada: " + listaJornadaCodiCard.get(i).getHoraentrada() + "\n"
-                                + "Hora salida: " + listaJornadaCodiCard.get(i).getHorasalida() + "\n"
-                                + "Total: " + listaJornadaCodiCard.get(i).getTotal() + "\n"
-                                + "Fecha: " + listaJornadaCodiCard.get(i).getFecha() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (nombreTabla.equals("3") && columna.equals("fecha")) {
-                escriptor.write(palabra);
-                escriptor.newLine();
-                escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Jornada> listaTotalJornadaFecha = new ArrayList<>();
-
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                listaTotalJornadaFecha = (ArrayList) perEnt.readObject();
-
-                for (int i = 0; i < listaTotalJornadaFecha.size(); i++) {
-                    if (columna.equals("fecha") && palabraAbuscar.equals(listaTotalJornadaFecha.get(i).getFecha())) {
-                        jTextAreaSelect.append("\nDni: " + listaTotalJornadaFecha.get(i).getDni() + "\n"
-                                + "Nombre: " + listaTotalJornadaFecha.get(i).getNom() + "\n"
-                                + "Apellido: " + listaTotalJornadaFecha.get(i).getApellido() + "\n"
-                                + "Codigo tarjeta: " + listaTotalJornadaFecha.get(i).getCodicard() + "\n"
-                                + "Hora entrada: " + listaTotalJornadaFecha.get(i).getHoraentrada() + "\n"
-                                + "Hora salida: " + listaTotalJornadaFecha.get(i).getHorasalida() + "\n"
-                                + "Total: " + listaTotalJornadaFecha.get(i).getTotal() + "\n"
-                                + "Fecha: " + listaTotalJornadaFecha.get(i).getFecha() + "\n"
-                                +"____________________________________________________________________" + "\n");
-                    }
-                }
-                perEnt.getObjectInputFilter();
-            } else if (!nombreTabla.equals(null) && columna.equals("0")) {
-                mostrarTablasColumnaEquals0();
             }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("0") && columna.equals("nomempresa")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Empleados> listaTotalEmpleadosNomEmpresa = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalEmpleadosNomEmpresa = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaTotalEmpleadosNomEmpresa.size(); i++) {
+                if (columna.equals("nomempresa") && palabraAbuscar.equals(listaTotalEmpleadosNomEmpresa.get(i).getNomempresa())) {
+                     jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                    jTextAreaSelect.append("Dni: " + listaTotalEmpleadosNomEmpresa.get(i).getDni() + "\n"
+                            + "Nombre: " + listaTotalEmpleadosNomEmpresa.get(i).getNom() + "\n"
+                            + "Apellido: " + listaTotalEmpleadosNomEmpresa.get(i).getApellido() + "\n"
+                            + "Nombre empresa: " + listaTotalEmpleadosNomEmpresa.get(i).getNomempresa() + "\n"
+                            + "Departamento: " + listaTotalEmpleadosNomEmpresa.get(i).getDepartament() + "\n"
+                            + "Codigo tarjeta: " + listaTotalEmpleadosNomEmpresa.get(i).getCodicard() + "\n"
+                            + "Mail: " + listaTotalEmpleadosNomEmpresa.get(i).getMail() + "\n"
+                            + "Teléfono: " + listaTotalEmpleadosNomEmpresa.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("0") && columna.equals("departament")) {
+
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            System.out.println("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Empleados> listaTotalEmpleadosDepart = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalEmpleadosDepart = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaTotalEmpleadosDepart.size(); i++) {
+                if (columna.equals("departament") && palabraAbuscar.equals(listaTotalEmpleadosDepart.get(i).getDepartament())) {
+                     jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                    jTextAreaSelect.append("Dni: " + listaTotalEmpleadosDepart.get(i).getDni() + "\n"
+                            + "Nombre: " + listaTotalEmpleadosDepart.get(i).getNom() + "\n"
+                            + "Apellido: " + listaTotalEmpleadosDepart.get(i).getApellido() + "\n"
+                            + "Nombre empresa: " + listaTotalEmpleadosDepart.get(i).getNomempresa() + "\n"
+                            + "Departamento: " + listaTotalEmpleadosDepart.get(i).getDepartament() + "\n"
+                            + "Codigo tarjeta: " + listaTotalEmpleadosDepart.get(i).getCodicard() + "\n"
+                            + "Mail: " + listaTotalEmpleadosDepart.get(i).getMail() + "\n"
+                            + "Teléfono: " + listaTotalEmpleadosDepart.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("0") && columna.equals("codicard")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Empleados> listaTotalEmpleadosCodiCard = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalEmpleadosCodiCard = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaTotalEmpleadosCodiCard.size(); i++) {
+                String codicard = String.valueOf(listaTotalEmpleadosCodiCard.get(i).getCodicard());
+                if (columna.equals("codicard") && palabraAbuscar.equals(codicard)) {
+                    jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                    jTextAreaSelect.append("Dni: " + listaTotalEmpleadosCodiCard.get(i).getDni() + "\n"
+                            + "Nombre: " + listaTotalEmpleadosCodiCard.get(i).getNom() + "\n"
+                            + "Apellido: " + listaTotalEmpleadosCodiCard.get(i).getApellido() + "\n"
+                            + "Nombre empresa: " + listaTotalEmpleadosCodiCard.get(i).getNomempresa() + "\n"
+                            + "Departamento: " + listaTotalEmpleadosCodiCard.get(i).getDepartament() + "\n"
+                            + "Codigo tarjeta: " + listaTotalEmpleadosCodiCard.get(i).getCodicard() + "\n"
+                            + "Mail: " + listaTotalEmpleadosCodiCard.get(i).getMail() + "\n"
+                            + "Teléfono: " + listaTotalEmpleadosCodiCard.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("0") && columna.equals("mail")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Empleados> listaTotalEmpleadosMail = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalEmpleadosMail = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaTotalEmpleadosMail.size(); i++) {
+                if (columna.equals("mail") && palabraAbuscar.equals(listaTotalEmpleadosMail.get(i).getMail())) {
+                    jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                    jTextAreaSelect.append("Dni: " + listaTotalEmpleadosMail.get(i).getDni() + "\n"
+                            + "Nombre: " + listaTotalEmpleadosMail.get(i).getNom() + "\n"
+                            + "Apellido: " + listaTotalEmpleadosMail.get(i).getApellido() + "\n"
+                            + "Nombre empresa: " + listaTotalEmpleadosMail.get(i).getNomempresa() + "\n"
+                            + "Departamento: " + listaTotalEmpleadosMail.get(i).getDepartament() + "\n"
+                            + "Codigo tarjeta: " + listaTotalEmpleadosMail.get(i).getCodicard() + "\n"
+                            + "Mail: " + listaTotalEmpleadosMail.get(i).getMail() + "\n"
+                            + "Teléfono: " + listaTotalEmpleadosMail.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("0") && columna.equals("telephon")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Empleados> listaTotalEmpleadosTelf = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalEmpleadosTelf = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaTotalEmpleadosTelf.size(); i++) {
+                String telephon = String.valueOf(listaTotalEmpleadosTelf.get(i).getTelephon());
+                if (columna.equals("telephon") && palabraAbuscar.equals(telephon)) {
+                    jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                    jTextAreaSelect.append("Dni: " + listaTotalEmpleadosTelf.get(i).getDni() + "\n"
+                            + "Nombre: " + listaTotalEmpleadosTelf.get(i).getNom() + "\n"
+                            + "Apellido: " + listaTotalEmpleadosTelf.get(i).getApellido() + "\n"
+                            + "Nombre empresa: " + listaTotalEmpleadosTelf.get(i).getNomempresa() + "\n"
+                            + "Departamento: " + listaTotalEmpleadosTelf.get(i).getDepartament() + "\n"
+                            + "Codigo tarjeta: " + listaTotalEmpleadosTelf.get(i).getCodicard() + "\n"
+                            + "Mail: " + listaTotalEmpleadosTelf.get(i).getMail() + "\n"
+                            + "Teléfono: " + listaTotalEmpleadosTelf.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+
+        } else if (nombreTabla.equals("1") && columna.equals("dni")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Users> listaToUsersDni = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaToUsersDni = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaToUsersDni.size(); i++) {
+                if (columna.equals("dni") && palabraAbuscar.equals(listaToUsersDni.get(i).getDni())) {
+                    jTextAreaSelect.append("Login: " + listaToUsersDni.get(i).getLogin() + "\n"
+                            + "Password: " + listaToUsersDni.get(i).getPass() + "\n"
+                            + "Tipo de user: " + listaToUsersDni.get(i).getNumtipe() + "\n"
+                            + "DNI: " + listaToUsersDni.get(i).getDni()+ "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("1") && columna.equals("login")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Users> listaTotalUsersLogin = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalUsersLogin = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaTotalUsersLogin.size(); i++) {
+                if (columna.equals("login") && palabraAbuscar.equals(listaTotalUsersLogin.get(i).getLogin())) {
+                    jTextAreaSelect.append("Login: " + listaTotalUsersLogin.get(i).getLogin() + "\n"
+                            + "Password: " + listaTotalUsersLogin.get(i).getPass() + "\n"
+                            + "Tipo de user: " + listaTotalUsersLogin.get(i).getNumtipe() + "\n"
+                            + "DNI: " + listaTotalUsersLogin.get(i).getDni()+ "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("1") && columna.equals("numtipe")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Users> listaTotalUsersTipe = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalUsersTipe = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaTotalUsersTipe.size(); i++) {
+                String numtipe = String.valueOf(listaTotalUsersTipe.get(i).getNumtipe());
+                if (columna.equals("numtipe") && palabraAbuscar.equals(numtipe)) {
+                    jTextAreaSelect.append("Login: " + listaTotalUsersTipe.get(i).getLogin() + "\n"
+                            + "Password: " + listaTotalUsersTipe.get(i).getPass() + "\n"
+                            + "Tipo de user: " + listaTotalUsersTipe.get(i).getNumtipe() + "\n"
+                            + "DNI: " + listaTotalUsersTipe.get(i).getDni() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+
+        } else if (nombreTabla.equals("2") && columna.equals("nom")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra+ "\n");
+
+            List<Empresa> listaEmpresasNom = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaEmpresasNom = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaEmpresasNom.size(); i++) {
+                if (columna.equals("nom") && palabraAbuscar.equals(listaEmpresasNom.get(i).getNom())) {
+                    jTextAreaSelect.append("____________________________________________________________________" + "\n"
+                        +"Nombre empresa: " + listaEmpresasNom.get(i).getNom() + "\n"
+                        + "Dirección: " + listaEmpresasNom.get(i).getAddress() + "\n"
+                        + "Teléfono: " + listaEmpresasNom.get(i).getTelephon() + "\n"
+                        +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("2") && columna.equals("address")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Empresa> listaEmpresasAddress = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaEmpresasAddress = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaEmpresasAddress.size(); i++) {
+                if (columna.equals("address") && palabraAbuscar.equals(listaEmpresasAddress.get(i).getAddress())) {
+                    jTextAreaSelect.append("____________________________________________________________________" + "\n"
+                        +"Nombre empresa: " + listaEmpresasAddress.get(i).getNom() + "\n"
+                        + "Dirección: " + listaEmpresasAddress.get(i).getAddress() + "\n"
+                        + "Teléfono: " + listaEmpresasAddress.get(i).getTelephon() + "\n"
+                        +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("2") && columna.equals("telephon")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Empresa> listaEmpresasTelepho = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaEmpresasTelepho = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaEmpresasTelepho.size(); i++) {
+                String telephon = String.valueOf(listaEmpresasTelepho.get(i).getTelephon());
+                if (columna.equals("telephon") && palabraAbuscar.equals(telephon)) {
+                    jTextAreaSelect.append("____________________________________________________________________" + "\n"
+                        +"Nombre empresa: " + listaEmpresasTelepho.get(i).getNom() + "\n"
+                        + "Dirección: " + listaEmpresasTelepho.get(i).getAddress() + "\n"
+                        + "Teléfono: " + listaEmpresasTelepho.get(i).getTelephon() + "\n"
+                        +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+
+        } else if (nombreTabla.equals("3") && columna.equals("dni")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Jornada> listaToJornadaDni = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaToJornadaDni = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaToJornadaDni.size(); i++) {
+                if (columna.equals("dni") && palabraAbuscar.equals(listaToJornadaDni.get(i).getDni())) {
+                    jTextAreaSelect.append("\nDni: " + listaToJornadaDni.get(i).getDni() + "\n"
+                            + "Nombre: " + listaToJornadaDni.get(i).getNom() + "\n"
+                            + "Apellido: " + listaToJornadaDni.get(i).getApellido() + "\n"
+                            + "Codigo tarjeta: " + listaToJornadaDni.get(i).getCodicard() + "\n"
+                            + "Hora entrada: " + listaToJornadaDni.get(i).getHoraentrada() + "\n"
+                            + "Hora salida: " + listaToJornadaDni.get(i).getHorasalida() + "\n"
+                            + "Total: " + listaToJornadaDni.get(i).getTotal() + "\n"
+                            + "Fecha: " + listaToJornadaDni.get(i).getFecha() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("3") && columna.equals("codicard")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Jornada> listaJornadaCodiCard = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaJornadaCodiCard = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaJornadaCodiCard.size(); i++) {
+                String codicard = String.valueOf(listaJornadaCodiCard.get(i).getCodicard());
+                if (columna.equals("codicard") && palabraAbuscar.equals(codicard)) {
+                    jTextAreaSelect.append("\nDni: " + listaJornadaCodiCard.get(i).getDni() + "\n"
+                            + "Nombre: " + listaJornadaCodiCard.get(i).getNom() + "\n"
+                            + "Apellido: " + listaJornadaCodiCard.get(i).getApellido() + "\n"
+                            + "Codigo tarjeta: " + listaJornadaCodiCard.get(i).getCodicard() + "\n"
+                            + "Hora entrada: " + listaJornadaCodiCard.get(i).getHoraentrada() + "\n"
+                            + "Hora salida: " + listaJornadaCodiCard.get(i).getHorasalida() + "\n"
+                            + "Total: " + listaJornadaCodiCard.get(i).getTotal() + "\n"
+                            + "Fecha: " + listaJornadaCodiCard.get(i).getFecha() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (nombreTabla.equals("3") && columna.equals("fecha")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            List<Jornada> listaTotalJornadaFecha = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalJornadaFecha = (ArrayList) perEnt.readObject();
+
+            for (int i = 0; i < listaTotalJornadaFecha.size(); i++) {
+                if (columna.equals("fecha") && palabraAbuscar.equals(listaTotalJornadaFecha.get(i).getFecha())) {
+                    jTextAreaSelect.append("\nDni: " + listaTotalJornadaFecha.get(i).getDni() + "\n"
+                            + "Nombre: " + listaTotalJornadaFecha.get(i).getNom() + "\n"
+                            + "Apellido: " + listaTotalJornadaFecha.get(i).getApellido() + "\n"
+                            + "Codigo tarjeta: " + listaTotalJornadaFecha.get(i).getCodicard() + "\n"
+                            + "Hora entrada: " + listaTotalJornadaFecha.get(i).getHoraentrada() + "\n"
+                            + "Hora salida: " + listaTotalJornadaFecha.get(i).getHorasalida() + "\n"
+                            + "Total: " + listaTotalJornadaFecha.get(i).getTotal() + "\n"
+                            + "Fecha: " + listaTotalJornadaFecha.get(i).getFecha() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            perEnt.getObjectInputFilter();
+        } else if (!nombreTabla.equals(null) && columna.equals("0")) {
+            mostrarTablasColumnaEquals0();
         }
+    }
    
+    /**
+    * Método que gestiona las búsquedas cuando el valor de columna sea igual a 0 o nulo
+    * por lo que nos devuelve todos los valores de la tabla que estemos consultando
+    * 
+    */
+    
     public void mostrarTablasColumnaEquals0 () throws IOException, ClassNotFoundException{
         switch (nombreTabla) {
             case "0":
@@ -2028,110 +2167,110 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         }
 
-    public void operacionesConApellidos7 ( String[] NomApellido)throws IOException, ClassNotFoundException{
-            String codigoUserRecibido = NomApellido[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-            crud = NomApellido[1];
-            nombreTabla = NomApellido[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
-            String nom = NomApellido[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
-            String datoNom = NomApellido[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
-            String apellido = NomApellido[5]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
-            String datoApellido = NomApellido[6];
-            orden = NomApellido[7];// si es el caso el orden, si no hay ponemos 0
+    /**
+    * Método que gestiona las busquedas con filtro doble de campos nom y apellidos y muestra
+    * por el textArea de la pestaña busqueda el resultado de la búsqueda
+    * 
+    * @param NomApellido array de Strings que contiene los 8 datos que necesitamos para la consulta
+    */
+    
+    public void operacionesConNomYApellidos7 ( String[] NomApellido)throws IOException, ClassNotFoundException{
+        String codigoUserRecibido = NomApellido[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
+        crud = NomApellido[1];
+        nombreTabla = NomApellido[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+        String nom = NomApellido[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
+        String datoNom = NomApellido[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
+        String apellido = NomApellido[5]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
+        String datoApellido = NomApellido[6];
+        orden = NomApellido[7];// si es el caso el orden, si no hay ponemos 0
 
-            jTextAreaSelect.append("____________________________________________________________________" + "\n"
-                +"codigoUserRecibido: " + codigoUserRecibido + "\n"
-                +"crud: " + crud + "\n"
-                +"nombreTabla: " + nombreTabla + "\n"
-                +"nom: " + nom + "\n"
-                +"datoNom: " + datoNom + "\n"
-                +"apellido: " + apellido + "\n"
-                +"datoApellido: " + datoApellido + "\n"
-                +"orden: " + orden + "\n"
-                +"____________________________________________________________________" + "\n");
+        jTextAreaSelect.append("____________________________________________________________________" + "\n"
+            +"codigoUserRecibido: " + codigoUserRecibido + "\n"
+            +"crud: " + crud + "\n"
+            +"nombreTabla: " + nombreTabla + "\n"
+            +"nom: " + nom + "\n"
+            +"datoNom: " + datoNom + "\n"
+            +"apellido: " + apellido + "\n"
+            +"datoApellido: " + datoApellido + "\n"
+            +"orden: " + orden + "\n"
+            +"____________________________________________________________________" + "\n");
 
-            palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + nom + "," + datoNom + "," + apellido + "," + datoApellido + "," + orden;
+        palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + nom + "," + datoNom + "," + apellido + "," + datoApellido + "," + orden;
 
-            if (codigoUserRecibido.equals("")) {
-                codigoUserRecibido = "0";
-            }
+        if (codigoUserRecibido.equals("")) {
+            codigoUserRecibido = "0";
+        }
 
-            if (crud.equals("0")) {
-                if (nombreTabla.equals("0") && nom.equals("nom") && apellido.equals("apellido")) {
-                    escriptor.write(palabra);
-                    escriptor.newLine();
-                    escriptor.flush();
-                    jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguientes: \n" + palabra + "\n");
+        if (crud.equals("0")) {
+            if (nombreTabla.equals("0") && nom.equals("nom") && apellido.equals("apellido")) {
+                escriptor.write(palabra);
+                escriptor.newLine();
+                escriptor.flush();
+                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
-                    List<Empleados> listaEmpleadosNomApellido = new ArrayList<>();
+                List<Empleados> listaEmpleadosNomApellido = new ArrayList<>();
 
-                    perEnt = new ObjectInputStream(socket.getInputStream());
-                    listaEmpleadosNomApellido = (ArrayList) perEnt.readObject();
+                perEnt = new ObjectInputStream(socket.getInputStream());
+                listaEmpleadosNomApellido = (ArrayList) perEnt.readObject();
 
-                    for (int i = 0; i < listaEmpleadosNomApellido.size(); i++) {
-                        if (nom.equals("nom")
-                                && datoNom.equals(listaEmpleadosNomApellido.get(i).getNom())
-                                && apellido.equals("apellido")
-                                && datoApellido.equals(listaEmpleadosNomApellido.get(i).getApellido())) {
-                            jTextAreaSelect.append("____________________________________________________________________"+ "\n");
-                            jTextAreaSelect.append("Dni: " + listaEmpleadosNomApellido.get(i).getDni() + "\n"
-                                    + "Nombre: " + listaEmpleadosNomApellido.get(i).getNom() + "\n"
-                                    + "Apellido: " + listaEmpleadosNomApellido.get(i).getApellido() + "\n"
-                                    + "Nombre empresa: " + listaEmpleadosNomApellido.get(i).getNomempresa() + "\n"
-                                    + "Departamento: " + listaEmpleadosNomApellido.get(i).getDepartament() + "\n"
-                                    + "Codigo tarjeta: " + listaEmpleadosNomApellido.get(i).getCodicard() + "\n"
-                                    + "Mail: " + listaEmpleadosNomApellido.get(i).getMail() + "\n"
-                                    + "Telefono: " + listaEmpleadosNomApellido.get(i).getTelephon() + "\n"
-                                    +"____________________________________________________________________" + "\n");
-                        }
+                for (int i = 0; i < listaEmpleadosNomApellido.size(); i++) {
+                    if (nom.equals("nom")
+                            && datoNom.equals(listaEmpleadosNomApellido.get(i).getNom())
+                            && apellido.equals("apellido")
+                            && datoApellido.equals(listaEmpleadosNomApellido.get(i).getApellido())) {
+                        jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                        jTextAreaSelect.append("Dni: " + listaEmpleadosNomApellido.get(i).getDni() + "\n"
+                                + "Nombre: " + listaEmpleadosNomApellido.get(i).getNom() + "\n"
+                                + "Apellido: " + listaEmpleadosNomApellido.get(i).getApellido() + "\n"
+                                + "Nombre empresa: " + listaEmpleadosNomApellido.get(i).getNomempresa() + "\n"
+                                + "Departamento: " + listaEmpleadosNomApellido.get(i).getDepartament() + "\n"
+                                + "Codigo tarjeta: " + listaEmpleadosNomApellido.get(i).getCodicard() + "\n"
+                                + "Mail: " + listaEmpleadosNomApellido.get(i).getMail() + "\n"
+                                + "Telefono: " + listaEmpleadosNomApellido.get(i).getTelephon() + "\n"
+                                +"____________________________________________________________________" + "\n");
                     }
-                    perEnt.getObjectInputFilter();
-                } else if (nombreTabla.equals("3") && nom.equals("nom") && apellido.equals("apellido")) {
-                    escriptor.write(palabra);
-                    escriptor.newLine();
-                    escriptor.flush();
-                    jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                            + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                    List<Jornada> listaJornadaNomApellido = new ArrayList<>();
-
-                    perEnt = new ObjectInputStream(socket.getInputStream());
-                    listaJornadaNomApellido = (ArrayList) perEnt.readObject();
-                    for (int i = 0; i < listaJornadaNomApellido.size(); i++) {
-                        if (nom.equals("nom")
-                                && datoNom.equals(listaJornadaNomApellido.get(i).getNom())
-                                && apellido.equals("apellido")
-                                && datoApellido.equals(listaJornadaNomApellido.get(i).getApellido())) {
-                            jTextAreaSelect.append("\nDni: " + listaJornadaNomApellido.get(i).getDni() + "\n"
-                                    + "Nombre: " + listaJornadaNomApellido.get(i).getNom() + "\n"
-                                    + "Apellido: " + listaJornadaNomApellido.get(i).getApellido() + "\n"
-                                    + "Codigo tarjeta: " + listaJornadaNomApellido.get(i).getCodicard() + "\n"
-                                    + "Hora entrada: " + listaJornadaNomApellido.get(i).getHoraentrada() + "\n"
-                                    + "Hora salida: " + listaJornadaNomApellido.get(i).getHorasalida() + "\n"
-                                    + "Total: " + listaJornadaNomApellido.get(i).getTotal() + "\n"
-                                    + "Fecha: " + listaJornadaNomApellido.get(i).getFecha() + "\n"
-                                    +"____________________________________________________________________");
-                        }
-                    }
-                    perEnt.getObjectInputFilter();
                 }
+                perEnt.getObjectInputFilter();
+            } else if (nombreTabla.equals("3") && nom.equals("nom") && apellido.equals("apellido")) {
+                escriptor.write(palabra);
+                escriptor.newLine();
+                escriptor.flush();
+                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+                List<Jornada> listaJornadaNomApellido = new ArrayList<>();
+
+                perEnt = new ObjectInputStream(socket.getInputStream());
+                listaJornadaNomApellido = (ArrayList) perEnt.readObject();
+                for (int i = 0; i < listaJornadaNomApellido.size(); i++) {
+                    if (nom.equals("nom")
+                            && datoNom.equals(listaJornadaNomApellido.get(i).getNom())
+                            && apellido.equals("apellido")
+                            && datoApellido.equals(listaJornadaNomApellido.get(i).getApellido())) {
+                        jTextAreaSelect.append("\nDni: " + listaJornadaNomApellido.get(i).getDni() + "\n"
+                                + "Nombre: " + listaJornadaNomApellido.get(i).getNom() + "\n"
+                                + "Apellido: " + listaJornadaNomApellido.get(i).getApellido() + "\n"
+                                + "Codigo tarjeta: " + listaJornadaNomApellido.get(i).getCodicard() + "\n"
+                                + "Hora entrada: " + listaJornadaNomApellido.get(i).getHoraentrada() + "\n"
+                                + "Hora salida: " + listaJornadaNomApellido.get(i).getHorasalida() + "\n"
+                                + "Total: " + listaJornadaNomApellido.get(i).getTotal() + "\n"
+                                + "Fecha: " + listaJornadaNomApellido.get(i).getFecha() + "\n"
+                                +"____________________________________________________________________");
+                    }
+                }
+                perEnt.getObjectInputFilter();
+            }
         }
     }                                                   
     
-    private void activarDesactivarBotonBusqueda(){
-        if (jComboBoxColumna.getSelectedItem()!=null){
-            if (!jTextFieldPalabra.getText().equals("")&&(jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
-            jButtonBuscar.setEnabled(false);
-            }else if (jTextFieldPalabra.getText().equals("")&&(!jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
-                jButtonBuscar.setEnabled(false);
-            }else{
-                jButtonBuscar.setEnabled(true);
-            }
-            /*if ((jTextFieldPalabra.getText().equals(""))&&(jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
-                jButtonBuscar.setEnabled(true);
-            }*/       
-        }
-    }
+    /**
+    * Método que gestiona y muestra por pantalla cuando la acción que ejecutamos 
+    * és añadir una empresa.
+    *
+    * @param insertEmpresas array de string que contiene todos los valores para el insert
+    * 
+    */
     
     public void operacionesConInsertEmpresas( String []insertEmpresas)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpresas[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
@@ -2188,66 +2327,82 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
     }
     
+    /**
+    * Método que gestiona y muestra por pantalla cuando la acción que ejecutamos 
+    * és añadir un usuario
+    *
+    * @param insertUsuarios array de string que contiene todos los valores para el insert
+    * 
+    */
+    
     public void  operacionesConInsertUsuarios( String [] insertUsuarios)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertUsuarios[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-                crud = insertUsuarios[1];
-                nombreTabla = insertUsuarios[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
-                String login = insertUsuarios[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
-                String datoLogin = insertUsuarios[4];
-                String pass = insertUsuarios[5];
-                String datoPass = insertUsuarios[6];
-                String numTipe = insertUsuarios[7]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
-                String datoNumTipe = insertUsuarios[8];
-                String dni = insertUsuarios[9]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
-                String datoDni = insertUsuarios[10];
-                orden = insertUsuarios[11];// si es el caso el orden, si no hay ponemos 0
+        crud = insertUsuarios[1];
+        nombreTabla = insertUsuarios[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+        String login = insertUsuarios[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
+        String datoLogin = insertUsuarios[4];
+        String pass = insertUsuarios[5];
+        String datoPass = insertUsuarios[6];
+        String numTipe = insertUsuarios[7]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
+        String datoNumTipe = insertUsuarios[8];
+        String dni = insertUsuarios[9]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
+        String datoDni = insertUsuarios[10];
+        orden = insertUsuarios[11];// si es el caso el orden, si no hay ponemos 0
 
-                jTextAreaInsert.append("____________________________________________________________________" + "\n"
-                    +"codigoUserRecibido: " + codigoUserRecibido + "\n"
-                    +"crud: " + crud + "\n"
-                    +"nombreTabla: " + nombreTabla + "\n"
-                    +"login: " + login + "\n"
-                    +"datoLogin: " + datoLogin + "\n"
-                    +"pass: " + pass + "\n"
-                    +"datoPass: " + datoPass + "\n"
-                    +"numTipe: " + numTipe + "\n"
-                    +"datoNumTipe: " + datoNumTipe + "\n"
-                    +"dni: " + dni + "\n"
-                    +"datoDni: " + datoDni + "\n"
-                    +"orden: " + orden + "\n"
-                    +"____________________________________________________________________" + "\n");
+        jTextAreaInsert.append("____________________________________________________________________" + "\n"
+            +"codigoUserRecibido: " + codigoUserRecibido + "\n"
+            +"crud: " + crud + "\n"
+            +"nombreTabla: " + nombreTabla + "\n"
+            +"login: " + login + "\n"
+            +"datoLogin: " + datoLogin + "\n"
+            +"pass: " + pass + "\n"
+            +"datoPass: " + datoPass + "\n"
+            +"numTipe: " + numTipe + "\n"
+            +"datoNumTipe: " + datoNumTipe + "\n"
+            +"dni: " + dni + "\n"
+            +"datoDni: " + datoDni + "\n"
+            +"orden: " + orden + "\n"
+            +"____________________________________________________________________" + "\n");
 
-                palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + login + "," + datoLogin + "," + pass
-                        + "," + datoPass + "," + numTipe + "," + datoNumTipe + "," + dni + "," + datoDni + "," + orden;
+        palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + login + "," + datoLogin + "," + pass
+                + "," + datoPass + "," + numTipe + "," + datoNumTipe + "," + dni + "," + datoDni + "," + orden;
 
-                if (codigoUserRecibido.equals("")) {
-                    codigoUserRecibido = "0";
-                }
+        if (codigoUserRecibido.equals("")) {
+            codigoUserRecibido = "0";
+        }
 
-                if (crud.equals("1")) {
-                    if (nombreTabla.equals("1")) {
+        if (crud.equals("1")) {
+            if (nombreTabla.equals("1")) {
 
-                        escriptor.write(palabra);
-                        escriptor.newLine();
-                        escriptor.flush();
-                        jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
-                                + "\nenvia los datos siguientes: \n" + palabra + "\n");
+                escriptor.write(palabra);
+                escriptor.newLine();
+                escriptor.flush();
+                jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
-                        List<Empresa> insertUser = new ArrayList<>();
+                List<Empresa> insertUser = new ArrayList<>();
 
-                        perEnt = new ObjectInputStream(socket.getInputStream());
-                        insertUser = (ArrayList) perEnt.readObject();
-                        jTextAreaInsert.append(("\n____________________________________________________________________\n+"
-                                + "User creado correctamente, sus datos son: \n"));
-                        jTextAreaInsert.append("Login: " + datoLogin + "\n"
-                                + "Pass: " + datoPass + "\n"
-                                + "Num Tipe: " + datoNumTipe + "\n"
-                                + "Dni: " + datoDni + "\n"
-                                +"____________________________________________________________________\n");
-                        perEnt.getObjectInputFilter();
-                    }
-                }
+                perEnt = new ObjectInputStream(socket.getInputStream());
+                insertUser = (ArrayList) perEnt.readObject();
+                jTextAreaInsert.append(("\n____________________________________________________________________\n+"
+                        + "User creado correctamente, sus datos son: \n"));
+                jTextAreaInsert.append("Login: " + datoLogin + "\n"
+                        + "Pass: " + datoPass + "\n"
+                        + "Num Tipe: " + datoNumTipe + "\n"
+                        + "Dni: " + datoDni + "\n"
+                        +"____________________________________________________________________\n");
+                perEnt.getObjectInputFilter();
+            }
+        }
     }
+    
+    /**
+    * Método que gestiona y muestra por pantalla cuando la acción que ejecutamos 
+    * és añadir un empleado con 16 valores
+    *
+    * @param insertEmpleadoMailTelf array de string que contiene todos los valores para el insert
+    * 
+    */
     
     public void operacionesConInsertEmpleadoMailTelf( String [] insertEmpleadoMailTelf)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpleadoMailTelf[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
@@ -2319,6 +2474,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         }
     }
+    
+    /**
+    * Método que gestiona y muestra por pantalla cuando la acción que ejecutamos 
+    * és añadir un empleado con 18 valores
+    *
+    * @param insertEmpleadoMT array de string que contiene todos los valores para el insert
+    * 
+    */
     
     public void operacionsConInsertEmpleadoMT17y15(String []insertEmpleadoMT)throws IOException, ClassNotFoundException{
         if (insertEmpleadoMT[17].equals("0") && insertEmpleadoMT[15].equals("mail")
@@ -2473,6 +2636,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
     }
     
+    /**
+    * Método que gestiona y muestra por pantalla cuando la acción que ejecutamos 
+    * és añadir un empleado con 20 valores
+    *
+    * @param insertEmpleado array de string que contiene todos los valores para el insert
+    * 
+    */
+    
     public void operacionesConInsertEmpleado19(String []insertEmpleado)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpleado[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
         crud = insertEmpleado[1];
@@ -2528,7 +2699,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                 jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
+                jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
                         + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> insertEmpleados = new ArrayList<>();
@@ -2551,6 +2722,32 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
     }                                                                                              
     
+    /**
+    * Método que gestiona el estado activo/inactivo del boton de Buscar
+    * 
+    */
+    
+    private void activarDesactivarBotonBusqueda(){
+        if (jComboBoxColumna.getSelectedItem()!=null){
+            if (!jTextFieldPalabra.getText().equals("")&&(jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
+            jButtonBuscar.setEnabled(false);
+            }else if (jTextFieldPalabra.getText().equals("")&&(!jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
+                jButtonBuscar.setEnabled(false);
+            }else{
+                jButtonBuscar.setEnabled(true);
+            }
+            /*if ((jTextFieldPalabra.getText().equals(""))&&(jComboBoxColumna.getSelectedItem().toString().equals("todas"))){
+                jButtonBuscar.setEnabled(true);
+            }*/       
+        }
+    }
+    
+     /**
+    * Método que maneja el contenido de una etiqueta informativa en la pestaña
+    * de añadir
+    * 
+    */
+    
     private void cambiarTextoActivarDesactivarLabelInfoAñadir(){
         if (jRadioButtonEmpresa.isSelected()){
             jLabelAñadirInfo.setVisible(true);
@@ -2568,6 +2765,12 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jLabelAñadirInfo.setVisible (false);
         }
     }
+    
+     /**
+    * Método que maneja los estados activo o inactivo de los textFields de
+    * la pestaña de Añadir, segun el radio button de tabla seleccionada
+    *
+    */
     
     private void activarDesactivarTextFieldsAñadir(){
         if (jRadioButtonEmpresa.isSelected()){

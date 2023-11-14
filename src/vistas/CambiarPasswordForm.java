@@ -146,7 +146,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
     */
     
     private void jButtonConfirmarNuevaContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfirmarNuevaContraseñaActionPerformed
-        // TODO add your handling code here:
+
         char[] password1 = jPasswordField1.getPassword();
         char[] password2 = jPasswordField2.getPassword();
         
@@ -173,7 +173,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
     */
     
     private void jCheckBoxVerContraseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxVerContraseñasActionPerformed
-        // TODO add your handling code here:
+ 
         if (jCheckBoxVerContraseñas.isSelected()) {
             jPasswordField1.setEchoChar((char) 0);
             jPasswordField2.setEchoChar((char) 0);
@@ -191,7 +191,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
     */
     
     private void jPasswordField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyReleased
-        // TODO add your handling code here:
+      
         habilitarDeshabilitarBotonConfirmarContraseña();
         habilitarDeshabilitarCheckBoxVerContraseñas();
     }//GEN-LAST:event_jPasswordField1KeyReleased
@@ -204,7 +204,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
     */
     
     private void jPasswordField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField2KeyReleased
-        // TODO add your handling code here:
+       
         habilitarDeshabilitarBotonConfirmarContraseña();
         habilitarDeshabilitarCheckBoxVerContraseñas();
     }//GEN-LAST:event_jPasswordField2KeyReleased
