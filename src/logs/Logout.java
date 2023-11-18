@@ -56,21 +56,23 @@ public class Logout {
     */
     
     public static void logout(FormVentanasUsuario formUsuario){
-        try {
+        try {        
             //IMPLEMENTA
-            Socket socket = MainForm.getSocket();
-
-            if (socket != null && socket.isConnected()) {
+            Socket socket = MainForm.getSocket();       
+            
+            if (socket != null && socket.isConnected()) {  
+                
                 // Obtener flujos de entrada y salida.
                 BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-
+            
                 // Aquí enviamos la señal de "logout" al servidor.
                 String logoutSignal = "exit";
                 escriptor.write(logoutSignal);
                 escriptor.newLine();
                 escriptor.flush();
 
+                
                 // Resto de la lógica de cierre de sesión.
                 lector.close();
                 escriptor.close();
