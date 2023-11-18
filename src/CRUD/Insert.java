@@ -21,20 +21,25 @@ public class Insert {
     * és añadir una empresa.
     *
     * @param insertEmpresas array de string que contiene todos los valores para el insert
+    * @param palabra string que se envia al server para el insert
+    * @param escriptor BufferedWriter de contacto con el server
+    * @param perEnt tipo de objeto ObjectInputStream recibido
+    * @param socket Objeto tipo Socket para la conexión
+    * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
     */
     
-    public static void operacionesConInsertEmpresas( String []insertEmpresas, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
+    public static void operacionesConInsertEmpresas( String []insertEmpresas, String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpresas[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-        crud = insertEmpresas[1];
-        nombreTabla = insertEmpresas[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+        String crud = insertEmpresas[1];
+        String nombreTabla = insertEmpresas[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
         String nom = insertEmpresas[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoNom = insertEmpresas[4];
         String address = insertEmpresas[5];
         String datoAddress = insertEmpresas[6];
         String telephon = insertEmpresas[7]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoTelephon = insertEmpresas[8];
-        orden = insertEmpresas[9];// si es el caso el orden, si no hay ponemos 0
+        String orden = insertEmpresas[9];// si es el caso el orden, si no hay ponemos 0
 
         jTextAreaInsert.append("____________________________________________________________________" + "\n"
             +"codigoUserRecibido: " + codigoUserRecibido + "\n"
@@ -84,13 +89,18 @@ public class Insert {
     * és añadir un usuario
     *
     * @param insertUsuarios array de string que contiene todos los valores para el insert
+    * @param palabra string que se envia al server para el insert
+    * @param escriptor BufferedWriter de contacto con el server
+    * @param perEnt tipo de objeto ObjectInputStream recibido
+    * @param socket Objeto tipo Socket para la conexión
+    * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
     */
     
-    public static void  operacionesConInsertUsuarios( String [] insertUsuarios, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
+    public static void  operacionesConInsertUsuarios( String [] insertUsuarios, String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertUsuarios[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-        crud = insertUsuarios[1];
-        nombreTabla = insertUsuarios[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+        String crud = insertUsuarios[1];
+        String nombreTabla = insertUsuarios[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
         String login = insertUsuarios[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoLogin = insertUsuarios[4];
         String pass = insertUsuarios[5];
@@ -99,7 +109,7 @@ public class Insert {
         String datoNumTipe = insertUsuarios[8];
         String dni = insertUsuarios[9]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoDni = insertUsuarios[10];
-        orden = insertUsuarios[11];// si es el caso el orden, si no hay ponemos 0
+        String orden = insertUsuarios[11];// si es el caso el orden, si no hay ponemos 0
 
         jTextAreaInsert.append("____________________________________________________________________" + "\n"
             +"codigoUserRecibido: " + codigoUserRecibido + "\n"
@@ -153,13 +163,18 @@ public class Insert {
     * és añadir un empleado con 16 valores
     *
     * @param insertEmpleadoMailTelf array de string que contiene todos los valores para el insert
+    * @param palabra string que se envia al server para el insert
+    * @param escriptor BufferedWriter de contacto con el server
+    * @param perEnt tipo de objeto ObjectInputStream recibido
+    * @param socket Objeto tipo Socket para la conexión
+    * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
     */
     
-    public static void operacionesConInsertEmpleadoMailTelf( String [] insertEmpleadoMailTelf, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
+    public static void operacionesConInsertEmpleadoMailTelf( String [] insertEmpleadoMailTelf, String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpleadoMailTelf[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-        crud = insertEmpleadoMailTelf[1];
-        nombreTabla = insertEmpleadoMailTelf[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+        String crud = insertEmpleadoMailTelf[1];
+        String nombreTabla = insertEmpleadoMailTelf[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
         String dni = insertEmpleadoMailTelf[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoDni = insertEmpleadoMailTelf[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
         String nom = insertEmpleadoMailTelf[5]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
@@ -172,7 +187,7 @@ public class Insert {
         String datoDepartament = insertEmpleadoMailTelf[12];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
         String codicard = insertEmpleadoMailTelf[13]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoCodicard = insertEmpleadoMailTelf[14];
-        orden = insertEmpleadoMailTelf[15];// si es el caso el orden, si no hay ponemos 0
+        String orden = insertEmpleadoMailTelf[15];// si es el caso el orden, si no hay ponemos 0
 
         jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
@@ -232,16 +247,21 @@ public class Insert {
     * és añadir un empleado con 18 valores
     *
     * @param insertEmpleadoMT array de string que contiene todos los valores para el insert
+    * @param palabra string que se envia al server para el insert
+    * @param escriptor BufferedWriter de contacto con el server
+    * @param perEnt tipo de objeto ObjectInputStream recibido
+    * @param socket Objeto tipo Socket para la conexión
+    * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
     */
     
-    public static void operacionsConInsertEmpleadoMT17y15(String []insertEmpleadoMT,String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert )throws IOException, ClassNotFoundException{
+    public static void operacionsConInsertEmpleadoMT17y15(String []insertEmpleadoMT, String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert )throws IOException, ClassNotFoundException{
         if (insertEmpleadoMT[17].equals("0") && insertEmpleadoMT[15].equals("mail")
                     || insertEmpleadoMT[17].equals("1") && insertEmpleadoMT[15].equals("mail")) {
 
             String codigoUserRecibido = insertEmpleadoMT[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-            crud = insertEmpleadoMT[1];
-            nombreTabla = insertEmpleadoMT[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+            String crud = insertEmpleadoMT[1];
+            String nombreTabla = insertEmpleadoMT[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
             String dni = insertEmpleadoMT[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
             String datoDni = insertEmpleadoMT[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
             String nom = insertEmpleadoMT[5]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
@@ -256,7 +276,7 @@ public class Insert {
             String datoCodicard = insertEmpleadoMT[14];
             String mail = insertEmpleadoMT[15];// si es el caso el orden, si no hay ponemos 0
             String datoMail = insertEmpleadoMT[16];
-            orden = insertEmpleadoMT[17];// si es el caso el orden, si no hay ponemos 0
+            String orden = insertEmpleadoMT[17];// si es el caso el orden, si no hay ponemos 0
 
             jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
@@ -314,8 +334,8 @@ public class Insert {
                 || insertEmpleadoMT[17].equals("1") && insertEmpleadoMT[15].equals("telephon")) {
 
             String codigoUserRecibido = insertEmpleadoMT[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-            crud = insertEmpleadoMT[1];
-            nombreTabla = insertEmpleadoMT[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+            String crud = insertEmpleadoMT[1];
+            String nombreTabla = insertEmpleadoMT[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
             String dni = insertEmpleadoMT[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
             String datoDni = insertEmpleadoMT[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
             String nom = insertEmpleadoMT[5]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
@@ -330,7 +350,7 @@ public class Insert {
             String datoCodicard = insertEmpleadoMT[14];
             String telephon = insertEmpleadoMT[15];// si es el caso el orden, si no hay ponemos 0
             String datoTelephon = insertEmpleadoMT[16];
-            orden = insertEmpleadoMT[17];// si es el caso el orden, si no hay ponemos 0
+            String orden = insertEmpleadoMT[17];// si es el caso el orden, si no hay ponemos 0
 
             jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
@@ -393,13 +413,18 @@ public class Insert {
     * és añadir un empleado con 20 valores
     *
     * @param insertEmpleado array de string que contiene todos los valores para el insert
+    * @param palabra string que se envia al server para el insert
+    * @param escriptor BufferedWriter de contacto con el server
+    * @param perEnt tipo de objeto ObjectInputStream recibido
+    * @param socket Objeto tipo Socket para la conexión
+    * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
     */
     
-    public static void operacionesConInsertEmpleado19(String []insertEmpleado, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
+    public static void operacionesConInsertEmpleado19(String []insertEmpleado,  String palabra,   BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpleado[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-        crud = insertEmpleado[1];
-        nombreTabla = insertEmpleado[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+        String crud = insertEmpleado[1];
+        String nombreTabla = insertEmpleado[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
         String dni = insertEmpleado[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoDni = insertEmpleado[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
         String nom = insertEmpleado[5]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
@@ -416,7 +441,7 @@ public class Insert {
         String datoMail = insertEmpleado[16];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
         String telephon = insertEmpleado[17]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoTelephon = insertEmpleado[18];
-        orden = insertEmpleado[19];// si es el caso el orden, si no hay ponemos 0
+        String orden = insertEmpleado[19];// si es el caso el orden, si no hay ponemos 0
 
         jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 

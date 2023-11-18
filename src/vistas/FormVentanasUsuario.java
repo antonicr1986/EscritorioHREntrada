@@ -215,7 +215,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             public void windowClosing(WindowEvent e) {
                 Logout.logout((FormVentanasUsuario) e.getWindow());               
             }
-        });       
+        }); 
+        
         jComboBoxTablas.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -1606,19 +1607,19 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 Select.operacionesConNomYApellidos7(NomApellido, crud, palabra, nombreTabla, orden, escriptor, perEnt, socket, jTextAreaSelect);
                 
             } else if (insertEmpresas[9].equals("0") || insertEmpresas[9].equals("1")) {
-                Insert.operacionesConInsertEmpresas(insertEmpresas, crud, palabra, nombreTabla, orden, escriptor, perEnt, socket, jTextAreaInsert);
+                Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             } else if (insertUsuarios[11].equals("0") || insertUsuarios[11].equals("1")) {
-                Insert.operacionesConInsertUsuarios(insertUsuarios, crud, palabra, nombreTabla, orden, escriptor, perEnt, socket, jTextAreaInsert);
+                Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             } else if (insertEmpleadoMailTelf[15].equals("0") || insertEmpleadoMailTelf[15].equals("1")) {
-                Insert.operacionesConInsertEmpleadoMailTelf(insertEmpleadoMailTelf, crud, palabra, nombreTabla, orden, escriptor, perEnt, socket, jTextAreaInsert);
+                Insert.operacionesConInsertEmpleadoMailTelf(insertEmpleadoMailTelf, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             }else if (insertEmpleadoMT[17].equals("0") || insertEmpleadoMT[17].equals("1") ) {
-                Insert.operacionsConInsertEmpleadoMT17y15(insertEmpleadoMT, crud, palabra, nombreTabla, orden, escriptor, perEnt, socket, jTextAreaInsert);
+                Insert.operacionsConInsertEmpleadoMT17y15(insertEmpleadoMT, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) {             
-                Insert.operacionesConInsertEmpleado19(insertEmpleado, crud, palabra, nombreTabla, orden, escriptor, perEnt, socket, jTextAreaInsert);                
+                Insert.operacionesConInsertEmpleado19(insertEmpleado, palabra, escriptor, perEnt, socket, jTextAreaInsert);                
             }
         }catch (UnknownHostException ex) {
             Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
