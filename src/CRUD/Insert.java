@@ -1,9 +1,12 @@
 package CRUD;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTextArea;
 import modelo.Empleados;
 import modelo.Empresa;
 
@@ -21,7 +24,7 @@ public class Insert {
     * 
     */
     
-    /**public void operacionesConInsertEmpresas( String []insertEmpresas)throws IOException, ClassNotFoundException{
+    public static void operacionesConInsertEmpresas( String []insertEmpresas, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpresas[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
         crud = insertEmpresas[1];
         nombreTabla = insertEmpresas[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
@@ -59,7 +62,7 @@ public class Insert {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaSelect.append("El usuario con código: " + codigoUserRecibido
+                jTextAreaInsert.append("El usuario con código: " + codigoUserRecibido
                         + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empresa> insertEmpresa = new ArrayList<>();
@@ -83,8 +86,8 @@ public class Insert {
     * @param insertUsuarios array de string que contiene todos los valores para el insert
     * 
     */
-    /**
-    public void  operacionesConInsertUsuarios( String [] insertUsuarios)throws IOException, ClassNotFoundException{
+    
+    public static void  operacionesConInsertUsuarios( String [] insertUsuarios, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertUsuarios[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
         crud = insertUsuarios[1];
         nombreTabla = insertUsuarios[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
@@ -152,8 +155,8 @@ public class Insert {
     * @param insertEmpleadoMailTelf array de string que contiene todos los valores para el insert
     * 
     */
-    /**
-    public void operacionesConInsertEmpleadoMailTelf( String [] insertEmpleadoMailTelf)throws IOException, ClassNotFoundException{
+    
+    public static void operacionesConInsertEmpleadoMailTelf( String [] insertEmpleadoMailTelf, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpleadoMailTelf[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
         crud = insertEmpleadoMailTelf[1];
         nombreTabla = insertEmpleadoMailTelf[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
@@ -204,7 +207,7 @@ public class Insert {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
                         + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> insertEmpleadosMailTelf = new ArrayList<>();
@@ -231,8 +234,8 @@ public class Insert {
     * @param insertEmpleadoMT array de string que contiene todos los valores para el insert
     * 
     */
-    /**
-    public void operacionsConInsertEmpleadoMT17y15(String []insertEmpleadoMT)throws IOException, ClassNotFoundException{
+    
+    public static void operacionsConInsertEmpleadoMT17y15(String []insertEmpleadoMT,String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert )throws IOException, ClassNotFoundException{
         if (insertEmpleadoMT[17].equals("0") && insertEmpleadoMT[15].equals("mail")
                     || insertEmpleadoMT[17].equals("1") && insertEmpleadoMT[15].equals("mail")) {
 
@@ -392,8 +395,8 @@ public class Insert {
     * @param insertEmpleado array de string que contiene todos los valores para el insert
     * 
     */
-    /**
-    public void operacionesConInsertEmpleado19(String []insertEmpleado)throws IOException, ClassNotFoundException{
+    
+    public static void operacionesConInsertEmpleado19(String []insertEmpleado, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = insertEmpleado[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
         crud = insertEmpleado[1];
         nombreTabla = insertEmpleado[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
@@ -469,5 +472,5 @@ public class Insert {
                 perEnt.getObjectInputFilter();
             }
         }
-    }  */                 
+    }              
 }
