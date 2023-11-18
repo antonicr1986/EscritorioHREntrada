@@ -24,6 +24,7 @@ import javax.swing.JTextArea;
 import logs.Logout;
 import CRUD.Select;
 import CRUD.Insert;
+import java.awt.Color;
 
 /**
  *
@@ -211,6 +212,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         
         jButtonAñadirATabla.setEnabled(false);
         
+        activarDesactivarLabelsAñadir();
+        
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
@@ -333,9 +336,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jRadioButtonJornada = new javax.swing.JRadioButton();
         jRadioButtonUsers = new javax.swing.JRadioButton();
         jLabelAñadirInfo = new javax.swing.JLabel();
-        jLabelInfoNumtipe = new javax.swing.JLabel();
-        jLabelInfoCodicard = new javax.swing.JLabel();
-        jLabelInfoTelephone = new javax.swing.JLabel();
+        jLabelNumtipe = new javax.swing.JLabel();
+        jLabelCodicard = new javax.swing.JLabel();
+        jLabelTelephon = new javax.swing.JLabel();
         jPanelActualizar = new javax.swing.JPanel();
         jPanelBusqueda1 = new javax.swing.JPanel();
         jButtonActualizarTabla = new javax.swing.JButton();
@@ -683,11 +686,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelAñadirInfo.setText("Comienza por añadir una empresa");
 
-        jLabelInfoNumtipe.setText("0 = admin, 1 = usuario");
+        jLabelNumtipe.setText("0 = admin, 1 = usuario");
 
-        jLabelInfoCodicard.setText("codicard = solo números");
+        jLabelCodicard.setText("codicard = solo números");
 
-        jLabelInfoTelephone.setText("telephon = solo números");
+        jLabelTelephon.setText("telephon = solo números");
 
         javax.swing.GroupLayout jPanelBusqueda3Layout = new javax.swing.GroupLayout(jPanelBusqueda3);
         jPanelBusqueda3.setLayout(jPanelBusqueda3Layout);
@@ -738,11 +741,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                             .addComponent(jTextFieldPass, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldMail, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabelInfoCodicard))
+                                    .addComponent(jLabelCodicard))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelInfoTelephone)
-                                    .addComponent(jLabelInfoNumtipe)
+                                    .addComponent(jLabelTelephon)
+                                    .addComponent(jLabelNumtipe)
                                     .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextFieldTelephon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextFieldNomEmpresa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -787,8 +790,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addComponent(jTextFieldTelephon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7)
                         .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelInfoCodicard)
-                            .addComponent(jLabelInfoTelephone))
+                            .addComponent(jLabelCodicard)
+                            .addComponent(jLabelTelephon))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -796,7 +799,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelInfoNumtipe)))
+                        .addComponent(jLabelNumtipe)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1280,7 +1283,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     */
     
     private void jRadioButtonUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsersActionPerformed
-    
+        activarDesactivarLabelsAñadir();
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonUsersActionPerformed
@@ -1295,7 +1298,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     */
     
     private void jRadioButtonJornadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaActionPerformed
-    
+        activarDesactivarLabelsAñadir();
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonJornadaActionPerformed
@@ -1310,7 +1313,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     */
     
     private void jRadioButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleadoActionPerformed
-      
+        activarDesactivarLabelsAñadir();
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpleadoActionPerformed
@@ -1324,7 +1327,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     * 
     */
     private void jRadioButtonEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresaActionPerformed
-        
+        activarDesactivarLabelsAñadir();
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
     }//GEN-LAST:event_jRadioButtonEmpresaActionPerformed
@@ -1374,7 +1377,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
     
     private void jComboBoxColumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColumnaActionPerformed
-     
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jComboBoxColumnaActionPerformed
@@ -1389,18 +1391,15 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxBuscarVariosFiltrosActionPerformed
 
     private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPalabraKeyReleased
-      
          buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jTextFieldPalabraKeyReleased
 
     private void jTextFieldNom2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNom2KeyReleased
-      
         comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar();
     }//GEN-LAST:event_jTextFieldNom2KeyReleased
 
     private void jTextFieldApellido2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldApellido2KeyReleased
-        
         comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar();
     }//GEN-LAST:event_jTextFieldApellido2KeyReleased
 
@@ -1819,6 +1818,49 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldAddress.setEnabled(false); 
         }
     }
+    
+    /**
+    * Método que maneja los estados visible o no de etiquetas de
+    * la pestaña de Añadir, segun el radio button de tabla seleccionado
+    *
+    */
+    
+    private void activarDesactivarLabelsAñadir(){
+        if (jRadioButtonEmpresa.isSelected()){       
+            jLabelTelephon.setEnabled(true);
+            jLabelCodicard.setEnabled(false);
+            jLabelNumtipe.setEnabled(false);
+            
+        }else if (jRadioButtonEmpleado.isSelected()){
+            jLabelTelephon.setEnabled(true);
+            jLabelCodicard.setEnabled(true);
+            jLabelNumtipe.setEnabled(false);
+            
+            jTextFieldNomEmpresa.setBackground(Color.red);
+            jTextFieldDni.setBackground(Color.white);
+            
+        }else if (jRadioButtonJornada.isSelected()){
+            jLabelTelephon.setEnabled(false);
+            jLabelCodicard.setEnabled(false);
+            jLabelNumtipe.setEnabled(false);
+            
+            jTextFieldDni.setBackground(Color.red);
+            jTextFieldNomEmpresa.setBackground(Color.white);
+            
+        }else if (jRadioButtonUsers.isSelected()){
+            jLabelTelephon.setEnabled(false);
+            jLabelCodicard.setEnabled(false);
+            jLabelNumtipe.setEnabled(true);
+            
+            jTextFieldDni.setBackground(Color.red);
+            jTextFieldNomEmpresa.setBackground(Color.white);
+            
+        }else{
+            jLabelTelephon.setEnabled(false);
+            jLabelCodicard.setEnabled(false);
+            jLabelNumtipe.setEnabled(false);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup;
@@ -1846,6 +1888,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAutores;
     private javax.swing.JLabel jLabelAñadirInfo;
     private javax.swing.JLabel jLabelCamposAIntroducir;
+    private javax.swing.JLabel jLabelCodicard;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelCodigo1;
     private javax.swing.JLabel jLabelCodigo2;
@@ -1855,10 +1898,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelColumna2;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelHREntrada;
-    private javax.swing.JLabel jLabelInfoCodicard;
-    private javax.swing.JLabel jLabelInfoNumtipe;
-    private javax.swing.JLabel jLabelInfoTelephone;
     private javax.swing.JLabel jLabelNombre2;
+    private javax.swing.JLabel jLabelNumtipe;
     private javax.swing.JLabel jLabelOperacion;
     private javax.swing.JLabel jLabelOrdenar;
     private javax.swing.JLabel jLabelPalabra;
@@ -1867,6 +1908,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTabla;
     private javax.swing.JLabel jLabelTabla1;
     private javax.swing.JLabel jLabelTabla2;
+    private javax.swing.JLabel jLabelTelephon;
     private javax.swing.JLabel jLabelUserCode;
     private javax.swing.JLabel jLabelUserCode1;
     private javax.swing.JLabel jLabelUserCode2;

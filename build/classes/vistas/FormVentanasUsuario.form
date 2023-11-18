@@ -516,12 +516,12 @@
                                                       <Component id="jTextFieldApellido" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="jLabelInfoCodicard" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelCodicard" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabelInfoTelephone" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelInfoNumtipe" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelTelephon" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelNumtipe" min="-2" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jTextFieldTelephon" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
                                                   <Component id="jTextFieldNomEmpresa" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
@@ -581,8 +581,8 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelInfoCodicard" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelInfoTelephone" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelCodicard" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelTelephon" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -592,7 +592,7 @@
                                       <Component id="jTextFieldAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jLabelInfoNumtipe" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNumtipe" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -781,17 +781,17 @@
                     <Property name="text" type="java.lang.String" value="Comienza por a&#xf1;adir una empresa"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelInfoNumtipe">
+                <Component class="javax.swing.JLabel" name="jLabelNumtipe">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="0 = admin, 1 = usuario"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelInfoCodicard">
+                <Component class="javax.swing.JLabel" name="jLabelCodicard">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="codicard = solo n&#xfa;meros"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelInfoTelephone">
+                <Component class="javax.swing.JLabel" name="jLabelTelephon">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="telephon = solo n&#xfa;meros"/>
                   </Properties>
