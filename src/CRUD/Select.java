@@ -1,9 +1,12 @@
 package CRUD;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTextArea;
 import modelo.Empleados;
 import modelo.Empresa;
 import modelo.Jornada;
@@ -17,7 +20,17 @@ import vistas.FormVentanasUsuario;
 public class Select {
     
     /**
-    public void operacionesConSelect ( String columna, String palabra, String palabraAbuscar ) throws IOException, ClassNotFoundException{
+    * Método que gestiona y muestra por pantalla cuando la acción que ejecutamos 
+    * és buscar
+    *
+    * @param columna string contiene el valor de la columna en la cual buscaremos
+    * @param palabra string cotiene el valor de la palabra a buscar
+    * @param palabraAbuscar string contiene los valores separados por comas de la operacion a realizar
+    * 
+    * @throws IOException Descripción de la excepción lanzada. 
+    */
+    
+    public static void operacionesConSelect ( String columna, String palabra, String palabraAbuscar, String nombreTabla, BufferedWriter escriptor, String codigoUserRecibido, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaSelect ) throws IOException, ClassNotFoundException{
          if (nombreTabla.equals("0") && columna.equals("dni")) {
             escriptor.write(palabra);
             escriptor.newLine();
@@ -400,11 +413,131 @@ public class Select {
             }
             perEnt.getObjectInputFilter();
         } else if (!nombreTabla.equals(null) && columna.equals("0")) {
-            mostrarTablasColumnaEquals0();
+            mostrarTablasColumnaEquals0(columna, palabra, palabraAbuscar, nombreTabla, escriptor,codigoUserRecibido,perEnt,socket,jTextAreaSelect);
         }
     }
     
-    public void operacionesConNomYApellidos7 ( String[] NomApellido)throws IOException, ClassNotFoundException{
+    /**
+    * Método que gestiona las búsquedas cuando el valor de columna sea igual a 0 o nulo
+    * por lo que nos devuelve todos los valores de la tabla que estemos consultando
+    * 
+    */
+    
+    public static void mostrarTablasColumnaEquals0 (String columna, String palabra, String palabraAbuscar, String nombreTabla, BufferedWriter escriptor, String codigoUserRecibido, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaSelect) throws IOException, ClassNotFoundException{
+        switch (nombreTabla) {
+            case "0":
+                //ahora si enviamos al server los datos que queremos, sin errores
+                escriptor.write(palabra);
+                escriptor.newLine();
+                escriptor.flush();
+                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+                List<Empleados> listaPersonas = new ArrayList<>();
+
+                perEnt = new ObjectInputStream(socket.getInputStream());
+                listaPersonas = (ArrayList) perEnt.readObject();
+                jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                //recibo objeto
+                for (int i = 0; i < listaPersonas.size(); i++) {
+                    jTextAreaSelect.append("Dni: " + listaPersonas.get(i).getDni() + "\n"
+                            + "Nombre: " + listaPersonas.get(i).getNom() + "\n"
+                            + "Apellido: " + listaPersonas.get(i).getApellido() + "\n"
+                            + "Nombre empresa: " + listaPersonas.get(i).getNomempresa() + "\n"
+                            + "Departamento: " + listaPersonas.get(i).getDepartament() + "\n"
+                            + "Codigo tarjeta: " + listaPersonas.get(i).getCodicard() + "\n"
+                            + "Mail: " + listaPersonas.get(i).getMail() + "\n"
+                            + "Telefono: " + listaPersonas.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+                perEnt.getObjectInputFilter();
+                break;
+            case "1":
+
+                //ahora si enviamos al server los datos que queremos, sin errores
+                escriptor.write(palabra);
+                escriptor.newLine();
+                escriptor.flush();
+
+                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
+                List<Users> listaUsers = new ArrayList<>();
+
+                perEnt = new ObjectInputStream(socket.getInputStream());
+                listaUsers = (ArrayList) perEnt.readObject();
+
+                jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                //recibo objeto
+
+                for (int i = 0; i < listaUsers.size(); i++) {
+                    jTextAreaSelect.append("Login: " + listaUsers.get(i).getLogin() + "\n"
+                            + "Password: " + listaUsers.get(i).getPass() + "\n"
+                            + "Tipo de user: " + listaUsers.get(i).getNumtipe() + "\n"
+                            + "DNI: " + listaUsers.get(i).getDni() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+                perEnt.getObjectInputFilter();
+                break;
+
+            case "2":
+
+                //ahora si enviamos al server los datos que queremos, sin errores
+                escriptor.write(palabra);
+                escriptor.newLine();
+                escriptor.flush();
+                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
+                List<Empresa> listaEmpresa = new ArrayList<>();
+                perEnt = new ObjectInputStream(socket.getInputStream());
+                listaEmpresa = (ArrayList) perEnt.readObject();
+                jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                //recibo objeto
+                for (int i = 0; i < listaEmpresa.size(); i++) {
+                    jTextAreaSelect.append("Nombre empresa: " + listaEmpresa.get(i).getNom() + "\n"
+                            + "Dirección: " + listaEmpresa.get(i).getAddress() + "\n"
+                            + "Telefono: " + listaEmpresa.get(i).getTelephon() + "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+                perEnt.getObjectInputFilter();
+                break;
+            case "3":
+
+                //ahora si enviamos al server los datos que queremos, sin errores
+                escriptor.write(palabra);
+                escriptor.newLine();
+                escriptor.flush();
+                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
+                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
+                List<Jornada> listaJorandas = new ArrayList<>();
+                perEnt = new ObjectInputStream(socket.getInputStream());
+                listaJorandas = (ArrayList) perEnt.readObject();
+
+                jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                //recibo objeto
+                for (int i = 0; i < listaJorandas.size(); i++) {
+                    jTextAreaSelect.append("\nDni: " + listaJorandas.get(i).getDni() + "\n"
+                            + "Nombre: " + listaJorandas.get(i).getNom() + "\n"
+                            + "Apellido: " + listaJorandas.get(i).getApellido() + "\n"
+                            + "Codigo tarjeta: " + listaJorandas.get(i).getCodicard() + "\n"
+                            + "Hora entrada: " + listaJorandas.get(i).getHoraentrada() + "\n"
+                            + "Hora salida: " + listaJorandas.get(i).getHorasalida() + "\n"
+                            + "Total: " + listaJorandas.get(i).getTotal() + "\n"
+                            + "Fecha: " + listaJorandas.get(i).getFecha() + "\n"
+                            + "____________________________________________________________________");
+                }
+                perEnt.getObjectInputFilter();
+                break;
+            }
+        }
+    
+    /**
+    * Método que gestiona las busquedas con filtro doble de campos nom y apellidos y muestra
+    * por el textArea de la pestaña busqueda el resultado de la búsqueda
+    * 
+    * @param NomApellido array de Strings que contiene los 8 datos que necesitamos para la consulta
+    */
+    
+    public static void operacionesConNomYApellidos7 ( String[] NomApellido, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaSelect)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = NomApellido[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
         crud = NomApellido[1];
         nombreTabla = NomApellido[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
@@ -492,5 +625,5 @@ public class Select {
                 perEnt.getObjectInputFilter();
             }
         }
-    }*/             
+    }             
 }
