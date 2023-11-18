@@ -24,7 +24,7 @@ import vistas.FormVentanasUsuario;
  */
 
 public class Logout {
-    private String palabra ="";
+    private static String palabra ="";
     private BufferedReader lector;
     private BufferedWriter escriptor;
     private ObjectInputStream perEnt;
@@ -46,13 +46,16 @@ public class Logout {
     }
     
     /**
-    * Descripción del método.
+    * Método que obtiene el socket de Mainform y lo asigna a una variable tipo socket
+    * y luego entabla un dialogo con el servidor para hacer logout de la sesión, 
+    * cierra la ventana abierta actualmente y abre una nueva tipo MainForm.
     *
     * @param formUsuario objeto del tipo FormVentanasUsuario que usaremos para
     * cerrar la ventana que tengamos abierta de este tipo de Forms 
     * 
     */
-    private void logout(FormVentanasUsuario formUsuario){
+    
+    public static void logout(FormVentanasUsuario formUsuario){
         try {
             //IMPLEMENTA
             Socket socket = MainForm.getSocket();

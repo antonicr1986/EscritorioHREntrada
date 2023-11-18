@@ -10,6 +10,28 @@
 <project name="HREntradaAnt" default="default" basedir=".">
     <description>Builds, tests, and runs the project HREntradaAnt.</description>
     <import file="nbproject/build-impl.xml"/>
+
+    <!-- Define el classpath de las pruebas -->
+    <path id="test.classpath">
+        <!-- Agrega aquí tus rutas de clases y bibliotecas necesarias para las pruebas -->
+        <pathelement location="${build.classes.dir}"/>
+        <!-- Ejemplo: <pathelement location="lib/junit.jar"/> -->
+    </path>
+
+    <!-- Define un nuevo target para ejecutar pruebas JUnit -->
+    <target name="run-tests" depends="compile">
+        <mkdir dir="${build.test.results.dir}"/>
+        <junit printsummary="yes" haltonfailure="no" fork="yes">
+            <classpath refid="test.classpath"/>
+            <formatter type="plain"/>
+            <batchtest fork="yes" todir="${build.test.results.dir}">
+                <fileset dir="${src.dir}">
+                    <include name="**/*Test.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
     <!--
 
     There exist several targets which are by default empty and which can be 

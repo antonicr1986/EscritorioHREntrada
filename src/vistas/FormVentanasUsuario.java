@@ -23,10 +23,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import modelo.Empleados;
 import modelo.Empresa;
 import modelo.Jornada;
 import modelo.Users;
+import logs.Logout;
+import CRUD.Select;
+import CRUD.Insert;
 
 /**
  *
@@ -47,6 +51,62 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
     
     private String codigo;
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
+    }
+
+    public BufferedWriter getEscriptor() {
+        return escriptor;
+    }
+
+    public void setEscriptor(BufferedWriter escriptor) {
+        this.escriptor = escriptor;
+    }
+
+    public ObjectInputStream getPerEnt() {
+        return perEnt;
+    }
+
+    public void setPerEnt(ObjectInputStream perEnt) {
+        this.perEnt = perEnt;
+    }
+
+    public String getCodigoUserRecibido() {
+        return codigoUserRecibido;
+    }
+
+    public void setCodigoUserRecibido(String codigoUserRecibido) {
+        this.codigoUserRecibido = codigoUserRecibido;
+    }
+
+    public String getNombreTabla() {
+        return nombreTabla;
+    }
+
+    public void setNombreTabla(String nombreTabla) {
+        this.nombreTabla = nombreTabla;
+    }
+
+    public JTextArea getjTextAreaInsert() {
+        return jTextAreaInsert;
+    }
+
+    public void setjTextAreaInsert(JTextArea jTextAreaInsert) {
+        this.jTextAreaInsert = jTextAreaInsert;
+    }
+
+    public JTextArea getjTextAreaSelect() {
+        return jTextAreaSelect;
+    }
+
+    public void setjTextAreaSelect(JTextArea jTextAreaSelect) {
+        this.jTextAreaSelect = jTextAreaSelect;
+    }
     private String crud;
     private String nombreTabla;
     private String columna;
@@ -119,6 +179,12 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);   
         initComponents();
         
+        //Volver no editables por el usuario los textArea
+        jTextAreaSelect.setEditable(false);
+        jTextAreaInsert.setEditable(false);
+        jTextAreaDelete.setEditable(false);
+        jTextAreaUpdate.setEditable(false);
+        
         //Añadir icono
         ImageIcon icono = new ImageIcon(rutaImagen);
         setIconImage(icono.getImage());
@@ -155,7 +221,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                logout();
+                Logout.logout((FormVentanasUsuario) e.getWindow());
                 
             }
         }); 
@@ -213,55 +279,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 }         
     }
     
-    /**
-    * Método que obtiene el socket de Mainform y lo asigna a una variable tipo socket
-    * y luego entabla un dialogo con el servidor para hacer logout de la sesión, 
-    * cierra la ventana abierta actualmente y abre una nueva tipo MainForm.
-    *
-    * @param formUsuario objeto del tipo FormVentanasUsuario que usaremos para
-    * cerrar la ventana que tengamos abierta de este tipo de Forms 
-    * 
-    */
-    private void logout(){
-        try {
-            //IMPLEMENTA
-            Socket socket = MainForm.getSocket();
-
-            if (socket != null && socket.isConnected()) {
-                // Obtener flujos de entrada y salida.
-                lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-
-                // Aquí enviamos la señal de "logout" al servidor.
-                String logoutSignal = "exit";
-                escriptor.write(logoutSignal);
-                escriptor.newLine();
-                escriptor.flush();
-
-                // Resto de la lógica de cierre de sesión.
-                lector.close();
-                escriptor.close();
-                socket.close();
-
-                palabra = "exit";
-
-                this.dispose();
-
-                MainForm mainForm = new MainForm();
-                mainForm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                mainForm.setLocation(mainForm.getX(),mainForm.getY()); 
-                mainForm.setVisible(true);     
-                mainForm.setPalabra(palabra);
-                //JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"\nPalabra: "+mainForm.getPalabra());     
-            }
-            else{
-                 JOptionPane.showMessageDialog(null,"Problemas con la conexión al socket.");     
-            }
-         } catch (IOException ex) {
-            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1172,7 +1189,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
 
-        logout();
+        Logout.logout(this);
+        
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
     /**
@@ -1624,6 +1642,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     
      
     /**
+     * Método main para poder ejecutar rápidamente sin ejecutar la aplicación
+     * y comprobar de manera mas rápida los cambios que voy haciendo.
+     * 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -1664,7 +1685,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     *
     * @param columna string contiene el valor de la columna en la cual buscaremos
     * @param palabra string cotiene el valor de la palabra a buscar
-    * @param palabraAbuscasr string contiene los valores separados por comas de la operacion a realizar
+    * @param palabraAbuscar string contiene los valores separados por comas de la operacion a realizar
+    * 
+    * @throws IOException Descripción de la excepción lanzada. 
     */
     
     public void operacionesConSelect ( String columna, String palabra, String palabraAbuscar) throws IOException, ClassNotFoundException{
