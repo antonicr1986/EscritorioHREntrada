@@ -177,6 +177,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaDelete.setEditable(false);
         jTextAreaUpdate.setEditable(false);
         
+        //Bloquear el aumento de tamaño de los textFields
+        //jTextFieldPalabra
+        //jTextFieldPalabra.setWrapStyleWord(false);
+        
         //Añadir icono
         ImageIcon icono = new ImageIcon(rutaImagen);
         setIconImage(icono.getImage());
@@ -530,14 +534,16 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                     .addGroup(jPanelBusquedaLayout.createSequentialGroup()
                                         .addComponent(jButtonBuscar)
                                         .addGap(9, 9, 9)))
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jComboBoxOrdenar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jComboBoxTipoOperacion, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelUserCode, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxColumna, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBoxTablas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBusquedaLayout.createSequentialGroup()
+                                        .addComponent(jLabelUserCode)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jTextFieldPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBoxColumna, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxTablas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusquedaLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jPanelVariosFiltros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -849,12 +855,15 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addComponent(jLabelPalabra1)
                             .addComponent(jLabelColumna1)
                             .addComponent(jLabelCodigo1))
-                        .addGap(43, 43, 43)
-                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldPalabra1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxTablasUpdate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelUserCode1, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
+                                    .addComponent(jLabelUserCode1)
+                                    .addGap(22, 22, 22))
+                                .addComponent(jTextFieldPalabra1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxTablasUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(39, 39, 39)))
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
@@ -937,6 +946,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jComboBoxColumna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
 
+        jTextFieldPalabra2.setPreferredSize(new java.awt.Dimension(121, 22));
+
         jLabelUserCode2.setText("jLabelUserCode");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -960,10 +971,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                 .addComponent(jLabelColumna2))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBoxColumna2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextFieldPalabra2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jComboBoxTablasBorrar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelUserCode2, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(jLabelUserCode2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBoxColumna2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldPalabra2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(43, 43, 43)))
                     .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
                         .addComponent(jLabelCodigo2)
@@ -1000,7 +1011,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(jLabelColumna2))
                             .addComponent(jComboBoxColumna2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 273, Short.MAX_VALUE)))
                 .addComponent(jButtonBorrar)
                 .addGap(34, 34, 34))
         );
