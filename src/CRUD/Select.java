@@ -780,55 +780,61 @@ public class Select {
                 escriptor.newLine();
                 escriptor.flush();
 
-                List<Empleados> listaEmpleadosNomApellido = new ArrayList<>();
-
                 perEnt = new ObjectInputStream(socket.getInputStream());
-                listaEmpleadosNomApellido = (ArrayList) perEnt.readObject();
+                Object receivedData = perEnt.readObject();
 
-                for (int i = 0; i < listaEmpleadosNomApellido.size(); i++) {
-                    if (nom.equals("nom")
-                            && datoNom.equals(listaEmpleadosNomApellido.get(i).getNom())
-                            && apellido.equals("apellido")
-                            && datoApellido.equals(listaEmpleadosNomApellido.get(i).getApellido())) {
-                        jTextAreaSelect.append("____________________________________________________________________"+ "\n");
-                        jTextAreaSelect.append("Dni: " + listaEmpleadosNomApellido.get(i).getDni() + "\n"
-                                + "Nombre: " + listaEmpleadosNomApellido.get(i).getNom() + "\n"
-                                + "Apellido: " + listaEmpleadosNomApellido.get(i).getApellido() + "\n"
-                                + "Nombre empresa: " + listaEmpleadosNomApellido.get(i).getNomempresa() + "\n"
-                                + "Departamento: " + listaEmpleadosNomApellido.get(i).getDepartament() + "\n"
-                                + "Codigo tarjeta: " + listaEmpleadosNomApellido.get(i).getCodicard() + "\n"
-                                + "Mail: " + listaEmpleadosNomApellido.get(i).getMail() + "\n"
-                                + "Telefono: " + listaEmpleadosNomApellido.get(i).getTelephon() + "\n"
-                                +"____________________________________________________________________" + "\n");
+                if (receivedData instanceof List) {
+                    List<Empleados> listaEmpleadosNomApellido = (List<Empleados>) receivedData;
+                    for (Empleados empleado : listaEmpleadosNomApellido) {
+                        jTextAreaSelect.append("Dni: " + empleado.getDni() + "\n" 
+                                + "Nombre: " + empleado.getNom() + "\n" 
+                                + "Apellido: " + empleado.getApellido() + "\n" 
+                                + "Nombre empresa: " + empleado.getNomempresa() + "\n" 
+                                + "Departamento: "  + empleado.getDepartament() + "\n" 
+                                + "Codigo tarjeta: "  + empleado.getCodicard() + "\n" 
+                                + "Mail: " + empleado.getMail() + "\n" 
+                                + "Telefono: " + empleado.getTelephon() + "\n");
+                        jTextAreaSelect.append(
+                                "____________________________________________________________________\n");
                     }
+                    perEnt.getObjectInputFilter();
+                } else if (receivedData instanceof String) {
+                    String errorMessage = (String) receivedData;
+                    jTextAreaSelect.append(errorMessage);
+                } else {
+                    jTextAreaSelect.append("Datos inesperados recibidos del servidor");
                 }
-                perEnt.getObjectInputFilter();
+                
             } else if (nombreTabla.equals("3") && nom.equals("nom") && apellido.equals("apellido")) {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
 
-                List<Jornada> listaJornadaNomApellido = new ArrayList<>();
-
                 perEnt = new ObjectInputStream(socket.getInputStream());
-                listaJornadaNomApellido = (ArrayList) perEnt.readObject();
-                for (int i = 0; i < listaJornadaNomApellido.size(); i++) {
-                    if (nom.equals("nom")
-                            && datoNom.equals(listaJornadaNomApellido.get(i).getNom())
-                            && apellido.equals("apellido")
-                            && datoApellido.equals(listaJornadaNomApellido.get(i).getApellido())) {
-                        jTextAreaSelect.append("\nDni: " + listaJornadaNomApellido.get(i).getDni() + "\n"
-                                + "Nombre: " + listaJornadaNomApellido.get(i).getNom() + "\n"
-                                + "Apellido: " + listaJornadaNomApellido.get(i).getApellido() + "\n"
-                                + "Codigo tarjeta: " + listaJornadaNomApellido.get(i).getCodicard() + "\n"
-                                + "Hora entrada: " + listaJornadaNomApellido.get(i).getHoraentrada() + "\n"
-                                + "Hora salida: " + listaJornadaNomApellido.get(i).getHorasalida() + "\n"
-                                + "Total: " + listaJornadaNomApellido.get(i).getTotal() + "\n"
-                                + "Fecha: " + listaJornadaNomApellido.get(i).getFecha() + "\n"
-                                +"____________________________________________________________________");
+                Object receivedData = perEnt.readObject();
+
+                if (receivedData instanceof List) {
+                    List<Jornada> listaJornadaNomApellido = (List<Jornada>) receivedData;
+
+                    for (Jornada jornada : listaJornadaNomApellido) {
+                        jTextAreaSelect.append("Dni: " + jornada.getDni() + "\n" 
+                                + "Nombre: " + jornada.getNom() + "\n" 
+                                + "Apellido: " + jornada.getApellido() + "\n" 
+                                + "Codigo tarjeta: " + jornada.getCodicard() + "\n"
+                                + "Hora entrada: " + jornada.getHoraentrada() + "\n"
+                                + "Hora salida: " + jornada.getHorasalida() + "\n" 
+                                + "Total: " + jornada.getTotal() + "\n" 
+                                + "Fecha: " + jornada.getFecha() + "\n");
+                        jTextAreaSelect.append(
+                                "____________________________________________________________________\n");
                     }
+                    perEnt.getObjectInputFilter();
+                } else if (receivedData instanceof String) {
+                    String errorMessage = (String) receivedData;
+                    jTextAreaSelect.append(errorMessage);
+                } else {
+                    jTextAreaSelect.append("Datos inesperados recibidos del servidor");
                 }
-                perEnt.getObjectInputFilter();
             }
         }
     }             
