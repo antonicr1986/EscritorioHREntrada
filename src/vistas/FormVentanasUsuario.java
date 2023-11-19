@@ -1873,6 +1873,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jLabelCodicard.setEnabled(false);
             jLabelNumtipe.setEnabled(false);
             
+            jTextFieldNomEmpresa.setBackground(Color.white);
+            jTextFieldDni.setBackground(Color.white);
+            
         }else if (jRadioButtonEmpleado.isSelected()){
             jLabelTelephon.setEnabled(true);
             jLabelCodicard.setEnabled(true);

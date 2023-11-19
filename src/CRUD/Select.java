@@ -649,7 +649,7 @@ public class Select {
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaPersonas = (ArrayList) perEnt.readObject();
-                jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                
                 //recibo objeto
                 for (int i = 0; i < listaPersonas.size(); i++) {
                     jTextAreaSelect.append("Dni: " + listaPersonas.get(i).getDni() + "\n"
@@ -676,7 +676,6 @@ public class Select {
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaUsers = (ArrayList) perEnt.readObject();
 
-                jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                 //recibo objeto
 
                 for (int i = 0; i < listaUsers.size(); i++) {
@@ -699,7 +698,7 @@ public class Select {
                 List<Empresa> listaEmpresa = new ArrayList<>();
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaEmpresa = (ArrayList) perEnt.readObject();
-                jTextAreaSelect.append("____________________________________________________________________"+ "\n");
+                
                 //recibo objeto
                 for (int i = 0; i < listaEmpresa.size(); i++) {
                     jTextAreaSelect.append("Nombre empresa: " + listaEmpresa.get(i).getNom() + "\n"
@@ -720,7 +719,6 @@ public class Select {
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaJorandas = (ArrayList) perEnt.readObject();
 
-                jTextAreaSelect.append("____________________________________________________________________"+ "\n");
                 //recibo objeto
                 for (int i = 0; i < listaJorandas.size(); i++) {
                     jTextAreaSelect.append("\nDni: " + listaJorandas.get(i).getDni() + "\n"
