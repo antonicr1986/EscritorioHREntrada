@@ -339,7 +339,34 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-        } else if (nombreTabla.equals("1") && columna.equals("numtipe")) {
+        } else if (nombreTabla.equals("1") && columna.equals("pass")) {
+            JOptionPane.showMessageDialog(null, 
+                             "Dentro if tabla 1 columna pass");
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+
+            List<Users> listaTotalUsersPass = new ArrayList<>();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            listaTotalUsersPass = (ArrayList) perEnt.readObject();
+
+            JOptionPane.showMessageDialog(null, 
+                             "Dentro if tabla 1 columna pass 2a parte");
+            
+            for (int i = 0; i < listaTotalUsersPass.size(); i++) {
+                if (columna.equals("pass") && palabraAbuscar.equals(listaTotalUsersPass.get(i).getLogin())) {
+                    jTextAreaSelect.append("Login: " + listaTotalUsersPass.get(i).getLogin() + "\n"
+                            + "Password: " + listaTotalUsersPass.get(i).getPass() + "\n"
+                            + "Tipo de user: " + listaTotalUsersPass.get(i).getNumtipe() + "\n"
+                            + "DNI: " + listaTotalUsersPass.get(i).getDni()+ "\n"
+                            +"____________________________________________________________________" + "\n");
+                }
+            }
+            JOptionPane.showMessageDialog(null, 
+                             "Dentro if tabla 1 columna pass 3a parte");
+            perEnt.getObjectInputFilter();
+        }else if (nombreTabla.equals("1") && columna.equals("numtipe")) {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
@@ -467,7 +494,68 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-        } else if (nombreTabla.equals("3") && columna.equals("codicard")) {
+            
+        } else if (nombreTabla.equals("3") && columna.equals("nom")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            Object receivedData = perEnt.readObject();
+
+            if (receivedData instanceof List) {
+
+                List<Jornada> listaTotalJornadaNom = (List<Jornada>) receivedData;
+                for (Jornada jornada : listaTotalJornadaNom) {
+                    jTextAreaSelect.append("\nDni: " + jornada.getDni() + "\n" + "Nombre: "
+                            + jornada.getNom() + "\n" + "Apellido: " + jornada.getApellido()
+                            + "\n" + "Codigo tarjeta: " + jornada.getCodicard() + "\n"
+                            + "Hora entrada: " + jornada.getHoraentrada() + "\n"
+                            + "Hora salida: " + jornada.getHorasalida() + "\n" 
+                            + "Total: " + jornada.getTotal() + "\n" 
+                            + "Fecha: " + jornada.getFecha() + "\n");
+                    jTextAreaSelect.append(
+                            "____________________________________________________________________");
+                }
+                perEnt.getObjectInputFilter();
+            } else if (receivedData instanceof String) {
+                String errorMessage = (String) receivedData;
+                jTextAreaSelect.append(errorMessage);
+            } else {
+                jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
+            }
+
+        } else if (nombreTabla.equals("3") && columna.equals("apellido")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            Object receivedData = perEnt.readObject();
+
+            if (receivedData instanceof List) {
+
+                List<Jornada> listaTotalJornadaAapellido = (List<Jornada>) receivedData;
+                for (Jornada jornada : listaTotalJornadaAapellido) {
+                    jTextAreaSelect.append("\nDni: " + jornada.getDni() + "\n" + "Nombre: "
+                            + jornada.getNom() + "\n" + "Apellido: " + jornada.getApellido()
+                            + "\n" + "Codigo tarjeta: " + jornada.getCodicard() + "\n"
+                            + "Hora entrada: " + jornada.getHoraentrada() + "\n"
+                            + "Hora salida: " + jornada.getHorasalida() + "\n" 
+                            + "Total: " + jornada.getTotal() + "\n" 
+                            + "Fecha: " + jornada.getFecha() + "\n");
+                    jTextAreaSelect.append(
+                            "____________________________________________________________________");
+                }
+                perEnt.getObjectInputFilter();
+            } else if (receivedData instanceof String) {
+                String errorMessage = (String) receivedData;
+                jTextAreaSelect.append(errorMessage);
+            } else {
+                jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
+            }
+
+        }else if (nombreTabla.equals("3") && columna.equals("codicard")) {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
