@@ -1377,6 +1377,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
     
     private void jComboBoxColumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColumnaActionPerformed
+        limpiarTextfieldPalabra();
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
     }//GEN-LAST:event_jComboBoxColumnaActionPerformed
@@ -1594,14 +1595,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             String[] insertEmpleado = new String[20];
             insertEmpleado = palabra.split(",");
 
-            if (!codigo.equals(frase[0]) || !codigo.equals(NomApellido[0])
+            if (!codigo.equals(frase[0]) || !codigo.equals(NomApellido[0])//If para controlar que el codigo de usuario utilizado al hacer la peticion al server no es erroneo
                     || !codigo.equals(insertEmpresas[0]) || !codigo.equals(insertUsuarios[0])
                     || !codigo.equals(insertEmpleadoMailTelf[0]) || !codigo.equals(insertEmpleadoMT[0])
                     || !codigo.equals(insertEmpleado[0])) {
 
                 jTextAreaSelect.append("El codigo es erroneo");
 
-            } else if (frase[5].equals("0") || frase[5].equals("1")) {
+            } else if (frase[5].equals("0") || frase[5].equals("1")) {//Tanto si ordenamos como no ordenamos se cumplira este else if
                 codigoUserRecibido = frase[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
                 crud = frase[1];
                 nombreTabla = frase[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
@@ -1625,11 +1626,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 }
 
                 if (crud.equals("0")) {/*SELECT*/  
-                    Select.operacionesConSelect(columna, palabra, palabraAbuscar,nombreTabla,escriptor,codigoUserRecibido,perEnt,socket,jTextAreaSelect);
+                    Select.operacionesConSelect(columna, palabra, palabraAbuscar,nombreTabla,escriptor,codigoUserRecibido,socket,jTextAreaSelect);
                 }
 
             } else if (NomApellido[7].equals("0") || NomApellido[7].equals("1")) { //NomApellido7
-                Select.operacionesConNomYApellidos7(NomApellido, crud, palabra, nombreTabla, orden, escriptor, perEnt, socket, jTextAreaSelect);
+                Select.operacionesConNomYApellidos7(NomApellido, palabra, escriptor, socket, jTextAreaSelect);
                 
             } else if (insertEmpresas[9].equals("0") || insertEmpresas[9].equals("1")) {
                 Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
@@ -1709,8 +1710,22 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 jButtonBuscar.setEnabled(false);
             }else{
                 jButtonBuscar.setEnabled(true);
-            }    
+            }
         }
+    }
+    
+    /**
+    * Método que limpia el contenido del textField Palabra cuando en el comboBox
+    * columna seleccionamos "todas"
+    * 
+    */
+    
+    private void limpiarTextfieldPalabra(){
+        if (jComboBoxColumna.getSelectedItem()!=null){
+            if (jComboBoxColumna.getSelectedItem().toString().equals("todas")){
+                jTextFieldPalabra.setText("");
+            }
+        }   
     }
     
     /**

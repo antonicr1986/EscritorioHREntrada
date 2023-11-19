@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import modelo.Empleados;
 import modelo.Empresa;
@@ -30,13 +31,54 @@ public class Select {
     * @throws IOException Descripción de la excepción lanzada. 
     */
     
-    public static void operacionesConSelect ( String columna, String palabra, String palabraAbuscar, String nombreTabla, BufferedWriter escriptor, String codigoUserRecibido, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaSelect ) throws IOException, ClassNotFoundException{
-         if (nombreTabla.equals("0") && columna.equals("dni")) {
+    public static void operacionesConSelect ( String columna, String palabra, String palabraAbuscar, String nombreTabla,
+            BufferedWriter escriptor, String codigoUserRecibido, Socket socket, JTextArea jTextAreaSelect ) throws IOException, ClassNotFoundException{
+        ObjectInputStream perEnt = null;
+        
+        if (nombreTabla.equals("0")&& !columna.equals("0")){
+            JOptionPane.showMessageDialog(null, 
+                             "if tabla empleados 1 filtro");
+             mostrarTablaEmpleados1Filtro(nombreTabla, columna, codigoUserRecibido, palabra, 
+                    palabraAbuscar, escriptor, jTextAreaSelect, perEnt,socket);
+            
+        }else if (nombreTabla.equals("1") && !columna.equals("0")){
+            JOptionPane.showMessageDialog(null, 
+                             "if tabla users 1 filtro");
+             mostrarTablaUsers1Filtro(nombreTabla, columna, codigoUserRecibido, palabra, 
+                    palabraAbuscar, escriptor, jTextAreaSelect, perEnt,socket);
+            
+        }else if (nombreTabla.equals("2")&& !columna.equals("0")){
+            JOptionPane.showMessageDialog(null, 
+                             "if tabla empresa 1 filtro");
+            mostrarTablaEmpresa1Filtro(nombreTabla, columna, codigoUserRecibido, palabra, 
+                    palabraAbuscar, escriptor, jTextAreaSelect, perEnt,socket);
+            
+        }else if (nombreTabla.equals("3")&& !columna.equals("0")){
+            JOptionPane.showMessageDialog(null, 
+                             "if tabla jornada 1 filtro");
+            mostrarTablaJornada1Filtro(nombreTabla, columna, codigoUserRecibido, palabra, 
+                    palabraAbuscar, escriptor, jTextAreaSelect, perEnt,socket);
+        
+        } else if (!nombreTabla.equals(null) && columna.equals("0")) {
+            JOptionPane.showMessageDialog(null, 
+                             "if mostrar tabla sin filtros");
+            mostrarTablaSinFiltro(columna, palabra, palabraAbuscar, nombreTabla, escriptor
+                    ,codigoUserRecibido,socket,jTextAreaSelect);
+        }
+    }
+    
+    /**
+    * Método que gestiona las búsquedas de la tabla jornada cuando esta sea
+    * una búsqueda hecha con un solo filtro de columna.
+    * 
+    */
+    
+     public static void mostrarTablaEmpleados1Filtro(String nombreTabla, String columna, String codigoUserRecibido, String palabra, 
+            String palabraAbuscar, BufferedWriter escriptor, JTextArea jTextAreaSelect, ObjectInputStream perEnt,Socket socket) throws IOException, ClassNotFoundException{
+        if (nombreTabla.equals("0") && columna.equals("dni")) { //tabla: empleados      filtrar por: dni
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            System.out.println("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
             List<Empleados> listaPersonasdni = new ArrayList<>();
 
@@ -58,12 +100,70 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-        } else if (nombreTabla.equals("0") && columna.equals("nomempresa")) {
+        }else if (nombreTabla.equals("0") && columna.equals("nom")) {//tabla: empleados      filtrar por: nom
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            Object receivedData = perEnt.readObject();
+
+            if (receivedData instanceof List) {
+                List<Empleados> listaTotalEmpleadosNom = (List<Empleados>) receivedData;
+
+                for (Empleados empleado : listaTotalEmpleadosNom) {
+                    jTextAreaSelect.append("\nDni: " + empleado.getDni() + "\n" + "Nombre: "
+                            + empleado.getNom() + "\n" + "Apellido: "
+                            + empleado.getApellido() + "\n" + "Nombre empresa: "
+                            + empleado.getNomempresa() + "\n" + "Departamento: "
+                            + empleado.getDepartament() + "\n" + "Codigo tarjeta: "
+                            + empleado.getCodicard() + "\n" + "Mail: " + empleado.getMail()
+                            + "\n" + "Telefono: " + empleado.getTelephon() + "\n");
+                    jTextAreaSelect.append(
+                            "____________________________________________________________________");
+                }
+                perEnt.getObjectInputFilter();
+            } else if (receivedData instanceof String) {
+                String errorMessage = (String) receivedData;
+                jTextAreaSelect.append(errorMessage);
+            } else {
+                jTextAreaSelect.append("Datos inesperados recibidos del servidor");
+            }
+
+        } else if (nombreTabla.equals("0") && columna.equals("apellido")) {//tabla: empleados      filtrar por: apelido
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            Object receivedData = perEnt.readObject();
+
+            if (receivedData instanceof List) {
+                List<Empleados> listaTotalEmpleadosApellido = (List<Empleados>) receivedData;
+
+                for (Empleados empleado : listaTotalEmpleadosApellido) {
+                    jTextAreaSelect.append("\nDni: " + empleado.getDni() + "\n" + "Nombre: "
+                            + empleado.getNom() + "\n" + "Apellido: "
+                            + empleado.getApellido() + "\n" + "Nombre empresa: "
+                            + empleado.getNomempresa() + "\n" + "Departamento: "
+                            + empleado.getDepartament() + "\n" + "Codigo tarjeta: "
+                            + empleado.getCodicard() + "\n" + "Mail: " + empleado.getMail()
+                            + "\n" + "Telefono: " + empleado.getTelephon() + "\n");
+                    jTextAreaSelect.append(
+                            "____________________________________________________________________");
+                }
+                perEnt.getObjectInputFilter();
+            } else if (receivedData instanceof String) {
+                String errorMessage = (String) receivedData;
+                jTextAreaSelect.append(errorMessage);
+            } else {
+                jTextAreaSelect.append("Datos inesperados recibidos del servidor");
+            }
+
+        }else if (nombreTabla.equals("0") && columna.equals("nomempresa")) { //tabla: empleados      filtrar por: nomempresa
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
 
             List<Empleados> listaTotalEmpleadosNomEmpresa = new ArrayList<>();
 
@@ -85,13 +185,11 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-        } else if (nombreTabla.equals("0") && columna.equals("departament")) {
+        } else if (nombreTabla.equals("0") && columna.equals("departament")) { //tabla: empleados      filtrar por: departament
 
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            System.out.println("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
             List<Empleados> listaTotalEmpleadosDepart = new ArrayList<>();
 
@@ -113,12 +211,10 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-        } else if (nombreTabla.equals("0") && columna.equals("codicard")) {
+        } else if (nombreTabla.equals("0") && columna.equals("codicard")) { //tabla: empleados      filtrar por: codicard
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
             List<Empleados> listaTotalEmpleadosCodiCard = new ArrayList<>();
 
@@ -141,12 +237,10 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-        } else if (nombreTabla.equals("0") && columna.equals("mail")) {
+        } else if (nombreTabla.equals("0") && columna.equals("mail")) { //tabla: empleados      filtrar por: mail
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
             List<Empleados> listaTotalEmpleadosMail = new ArrayList<>();
 
@@ -168,12 +262,10 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-        } else if (nombreTabla.equals("0") && columna.equals("telephon")) {
+        } else if (nombreTabla.equals("0") && columna.equals("telephon")) { //tabla: empleados      filtrar por: telephon
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
             List<Empleados> listaTotalEmpleadosTelf = new ArrayList<>();
 
@@ -196,13 +288,21 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-
-        } else if (nombreTabla.equals("1") && columna.equals("dni")) {
+        }
+     }
+     
+    /**
+    * Método que gestiona las búsquedas de la tabla jornada cuando esta sea
+    * una búsqueda hecha con un solo filtro de columna.
+    * 
+    */
+    
+    public static void mostrarTablaUsers1Filtro(String nombreTabla, String columna, String codigoUserRecibido, String palabra, 
+            String palabraAbuscar, BufferedWriter escriptor, JTextArea jTextAreaSelect, ObjectInputStream perEnt,Socket socket) throws IOException, ClassNotFoundException{
+        if (nombreTabla.equals("1") && columna.equals("dni")) {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
             List<Users> listaToUsersDni = new ArrayList<>();
 
@@ -223,8 +323,6 @@ public class Select {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
             List<Users> listaTotalUsersLogin = new ArrayList<>();
 
@@ -245,8 +343,6 @@ public class Select {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
             List<Users> listaTotalUsersTipe = new ArrayList<>();
 
@@ -264,14 +360,22 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-
-        } else if (nombreTabla.equals("2") && columna.equals("nom")) {
+        }
+    }
+    
+    /**
+    * Método que gestiona las búsquedas de la tabla jornada cuando esta sea
+    * una búsqueda hecha con un solo filtro de columna.
+    * 
+    */
+    
+    public static void mostrarTablaEmpresa1Filtro(String nombreTabla, String columna, String codigoUserRecibido, String palabra, 
+            String palabraAbuscar, BufferedWriter escriptor, JTextArea jTextAreaSelect, ObjectInputStream perEnt,Socket socket) throws IOException, ClassNotFoundException{
+        if (nombreTabla.equals("2") && columna.equals("nom")) {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra+ "\n");
-
+            
             List<Empresa> listaEmpresasNom = new ArrayList<>();
 
             perEnt = new ObjectInputStream(socket.getInputStream());
@@ -291,9 +395,7 @@ public class Select {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
+            
             List<Empresa> listaEmpresasAddress = new ArrayList<>();
 
             perEnt = new ObjectInputStream(socket.getInputStream());
@@ -313,9 +415,7 @@ public class Select {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
+           
             List<Empresa> listaEmpresasTelepho = new ArrayList<>();
 
             perEnt = new ObjectInputStream(socket.getInputStream());
@@ -332,14 +432,22 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-
-        } else if (nombreTabla.equals("3") && columna.equals("dni")) {
+        }
+    }
+    
+    /**
+    * Método que gestiona las búsquedas de la tabla jornada cuando esta sea
+    * una búsqueda hecha con un solo filtro de columna.
+    * 
+    */
+    
+    public static void mostrarTablaJornada1Filtro(String nombreTabla, String columna, String codigoUserRecibido, String palabra, 
+            String palabraAbuscar, BufferedWriter escriptor, JTextArea jTextAreaSelect, ObjectInputStream perEnt,Socket socket) throws IOException, ClassNotFoundException{
+        if (nombreTabla.equals("3") && columna.equals("dni")) {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
+           
             List<Jornada> listaToJornadaDni = new ArrayList<>();
 
             perEnt = new ObjectInputStream(socket.getInputStream());
@@ -363,9 +471,7 @@ public class Select {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
+           
             List<Jornada> listaJornadaCodiCard = new ArrayList<>();
 
             perEnt = new ObjectInputStream(socket.getInputStream());
@@ -390,9 +496,7 @@ public class Select {
             escriptor.write(palabra);
             escriptor.newLine();
             escriptor.flush();
-            jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
+            
             List<Jornada> listaTotalJornadaFecha = new ArrayList<>();
 
             perEnt = new ObjectInputStream(socket.getInputStream());
@@ -412,8 +516,6 @@ public class Select {
                 }
             }
             perEnt.getObjectInputFilter();
-        } else if (!nombreTabla.equals(null) && columna.equals("0")) {
-            mostrarTablasColumnaEquals0(columna, palabra, palabraAbuscar, nombreTabla, escriptor,codigoUserRecibido,perEnt,socket,jTextAreaSelect);
         }
     }
     
@@ -423,16 +525,16 @@ public class Select {
     * 
     */
     
-    public static void mostrarTablasColumnaEquals0 (String columna, String palabra, String palabraAbuscar, String nombreTabla, BufferedWriter escriptor, String codigoUserRecibido, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaSelect) throws IOException, ClassNotFoundException{
+    public static void mostrarTablaSinFiltro (String columna, String palabra, String palabraAbuscar, String nombreTabla, BufferedWriter escriptor, String codigoUserRecibido, Socket socket, JTextArea jTextAreaSelect) throws IOException, ClassNotFoundException{
+        ObjectInputStream perEnt=null;
+        
         switch (nombreTabla) {
-            case "0":
+            case "0": //Tabla empleados
                 //ahora si enviamos al server los datos que queremos, sin errores
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
+                
                 List<Empleados> listaPersonas = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
@@ -452,15 +554,13 @@ public class Select {
                 }
                 perEnt.getObjectInputFilter();
                 break;
-            case "1":
+            case "1": //Tabla users
 
                 //ahora si enviamos al server los datos que queremos, sin errores
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
 
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
                 List<Users> listaUsers = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
@@ -479,14 +579,13 @@ public class Select {
                 perEnt.getObjectInputFilter();
                 break;
 
-            case "2":
+            case "2": //Tabla empresa
 
                 //ahora si enviamos al server los datos que queremos, sin errores
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
+               
                 List<Empresa> listaEmpresa = new ArrayList<>();
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaEmpresa = (ArrayList) perEnt.readObject();
@@ -500,14 +599,13 @@ public class Select {
                 }
                 perEnt.getObjectInputFilter();
                 break;
-            case "3":
+            case "3": //Tabla jornada
 
                 //ahora si enviamos al server los datos que queremos, sin errores
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
+                
                 List<Jornada> listaJorandas = new ArrayList<>();
                 perEnt = new ObjectInputStream(socket.getInputStream());
                 listaJorandas = (ArrayList) perEnt.readObject();
@@ -537,16 +635,18 @@ public class Select {
     * @param NomApellido array de Strings que contiene los 8 datos que necesitamos para la consulta
     */
     
-    public static void operacionesConNomYApellidos7 ( String[] NomApellido, String crud, String palabra, String nombreTabla, String orden, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaSelect)throws IOException, ClassNotFoundException{
+    public static void operacionesConNomYApellidos7 ( String[] NomApellido, String palabra, BufferedWriter escriptor, Socket socket, JTextArea jTextAreaSelect)throws IOException, ClassNotFoundException{
         String codigoUserRecibido = NomApellido[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-        crud = NomApellido[1];
-        nombreTabla = NomApellido[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+        String crud = NomApellido[1];
+        String nombreTabla = NomApellido[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
         String nom = NomApellido[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoNom = NomApellido[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
         String apellido = NomApellido[5]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
         String datoApellido = NomApellido[6];
-        orden = NomApellido[7];// si es el caso el orden, si no hay ponemos 0
+        String orden = NomApellido[7];// si es el caso el orden, si no hay ponemos 0
 
+        ObjectInputStream perEnt=null;
+        
         jTextAreaSelect.append("____________________________________________________________________" + "\n"
             +"codigoUserRecibido: " + codigoUserRecibido + "\n"
             +"crud: " + crud + "\n"
@@ -569,8 +669,6 @@ public class Select {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Empleados> listaEmpleadosNomApellido = new ArrayList<>();
 
@@ -599,8 +697,6 @@ public class Select {
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaSelect.append("El usuario con codigo: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
                 List<Jornada> listaJornadaNomApellido = new ArrayList<>();
 
