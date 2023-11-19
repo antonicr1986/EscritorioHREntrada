@@ -61,25 +61,32 @@ public class Insert {
             codigoUserRecibido = "0";
         }
 
-        if (crud.equals("1")) {
-            if (nombreTabla.equals("2")) {
+        if (crud.equals("1")) { //crud Insert
+            if (nombreTabla.equals("2")) { //nombreTabla empresas
 
                 escriptor.write(palabra);
                 escriptor.newLine();
                 escriptor.flush();
-                jTextAreaInsert.append("El usuario con código: " + codigoUserRecibido
-                        + "\nenvia los datos siguientes: \n" + palabra + "\n");
-
-                List<Empresa> insertEmpresa = new ArrayList<>();
 
                 perEnt = new ObjectInputStream(socket.getInputStream());
-                insertEmpresa = (ArrayList) perEnt.readObject();
-                jTextAreaInsert.append(("Empresa creada correctamente, sus datos son: \n"));
-                jTextAreaInsert.append("Nombre: " + datoNom + "\n"
-                        + "Adrress: " + datoAddress + "\n"
-                        + "Telefono: " + datoTelephon + "\n"
-                        +"____________________________________________________________________\n");
-                perEnt.getObjectInputFilter();
+                Object receivedData = perEnt.readObject();
+
+                if (receivedData instanceof List) {
+
+                    jTextAreaInsert.append(("Empresa creada correctamente, sus datos son: \n"));
+                    jTextAreaInsert.append("\nNombre: " + datoNom + "\n" 
+                            + "Adrress: " + datoAddress + "\n" 
+                            + "Telefono: " + datoTelephon + "\n");
+                    jTextAreaInsert.append(
+                            "____________________________________________________________________\n");
+
+                    perEnt.getObjectInputFilter();
+                } else if (receivedData instanceof String) {
+                    String errorMessage = (String) receivedData;
+                    jTextAreaInsert.append(errorMessage);
+                } else {
+                    jTextAreaInsert.append("Datos inesperados recibidos del servidor");
+                }
             }
         }
     }
@@ -142,18 +149,25 @@ public class Insert {
                 jTextAreaInsert.append("El usuario con codigo: " + codigoUserRecibido
                         + "\nenvia los datos siguientes: \n" + palabra + "\n");
 
-                List<Empresa> insertUser = new ArrayList<>();
-
                 perEnt = new ObjectInputStream(socket.getInputStream());
-                insertUser = (ArrayList) perEnt.readObject();
-                jTextAreaInsert.append(("\n____________________________________________________________________\n+"
-                        + "User creado correctamente, sus datos son: \n"));
-                jTextAreaInsert.append("Login: " + datoLogin + "\n"
-                        + "Pass: " + datoPass + "\n"
-                        + "Num Tipe: " + datoNumTipe + "\n"
-                        + "Dni: " + datoDni + "\n"
-                        +"____________________________________________________________________\n");
-                perEnt.getObjectInputFilter();
+                Object receivedData = perEnt.readObject();
+
+                if (receivedData instanceof List) {
+                    jTextAreaInsert.append(("\nUsuario creado correctamente, sus datos son: \n"));
+                    jTextAreaInsert.append("Login: " + datoLogin + "\n" 
+                            + "Pass: " + datoPass + "\n"
+                            + "Num Tipe: " + datoNumTipe + "\n" 
+                            + "Dni: " + datoDni + "\n");
+                    jTextAreaInsert.append(
+                            "____________________________________________________________________");
+                    perEnt.getObjectInputFilter();
+                } else if (receivedData instanceof String) {
+                    String errorMessage = (String) receivedData;
+                    jTextAreaInsert.append(errorMessage + "\n\n");
+
+                } else {
+                    jTextAreaInsert.append("Datos inesperados recibidos del servidor");
+                }
             }
         }
     }

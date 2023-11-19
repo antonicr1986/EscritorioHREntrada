@@ -485,6 +485,7 @@
                                   <Component id="jButtonAñadirATabla" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabelAñadirInfo" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAñadirInfo2" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
@@ -601,6 +602,8 @@
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jLabelAñadirInfo" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jLabelAñadirInfo2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jButtonAñadirATabla" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -795,6 +798,8 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="telephon = solo n&#xfa;meros"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelA&#xf1;adirInfo2">
                 </Component>
               </SubComponents>
             </Container>

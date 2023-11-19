@@ -339,6 +339,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelNumtipe = new javax.swing.JLabel();
         jLabelCodicard = new javax.swing.JLabel();
         jLabelTelephon = new javax.swing.JLabel();
+        jLabelAñadirInfo2 = new javax.swing.JLabel();
         jPanelActualizar = new javax.swing.JPanel();
         jPanelBusqueda1 = new javax.swing.JPanel();
         jButtonActualizarTabla = new javax.swing.JButton();
@@ -715,7 +716,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jButtonAñadirATabla))
-                    .addComponent(jLabelAñadirInfo))
+                    .addComponent(jLabelAñadirInfo)
+                    .addComponent(jLabelAñadirInfo2))
                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(97, 97, 97)
@@ -806,6 +808,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addComponent(jLabelAñadirInfo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelAñadirInfo2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonAñadirATabla))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1738,18 +1742,27 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         if (jRadioButtonEmpresa.isSelected()){
             jLabelAñadirInfo.setVisible(true);
             jLabelAñadirInfo.setText("Comienza por añadir una empresa");
+            jLabelAñadirInfo2.setText("");
             jButtonAñadirATabla.setEnabled(true);
               
         }else if (jRadioButtonEmpleado.isSelected()){
             jLabelAñadirInfo.setVisible(true);
             jLabelAñadirInfo.setText("Introduce nom empresa existente");
+            jLabelAñadirInfo2.setText("");
              jButtonAñadirATabla.setEnabled(true);
             
-        }else if (jRadioButtonJornada.isSelected()||jRadioButtonUsers.isSelected()){
+        }else if (jRadioButtonJornada.isSelected()){
             jLabelAñadirInfo.setVisible(true);
             jLabelAñadirInfo.setText("Introduce dni empleado existente");
+            jLabelAñadirInfo2.setText("");
             jButtonAñadirATabla.setEnabled(true);
             
+        }else if (jRadioButtonUsers.isSelected()){
+            jLabelAñadirInfo.setVisible(true);
+            jLabelAñadirInfo.setText("Introduce dni empleado existente");
+            jLabelAñadirInfo2.setText("que no tenga usuario asociado");
+            jButtonAñadirATabla.setEnabled(true);
+        
         }else{  
             jLabelAñadirInfo.setVisible (false);
         }
@@ -1902,6 +1915,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelApellido2;
     private javax.swing.JLabel jLabelAutores;
     private javax.swing.JLabel jLabelAñadirInfo;
+    private javax.swing.JLabel jLabelAñadirInfo2;
     private javax.swing.JLabel jLabelCamposAIntroducir;
     private javax.swing.JLabel jLabelCodicard;
     private javax.swing.JLabel jLabelCodigo;
