@@ -9,6 +9,7 @@ import java.util.List;
 import javax.swing.JTextArea;
 import modelo.Empleados;
 import modelo.Empresa;
+import modelo.Jornada;
 
 /**
  *
@@ -131,7 +132,7 @@ public class Insert {
             +"dni: " + dni + "\n"
             +"datoDni: " + datoDni + "\n"
             +"orden: " + orden + "\n"
-            +"____________________________________________________________________" + "\n");
+            +"____________________________________________________________________\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + login + "," + datoLogin + "," + pass
                 + "," + datoPass + "," + numTipe + "," + datoNumTipe + "," + dni + "," + datoDni + "," + orden;
@@ -159,7 +160,7 @@ public class Insert {
                             + "Num Tipe: " + datoNumTipe + "\n" 
                             + "Dni: " + datoDni + "\n");
                     jTextAreaInsert.append(
-                            "____________________________________________________________________");
+                            "____________________________________________________________________\n");
                     perEnt.getObjectInputFilter();
                 } else if (receivedData instanceof String) {
                     String errorMessage = (String) receivedData;
@@ -220,7 +221,7 @@ public class Insert {
                 + "codicard: " + codicard + "\n" 
                 +"datoCodicar: " + datoCodicard + "\n" 
                 + "orden: " + orden + "\n" 
-                + "____________________________________________________________________" + "\n");
+                + "____________________________________________________________________\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
                 + "," + datoApellido + "," + nomempresa + "," + datoNomempresa + "," + departament + "," + datoDepartament + "," + codicard + "," + datoCodicard
@@ -309,7 +310,7 @@ public class Insert {
                 + "codicard: " + codicard + "\n" 
                 +"datoCodicar: " + datoCodicard + "\n" 
                 + "orden: " + orden + "\n" 
-                + "____________________________________________________________________" + "\n");
+                + "____________________________________________________________________\n");
 
             palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
                     + "," + datoApellido + "," + nomempresa + "," + datoNomempresa + "," + departament + "," + datoDepartament + "," + codicard + "," + datoCodicard
@@ -383,7 +384,7 @@ public class Insert {
                 + "codicard: " + codicard + "\n" 
                 +"datoCodicar: " + datoCodicard + "\n" 
                 + "orden: " + orden + "\n" 
-                + "____________________________________________________________________" + "\n");
+                + "____________________________________________________________________\n");
 
             palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
                     + "," + datoApellido + "," + nomempresa + "," + datoNomempresa + "," + departament + "," + datoDepartament + "," + codicard + "," + datoCodicard
@@ -474,7 +475,7 @@ public class Insert {
                 + "codicard: " + codicard + "\n" 
                 +"datoCodicar: " + datoCodicard + "\n" 
                 + "orden: " + orden + "\n" 
-                + "____________________________________________________________________" + "\n");
+                + "____________________________________________________________________\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
                 + "," + datoApellido + "," + nomempresa + "," + datoNomempresa + "," + departament + "," + datoDepartament + "," + codicard + "," + datoCodicard
@@ -511,5 +512,55 @@ public class Insert {
                 perEnt.getObjectInputFilter();
             }
         }
-    }              
+    }
+    
+    /**
+     *
+     * @param palabra
+     * @param escriptor
+     * @param perEnt
+     * @param socket
+     * @param jTextAreaInsert
+     */
+    public static void operacionesConInsertJornada(String nombreTabla, String columna, String palabra, 
+            String codigoUserRecibido, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert) throws IOException, ClassNotFoundException{
+        if (nombreTabla.equals("3") && columna.equals("dni")) {
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+             jTextAreaInsert.append("\nEl usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguiente: \n" + palabra + "\n");
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            Object receivedData = perEnt.readObject();
+
+            if (receivedData instanceof List) {
+                List<?> dataList = (List<?>) receivedData;
+                 jTextAreaInsert.append(("\nJornada creada correctamente.\n"));
+                for (Object data : dataList) {
+                    if (data instanceof Jornada) {
+                        Jornada jornada = (Jornada) data;
+                        jTextAreaInsert.append("Dni: " + jornada.getDni() + "\n"
+                                +"Nombre: " + jornada.getNom() + "\n"
+                                +"Apellido: " + jornada.getApellido() + "\n"
+                                +"Codigo tarjeta: " + jornada.getCodicard() + "\n"
+                                +"Hora entrada: " + jornada.getHoraentrada() + "\n"
+                                +"Hora salida: " + jornada.getHorasalida() + "\n"
+                                +"Total: " + jornada.getTotal() + "\n"
+                                +"Fecha: " + jornada.getFecha() + "\n"
+                                +"____________________________________________________________________\n");
+                    } else {
+                         jTextAreaInsert.append("Datos inesperados recibidos del servidor");
+
+                    }
+                    perEnt.getObjectInputFilter();
+                }
+            } else if (receivedData instanceof String) {
+                String errorMessage = (String) receivedData;
+                jTextAreaInsert.append(errorMessage);
+            } else {
+                jTextAreaInsert.append("Datos inesperados recibidos del servidor\n");
+            }
+        }
+    }
 }

@@ -1607,6 +1607,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 jTextAreaSelect.append("El codigo es erroneo");
 
             } else if (frase[5].equals("0") || frase[5].equals("1")) {//Tanto si ordenamos como no ordenamos se cumplira este else if
+                JOptionPane.showMessageDialog(null, "frase5equals0 or 1");
+                
                 codigoUserRecibido = frase[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
                 crud = frase[1];
                 nombreTabla = frase[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
@@ -1631,24 +1633,36 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
                 if (crud.equals("0")) {/*SELECT*/  
                     Select.operacionesConSelect(columna, palabra, palabraAbuscar,nombreTabla,escriptor,codigoUserRecibido,socket,jTextAreaSelect);
-                }
+                }else if (crud.equals("1")){
+                    JOptionPane.showMessageDialog(null, "crudEquals1");
+                    Insert.operacionesConInsertJornada(nombreTabla, columna,palabra, 
+                    codigoUserRecibido, escriptor, perEnt,socket,jTextAreaInsert);
+            }
 
             } else if (NomApellido[7].equals("0") || NomApellido[7].equals("1")) { //NomApellido7
+                JOptionPane.showMessageDialog(null, "NomApellido");
+
                 Select.operacionesConNomYApellidos7(NomApellido, palabra, escriptor, socket, jTextAreaSelect);
                 
             } else if (insertEmpresas[9].equals("0") || insertEmpresas[9].equals("1")) {
+                JOptionPane.showMessageDialog(null, "insertEmpresas");
                 Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             } else if (insertUsuarios[11].equals("0") || insertUsuarios[11].equals("1")) {
+                JOptionPane.showMessageDialog(null, "insertUsuarios");
                 Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             } else if (insertEmpleadoMailTelf[15].equals("0") || insertEmpleadoMailTelf[15].equals("1")) {
-                Insert.operacionesConInsertEmpleadoMailTelf(insertEmpleadoMailTelf, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+                JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf15");
+                Insert.operacionesConInsertEmpleadoMailTelf(insertEmpleadoMailTelf, palabra, escriptor, perEnt,
+                        socket, jTextAreaInsert);
                 
             }else if (insertEmpleadoMT[17].equals("0") || insertEmpleadoMT[17].equals("1") ) {
+                JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf17");
                 Insert.operacionsConInsertEmpleadoMT17y15(insertEmpleadoMT, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
-            } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) {             
+            } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) { 
+                JOptionPane.showMessageDialog(null, "insertEmpleado19");
                 Insert.operacionesConInsertEmpleado19(insertEmpleado, palabra, escriptor, perEnt, socket, jTextAreaInsert);                
             }
         }catch (UnknownHostException ex) {
