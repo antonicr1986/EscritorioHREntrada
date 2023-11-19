@@ -268,7 +268,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 }else if ("users".equals(seleccion)) {
                     jComboBoxColumna.addItem("todas");
                     jComboBoxColumna.addItem("login");
-                    jComboBoxColumna.addItem("pass");
+                    //jComboBoxColumna.addItem("pass");
                     jComboBoxColumna.addItem("numtipe");
                     jComboBoxColumna.addItem("dni");                 
                 }         
