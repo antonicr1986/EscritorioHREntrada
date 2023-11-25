@@ -494,33 +494,6 @@ public class Select {
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
-            
-        } else if (nombreTabla.equals("2") && columna.equals("telephon")) {//Tabla empresa filtro:telephon
-            escriptor.write(palabra);
-            escriptor.newLine();
-            escriptor.flush();
-           
-            perEnt = new ObjectInputStream(socket.getInputStream());
-            Object receivedData = perEnt.readObject();
-
-            if (receivedData instanceof List) {
-               List<Empresa> listaEmpresasTelf = (List<Empresa>) receivedData;
-                 for (Empresa empresa : listaEmpresasTelf) {
-                    String telephon = String.valueOf(empresa.getTelephon());
-                    jTextAreaSelect.append("\n"
-                        +"Nombre empresa: " +empresa.getNom() + "\n"
-                        + "Dirección: " + empresa.getAddress() + "\n"
-                        + "Teléfono: " + empresa.getTelephon() + "\n"
-                        +"____________________________________________________________________");
-                    
-                }
-                perEnt.getObjectInputFilter();
-            }else if (receivedData instanceof String) {
-                String errorMessage = (String) receivedData;
-               jTextAreaSelect.append(errorMessage);
-            } else {
-                jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
-            }
         }
     }
     

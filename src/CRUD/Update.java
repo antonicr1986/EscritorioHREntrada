@@ -26,7 +26,7 @@ public class Update {
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     */       
     
-    public void updateEmpresa(String NomApellido[],String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
+    public static void updateEmpresa(String NomApellido[],String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
         try {
             String codigoUserRecibido = NomApellido[0];
             String crud = NomApellido[1];
@@ -100,7 +100,7 @@ public class Update {
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     */       
     
-    public void updateUser(String []insertEmpresas,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
+    public static void updateUser(String []insertEmpresas,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
         try {
             String codigoUserRecibido = insertEmpresas[0];
             String crud = insertEmpresas[1];
@@ -173,7 +173,7 @@ public class Update {
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     */       
     
-    public void updateEmpleado(String updateEmpleado[],String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
+    public static void updateEmpleado(String updateEmpleado[],String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
         try {
             String codigoUserRecibido = updateEmpleado[0];
             String crud = updateEmpleado[1];

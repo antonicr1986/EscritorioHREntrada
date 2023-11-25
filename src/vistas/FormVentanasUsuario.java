@@ -24,6 +24,7 @@ import javax.swing.JTextArea;
 import logs.Logout;
 import CRUD.Select;
 import CRUD.Insert;
+import CRUD.Update;
 import java.awt.Color;
 
 /**
@@ -35,6 +36,7 @@ import java.awt.Color;
 public class FormVentanasUsuario extends javax.swing.JFrame {
 
     private Socket socket;    
+    private String insertEmpresas[];
 
     public static String getUser() {
         return user;
@@ -262,7 +264,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     jComboBoxColumna.addItem("todas");
                     jComboBoxColumna.addItem("nom");
                     jComboBoxColumna.addItem("address");
-                    jComboBoxColumna.addItem("telephon");
                 } else if ("jornada".equals(seleccion)) {
                     jComboBoxColumna.addItem("todas");
                     jComboBoxColumna.addItem("dni");
@@ -1201,7 +1202,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     
     private void jButtonCambiarContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCambiarContraseñaActionPerformed
 
-        CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm (user);
+        CambiarPasswordForm ventanaCambioPass = new CambiarPasswordForm (user, insertEmpresas, escriptor, perEnt, socket, jTextAreaUpdate);
         ventanaCambioPass.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         ventanaCambioPass.setVisible(true);
     }//GEN-LAST:event_jButtonCambiarContraseñaActionPerformed
@@ -1580,7 +1581,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
              
             
             // y ahora comprobamos que la frase este correcta si no enviamos una establecida (menos el codigo que sera error, es por si fallan las otras palabras)
-
             String[] frase = new String[6];
             frase = palabra.split(",");
 
@@ -1589,6 +1589,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
             String[] insertEmpresas = new String[10];
             insertEmpresas = palabra.split(",");
+            this.insertEmpresas=insertEmpresas;
 
             String[] insertUsuarios = new String[12];
             insertUsuarios = palabra.split(",");
@@ -1601,6 +1602,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
             String[] insertEmpleado = new String[20];
             insertEmpleado = palabra.split(",");
+            
+            String[] updateEmpleado = new String[22];
+            updateEmpleado = palabra.split(",");
 
             if (!codigo.equals(frase[0]) || !codigo.equals(NomApellido[0])//If para controlar que el codigo de usuario utilizado al hacer la peticion al server no es erroneo
                     || !codigo.equals(insertEmpresas[0]) || !codigo.equals(insertUsuarios[0])
@@ -1666,7 +1670,19 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 
             } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) { 
                 //JOptionPane.showMessageDialog(null, "insertEmpleado19");
-                Insert.operacionesConInsertEmpleado19(insertEmpleado, palabra, escriptor, perEnt, socket, jTextAreaInsert);                
+                Insert.operacionesConInsertEmpleado19(insertEmpleado, palabra, escriptor, perEnt, socket, jTextAreaInsert); 
+                
+            }else if (NomApellido[1].equals("2") && NomApellido[2].equals("2") && NomApellido[3].equals("nomNuevo") && NomApellido[9].equals("nom")) {    
+                JOptionPane.showMessageDialog(null, "updateEmpresa");
+                Update.updateEmpresa(NomApellido, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
+                
+            }else if (insertEmpresas[1].equals("2") && insertEmpresas[2].equals("1") && insertEmpresas[3].equals("passNuevo")) {
+                JOptionPane.showMessageDialog(null, "updateUser");
+                Update.updateUser(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
+                
+            }else if (updateEmpleado[1].equals("2") && updateEmpleado[2].equals("0") && updateEmpleado[3].equals("dniNuevo")) {
+                JOptionPane.showMessageDialog(null, "updateEmpleado");
+                Update.updateEmpleado(updateEmpleado, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
             }
         }catch (UnknownHostException ex) {
             Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);

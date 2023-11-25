@@ -1,7 +1,14 @@
 package vistas;
 
+import CRUD.Update;
+import java.io.BufferedWriter;
+import java.io.ObjectInputStream;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -12,6 +19,13 @@ import javax.swing.JOptionPane;
 public class CambiarPasswordForm extends javax.swing.JFrame {
 
     private String rutaImagen = "C:\\Users\\anton\\OneDrive\\Escritorio\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    private String user;
+    private String []insertEmpresas;
+    private BufferedWriter escriptor;
+    private ObjectInputStream perEnt;
+    private Socket socket;
+    private JTextArea jTextAreaUpdate;
+    
     
     /**
      * Creates new form CambiarPasswordForm
@@ -19,8 +33,21 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
      * 
      * @param user És un string con el nombre del usuario que haya iniciado sesión que pasaremos
      * por parámetro al crear un tipo de ventanas de este
+     * @param insertEmpresas array de String que contiene todos los valores para el update
+     * @param escriptor BufferedWriter de contacto con el server
+     * @param perEnt tipo de objeto ObjectInputStream recibido
+     * @param socket Objeto tipo Socket para la conexión
+     * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
      */
-    public CambiarPasswordForm(String user) {
+    
+    public CambiarPasswordForm(String user, String insertEmpresas[], BufferedWriter escriptor, ObjectInputStream perEnt, Socket socket, JTextArea jTextAreaUpdate) {
+        this.user=user;
+        this.insertEmpresas=insertEmpresas;
+        this.escriptor=escriptor;
+        this.perEnt = perEnt;
+        this.socket = socket;
+        this.jTextAreaUpdate=jTextAreaUpdate;
+        
         setLocationRelativeTo(null);
         setTitle("Cambiar contraseña usuario: "+user);
         initComponents();
@@ -155,13 +182,17 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         String passwordString2 = new String(password2);
                 
        // Compara las cadenas
-        if (passwordString1.equals(passwordString2)) {
-            JOptionPane.showMessageDialog(this, "Las contraseñas son iguales.");
+        if (passwordString1.equals(passwordString2)) {      
+            try {
+                JOptionPane.showMessageDialog(this, "Las contraseñas son iguales.");
+                Update.updateUser(insertEmpresas, rutaImagen, escriptor, perEnt, socket, jTextAreaUpdate);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(CambiarPasswordForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         } else {
             JOptionPane.showMessageDialog(null, "Las contraseñas no son iguales.");
-        }
-
-        
+        }       
     }//GEN-LAST:event_jButtonConfirmarNuevaContraseñaActionPerformed
 
     /**
