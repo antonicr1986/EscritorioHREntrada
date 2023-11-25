@@ -77,6 +77,8 @@ public class Logout {
                 lector.close();
                 escriptor.close();
                 socket.close();
+                
+                MainForm.setSocket(null);//***Testing
 
                 palabra = "exit";
 

@@ -1,15 +1,7 @@
 package vistas;
 
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.OutputStreamWriter;
-import java.net.ConnectException;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -39,7 +31,8 @@ public class MainForm extends javax.swing.JFrame {
         this.codigo = codigo;
     }
     
-    private String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+   
+    private String rutaImagen = "C:\\Users\\anton\\OneDrive\\Escritorio\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
 
     public static Socket getSocket() {
         return socket;

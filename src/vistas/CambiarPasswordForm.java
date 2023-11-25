@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class CambiarPasswordForm extends javax.swing.JFrame {
 
-    private String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    private String rutaImagen = "C:\\Users\\anton\\OneDrive\\Escritorio\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
     
     /**
      * Creates new form CambiarPasswordForm

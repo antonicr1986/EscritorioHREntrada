@@ -35,12 +35,20 @@ import java.awt.Color;
 public class FormVentanasUsuario extends javax.swing.JFrame {
 
     private Socket socket;    
+
+    public static String getUser() {
+        return user;
+    }
+
+    public static void setUser(String user) {
+        FormVentanasUsuario.user = user;
+    }
     private BufferedReader lector;
     private BufferedWriter escriptor;
     private ObjectInputStream perEnt;
     private String codigoUserRecibido;
     private static String user;
-    private String rutaImagen = "C:\\Users\\anton\\Desktop\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    private String rutaImagen = "C:\\Users\\anton\\OneDrive\\Escritorio\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
     
     private String codigo;   
     private String crud;
@@ -338,7 +346,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelAñadirInfo = new javax.swing.JLabel();
         jLabelNumtipe = new javax.swing.JLabel();
         jLabelCodicard = new javax.swing.JLabel();
-        jLabelTelephon = new javax.swing.JLabel();
         jLabelAñadirInfo2 = new javax.swing.JLabel();
         jPanelActualizar = new javax.swing.JPanel();
         jPanelBusqueda1 = new javax.swing.JPanel();
@@ -691,8 +698,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelCodicard.setText("codicard = solo números");
 
-        jLabelTelephon.setText("telephon = solo números");
-
         javax.swing.GroupLayout jPanelBusqueda3Layout = new javax.swing.GroupLayout(jPanelBusqueda3);
         jPanelBusqueda3.setLayout(jPanelBusqueda3Layout);
         jPanelBusqueda3Layout.setHorizontalGroup(
@@ -746,16 +751,16 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                                     .addComponent(jLabelCodicard))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelTelephon)
                                     .addComponent(jLabelNumtipe)
                                     .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextFieldTelephon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextFieldNomEmpresa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(jTextFieldNumtipe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(15, 15, 15))
                     .addGroup(jPanelBusqueda3Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanelBusqueda3Layout.setVerticalGroup(
             jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -791,9 +796,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addComponent(jTextFieldMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldTelephon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7)
-                        .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelCodicard)
-                            .addComponent(jLabelTelephon))
+                        .addComponent(jLabelCodicard)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelBusqueda3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -824,7 +827,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         );
         jPanelAñadirLayout.setVerticalGroup(
             jPanelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelBusqueda3, javax.swing.GroupLayout.PREFERRED_SIZE, 565, Short.MAX_VALUE)
+            .addComponent(jPanelBusqueda3, javax.swing.GroupLayout.PREFERRED_SIZE, 584, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Añadir", jPanelAñadir);
@@ -1082,7 +1085,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGroup(jPanelGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonCambiarContraseña)
                     .addComponent(jButtonLogout))
-                .addContainerGap(679, Short.MAX_VALUE))
+                .addContainerGap(758, Short.MAX_VALUE))
         );
         jPanelGestionUsuarioLayout.setVerticalGroup(
             jPanelGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1111,7 +1114,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             .addGroup(jPanelOtrosLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel_ImagenOtros)
-                .addContainerGap(642, Short.MAX_VALUE))
+                .addContainerGap(721, Short.MAX_VALUE))
         );
         jPanelOtrosLayout.setVerticalGroup(
             jPanelOtrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1152,7 +1155,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     .addComponent(jLabelAutores)
                     .addComponent(jLabelDescripcion)
                     .addComponent(jLabelHREntrada))
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addContainerGap(395, Short.MAX_VALUE))
         );
         jPanelAcercaDeLayout.setVerticalGroup(
             jPanelAcercaDeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1607,7 +1610,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 jTextAreaSelect.append("El codigo es erroneo");
 
             } else if (frase[5].equals("0") || frase[5].equals("1")) {//Tanto si ordenamos como no ordenamos se cumplira este else if
-                JOptionPane.showMessageDialog(null, "frase5equals0 or 1");
+                //JOptionPane.showMessageDialog(null, "frase5equals0 or 1");
                 
                 codigoUserRecibido = frase[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
                 crud = frase[1];
@@ -1634,35 +1637,35 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 if (crud.equals("0")) {/*SELECT*/  
                     Select.operacionesConSelect(columna, palabra, palabraAbuscar,nombreTabla,escriptor,codigoUserRecibido,socket,jTextAreaSelect);
                 }else if (crud.equals("1")){
-                    JOptionPane.showMessageDialog(null, "crudEquals1");
+                    //JOptionPane.showMessageDialog(null, "crudEquals1");
                     Insert.operacionesConInsertJornada(nombreTabla, columna,palabra, 
                     codigoUserRecibido, escriptor, perEnt,socket,jTextAreaInsert);
             }
 
             } else if (NomApellido[7].equals("0") || NomApellido[7].equals("1")) { //NomApellido7
-                JOptionPane.showMessageDialog(null, "NomApellido");
+                //JOptionPane.showMessageDialog(null, "NomApellido");
 
                 Select.operacionesConNomYApellidos7(NomApellido, palabra, escriptor, socket, jTextAreaSelect);
                 
             } else if (insertEmpresas[9].equals("0") || insertEmpresas[9].equals("1")) {
-                JOptionPane.showMessageDialog(null, "insertEmpresas");
+                //JOptionPane.showMessageDialog(null, "insertEmpresas");
                 Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             } else if (insertUsuarios[11].equals("0") || insertUsuarios[11].equals("1")) {
-                JOptionPane.showMessageDialog(null, "insertUsuarios");
+                //JOptionPane.showMessageDialog(null, "insertUsuarios");
                 Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             } else if (insertEmpleadoMailTelf[15].equals("0") || insertEmpleadoMailTelf[15].equals("1")) {
-                JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf15");
+                //JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf15");
                 Insert.operacionesConInsertEmpleadoMailTelf(insertEmpleadoMailTelf, palabra, escriptor, perEnt,
                         socket, jTextAreaInsert);
                 
             }else if (insertEmpleadoMT[17].equals("0") || insertEmpleadoMT[17].equals("1") ) {
-                JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf17");
+                //JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf17");
                 Insert.operacionsConInsertEmpleadoMT17y15(insertEmpleadoMT, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                 
             } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) { 
-                JOptionPane.showMessageDialog(null, "insertEmpleado19");
+                //JOptionPane.showMessageDialog(null, "insertEmpleado19");
                 Insert.operacionesConInsertEmpleado19(insertEmpleado, palabra, escriptor, perEnt, socket, jTextAreaInsert);                
             }
         }catch (UnknownHostException ex) {
@@ -1869,7 +1872,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     
     private void activarDesactivarLabelsAñadir(){
         if (jRadioButtonEmpresa.isSelected()){       
-            jLabelTelephon.setEnabled(true);
             jLabelCodicard.setEnabled(false);
             jLabelNumtipe.setEnabled(false);
             
@@ -1877,7 +1879,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldDni.setBackground(Color.white);
             
         }else if (jRadioButtonEmpleado.isSelected()){
-            jLabelTelephon.setEnabled(true);
             jLabelCodicard.setEnabled(true);
             jLabelNumtipe.setEnabled(false);
             
@@ -1885,7 +1886,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldDni.setBackground(Color.white);
             
         }else if (jRadioButtonJornada.isSelected()){
-            jLabelTelephon.setEnabled(false);
             jLabelCodicard.setEnabled(false);
             jLabelNumtipe.setEnabled(false);
             
@@ -1893,7 +1893,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldNomEmpresa.setBackground(Color.white);
             
         }else if (jRadioButtonUsers.isSelected()){
-            jLabelTelephon.setEnabled(false);
             jLabelCodicard.setEnabled(false);
             jLabelNumtipe.setEnabled(true);
             
@@ -1901,7 +1900,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldNomEmpresa.setBackground(Color.white);
             
         }else{
-            jLabelTelephon.setEnabled(false);
             jLabelCodicard.setEnabled(false);
             jLabelNumtipe.setEnabled(false);
         }
@@ -1954,7 +1952,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTabla;
     private javax.swing.JLabel jLabelTabla1;
     private javax.swing.JLabel jLabelTabla2;
-    private javax.swing.JLabel jLabelTelephon;
     private javax.swing.JLabel jLabelUserCode;
     private javax.swing.JLabel jLabelUserCode1;
     private javax.swing.JLabel jLabelUserCode2;

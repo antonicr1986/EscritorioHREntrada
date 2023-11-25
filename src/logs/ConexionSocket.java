@@ -73,14 +73,17 @@ public class ConexionSocket {
                 salir = true;
                 lector.close();
                 escriptor.close();
+                
+                //MainForm.setSocket(null);
                 MainForm.getSocket().close();
-
             } else if (mensajeServer.equalsIgnoreCase("-2")) {
                 JOptionPane.showMessageDialog(null,".El usuario ya esta conectado");//vemos el código
                 salir = true;
                 lector.close();
                 escriptor.close();
-                 MainForm.getSocket().close();
+                
+                //MainForm.setSocket(null);
+                MainForm.getSocket().close();
             } else {
                codigo = mensajeServer;
 
@@ -98,16 +101,22 @@ public class ConexionSocket {
                 usuarioFormPestañas.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 usuarioFormPestañas.setVisible(true);
                 
-                mainForm.setVisible(false);  
+                mainForm.setVisible(false);
+                
+
             }
         }catch (ConnectException e) {
            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);
+           MainForm.setSocket(null);
         } catch (UnknownHostException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+            MainForm.setSocket(null);
         } catch (IOException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+            MainForm.setSocket(null);
         }catch (Exception e) {   
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);
+            MainForm.setSocket(null);
         }
     }
 }

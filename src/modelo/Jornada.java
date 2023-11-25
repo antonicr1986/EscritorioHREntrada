@@ -15,7 +15,7 @@ public class Jornada implements Serializable{
     private String dni;
     private String nom;
     private String apellido;
-    private int codicard;
+    private String codicard;
     private String horaentrada;
     private String horasalida;
     private String total;
@@ -55,11 +55,11 @@ public class Jornada implements Serializable{
         this.apellido = apellido;
     }
 
-    public int getCodicard() {
+    public String getCodicard() {
         return codicard;
     }
 
-    public void setCodicard(int codicard) {
+    public void setCodicard(String codicard) {
         this.codicard = codicard;
     }
 
