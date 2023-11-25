@@ -7,6 +7,7 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -18,6 +19,8 @@ import javax.swing.JTextArea;
  */
 public class CambiarPasswordForm extends javax.swing.JFrame {
 
+    private JComboBox jComboBoxTipoOperacion;
+    private FormVentanasUsuario ventana;
     private String rutaImagen = "C:\\Users\\anton\\OneDrive\\Escritorio\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
     private String user;
     private String []insertEmpresas;
@@ -26,11 +29,17 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
     private Socket socket;
     private JTextArea jTextAreaUpdate;
     
+    private boolean insert = true;
+    private boolean  select = false;
+    private boolean update = false;
+    private boolean delete = false;
+    
     
     /**
      * Creates new form CambiarPasswordForm
      * Añadiremos características iniciales como la posición centrada, el título y el icono personalizados
      * 
+     * @param ventana Ventana del tipo FormVentanasUsuario que tendremos abierta mientras creamos la nueva ventana
      * @param user És un string con el nombre del usuario que haya iniciado sesión que pasaremos
      * por parámetro al crear un tipo de ventanas de este
      * @param insertEmpresas array de String que contiene todos los valores para el update
@@ -40,7 +49,9 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
      * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
      */
     
-    public CambiarPasswordForm(String user, String insertEmpresas[], BufferedWriter escriptor, ObjectInputStream perEnt, Socket socket, JTextArea jTextAreaUpdate) {
+    public CambiarPasswordForm( JComboBox jComboBoxTipoOperacion, FormVentanasUsuario ventana, String user, String insertEmpresas[], BufferedWriter escriptor, ObjectInputStream perEnt, Socket socket, JTextArea jTextAreaUpdate) {
+        this.jComboBoxTipoOperacion=jComboBoxTipoOperacion;
+        this.ventana=ventana;
         this.user=user;
         this.insertEmpresas=insertEmpresas;
         this.escriptor=escriptor;
@@ -185,6 +196,25 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         if (passwordString1.equals(passwordString2)) {      
             try {
                 JOptionPane.showMessageDialog(this, "Las contraseñas son iguales.");
+                insert = true;
+
+                select = false;
+                update = false;
+                delete = false;
+
+                jComboBoxTipoOperacion.setSelectedItem("insert");
+
+                /*if (jRadioButtonEmpresa.isSelected()){
+                    nombreTabla = "empresa";
+                }else if (jRadioButtonEmpleado.isSelected()){
+                    nombreTabla = "empleados";
+                }else if (jRadioButtonJornada.isSelected()){
+                    nombreTabla = "jornada";
+                }else if (jRadioButtonUsers.isSelected()){
+                    nombreTabla = "users";
+                }*/
+                ventana.ejecutarAccion();
+                
                 Update.updateUser(insertEmpresas, rutaImagen, escriptor, perEnt, socket, jTextAreaUpdate);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(CambiarPasswordForm.class.getName()).log(Level.SEVERE, null, ex);
