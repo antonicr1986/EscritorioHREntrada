@@ -139,11 +139,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     }
     
     public JLabel getjUserCode1() {
-        return jLabelUserCode1;
+        return jLabelUserCodeInsert;
     }
 
     public void setjUserCode1(String nuevoTexto) {
-        jLabelUserCode1.setText(nuevoTexto);
+        jLabelUserCodeInsert.setText(nuevoTexto);
     }
     
     public JLabel getjUserCode2() {
@@ -198,29 +198,39 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         buttonGroup.add(jRadioButtonEmpleado);
         buttonGroup.add(jRadioButtonJornada);
         
-        buttonGroup1.add(jRadioButtonEmpresa1);
-        buttonGroup1.add(jRadioButtonEmpleado1);
-        buttonGroup1.add(jRadioButtonJornada1);
+        buttonGroup1.add(jRadioButtonEmpresaInsert);
+        buttonGroup1.add(jRadioButtonEmpleadoInsert);
+        buttonGroup1.add(jRadioButtonJornadaInsert);
         
         //JOptionPane.showMessageDialog(null,"codigo: "+codigo);
         if (codigo !=null && codigo.charAt(0) == 'A'){
              buttonGroup.add(jRadioButtonUsers);
-             buttonGroup1.add(jRadioButtonUsers1);
+             buttonGroup1.add(jRadioButtonUsersInsert);
              jRadioButtonUsers.setVisible(true);
+             jComboBoxColumnaDelete.setEnabled(false);
+             jLabelReferencia2Delete.setVisible(false);
+             jLabelColumnaDelete2.setVisible(false);
+             jComboBoxColumnaDelete2.setVisible(false);
+             jTextFieldReferenciaDelete2.setVisible(false);
+             
         }else{
             jComboBoxTablas.removeItemAt(1);
-            jComboBoxTablasDelete.removeItemAt(1);
+            jComboBoxTablaDelete.removeItemAt(1);
             jRadioButtonUsers.setVisible(false);
             
-            jComboBoxTablasDelete.setVisible(false);
+            jComboBoxTablaDelete.setVisible(false);
             jLabelCodigoDelete.setVisible(false);
             jLabelUserCodeDelete.setVisible(false);
-            jTextFieldPalabraDelete.setVisible(false);
+            jTextFieldReferencia1Delete.setVisible(false);
+            jLabelReferencia1Delete.setVisible(false);
+            jLabelReferencia2Delete.setVisible(false);
             jComboBoxColumnaDelete.setVisible(false);
             jLabelTablaDelete.setVisible(false);
-            jLabelPalabraDelete.setVisible(false);
             jLabelColumnaDelete.setVisible(false);
             jButtonBorrar.setVisible(false);
+            jLabelColumnaDelete2.setVisible(false);
+            jComboBoxColumnaDelete2.setVisible(false);
+            jTextFieldReferenciaDelete2.setVisible(false);
             System.out.println("Antes de ocultar jTextAreaDelete");
             jTextAreaDelete.setVisible(false);
             System.out.println("Después de ocultar jTextAreaDelete");
@@ -374,12 +384,12 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jButtonActualizarTabla = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaUpdate = new javax.swing.JTextArea();
-        jLabelCodigo1 = new javax.swing.JLabel();
-        jLabelPalabra1 = new javax.swing.JLabel();
-        jLabelColumna1 = new javax.swing.JLabel();
-        jComboBoxColumna1 = new javax.swing.JComboBox<>();
-        jTextFieldReferencia = new javax.swing.JTextField();
-        jLabelUserCode1 = new javax.swing.JLabel();
+        jLabelCodigoInsert = new javax.swing.JLabel();
+        jLabelReferenciaInsert = new javax.swing.JLabel();
+        jLabelColumnaInsert = new javax.swing.JLabel();
+        jComboBoxColumnaInsert = new javax.swing.JComboBox<>();
+        jTextFieldReferenciaInsert = new javax.swing.JTextField();
+        jLabelUserCodeInsert = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabelCamposAIntroducir1 = new javax.swing.JLabel();
         jTextFieldDni1 = new javax.swing.JTextField();
@@ -396,11 +406,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextFieldNumtipe1 = new javax.swing.JTextField();
         jLabelNumtipe1 = new javax.swing.JLabel();
         jLabelCodicard1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButtonEmpresa1 = new javax.swing.JRadioButton();
-        jRadioButtonJornada1 = new javax.swing.JRadioButton();
-        jRadioButtonEmpleado1 = new javax.swing.JRadioButton();
-        jRadioButtonUsers1 = new javax.swing.JRadioButton();
+        jLabelSeleccionaTablaInsert = new javax.swing.JLabel();
+        jRadioButtonEmpresaInsert = new javax.swing.JRadioButton();
+        jRadioButtonJornadaInsert = new javax.swing.JRadioButton();
+        jRadioButtonEmpleadoInsert = new javax.swing.JRadioButton();
+        jRadioButtonUsersInsert = new javax.swing.JRadioButton();
         jLabelActualizarInfo1 = new javax.swing.JLabel();
         jLabelActualizarInfo2 = new javax.swing.JLabel();
         jPanelBorrar = new javax.swing.JPanel();
@@ -410,13 +420,17 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaDelete = new javax.swing.JTextArea();
         jLabelCodigoDelete = new javax.swing.JLabel();
         jLabelTablaDelete = new javax.swing.JLabel();
-        jLabelPalabraDelete = new javax.swing.JLabel();
+        jLabelReferencia1Delete = new javax.swing.JLabel();
         jLabelColumnaDelete = new javax.swing.JLabel();
-        jComboBoxTablasDelete = new javax.swing.JComboBox<>();
+        jComboBoxTablaDelete = new javax.swing.JComboBox<>();
         jComboBoxColumnaDelete = new javax.swing.JComboBox<>();
-        jTextFieldPalabraDelete = new javax.swing.JTextField();
+        jTextFieldReferencia1Delete = new javax.swing.JTextField();
         jLabelUserCodeDelete = new javax.swing.JLabel();
         jLabelResultadoDelete = new javax.swing.JLabel();
+        jLabelReferencia2Delete = new javax.swing.JLabel();
+        jTextFieldReferenciaDelete2 = new javax.swing.JTextField();
+        jLabelColumnaDelete2 = new javax.swing.JLabel();
+        jComboBoxColumnaDelete2 = new javax.swing.JComboBox<>();
         jPanelGestionUsuario = new javax.swing.JPanel();
         jButtonLogout = new javax.swing.JButton();
         jButtonCambiarContraseña = new javax.swing.JButton();
@@ -886,16 +900,16 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaUpdate.setRows(5);
         jScrollPane2.setViewportView(jTextAreaUpdate);
 
-        jLabelCodigo1.setText("Código:");
+        jLabelCodigoInsert.setText("Código:");
 
-        jLabelPalabra1.setText("Referencia:");
+        jLabelReferenciaInsert.setText("Referencia:");
 
-        jLabelColumna1.setText("Columna:");
+        jLabelColumnaInsert.setText("Columna:");
 
-        jComboBoxColumna1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
-        jComboBoxColumna1.setEnabled(false);
+        jComboBoxColumnaInsert.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----------------", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
+        jComboBoxColumnaInsert.setEnabled(false);
 
-        jLabelUserCode1.setText("jLabelUserCode");
+        jLabelUserCodeInsert.setText("jLabelUserCode");
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setText("RESULTADO ACTUALIZACIÓN");
@@ -931,38 +945,38 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelCodicard1.setText("codicard = solo números");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setText("Selecciona una tabla:");
+        jLabelSeleccionaTablaInsert.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelSeleccionaTablaInsert.setText("Selecciona una tabla:");
 
-        jRadioButtonEmpresa1.setBackground(new java.awt.Color(255, 255, 204));
-        jRadioButtonEmpresa1.setText("empresa");
-        jRadioButtonEmpresa1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonEmpresaInsert.setBackground(new java.awt.Color(255, 255, 204));
+        jRadioButtonEmpresaInsert.setText("empresa");
+        jRadioButtonEmpresaInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonEmpresa1ActionPerformed(evt);
+                jRadioButtonEmpresaInsertActionPerformed(evt);
             }
         });
 
-        jRadioButtonJornada1.setBackground(new java.awt.Color(255, 255, 204));
-        jRadioButtonJornada1.setText("jornada");
-        jRadioButtonJornada1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonJornadaInsert.setBackground(new java.awt.Color(255, 255, 204));
+        jRadioButtonJornadaInsert.setText("jornada");
+        jRadioButtonJornadaInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonJornada1ActionPerformed(evt);
+                jRadioButtonJornadaInsertActionPerformed(evt);
             }
         });
 
-        jRadioButtonEmpleado1.setBackground(new java.awt.Color(255, 255, 204));
-        jRadioButtonEmpleado1.setText("empleados");
-        jRadioButtonEmpleado1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonEmpleadoInsert.setBackground(new java.awt.Color(255, 255, 204));
+        jRadioButtonEmpleadoInsert.setText("empleados");
+        jRadioButtonEmpleadoInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonEmpleado1ActionPerformed(evt);
+                jRadioButtonEmpleadoInsertActionPerformed(evt);
             }
         });
 
-        jRadioButtonUsers1.setBackground(new java.awt.Color(255, 255, 204));
-        jRadioButtonUsers1.setText("users");
-        jRadioButtonUsers1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonUsersInsert.setBackground(new java.awt.Color(255, 255, 204));
+        jRadioButtonUsersInsert.setText("users");
+        jRadioButtonUsersInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonUsers1ActionPerformed(evt);
+                jRadioButtonUsersInsertActionPerformed(evt);
             }
         });
 
@@ -980,26 +994,26 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                                .addComponent(jLabelCodigo1)
+                                .addComponent(jLabelCodigoInsert)
                                 .addGap(70, 70, 70)
-                                .addComponent(jLabelUserCode1))
-                            .addComponent(jLabel2)
+                                .addComponent(jLabelUserCodeInsert))
+                            .addComponent(jLabelSeleccionaTablaInsert)
                             .addComponent(jLabelActualizarInfo1)
                             .addComponent(jLabelActualizarInfo2)
                             .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonEmpresa1)
-                                    .addComponent(jRadioButtonJornada1)
-                                    .addComponent(jLabelColumna1))
+                                    .addComponent(jRadioButtonEmpresaInsert)
+                                    .addComponent(jRadioButtonJornadaInsert)
+                                    .addComponent(jLabelColumnaInsert))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jRadioButtonEmpleado1)
-                                    .addComponent(jRadioButtonUsers1)))
+                                    .addComponent(jComboBoxColumnaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jRadioButtonEmpleadoInsert)
+                                    .addComponent(jRadioButtonUsersInsert)))
                             .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                                .addComponent(jLabelPalabra1)
+                                .addComponent(jLabelReferenciaInsert)
                                 .addGap(37, 37, 37)
-                                .addComponent(jTextFieldReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTextFieldReferenciaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jButtonActualizarTabla)))
@@ -1049,26 +1063,26 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelUserCode1)
-                            .addComponent(jLabelCodigo1))
+                            .addComponent(jLabelUserCodeInsert)
+                            .addComponent(jLabelCodigoInsert))
                         .addGap(38, 38, 38)
-                        .addComponent(jLabel2)
+                        .addComponent(jLabelSeleccionaTablaInsert)
                         .addGap(18, 18, 18)
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButtonEmpresa1)
-                            .addComponent(jRadioButtonEmpleado1))
+                            .addComponent(jRadioButtonEmpresaInsert)
+                            .addComponent(jRadioButtonEmpleadoInsert))
                         .addGap(7, 7, 7)
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButtonJornada1)
-                            .addComponent(jRadioButtonUsers1))
+                            .addComponent(jRadioButtonJornadaInsert)
+                            .addComponent(jRadioButtonUsersInsert))
                         .addGap(28, 28, 28)
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxColumna1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelColumna1))
+                            .addComponent(jComboBoxColumnaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelColumnaInsert))
                         .addGap(24, 24, 24)
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelPalabra1)
-                            .addComponent(jTextFieldReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelReferenciaInsert)
+                            .addComponent(jTextFieldReferenciaInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38)
                         .addComponent(jLabelActualizarInfo1)
                         .addGap(18, 18, 18)
@@ -1127,6 +1141,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonBorrar.setText("BORRAR");
+        jButtonBorrar.setEnabled(false);
         jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBorrarActionPerformed(evt);
@@ -1141,20 +1156,43 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelTablaDelete.setText("Tabla:");
 
-        jLabelPalabraDelete.setText("Palabra a buscar:");
+        jLabelReferencia1Delete.setText("Referencia 1:");
 
         jLabelColumnaDelete.setText("Columna:");
 
-        jComboBoxTablasDelete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
+        jComboBoxTablaDelete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
+        jComboBoxTablaDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxTablaDeleteActionPerformed(evt);
+            }
+        });
 
-        jComboBoxColumnaDelete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
+        jComboBoxColumnaDelete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dni", "nom" }));
 
-        jTextFieldPalabraDelete.setPreferredSize(new java.awt.Dimension(121, 22));
+        jTextFieldReferencia1Delete.setPreferredSize(new java.awt.Dimension(121, 22));
+        jTextFieldReferencia1Delete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldReferencia1DeleteKeyReleased(evt);
+            }
+        });
 
         jLabelUserCodeDelete.setText("jLabelUserCode");
 
         jLabelResultadoDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelResultadoDelete.setText("RESULTADO");
+
+        jLabelReferencia2Delete.setText("Referencia 2:");
+
+        jTextFieldReferenciaDelete2.setPreferredSize(new java.awt.Dimension(121, 22));
+        jTextFieldReferenciaDelete2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldReferenciaDelete2KeyReleased(evt);
+            }
+        });
+
+        jLabelColumnaDelete2.setText("Columna 2:");
+
+        jComboBoxColumnaDelete2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "fecha" }));
 
         javax.swing.GroupLayout jPanelBusqueda2Layout = new javax.swing.GroupLayout(jPanelBusqueda2);
         jPanelBusqueda2.setLayout(jPanelBusqueda2Layout);
@@ -1163,29 +1201,32 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
-                            .addComponent(jButtonBorrar)
-                            .addGap(168, 168, 168))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda2Layout.createSequentialGroup()
-                            .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelTablaDelete)
-                                .addComponent(jLabelPalabraDelete)
-                                .addComponent(jLabelColumnaDelete))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBoxTablasDelete, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelUserCodeDelete, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBoxColumnaDelete, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextFieldPalabraDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(43, 43, 43)))
                     .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
-                        .addComponent(jLabelCodigoDelete)
-                        .addGap(206, 206, 206)))
+                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonBorrar)
+                            .addComponent(jLabelColumnaDelete)
+                            .addComponent(jLabelTablaDelete)
+                            .addComponent(jLabelReferencia1Delete)
+                            .addComponent(jLabelCodigoDelete))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxTablaDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelUserCodeDelete)
+                            .addComponent(jComboBoxColumnaDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldReferencia1Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
+                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelColumnaDelete2)
+                            .addComponent(jLabelReferencia2Delete))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxColumnaDelete2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldReferenciaDelete2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(43, 43, 43)
                 .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelResultadoDelete)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(128, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         jPanelBusqueda2Layout.setVerticalGroup(
             jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1204,17 +1245,24 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addGap(81, 81, 81)
                         .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTablaDelete)
-                            .addComponent(jComboBoxTablasDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
-                                .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelPalabraDelete)
-                                    .addComponent(jTextFieldPalabraDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabelColumnaDelete))
+                            .addComponent(jComboBoxTablaDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelColumnaDelete)
                             .addComponent(jComboBoxColumnaDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelReferencia1Delete)
+                            .addComponent(jTextFieldReferencia1Delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelColumnaDelete2)
+                            .addComponent(jComboBoxColumnaDelete2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelReferencia2Delete)
+                            .addComponent(jTextFieldReferenciaDelete2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)))
                 .addComponent(jButtonBorrar)
                 .addGap(34, 34, 34))
         );
@@ -1452,13 +1500,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         
         jComboBoxTipoOperacion.setSelectedItem("update");
 
-        if (jRadioButtonEmpresa1.isSelected()){
+        if (jRadioButtonEmpresaInsert.isSelected()){
             nombreTabla = "empresa";
-        }else if (jRadioButtonEmpleado1.isSelected()){
+        }else if (jRadioButtonEmpleadoInsert.isSelected()){
             nombreTabla = "empleados";
-        }else if (jRadioButtonJornada1.isSelected()){
+        }else if (jRadioButtonJornadaInsert.isSelected()){
             nombreTabla = "jornada";
-        }else if (jRadioButtonUsers1.isSelected()){
+        }else if (jRadioButtonUsersInsert.isSelected()){
             nombreTabla = "users";
         }
 
@@ -1595,34 +1643,98 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         comprobarTextFieldsBusquedaDobleActivarDesactivarBotonBuscar();
     }//GEN-LAST:event_jTextFieldApellido2KeyReleased
 
-    private void jRadioButtonEmpresa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresa1ActionPerformed
+    private void jRadioButtonEmpresaInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpresaInsertActionPerformed
         // TODO add your handling code here:
         activarDesactivarLabelsActualizar();
         activarDesactivarTextFieldsActualizar();
         cambiarTextoActivarDesactivarLabelInfoActualizar();
-    }//GEN-LAST:event_jRadioButtonEmpresa1ActionPerformed
+    }//GEN-LAST:event_jRadioButtonEmpresaInsertActionPerformed
 
-    private void jRadioButtonJornada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornada1ActionPerformed
+    private void jRadioButtonJornadaInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonJornadaInsertActionPerformed
         // TODO add your handling code here:
         activarDesactivarLabelsActualizar();
         activarDesactivarTextFieldsActualizar();
         cambiarTextoActivarDesactivarLabelInfoActualizar();
-    }//GEN-LAST:event_jRadioButtonJornada1ActionPerformed
+    }//GEN-LAST:event_jRadioButtonJornadaInsertActionPerformed
 
-    private void jRadioButtonEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleado1ActionPerformed
+    private void jRadioButtonEmpleadoInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonEmpleadoInsertActionPerformed
         // TODO add your handling code here:
         activarDesactivarLabelsActualizar();
         activarDesactivarTextFieldsActualizar();
         cambiarTextoActivarDesactivarLabelInfoActualizar();
-    }//GEN-LAST:event_jRadioButtonEmpleado1ActionPerformed
+    }//GEN-LAST:event_jRadioButtonEmpleadoInsertActionPerformed
 
-    private void jRadioButtonUsers1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsers1ActionPerformed
-        // TODO add your handling code here:
+    private void jRadioButtonUsersInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonUsersInsertActionPerformed
         activarDesactivarLabelsActualizar();
         activarDesactivarTextFieldsActualizar();
         cambiarTextoActivarDesactivarLabelInfoActualizar();
-    }//GEN-LAST:event_jRadioButtonUsers1ActionPerformed
+    }//GEN-LAST:event_jRadioButtonUsersInsertActionPerformed
 
+    private void jComboBoxTablaDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTablaDeleteActionPerformed
+        modificarComboBoxColumnasBorrar();
+    }//GEN-LAST:event_jComboBoxTablaDeleteActionPerformed
+
+    private void jTextFieldReferencia1DeleteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferencia1DeleteKeyReleased
+        if (!jTextFieldReferencia1Delete.equals("")|| !jTextFieldReferencia1Delete.getText().isEmpty()){
+            jButtonBorrar.setEnabled(true);
+        }else{
+            jButtonBorrar.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTextFieldReferencia1DeleteKeyReleased
+
+    private void jTextFieldReferenciaDelete2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferenciaDelete2KeyReleased
+        if ((!jTextFieldReferenciaDelete2.equals("")|| !jTextFieldReferenciaDelete2.getText().isEmpty()||!jTextFieldReferenciaDelete2.getText().isBlank())&&
+                (!jTextFieldReferencia1Delete.equals("")|| !jTextFieldReferencia1Delete.getText().isEmpty()||!jTextFieldReferencia1Delete.getText().isBlank())){
+            jButtonBorrar.setEnabled(true);
+        }else{
+            jButtonBorrar.setEnabled(false);
+        }
+    }//GEN-LAST:event_jTextFieldReferenciaDelete2KeyReleased
+
+    private void modificarComboBoxColumnasBorrar(){
+        if (jComboBoxTablaDelete.getSelectedItem().toString().equals("empleados")){         
+            jLabelReferencia1Delete.setEnabled(true);
+            jLabelReferencia2Delete.setVisible(false);
+            jLabelColumnaDelete2.setVisible(false);
+            
+            jComboBoxColumnaDelete.setSelectedItem("dni");
+            jComboBoxColumnaDelete2.setVisible(false);
+            
+            jTextFieldReferenciaDelete2.setVisible(false);
+            
+        }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("empresa")){
+            jComboBoxColumnaDelete.setSelectedItem("nom");
+            jComboBoxColumnaDelete2.setVisible(false);
+            
+            jLabelReferencia1Delete.setEnabled(true);
+            jLabelReferencia2Delete.setVisible(false);
+            jLabelColumnaDelete2.setVisible(false);
+                     
+            jTextFieldReferenciaDelete2.setVisible(false);
+            
+        }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("users")){
+             jComboBoxColumnaDelete.setSelectedItem("dni");
+             jLabelReferencia1Delete.setEnabled(true);
+             jLabelReferencia2Delete.setVisible(false);
+             jLabelColumnaDelete2.setVisible(false);
+             jComboBoxColumnaDelete2.setVisible(false);
+             jTextFieldReferenciaDelete2.setVisible(false);
+             
+        }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("jornada")){
+             jComboBoxColumnaDelete.setSelectedItem("dni");
+             jComboBoxColumnaDelete2.setVisible(true);
+             jComboBoxColumnaDelete2.setSelectedItem("fecha");
+             
+             jLabelReferencia1Delete.setEnabled(true);        
+             jLabelReferencia2Delete.setVisible(true);
+             jLabelColumnaDelete2.setVisible(true);
+             
+             jTextFieldReferenciaDelete2.setVisible(true);
+             
+             jButtonBorrar.setEnabled(false);
+        }
+    }
+    
      /**
     * Método que gestiona el estado activo/inactivo del boton Buscar
     * segun el estado de los campos de texto de la busqueda con 
@@ -1738,7 +1850,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         palabraAbuscar = "dniNuevo,"+jTextFieldDni1.getText()+",nomNuevo,"+jTextFieldNom1.getText()+",apellidoNuevo,"+jTextFieldApellido1.getText()
                             +",nomempresaNuevo,"+jTextFieldNomEmpresa1.getText()+",departamentNuevo,"+jTextFieldDepartament1.getText()
                             +",codicardNuevo,"+jTextFieldCodicard1.getText()+",mailNuevo,"+jTextFieldMail1.getText()+",telephonNuevo,"+jTextFieldTelephon1.getText()
-                                +",dni,"+jTextFieldReferencia.getText();
+                                +",dni,"+jTextFieldReferenciaInsert.getText();
                     }
                     else{
                         if (jCheckBoxBuscarVariosFiltros.isSelected()){
@@ -1754,7 +1866,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         
                     }else if (update){
                         palabraAbuscar = "passNuevo," + jTextFieldPass1.getText() + ",numtipeNuevo,"+jTextFieldNumtipe1.getText()
-                                +",login,"+jTextFieldReferencia.getText()
+                                +",login,"+jTextFieldReferenciaInsert.getText()
                             ;
                     }
                     break;
@@ -1765,7 +1877,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         
                     } else if (update){
                         palabraAbuscar = "nomNuevo,"+jTextFieldNom1.getText()+",addressNuevo,"+jTextFieldAddress1.getText()
-                                +",telephonNuevo,"+jTextFieldTelephon1.getText()+",nom,"+jTextFieldReferencia.getText();
+                                +",telephonNuevo,"+jTextFieldTelephon1.getText()+",nom,"+jTextFieldReferenciaInsert.getText();
                     }
                     break;
                 case "jornada":
@@ -2161,8 +2273,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     */
     
     private void activarDesactivarTextFieldsActualizar(){
-        if (jRadioButtonEmpresa1.isSelected()){
-            jComboBoxColumna1.setSelectedItem("nom");
+        if (jRadioButtonEmpresaInsert.isSelected()){
+            jComboBoxColumnaInsert.setSelectedItem("nom");
             
             jTextFieldNom1.setEnabled(true);
             jTextFieldAddress1.setEnabled(true);
@@ -2177,8 +2289,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldLogin1.setEnabled(false);
             jTextFieldPass1.setEnabled(false);
             jTextFieldNumtipe1.setEnabled(false);
-        }else if (jRadioButtonEmpleado1.isSelected()){
-            jComboBoxColumna1.setSelectedItem("dni");
+        }else if (jRadioButtonEmpleadoInsert.isSelected()){
+            jComboBoxColumnaInsert.setSelectedItem("dni");
             
             jTextFieldDni1.setEnabled(true);
             jTextFieldNom1.setEnabled(true);
@@ -2193,8 +2305,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldLogin1.setEnabled(false);
             jTextFieldPass1.setEnabled(false);
             jTextFieldNumtipe1.setEnabled(false);
-        }else if (jRadioButtonJornada1.isSelected()){
-            jComboBoxColumna1.setSelectedItem("todas");
+        }else if (jRadioButtonJornadaInsert.isSelected()){
+            jComboBoxColumnaInsert.setSelectedItem("todas");
             jTextFieldDni.setEnabled(true);
             
             jTextFieldCodicard1.setEnabled(false);
@@ -2208,8 +2320,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldLogin1.setEnabled(false);
             jTextFieldPass1.setEnabled(false);
             jTextFieldNumtipe1.setEnabled(false);
-        }else if (jRadioButtonUsers1.isSelected()){
-            jComboBoxColumna1.setSelectedItem("login");
+        }else if (jRadioButtonUsersInsert.isSelected()){
+            jComboBoxColumnaInsert.setSelectedItem("login");
             
             jTextFieldLogin1.setEnabled(true);
             jTextFieldPass1.setEnabled(true);
@@ -2288,19 +2400,19 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     */
     
     private void activarDesactivarLabelsActualizar(){
-        if (jRadioButtonEmpresa1.isSelected()){       
+        if (jRadioButtonEmpresaInsert.isSelected()){       
             jLabelCodicard1.setEnabled(false);
             jLabelNumtipe1.setEnabled(false);
             
-        }else if (jRadioButtonEmpleado1.isSelected()){
+        }else if (jRadioButtonEmpleadoInsert.isSelected()){
             jLabelCodicard1.setEnabled(true);
             jLabelNumtipe1.setEnabled(false);
             
-        }else if (jRadioButtonJornada1.isSelected()){
+        }else if (jRadioButtonJornadaInsert.isSelected()){
             jLabelCodicard1.setEnabled(false);
             jLabelNumtipe1.setEnabled(false);
             
-        }else if (jRadioButtonUsers1.isSelected()){
+        }else if (jRadioButtonUsersInsert.isSelected()){
             jLabelCodicard1.setEnabled(false);
             jLabelNumtipe1.setEnabled(true);
             
@@ -2321,14 +2433,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogout;
     private javax.swing.JCheckBox jCheckBoxBuscarVariosFiltros;
     private javax.swing.JComboBox<String> jComboBoxColumna;
-    private javax.swing.JComboBox<String> jComboBoxColumna1;
     private javax.swing.JComboBox<String> jComboBoxColumnaDelete;
+    private javax.swing.JComboBox<String> jComboBoxColumnaDelete2;
+    private javax.swing.JComboBox<String> jComboBoxColumnaInsert;
     private javax.swing.JComboBox<String> jComboBoxOrdenar;
+    private javax.swing.JComboBox<String> jComboBoxTablaDelete;
     private javax.swing.JComboBox<String> jComboBoxTablas;
-    private javax.swing.JComboBox<String> jComboBoxTablasDelete;
     private javax.swing.JComboBox<String> jComboBoxTipoOperacion;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelActualizarInfo1;
@@ -2342,12 +2454,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCodicard;
     private javax.swing.JLabel jLabelCodicard1;
     private javax.swing.JLabel jLabelCodigo;
-    private javax.swing.JLabel jLabelCodigo1;
     private javax.swing.JLabel jLabelCodigo3;
     private javax.swing.JLabel jLabelCodigoDelete;
+    private javax.swing.JLabel jLabelCodigoInsert;
     private javax.swing.JLabel jLabelColumna;
-    private javax.swing.JLabel jLabelColumna1;
     private javax.swing.JLabel jLabelColumnaDelete;
+    private javax.swing.JLabel jLabelColumnaDelete2;
+    private javax.swing.JLabel jLabelColumnaInsert;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelHREntrada;
     private javax.swing.JLabel jLabelNombre2;
@@ -2356,16 +2469,18 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelOperacion;
     private javax.swing.JLabel jLabelOrdenar;
     private javax.swing.JLabel jLabelPalabra;
-    private javax.swing.JLabel jLabelPalabra1;
-    private javax.swing.JLabel jLabelPalabraDelete;
+    private javax.swing.JLabel jLabelReferencia1Delete;
+    private javax.swing.JLabel jLabelReferencia2Delete;
+    private javax.swing.JLabel jLabelReferenciaInsert;
     private javax.swing.JLabel jLabelResultadoDelete;
     private javax.swing.JLabel jLabelSeleccionaTablaAñadir;
+    private javax.swing.JLabel jLabelSeleccionaTablaInsert;
     private javax.swing.JLabel jLabelTabla;
     private javax.swing.JLabel jLabelTablaDelete;
     private javax.swing.JLabel jLabelUserCode;
-    private javax.swing.JLabel jLabelUserCode1;
     private javax.swing.JLabel jLabelUserCode3;
     private javax.swing.JLabel jLabelUserCodeDelete;
+    private javax.swing.JLabel jLabelUserCodeInsert;
     private javax.swing.JLabel jLabelVariosFiltrosNoPosible;
     private javax.swing.JLabel jLabelVersion;
     private javax.swing.JLabel jLabel_Imagen;
@@ -2382,13 +2497,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelOtros;
     private javax.swing.JPanel jPanelVariosFiltros;
     private javax.swing.JRadioButton jRadioButtonEmpleado;
-    private javax.swing.JRadioButton jRadioButtonEmpleado1;
+    private javax.swing.JRadioButton jRadioButtonEmpleadoInsert;
     private javax.swing.JRadioButton jRadioButtonEmpresa;
-    private javax.swing.JRadioButton jRadioButtonEmpresa1;
+    private javax.swing.JRadioButton jRadioButtonEmpresaInsert;
     private javax.swing.JRadioButton jRadioButtonJornada;
-    private javax.swing.JRadioButton jRadioButtonJornada1;
+    private javax.swing.JRadioButton jRadioButtonJornadaInsert;
     private javax.swing.JRadioButton jRadioButtonUsers;
-    private javax.swing.JRadioButton jRadioButtonUsers1;
+    private javax.swing.JRadioButton jRadioButtonUsersInsert;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2421,10 +2536,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumtipe;
     private javax.swing.JTextField jTextFieldNumtipe1;
     private javax.swing.JTextField jTextFieldPalabra;
-    private javax.swing.JTextField jTextFieldPalabraDelete;
     private javax.swing.JTextField jTextFieldPass;
     private javax.swing.JTextField jTextFieldPass1;
-    private javax.swing.JTextField jTextFieldReferencia;
+    private javax.swing.JTextField jTextFieldReferencia1Delete;
+    private javax.swing.JTextField jTextFieldReferenciaDelete2;
+    private javax.swing.JTextField jTextFieldReferenciaInsert;
     private javax.swing.JTextField jTextFieldTelephon;
     private javax.swing.JTextField jTextFieldTelephon1;
     // End of variables declaration//GEN-END:variables
