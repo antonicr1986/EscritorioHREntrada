@@ -48,6 +48,9 @@
           <Dimension value="[1200, 1200]"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="FormVentanasUsuario_jTabbedPane1"/>
+      </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -1272,30 +1275,30 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabelTabla2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelPalabra2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelColumna2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelTablaDelete" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelPalabraDelete" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelColumnaDelete" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jComboBoxTablasBorrar" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jLabelUserCode2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jComboBoxColumna2" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldPalabra2" alignment="1" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxTablasDelete" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabelUserCodeDelete" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxColumnaDelete" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldPalabraDelete" alignment="1" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelCodigo2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCodigoDelete" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelResultadoDelete" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane3" min="-2" pref="665" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace pref="128" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1304,9 +1307,9 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelCodigo2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelUserCode2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelCodigoDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelUserCodeDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelResultadoDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -1317,20 +1320,20 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelTabla2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBoxTablasBorrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelTablaDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxTablasDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabelPalabra2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldPalabra2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelPalabraDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldPalabraDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="jLabelColumna2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelColumnaDelete" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jComboBoxColumna2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxColumnaDelete" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="287" max="32767" attributes="0"/>
                               </Group>
@@ -1368,27 +1371,27 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="jLabelCodigo2">
+                <Component class="javax.swing.JLabel" name="jLabelCodigoDelete">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelTabla2">
+                <Component class="javax.swing.JLabel" name="jLabelTablaDelete">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Tabla:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelPalabra2">
+                <Component class="javax.swing.JLabel" name="jLabelPalabraDelete">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Palabra a buscar:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelColumna2">
+                <Component class="javax.swing.JLabel" name="jLabelColumnaDelete">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Columna:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxTablasBorrar">
+                <Component class="javax.swing.JComboBox" name="jComboBoxTablasDelete">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -1403,7 +1406,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxColumna2">
+                <Component class="javax.swing.JComboBox" name="jComboBoxColumnaDelete">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="9">
@@ -1423,19 +1426,19 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldPalabra2">
+                <Component class="javax.swing.JTextField" name="jTextFieldPalabraDelete">
                   <Properties>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[121, 22]"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelUserCode2">
+                <Component class="javax.swing.JLabel" name="jLabelUserCodeDelete">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabelUserCode"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
+                <Component class="javax.swing.JLabel" name="jLabelResultadoDelete">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="1"/>

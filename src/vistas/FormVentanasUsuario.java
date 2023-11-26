@@ -147,11 +147,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     }
     
     public JLabel getjUserCode2() {
-        return jLabelUserCode2;
+        return jLabelUserCodeDelete;
     }
 
     public void setjUserCode2(String nuevoTexto) {
-        jLabelUserCode2.setText(nuevoTexto);
+        jLabelUserCodeDelete.setText(nuevoTexto);
     }
     
      public JLabel getjUserCode3() {
@@ -209,8 +209,22 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
              jRadioButtonUsers.setVisible(true);
         }else{
             jComboBoxTablas.removeItemAt(1);
-            jComboBoxTablasBorrar.removeItemAt(1);
+            jComboBoxTablasDelete.removeItemAt(1);
             jRadioButtonUsers.setVisible(false);
+            
+            jComboBoxTablasDelete.setVisible(false);
+            jLabelCodigoDelete.setVisible(false);
+            jLabelUserCodeDelete.setVisible(false);
+            jTextFieldPalabraDelete.setVisible(false);
+            jComboBoxColumnaDelete.setVisible(false);
+            jLabelTablaDelete.setVisible(false);
+            jLabelPalabraDelete.setVisible(false);
+            jLabelColumnaDelete.setVisible(false);
+            jButtonBorrar.setVisible(false);
+            System.out.println("Antes de ocultar jTextAreaDelete");
+            jTextAreaDelete.setVisible(false);
+            System.out.println("Después de ocultar jTextAreaDelete");
+            jLabelResultadoDelete.setText("*CONSULTA CON UN USUARIO ADMINISTRADOR\nPARA PODER BORRAR ELEMENTOS EN LA APLICACIÓN");
         }           
         
         //ComboBox Busqueda y ordenar no visibles
@@ -394,15 +408,15 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jButtonBorrar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextAreaDelete = new javax.swing.JTextArea();
-        jLabelCodigo2 = new javax.swing.JLabel();
-        jLabelTabla2 = new javax.swing.JLabel();
-        jLabelPalabra2 = new javax.swing.JLabel();
-        jLabelColumna2 = new javax.swing.JLabel();
-        jComboBoxTablasBorrar = new javax.swing.JComboBox<>();
-        jComboBoxColumna2 = new javax.swing.JComboBox<>();
-        jTextFieldPalabra2 = new javax.swing.JTextField();
-        jLabelUserCode2 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        jLabelCodigoDelete = new javax.swing.JLabel();
+        jLabelTablaDelete = new javax.swing.JLabel();
+        jLabelPalabraDelete = new javax.swing.JLabel();
+        jLabelColumnaDelete = new javax.swing.JLabel();
+        jComboBoxTablasDelete = new javax.swing.JComboBox<>();
+        jComboBoxColumnaDelete = new javax.swing.JComboBox<>();
+        jTextFieldPalabraDelete = new javax.swing.JTextField();
+        jLabelUserCodeDelete = new javax.swing.JLabel();
+        jLabelResultadoDelete = new javax.swing.JLabel();
         jPanelGestionUsuario = new javax.swing.JPanel();
         jButtonLogout = new javax.swing.JButton();
         jButtonCambiarContraseña = new javax.swing.JButton();
@@ -1123,24 +1137,24 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaDelete.setRows(5);
         jScrollPane3.setViewportView(jTextAreaDelete);
 
-        jLabelCodigo2.setText("Código:");
+        jLabelCodigoDelete.setText("Código:");
 
-        jLabelTabla2.setText("Tabla:");
+        jLabelTablaDelete.setText("Tabla:");
 
-        jLabelPalabra2.setText("Palabra a buscar:");
+        jLabelPalabraDelete.setText("Palabra a buscar:");
 
-        jLabelColumna2.setText("Columna:");
+        jLabelColumnaDelete.setText("Columna:");
 
-        jComboBoxTablasBorrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
+        jComboBoxTablasDelete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "empleados", "users", "empresa", "jornada" }));
 
-        jComboBoxColumna2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
+        jComboBoxColumnaDelete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "todas", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
 
-        jTextFieldPalabra2.setPreferredSize(new java.awt.Dimension(121, 22));
+        jTextFieldPalabraDelete.setPreferredSize(new java.awt.Dimension(121, 22));
 
-        jLabelUserCode2.setText("jLabelUserCode");
+        jLabelUserCodeDelete.setText("jLabelUserCode");
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel10.setText("RESULTADO");
+        jLabelResultadoDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelResultadoDelete.setText("RESULTADO");
 
         javax.swing.GroupLayout jPanelBusqueda2Layout = new javax.swing.GroupLayout(jPanelBusqueda2);
         jPanelBusqueda2.setLayout(jPanelBusqueda2Layout);
@@ -1155,32 +1169,32 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             .addGap(168, 168, 168))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda2Layout.createSequentialGroup()
                             .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelTabla2)
-                                .addComponent(jLabelPalabra2)
-                                .addComponent(jLabelColumna2))
+                                .addComponent(jLabelTablaDelete)
+                                .addComponent(jLabelPalabraDelete)
+                                .addComponent(jLabelColumnaDelete))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBoxTablasBorrar, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelUserCode2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBoxColumna2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextFieldPalabra2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jComboBoxTablasDelete, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelUserCodeDelete, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBoxColumnaDelete, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldPalabraDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(43, 43, 43)))
                     .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
-                        .addComponent(jLabelCodigo2)
+                        .addComponent(jLabelCodigoDelete)
                         .addGap(206, 206, 206)))
                 .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
+                    .addComponent(jLabelResultadoDelete)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         jPanelBusqueda2Layout.setVerticalGroup(
             jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCodigo2)
-                    .addComponent(jLabelUserCode2)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabelCodigoDelete)
+                    .addComponent(jLabelUserCodeDelete)
+                    .addComponent(jLabelResultadoDelete))
                 .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1189,17 +1203,17 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelTabla2)
-                            .addComponent(jComboBoxTablasBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelTablaDelete)
+                            .addComponent(jComboBoxTablasDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelBusqueda2Layout.createSequentialGroup()
                                 .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelPalabra2)
-                                    .addComponent(jTextFieldPalabra2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabelPalabraDelete)
+                                    .addComponent(jTextFieldPalabraDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(28, 28, 28)
-                                .addComponent(jLabelColumna2))
-                            .addComponent(jComboBoxColumna2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabelColumnaDelete))
+                            .addComponent(jComboBoxColumnaDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)))
                 .addComponent(jButtonBorrar)
                 .addGap(34, 34, 34))
@@ -2308,12 +2322,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxBuscarVariosFiltros;
     private javax.swing.JComboBox<String> jComboBoxColumna;
     private javax.swing.JComboBox<String> jComboBoxColumna1;
-    private javax.swing.JComboBox<String> jComboBoxColumna2;
+    private javax.swing.JComboBox<String> jComboBoxColumnaDelete;
     private javax.swing.JComboBox<String> jComboBoxOrdenar;
     private javax.swing.JComboBox<String> jComboBoxTablas;
-    private javax.swing.JComboBox<String> jComboBoxTablasBorrar;
+    private javax.swing.JComboBox<String> jComboBoxTablasDelete;
     private javax.swing.JComboBox<String> jComboBoxTipoOperacion;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
@@ -2330,11 +2343,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCodicard1;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelCodigo1;
-    private javax.swing.JLabel jLabelCodigo2;
     private javax.swing.JLabel jLabelCodigo3;
+    private javax.swing.JLabel jLabelCodigoDelete;
     private javax.swing.JLabel jLabelColumna;
     private javax.swing.JLabel jLabelColumna1;
-    private javax.swing.JLabel jLabelColumna2;
+    private javax.swing.JLabel jLabelColumnaDelete;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelHREntrada;
     private javax.swing.JLabel jLabelNombre2;
@@ -2344,14 +2357,15 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelOrdenar;
     private javax.swing.JLabel jLabelPalabra;
     private javax.swing.JLabel jLabelPalabra1;
-    private javax.swing.JLabel jLabelPalabra2;
+    private javax.swing.JLabel jLabelPalabraDelete;
+    private javax.swing.JLabel jLabelResultadoDelete;
     private javax.swing.JLabel jLabelSeleccionaTablaAñadir;
     private javax.swing.JLabel jLabelTabla;
-    private javax.swing.JLabel jLabelTabla2;
+    private javax.swing.JLabel jLabelTablaDelete;
     private javax.swing.JLabel jLabelUserCode;
     private javax.swing.JLabel jLabelUserCode1;
-    private javax.swing.JLabel jLabelUserCode2;
     private javax.swing.JLabel jLabelUserCode3;
+    private javax.swing.JLabel jLabelUserCodeDelete;
     private javax.swing.JLabel jLabelVariosFiltrosNoPosible;
     private javax.swing.JLabel jLabelVersion;
     private javax.swing.JLabel jLabel_Imagen;
@@ -2407,7 +2421,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumtipe;
     private javax.swing.JTextField jTextFieldNumtipe1;
     private javax.swing.JTextField jTextFieldPalabra;
-    private javax.swing.JTextField jTextFieldPalabra2;
+    private javax.swing.JTextField jTextFieldPalabraDelete;
     private javax.swing.JTextField jTextFieldPass;
     private javax.swing.JTextField jTextFieldPass1;
     private javax.swing.JTextField jTextFieldReferencia;
