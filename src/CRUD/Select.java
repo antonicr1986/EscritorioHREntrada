@@ -6,13 +6,11 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import modelo.Empleados;
 import modelo.Empresa;
 import modelo.Jornada;
 import modelo.Users;
-import vistas.FormVentanasUsuario;
 
 /**
  *

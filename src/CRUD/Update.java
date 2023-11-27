@@ -9,21 +9,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextArea;
 import modelo.Empresa;
+import modelo.Jornada;
 
 /**
  *
  * @author Antonio Company Rodriguez
  */
+
 public class Update {
     
-    /*Método que gestiona el update de una empresa
+    /**
+    * Método que gestiona el update de una empresa
     *
     * @param NomApellido array de string que contiene todos los valores para el update
     * @param palabra string que se envia al server para el insert
     * @param escriptor BufferedWriter de contacto con el server
     * @param perEnt tipo de objeto ObjectInputStream recibido
     * @param socket Objeto tipo Socket para la conexión
-    * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * @param jTextAreaUpdate Area de texto donde mostraremos informacion al usuario al hacer o intentar un update
+    * 
+    * @throws java.lang.ClassNotFoundException
+    *
     */       
     
     public static void updateEmpresa(String NomApellido[],String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
@@ -90,14 +96,17 @@ public class Update {
         }
     }
     
-    /*Método que gestiona el update de un user.
+    /**
+    * Método que gestiona el update de un user.
     *
     * @param insertEmpresas array de string que contiene todos los valores para el update
     * @param palabra string que se envia al server para el insert
     * @param escriptor BufferedWriter de contacto con el server
     * @param perEnt tipo de objeto ObjectInputStream recibido
     * @param socket Objeto tipo Socket para la conexión
-    * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * 
+    * @throws java.lang.ClassNotFoundException
     */       
     
     public static void updateUser(String []insertEmpresas,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
@@ -163,14 +172,17 @@ public class Update {
         }
     }
     
-    /*Método que gestiona el update de una empresa
+    /**
+    * Método que gestiona el update de una empresa
     *
     * @param updateEmpleado array de string que contiene todos los valores para el update
     * @param palabra string que se envia al server para el insert
     * @param escriptor BufferedWriter de contacto con el server
     * @param perEnt tipo de objeto ObjectInputStream recibido
     * @param socket Objeto tipo Socket para la conexión
-    * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * 
+    * @throws java.lang.ClassNotFoundException
     */       
     
     public static void updateEmpleado(String updateEmpleado[],String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
@@ -258,6 +270,78 @@ public class Update {
                 jTextAreaUpdate.append("Codigo tarjeta: " + datoCodicardNuevo +"\n");
                 jTextAreaUpdate.append("Mail: " + datoMailNuevo +"\n");
                 jTextAreaUpdate.append("Telefono: " + datoTelephonNuevo +"\n");
+                jTextAreaUpdate.append("____________________________________________________________________");
+                perEnt.getObjectInputFilter();
+            } else if (receivedData instanceof String) {
+                String errorMessage = (String) receivedData;
+                jTextAreaUpdate.append(errorMessage);
+            } else {
+                jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
+            }
+        } catch (IOException ex) {
+            jTextAreaUpdate.append("\n_________________________________________________________\n");
+            jTextAreaUpdate.append("Problema con entrada y salida de sockets.\n");
+            Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    /**
+    * Método que gestiona el update de una empresa
+    *
+    * @param frase array de string que contiene todos los valores para el update
+    * @param palabra string que se envia al server para el insert
+    * @param escriptor BufferedWriter de contacto con el server
+    * @param perEnt tipo de objeto ObjectInputStream recibido
+    * @param socket Objeto tipo Socket para la conexión
+    * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * 
+    * @throws java.lang.ClassNotFoundException
+    */       
+    
+    public static void updateJornada(String[] frase,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
+        try {
+            String codigoUserRecibido = frase[0];
+            String crud = frase[1];
+            String nombreTabla = frase[2];
+            String dni = frase[3];
+            String datoDni = frase[4];
+            String orden = frase[5];
+            jTextAreaUpdate.append("\ncodigoUserRecibido: " + codigoUserRecibido);
+            jTextAreaUpdate.append("crud: " + crud);
+            jTextAreaUpdate.append("nombreTabla: " + nombreTabla);
+            jTextAreaUpdate.append("dni: " + dni);
+            jTextAreaUpdate.append("datoDni: " + datoDni);
+            jTextAreaUpdate.append("orden: " + orden);
+            jTextAreaUpdate.append(
+                    "____________________________________________________________________");
+
+            palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + orden;
+
+            if (codigoUserRecibido.equals("")) {
+                codigoUserRecibido = "0";
+            }
+
+            escriptor.write(palabra);
+            escriptor.newLine();
+            escriptor.flush();
+            jTextAreaUpdate.append("\nEl usuario con codigo: " + codigoUserRecibido
+                    + "\nenvia los datos siguiente: \n" + palabra);
+
+            perEnt = new ObjectInputStream(socket.getInputStream());
+            Object receivedData = perEnt.readObject();
+
+            if (receivedData instanceof List) {
+                List<Jornada> updateJornada = (List<Jornada>) receivedData;
+                System.out.println("\nJornada modificada correctamente:");
+                Jornada jornada = updateJornada.get(0);
+                jTextAreaUpdate.append("\nDni: " + datoDni);
+                jTextAreaUpdate.append("Nombre: " + jornada.getNom());
+                jTextAreaUpdate.append("Apellido: " + jornada.getApellido());
+                jTextAreaUpdate.append("Hora entrada: " + jornada.getHoraentrada());
+                jTextAreaUpdate.append("Hora salida: " + jornada.getHorasalida());
+                jTextAreaUpdate.append("Total: " + jornada.getTotal());
+                jTextAreaUpdate.append("Fecha: " + jornada.getFecha());
+                jTextAreaUpdate.append("Codigo tarjeta: " + jornada.getCodicard());
                 jTextAreaUpdate.append("____________________________________________________________________");
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {

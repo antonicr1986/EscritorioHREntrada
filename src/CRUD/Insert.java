@@ -10,6 +10,7 @@ import javax.swing.JTextArea;
 import modelo.Empleados;
 import modelo.Empresa;
 import modelo.Jornada;
+import modelo.Users;
 
 /**
  *
@@ -27,6 +28,9 @@ public class Insert {
     * @param perEnt tipo de objeto ObjectInputStream recibido
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * 
+    * @throws java.io.IOException
+    * @throws java.lang.ClassNotFoundException
     * 
     */
     
@@ -102,6 +106,9 @@ public class Insert {
     * @param perEnt tipo de objeto ObjectInputStream recibido
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * 
+    * @throws java.io.IOException
+    * @throws java.lang.ClassNotFoundException
     * 
     */
     
@@ -183,6 +190,9 @@ public class Insert {
     * @param perEnt tipo de objeto ObjectInputStream recibido
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * 
+    * @throws java.io.IOException
+    * @throws java.lang.ClassNotFoundException
     * 
     */
     
@@ -267,6 +277,9 @@ public class Insert {
     * @param perEnt tipo de objeto ObjectInputStream recibido
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+    * 
+    * @throws java.io.IOException
+    * @throws java.lang.ClassNotFoundException
     * 
     */
     
@@ -434,6 +447,9 @@ public class Insert {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
+    * @throws java.io.IOException
+    * @throws java.lang.ClassNotFoundException
+    * 
     */
     
     public static void operacionesConInsertEmpleado19(String []insertEmpleado,  String palabra,   BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert)throws IOException, ClassNotFoundException{
@@ -515,12 +531,19 @@ public class Insert {
     }
     
     /**
-     *
-     * @param palabra
-     * @param escriptor
-     * @param perEnt
-     * @param socket
-     * @param jTextAreaInsert
+     * Descripcion: Método para gestionar la función insert en la tabla jornada
+     * 
+     * @param nombreTabla string con el nombre de la tabla que vamos a trabajar
+     * @param columna string con la columna de la tabla jornada
+     * @param palabra string que se envia al server para el insert
+     * @param codigoUserRecibido string con el codigo de usuario logueado
+     * @param escriptor BufferedWriter de contacto con el server
+     * @param perEnt tipo de objeto ObjectInputStream recibido
+     * @param socket Objeto tipo Socket para la conexión
+     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
+     * 
+     * @throws java.io.IOException
+     * @throws java.lang.ClassNotFoundException
      */
     public static void operacionesConInsertJornada(String nombreTabla, String columna, String palabra, 
             String codigoUserRecibido, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert) throws IOException, ClassNotFoundException{
