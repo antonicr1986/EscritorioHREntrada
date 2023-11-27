@@ -1675,19 +1675,30 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxTablaDeleteActionPerformed
 
     private void jTextFieldReferencia1DeleteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferencia1DeleteKeyReleased
-        if (!jTextFieldReferencia1Delete.equals("")|| !jTextFieldReferencia1Delete.getText().isEmpty()){
-            jButtonBorrar.setEnabled(true);
-        }else{
+        if (jComboBoxTablaDelete.getSelectedItem().toString().equals("jornada")){
+            if ((jTextFieldReferenciaDelete2.getText()==""|| jTextFieldReferenciaDelete2.getText().isEmpty())||
+                (jTextFieldReferencia1Delete.equals("")|| jTextFieldReferencia1Delete.getText().isEmpty())){
             jButtonBorrar.setEnabled(false);
+            }else{
+                jButtonBorrar.setEnabled(true);
+            }    
+        }
+        else //No tenmemos seleccionada la tabla jornada
+        {
+          if (jTextFieldReferencia1Delete.getText()==""|| jTextFieldReferencia1Delete.getText().isEmpty()){
+            jButtonBorrar.setEnabled(false);
+            }else{
+                jButtonBorrar.setEnabled(true);
+            }  
         }
     }//GEN-LAST:event_jTextFieldReferencia1DeleteKeyReleased
 
     private void jTextFieldReferenciaDelete2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferenciaDelete2KeyReleased
-        if ((!jTextFieldReferenciaDelete2.equals("")|| !jTextFieldReferenciaDelete2.getText().isEmpty()||!jTextFieldReferenciaDelete2.getText().isBlank())&&
-                (!jTextFieldReferencia1Delete.equals("")|| !jTextFieldReferencia1Delete.getText().isEmpty()||!jTextFieldReferencia1Delete.getText().isBlank())){
-            jButtonBorrar.setEnabled(true);
-        }else{
+        if ((jTextFieldReferenciaDelete2.getText()==""|| jTextFieldReferenciaDelete2.getText().isEmpty())||
+                (jTextFieldReferencia1Delete.equals("")|| jTextFieldReferencia1Delete.getText().isEmpty())){
             jButtonBorrar.setEnabled(false);
+        }else{
+            jButtonBorrar.setEnabled(true);
         }
     }//GEN-LAST:event_jTextFieldReferenciaDelete2KeyReleased
 
