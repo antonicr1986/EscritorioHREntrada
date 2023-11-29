@@ -88,7 +88,7 @@ public class Insert {
                     perEnt.getObjectInputFilter();
                 } else if (receivedData instanceof String) {
                     String errorMessage = (String) receivedData;
-                    jTextAreaInsert.append(errorMessage);
+                    jTextAreaInsert.append(errorMessage+ "\n");
                 } else {
                     jTextAreaInsert.append("Datos inesperados recibidos del servidor");
                 }
@@ -580,7 +580,7 @@ public class Insert {
                 }
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaInsert.append(errorMessage);
+                jTextAreaInsert.append(errorMessage+ "\n");
             } else {
                 jTextAreaInsert.append("Datos inesperados recibidos del servidor\n");
             }

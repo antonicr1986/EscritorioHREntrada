@@ -661,61 +661,73 @@
                 <Component class="javax.swing.JTextField" name="jTextFieldDni">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="dni"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldNom">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="nom"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldApellido">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="apellido"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldNomEmpresa">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="nomempresa"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldDepartament">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="departament"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldCodicard">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="codicard"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldMail">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="mail"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldTelephon">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="telephon"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldLogin">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="login"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldPass">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="pass"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldNumtipe">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="numtipe"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldAddress">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="address"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelSeleccionaTablaA&#xf1;adir">
@@ -1096,67 +1108,79 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="14" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="CAMPOS A MODIFICAR:"/>
+                    <Property name="text" type="java.lang.String" value="3.- CAMPOS A MODIFICAR:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldDni1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="dniNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldDepartament1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="departamentNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldAddress1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="addressNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldNom1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="nomNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldCodicard1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="codicardNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldLogin1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="loginNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldApellido1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="apellidoNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldMail1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="mailNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldPass1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="passNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldNomEmpresa1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="nomempresaNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldTelephon1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="telephonNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldNumtipe1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="numtipeNuevo"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelNumtipe1">

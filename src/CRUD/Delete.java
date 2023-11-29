@@ -81,7 +81,7 @@ public class Delete {
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage);
+            jTextAreaDelete.append(errorMessage+ "\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -147,7 +147,7 @@ public class Delete {
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage);
+            jTextAreaDelete.append(errorMessage+ "\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -196,7 +196,7 @@ public class Delete {
         escriptor.newLine();
         escriptor.flush();
         jTextAreaDelete.append("\nEl usuario con codigo: " + codigoUserRecibido
-                + "\nenvia los datos siguiente: \n" + palabra);
+                + "\nenvia los datos siguientes: \n" + palabra +"\n");
 
         perEnt = new ObjectInputStream(socket.getInputStream());
         Object receivedData = perEnt.readObject();
@@ -212,7 +212,7 @@ public class Delete {
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage);
+            jTextAreaDelete.append(errorMessage+ "\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -287,7 +287,7 @@ public class Delete {
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage);
+            jTextAreaDelete.append(errorMessage+ "\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }

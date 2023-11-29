@@ -87,7 +87,7 @@ public class Update {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaUpdate.append(errorMessage);
+                jTextAreaUpdate.append(errorMessage+ "\n");
             } else {
                 jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
             }
@@ -147,7 +147,7 @@ public class Update {
             escriptor.newLine();
             escriptor.flush();
             jTextAreaUpdate.append("\nEl usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguientes: \n" + palabra);
+                    + "\nenvia los datos siguientes: " + palabra + "\n");
             
             perEnt = new ObjectInputStream(socket.getInputStream());
             Object receivedData = perEnt.readObject();
@@ -156,12 +156,12 @@ public class Update {
                 jTextAreaUpdate.append("\nUsuario modificado correctamente:");
                 jTextAreaUpdate.append("\nLogin: " + datoLogin);
                 jTextAreaUpdate.append("\nPass: " + datoPassNuevo);
-                jTextAreaUpdate.append("\nNunTipe: " + datoNumtipeNuevo);
+                jTextAreaUpdate.append("\nNumTipe: " + datoNumtipeNuevo);
                 jTextAreaUpdate.append("\n____________________________________________________________________");
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaUpdate.append(errorMessage);
+                jTextAreaUpdate.append(errorMessage+ "\n");
             } else {
                jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
             }
@@ -274,7 +274,7 @@ public class Update {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaUpdate.append(errorMessage);
+                jTextAreaUpdate.append(errorMessage+ "\n");
             } else {
                 jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
             }
@@ -307,13 +307,13 @@ public class Update {
             String datoDni = frase[4];
             String orden = frase[5];
             jTextAreaUpdate.append("\ncodigoUserRecibido: " + codigoUserRecibido);
-            jTextAreaUpdate.append("crud: " + crud);
-            jTextAreaUpdate.append("nombreTabla: " + nombreTabla);
-            jTextAreaUpdate.append("dni: " + dni);
-            jTextAreaUpdate.append("datoDni: " + datoDni);
-            jTextAreaUpdate.append("orden: " + orden);
+            jTextAreaUpdate.append("\ncrud: " + crud);
+            jTextAreaUpdate.append("\nnombreTabla: " + nombreTabla);
+            jTextAreaUpdate.append("\ndni: " + dni);
+            jTextAreaUpdate.append("\ndatoDni: " + datoDni);
+            jTextAreaUpdate.append("\norden: " + orden);
             jTextAreaUpdate.append(
-                    "____________________________________________________________________");
+                    "\n____________________________________________________________________");
 
             palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + orden;
 
@@ -325,7 +325,7 @@ public class Update {
             escriptor.newLine();
             escriptor.flush();
             jTextAreaUpdate.append("\nEl usuario con codigo: " + codigoUserRecibido
-                    + "\nenvia los datos siguiente: \n" + palabra);
+                    + "\nenvia los datos siguientes: " + palabra +"\n");
 
             perEnt = new ObjectInputStream(socket.getInputStream());
             Object receivedData = perEnt.readObject();
@@ -335,18 +335,18 @@ public class Update {
                 System.out.println("\nJornada modificada correctamente:");
                 Jornada jornada = updateJornada.get(0);
                 jTextAreaUpdate.append("\nDni: " + datoDni);
-                jTextAreaUpdate.append("Nombre: " + jornada.getNom());
-                jTextAreaUpdate.append("Apellido: " + jornada.getApellido());
-                jTextAreaUpdate.append("Hora entrada: " + jornada.getHoraentrada());
-                jTextAreaUpdate.append("Hora salida: " + jornada.getHorasalida());
-                jTextAreaUpdate.append("Total: " + jornada.getTotal());
-                jTextAreaUpdate.append("Fecha: " + jornada.getFecha());
-                jTextAreaUpdate.append("Codigo tarjeta: " + jornada.getCodicard());
-                jTextAreaUpdate.append("____________________________________________________________________");
+                jTextAreaUpdate.append("\nNombre: " + jornada.getNom());
+                jTextAreaUpdate.append("\nApellido: " + jornada.getApellido());
+                jTextAreaUpdate.append("\nHora entrada: " + jornada.getHoraentrada());
+                jTextAreaUpdate.append("\nHora salida: " + jornada.getHorasalida());
+                jTextAreaUpdate.append("\nTotal: " + jornada.getTotal());
+                jTextAreaUpdate.append("\nFecha: " + jornada.getFecha());
+                jTextAreaUpdate.append("\nCodigo tarjeta: " + jornada.getCodicard());
+                jTextAreaUpdate.append("\n____________________________________________________________________");
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaUpdate.append(errorMessage);
+                jTextAreaUpdate.append(errorMessage+ "\n");
             } else {
                 jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
             }

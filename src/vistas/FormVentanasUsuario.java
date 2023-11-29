@@ -1,5 +1,6 @@
 package vistas;
 
+import CRUD.Delete;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -689,28 +690,40 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabel11.setText("RESULTADO FINAL");
 
         jTextFieldDni.setText("dni");
+        jTextFieldDni.setEnabled(false);
 
         jTextFieldNom.setText("nom");
+        jTextFieldNom.setEnabled(false);
 
         jTextFieldApellido.setText("apellido");
+        jTextFieldApellido.setEnabled(false);
 
         jTextFieldNomEmpresa.setText("nomempresa");
+        jTextFieldNomEmpresa.setEnabled(false);
 
         jTextFieldDepartament.setText("departament");
+        jTextFieldDepartament.setEnabled(false);
 
         jTextFieldCodicard.setText("codicard");
+        jTextFieldCodicard.setEnabled(false);
 
         jTextFieldMail.setText("mail");
+        jTextFieldMail.setEnabled(false);
 
         jTextFieldTelephon.setText("telephon");
+        jTextFieldTelephon.setEnabled(false);
 
         jTextFieldLogin.setText("login");
+        jTextFieldLogin.setEnabled(false);
 
         jTextFieldPass.setText("pass");
+        jTextFieldPass.setEnabled(false);
 
         jTextFieldNumtipe.setText("numtipe");
+        jTextFieldNumtipe.setEnabled(false);
 
         jTextFieldAddress.setText("address");
+        jTextFieldAddress.setEnabled(false);
 
         jLabelSeleccionaTablaAñadir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelSeleccionaTablaAñadir.setText("1.- Selecciona una tabla:");
@@ -925,31 +938,43 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabel9.setText("RESULTADO ACTUALIZACIÓN");
 
         jLabelCamposAIntroducir1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelCamposAIntroducir1.setText("CAMPOS A MODIFICAR:");
+        jLabelCamposAIntroducir1.setText("3.- CAMPOS A MODIFICAR:");
 
         jTextFieldDni1.setText("dniNuevo");
+        jTextFieldDni1.setEnabled(false);
 
         jTextFieldDepartament1.setText("departamentNuevo");
+        jTextFieldDepartament1.setEnabled(false);
 
         jTextFieldAddress1.setText("addressNuevo");
+        jTextFieldAddress1.setEnabled(false);
 
         jTextFieldNom1.setText("nomNuevo");
+        jTextFieldNom1.setEnabled(false);
 
         jTextFieldCodicard1.setText("codicardNuevo");
+        jTextFieldCodicard1.setEnabled(false);
 
         jTextFieldLogin1.setText("loginNuevo");
+        jTextFieldLogin1.setEnabled(false);
 
         jTextFieldApellido1.setText("apellidoNuevo");
+        jTextFieldApellido1.setEnabled(false);
 
         jTextFieldMail1.setText("mailNuevo");
+        jTextFieldMail1.setEnabled(false);
 
         jTextFieldPass1.setText("passNuevo");
+        jTextFieldPass1.setEnabled(false);
 
         jTextFieldNomEmpresa1.setText("nomempresaNuevo");
+        jTextFieldNomEmpresa1.setEnabled(false);
 
         jTextFieldTelephon1.setText("telephonNuevo");
+        jTextFieldTelephon1.setEnabled(false);
 
         jTextFieldNumtipe1.setText("numtipeNuevo");
+        jTextFieldNumtipe1.setEnabled(false);
 
         jLabelNumtipe1.setText("0 = admin, 1 = usuario");
 
@@ -1975,12 +2000,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 case "todas":
                     columna = "0";
                     break;
-                default:
-                    columna = "0";
-                    break;
                 }
-            }
-            
+            }          
             
             switch (orden){
                 case "Si":
@@ -1997,21 +2018,24 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     palabra = codigo + "," + crud + "," + nombreTabla + "," + palabraAbuscar + "," + orden;
                 }
                 jTextAreaSelect.append("Enviado al server: "+palabra+"\n");
+                
             }else if (insert){
                 palabra = codigo + "," + crud + "," + nombreTabla + "," + palabraAbuscar + "," + orden;
                 jTextAreaInsert.append("Enviado al server: "+palabra+"\n");
+                
             }else if (update){
                 palabra = codigo + "," + 2 + "," + nombreTabla + "," + palabraAbuscar + "," + orden;
                 jTextAreaUpdate.append("Enviado al server: "+palabra+"\n");
+                
             }else if (delete){
+                //JOptionPane.showMessageDialog(null,"PRimera interaccion con delete ");
                 palabra = codigo + "," + 3 + "," + nombreTabla + "," + palabraAbuscar + "," + orden;
-                jTextAreaUpdate.append("Enviado al server: "+palabra+"\n");
+                jTextAreaDelete.append("Enviado al server: "+palabra+"\n");
+                
             }else{
                 palabra = codigo + "," + crud + "," + nombreTabla + "," + columna + "," + palabraAbuscar + "," + orden;
-            }
-                   
-            //JOptionPane.showMessageDialog(null,"Frase enviada al server: "+palabra); 
-             
+            }                  
+            //JOptionPane.showMessageDialog(null,"Frase enviada al server: "+palabra);          
             
             // y ahora comprobamos que la frase este correcta si no enviamos una establecida (menos el codigo que sera error, es por si fallan las otras palabras)
             String[] frase = new String[6];
@@ -2039,83 +2063,105 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             String[] updateEmpleado = new String[22];
             updateEmpleado = palabra.split(",");
 
-            if (!codigo.equals(frase[0]) || !codigo.equals(NomApellido[0])//If para controlar que el codigo de usuario utilizado al hacer la peticion al server no es erroneo
+            if (select||insert){
+                if (!codigo.equals(frase[0]) || !codigo.equals(NomApellido[0])//If para controlar que el codigo de usuario utilizado al hacer la peticion al server no es erroneo
                     || !codigo.equals(insertEmpresas[0]) || !codigo.equals(insertUsuarios[0])
                     || !codigo.equals(insertEmpleadoMailTelf[0]) || !codigo.equals(insertEmpleadoMT[0])
                     || !codigo.equals(insertEmpleado[0])) {
 
                 jTextAreaSelect.append("El codigo es erroneo");
 
-            } else if (frase[5].equals("0") || frase[5].equals("1")) {//Tanto si ordenamos como no ordenamos se cumplira este else if
-                //JOptionPane.showMessageDialog(null, "frase5equals0 or 1");
-                
-                codigoUserRecibido = frase[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
-                crud = frase[1];
-                nombreTabla = frase[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
-                columna = frase[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
-                palabraAbuscar = frase[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
-                orden = frase[5];// si es el caso el orden, si no hay ponemos 0
+                } else if (frase[5].equals("0") || frase[5].equals("1")) {//Tanto si ordenamos como no ordenamos se cumplira este else if
+                    JOptionPane.showMessageDialog(null, "frase5equals0 or 1");
 
-                jTextAreaSelect.append("____________________________________________________________________"+ "\n"
-                    +"codigoUserRecibido: " + codigoUserRecibido + "\n"
-                    +"crud: " + crud+ "\n"
-                    +"nombreTabla: " + nombreTabla+ "\n"
-                    +"columna: " + columna+ "\n"
-                    +"palabraAbuscar: " + palabraAbuscar+ "\n"
-                    +"orden: " + orden + "\n"
-                    +"____________________________________________________________________" + "\n");
+                    codigoUserRecibido = frase[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
+                    crud = frase[1];
+                    nombreTabla = frase[2]; //Será el numero de tabla. (ej: 1->empleados 2->users 3-jornada 4-usertipe 5->empresa)
+                    columna = frase[3]; //sera la palabra que busquemos(ej: juan,1234567D), si ponemos 0 sera todos los de la tabla
+                    palabraAbuscar = frase[4];// si es el caso será la columna (,dni,nom,etc), si no hay ponemos 0
+                    orden = frase[5];// si es el caso el orden, si no hay ponemos 0
 
-                palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + columna + "," + palabraAbuscar + "," + orden;
+                    jTextAreaSelect.append("____________________________________________________________________"+ "\n"
+                        +"codigoUserRecibido: " + codigoUserRecibido + "\n"
+                        +"crud: " + crud+ "\n"
+                        +"nombreTabla: " + nombreTabla+ "\n"
+                        +"columna: " + columna+ "\n"
+                        +"palabraAbuscar: " + palabraAbuscar+ "\n"
+                        +"orden: " + orden + "\n"
+                        +"____________________________________________________________________" + "\n");
 
-                if (codigoUserRecibido.equals("")) {
-                    codigoUserRecibido = "0";
+                    palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + columna + "," + palabraAbuscar + "," + orden;
+
+                    if (codigoUserRecibido.equals("")) {
+                        codigoUserRecibido = "0";
+                    }
+
+                    if (crud.equals("0")) {/*SELECT*/  
+                        Select.operacionesConSelect(columna, palabra, palabraAbuscar,nombreTabla,escriptor,codigoUserRecibido,socket,jTextAreaSelect);
+                    }else if (crud.equals("1")){
+                        //JOptionPane.showMessageDialog(null, "crudEquals1");
+                        Insert.operacionesConInsertJornada(nombreTabla, columna,palabra, 
+                        codigoUserRecibido, escriptor, perEnt,socket,jTextAreaInsert);
+                    }
+
+                } else if (NomApellido[7].equals("0") || NomApellido[7].equals("1")) { //NomApellido7
+                    //JOptionPane.showMessageDialog(null, "NomApellido");
+                    Select.operacionesConNomYApellidos7(NomApellido, palabra, escriptor, socket, jTextAreaSelect);
+
+                //INSERT
+                }else if (insert){
+                    if (insertEmpresas[9].equals("0") || insertEmpresas[9].equals("1")) {
+                    //JOptionPane.showMessageDialog(null, "insertEmpresas");
+                    Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+
+                    } else if (insertUsuarios[11].equals("0") || insertUsuarios[11].equals("1")) {
+                        //JOptionPane.showMessageDialog(null, "insertUsuarios");
+                        Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+
+                    } else if (insertEmpleadoMailTelf[15].equals("0") || insertEmpleadoMailTelf[15].equals("1")) {
+                        //JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf15");
+                        Insert.operacionesConInsertEmpleadoMailTelf(insertEmpleadoMailTelf, palabra, escriptor, perEnt,
+                                socket, jTextAreaInsert);
+
+                    }else if (insertEmpleadoMT[17].equals("0") || insertEmpleadoMT[17].equals("1") ) {
+                        //JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf17");
+                        Insert.operacionsConInsertEmpleadoMT17y15(insertEmpleadoMT, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+
+                    } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) { 
+                        //JOptionPane.showMessageDialog(null, "insertEmpleado19");
+                        Insert.operacionesConInsertEmpleado19(insertEmpleado, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+                    }  
                 }
+            }        
+            
+            //UPDATES         
+            if (update){
+                JOptionPane.showMessageDialog(null, "Update");
+                if (updateEmpleado[1].equals("2") && updateEmpleado[2].equals("0") && updateEmpleado[3].equals("dniNuevo")) {
+                    JOptionPane.showMessageDialog(null, "updateEmpleado");
+                    Update.updateEmpleado(updateEmpleado, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
 
-                if (crud.equals("0")) {/*SELECT*/  
-                    Select.operacionesConSelect(columna, palabra, palabraAbuscar,nombreTabla,escriptor,codigoUserRecibido,socket,jTextAreaSelect);
-                }else if (crud.equals("1")){
-                    //JOptionPane.showMessageDialog(null, "crudEquals1");
-                    Insert.operacionesConInsertJornada(nombreTabla, columna,palabra, 
-                    codigoUserRecibido, escriptor, perEnt,socket,jTextAreaInsert);
-            }
+                }else if (insertEmpresas[1].equals("2") && insertEmpresas[2].equals("1") && insertEmpresas[3].equals("passNuevo")) {
+                    JOptionPane.showMessageDialog(null, "updateUser");
+                    Update.updateUser(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
 
-            } else if (NomApellido[7].equals("0") || NomApellido[7].equals("1")) { //NomApellido7
-                //JOptionPane.showMessageDialog(null, "NomApellido");
-
-                Select.operacionesConNomYApellidos7(NomApellido, palabra, escriptor, socket, jTextAreaSelect);
+                }else if (NomApellido[1].equals("2") && NomApellido[2].equals("2") && NomApellido[3].equals("nomNuevo") && NomApellido[9].equals("nom")) {    
+                    JOptionPane.showMessageDialog(null, "updateEmpresa");
+                    Update.updateEmpresa(NomApellido, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
                 
-            } else if (insertEmpresas[9].equals("0") || insertEmpresas[9].equals("1")) {
-                //JOptionPane.showMessageDialog(null, "insertEmpresas");
-                Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+                }else if (frase[1].equals("2") && frase[2].equals("3") && frase[3].equals("dni")) {
+                    JOptionPane.showMessageDialog(null, "updateJornada");
+                    Update.updateJornada(updateEmpleado, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
+                }
+            
                 
-            } else if (insertUsuarios[11].equals("0") || insertUsuarios[11].equals("1")) {
-                //JOptionPane.showMessageDialog(null, "insertUsuarios");
-                Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
-                
-            } else if (insertEmpleadoMailTelf[15].equals("0") || insertEmpleadoMailTelf[15].equals("1")) {
-                //JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf15");
-                Insert.operacionesConInsertEmpleadoMailTelf(insertEmpleadoMailTelf, palabra, escriptor, perEnt,
-                        socket, jTextAreaInsert);
-                
-            }else if (insertEmpleadoMT[17].equals("0") || insertEmpleadoMT[17].equals("1") ) {
-                //JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf17");
-                Insert.operacionsConInsertEmpleadoMT17y15(insertEmpleadoMT, palabra, escriptor, perEnt, socket, jTextAreaInsert);
-                
-            } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) { 
-                //JOptionPane.showMessageDialog(null, "insertEmpleado19");
-                Insert.operacionesConInsertEmpleado19(insertEmpleado, palabra, escriptor, perEnt, socket, jTextAreaInsert); 
-                
-            }else if (NomApellido[1].equals("2") && NomApellido[2].equals("2") && NomApellido[3].equals("nomNuevo") && NomApellido[9].equals("nom")) {    
-                JOptionPane.showMessageDialog(null, "updateEmpresa");
-                Update.updateEmpresa(NomApellido, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
-                
-            }else if (insertEmpresas[1].equals("2") && insertEmpresas[2].equals("1") && insertEmpresas[3].equals("passNuevo")) {
-                JOptionPane.showMessageDialog(null, "updateUser");
-                Update.updateUser(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
-                
-            }else if (updateEmpleado[1].equals("2") && updateEmpleado[2].equals("0") && updateEmpleado[3].equals("dniNuevo")) {
-                JOptionPane.showMessageDialog(null, "updateEmpleado");
-                Update.updateEmpleado(updateEmpleado, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
+            //DELETES
+            }else if (delete){
+                JOptionPane.showMessageDialog(null, "Delete");
+                if (frase[1].equals("3") && frase[2].equals("2") && frase[3].equals("nom")){
+                    JOptionPane.showMessageDialog(null, "deleteEmpresa");
+                    Delete.deleteEmpresas(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
+                }
             }
         }catch (UnknownHostException ex) {
             Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
@@ -2126,8 +2172,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }catch(Exception ex){
             Logger.getLogger(FormVentanasUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }   
     
+         
      
     /**
      * Método main para poder ejecutar rápidamente sin ejecutar la aplicación

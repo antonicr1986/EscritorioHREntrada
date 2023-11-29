@@ -141,7 +141,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -171,7 +171,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -200,7 +200,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -229,7 +229,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                 jTextAreaSelect.append(errorMessage);
+                 jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                  jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -258,7 +258,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             }else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -288,7 +288,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -318,7 +318,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -365,7 +365,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -390,7 +390,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -415,7 +415,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                 jTextAreaSelect.append(errorMessage);
+                 jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                  jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -463,7 +463,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -488,7 +488,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -528,7 +528,7 @@ public class Select {
 
                 List<Jornada> listaToJornadaDni = (List<Jornada>) receivedData;
                 for (Jornada jornada : listaToJornadaDni) {
-                     jTextAreaSelect.append("Dni: " + jornada.getDni() + "\n" + "Nombre: "
+                     jTextAreaSelect.append("\nDni: " + jornada.getDni() + "\n" + "Nombre: "
                             + jornada.getNom() + "\n" + "Apellido: " + jornada.getApellido()
                             + "\n" + "Codigo tarjeta: " + jornada.getCodicard() + "\n"
                             + "Hora entrada: " + jornada.getHoraentrada() + "\n"
@@ -540,7 +540,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                 jTextAreaSelect.append(errorMessage);
+                 jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                  jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -565,12 +565,12 @@ public class Select {
                             + "Total: " + jornada.getTotal() + "\n" 
                             + "Fecha: " + jornada.getFecha() + "\n");
                     jTextAreaSelect.append(
-                            "____________________________________________________________________");
+                            "____________________________________________________________________\n");
                 }
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -595,12 +595,12 @@ public class Select {
                             + "Total: " + jornada.getTotal() + "\n" 
                             + "Fecha: " + jornada.getFecha() + "\n");
                     jTextAreaSelect.append(
-                            "____________________________________________________________________");
+                            "____________________________________________________________________\n");
                 }
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -626,12 +626,12 @@ public class Select {
                             + "Hora salida: " + jornada.getHorasalida() + "\n"
                             + "Total: " + jornada.getTotal() + "\n"
                             + "Fecha: " + jornada.getFecha() + "\n"
-                            +"____________________________________________________________________");
+                            +"____________________________________________________________________\n");
                 }
                 perEnt.getObjectInputFilter();
             }else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -648,7 +648,7 @@ public class Select {
 
                 List<Jornada> listaTotalJornadaFecha = (List<Jornada>) receivedData;
                 for (Jornada jornada : listaTotalJornadaFecha) {
-                    jTextAreaSelect.append("Dni: " + jornada.getDni() + "\n" + "Nombre: "
+                    jTextAreaSelect.append("\nDni: " + jornada.getDni() + "\n" + "Nombre: "
                             + jornada.getNom() + "\n" + "Apellido: " + jornada.getApellido()
                             + "\n" + "Codigo tarjeta: " + jornada.getCodicard() + "\n"
                             + "Hora entrada: " + jornada.getHoraentrada() + "\n"
@@ -660,9 +660,9 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n");
             } else {
-                jTextAreaSelect.append("Datos inesperados recibidos del servidor");
+                jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
         }
     }
@@ -855,7 +855,7 @@ public class Select {
                     perEnt.getObjectInputFilter();
                 } else if (receivedData instanceof String) {
                     String errorMessage = (String) receivedData;
-                    jTextAreaSelect.append(errorMessage);
+                    jTextAreaSelect.append(errorMessage+ "\n");
                 } else {
                     jTextAreaSelect.append("Datos inesperados recibidos del servidor");
                 }
@@ -886,7 +886,7 @@ public class Select {
                     perEnt.getObjectInputFilter();
                 } else if (receivedData instanceof String) {
                     String errorMessage = (String) receivedData;
-                    jTextAreaSelect.append(errorMessage);
+                    jTextAreaSelect.append(errorMessage+ "\n");
                 } else {
                     jTextAreaSelect.append("Datos inesperados recibidos del servidor");
                 }
