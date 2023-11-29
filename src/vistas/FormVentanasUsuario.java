@@ -2161,6 +2161,19 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 if (frase[1].equals("3") && frase[2].equals("2") && frase[3].equals("nom")){
                     JOptionPane.showMessageDialog(null, "deleteEmpresa");
                     Delete.deleteEmpresas(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
+                    
+                }else if (frase[1].equals("3") && frase[2].equals("0") && frase[3].equals("dni")){
+                    JOptionPane.showMessageDialog(null, "deleteEmpleados");
+                    Delete.deleteEmpleados(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
+                
+                }else if (frase[1].equals("3") && frase[2].equals("1") && frase[3].equals("dni")){
+                    JOptionPane.showMessageDialog(null, "deleteUsers");
+                    Delete.deleteUsers(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
+                
+                }else if (frase[1].equals("3") && frase[2].equals("3") && frase[3].equals("dni") && frase [5].equals("fecha")){
+                    JOptionPane.showMessageDialog(null, "deleteJornada");
+                    Delete.deleteJornada(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
+                
                 }
             }
         }catch (UnknownHostException ex) {

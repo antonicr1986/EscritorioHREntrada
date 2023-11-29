@@ -265,14 +265,14 @@ public class Delete {
         escriptor.newLine();
         escriptor.flush();
         jTextAreaDelete.append("\nEl usuario con codigo: " + codigoUserRecibido
-                + "\nenvia los datos siguiente: \n" + palabra);
+                + "\nenvia los datos siguientes: " + palabra + "\n");
 
         perEnt = new ObjectInputStream(socket.getInputStream());
         Object receivedData = perEnt.readObject();
 
         if (receivedData instanceof List) {
             List<Jornada> deleteJornada = (List<Jornada>) receivedData;
-            jTextAreaDelete.append("\nJornada modificada correctamente:");
+            jTextAreaDelete.append("\nJornada eliminada correctamente:");
             Jornada jornada = deleteJornada.get(0);
             jTextAreaDelete.append("\nDni: " + datoDni);
             jTextAreaDelete.append("\nNom: " + jornada.getNom());
@@ -282,7 +282,7 @@ public class Delete {
             jTextAreaDelete.append("\nHoraSalida: " + jornada.getHorasalida());
             jTextAreaDelete.append("\nTotal: " + jornada.getTotal());
             jTextAreaDelete.append("\nFecha: " + jornada.getFecha());
-            jTextAreaDelete.append("\n____________________________________________________________________");
+            jTextAreaDelete.append("\n____________________________________________________________________\n");
             
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
