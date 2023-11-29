@@ -15,7 +15,7 @@ import CRUD.Insert;
  */
 
 public class InsertTests {
-     @Test
+    @Test
     public void testOperacionesConInsertEmpresas() throws IOException, ClassNotFoundException {
         // Configuramos el entorno para las pruebas
         String[] insertEmpresas = {"A34567","1","2","nom","Toyota","address","ElPrat","telephon","34933568956","0"};
