@@ -211,7 +211,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
              jLabelReferencia2Delete.setVisible(false);
              jLabelColumnaDelete2.setVisible(false);
              jComboBoxColumnaDelete2.setVisible(false);
-             jTextFieldReferenciaDelete2.setVisible(false);
+             jTextFieldReferencia2Delete.setVisible(false);
              
         }else{
             jComboBoxTablas.removeItemAt(1);
@@ -230,7 +230,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jButtonBorrar.setVisible(false);
             jLabelColumnaDelete2.setVisible(false);
             jComboBoxColumnaDelete2.setVisible(false);
-            jTextFieldReferenciaDelete2.setVisible(false);
+            jTextFieldReferencia2Delete.setVisible(false);
             System.out.println("Antes de ocultar jTextAreaDelete");
             jTextAreaDelete.setVisible(false);
             System.out.println("Después de ocultar jTextAreaDelete");
@@ -251,6 +251,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelVariosFiltrosNoPosible.setVisible(false);
         
         jButtonAñadirATabla.setEnabled(false);
+        jLabelInfoActualizarEmpleado.setVisible(false);
         
         activarDesactivarLabelsAñadir();
         
@@ -413,6 +414,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jRadioButtonUsersActualizar = new javax.swing.JRadioButton();
         jLabelActualizarInfo1 = new javax.swing.JLabel();
         jLabelActualizarInfo2 = new javax.swing.JLabel();
+        jLabelInfoActualizarEmpleado = new javax.swing.JLabel();
         jPanelBorrar = new javax.swing.JPanel();
         jPanelBusqueda2 = new javax.swing.JPanel();
         jButtonBorrar = new javax.swing.JButton();
@@ -428,7 +430,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelUserCodeDelete = new javax.swing.JLabel();
         jLabelResultadoDelete = new javax.swing.JLabel();
         jLabelReferencia2Delete = new javax.swing.JLabel();
-        jTextFieldReferenciaDelete2 = new javax.swing.JTextField();
+        jTextFieldReferencia2Delete = new javax.swing.JTextField();
         jLabelColumnaDelete2 = new javax.swing.JLabel();
         jComboBoxColumnaDelete2 = new javax.swing.JComboBox<>();
         jPanelGestionUsuario = new javax.swing.JPanel();
@@ -907,7 +909,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelColumnaInsert.setText("Columna:");
 
-        jComboBoxColumnaUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----------------", "dni", "nom", "apellido", "nomempresa", "departament", "codicard", "mail", "telephon" }));
+        jComboBoxColumnaUpdate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "----------------", "dni", "nom", "login", " " }));
         jComboBoxColumnaUpdate.setEnabled(false);
 
         jTextFieldReferenciaUpdate.setEnabled(false);
@@ -994,6 +996,8 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jLabelActualizarInfo2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelActualizarInfo2.setText("el dato del elemento a modificar.");
 
+        jLabelInfoActualizarEmpleado.setText("La empresa ha de existir*");
+
         javax.swing.GroupLayout jPanelBusqueda1Layout = new javax.swing.GroupLayout(jPanelBusqueda1);
         jPanelBusqueda1.setLayout(jPanelBusqueda1Layout);
         jPanelBusqueda1Layout.setHorizontalGroup(
@@ -1032,36 +1036,37 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelCamposAIntroducir1)
-                                .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                                    .addGap(20, 20, 20)
-                                    .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextFieldAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldDepartament1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(23, 23, 23)
-                                    .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                                            .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jTextFieldCodicard1)
-                                                .addComponent(jTextFieldNom1)
-                                                .addComponent(jTextFieldLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(18, 18, 18)
-                                            .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jTextFieldPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextFieldMail1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextFieldApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(jLabelCodicard1))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextFieldNomEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldTelephon1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
+                                .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldDepartament1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jTextFieldNumtipe1, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelNumtipe1, javax.swing.GroupLayout.Alignment.LEADING)))))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jTextFieldCodicard1)
+                                            .addComponent(jTextFieldNom1)
+                                            .addComponent(jTextFieldLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldMail1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabelCodicard1))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldNomEmpresa1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldTelephon1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextFieldNumtipe1, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelNumtipe1, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBusqueda1Layout.createSequentialGroup()
+                                .addComponent(jLabelCamposAIntroducir1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelInfoActualizarEmpleado))))
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(jLabel9)))
@@ -1070,7 +1075,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelBusqueda1Layout.setVerticalGroup(
             jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBusqueda1Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1101,8 +1106,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonActualizarTabla))
                     .addGroup(jPanelBusqueda1Layout.createSequentialGroup()
-                        .addComponent(jLabelCamposAIntroducir1)
-                        .addGap(18, 18, 18)
+                        .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelCamposAIntroducir1)
+                            .addComponent(jLabelInfoActualizarEmpleado))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelBusqueda1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldDni1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldNom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1194,10 +1201,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jLabelReferencia2Delete.setText("Referencia 2:");
 
-        jTextFieldReferenciaDelete2.setPreferredSize(new java.awt.Dimension(121, 22));
-        jTextFieldReferenciaDelete2.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldReferencia2Delete.setPreferredSize(new java.awt.Dimension(121, 22));
+        jTextFieldReferencia2Delete.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldReferenciaDelete2KeyReleased(evt);
+                jTextFieldReferencia2DeleteKeyReleased(evt);
             }
         });
 
@@ -1232,7 +1239,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBoxColumnaDelete2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldReferenciaDelete2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTextFieldReferencia2Delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(43, 43, 43)
                 .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1278,7 +1285,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelBusqueda2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelReferencia2Delete)
-                            .addComponent(jTextFieldReferenciaDelete2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldReferencia2Delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)))
                 .addComponent(jButtonBorrar)
                 .addGap(34, 34, 34))
@@ -1496,6 +1503,16 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         insert = false;
         update = false;
 
+        if (jComboBoxTablaDelete.getSelectedItem().toString().equals("empresa")){
+            nombreTabla = "empresa";
+        }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("empleados")){
+            nombreTabla = "empleados";
+        }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("jornada")){
+            nombreTabla = "jornada";
+        }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("users")){
+            nombreTabla = "users";
+        }
+        
         ejecutarAccion();
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
@@ -1703,7 +1720,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
     private void jTextFieldReferencia1DeleteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferencia1DeleteKeyReleased
         if (jComboBoxTablaDelete.getSelectedItem().toString().equals("jornada")){
-            if ((jTextFieldReferenciaDelete2.getText()==""|| jTextFieldReferenciaDelete2.getText().isEmpty())||
+            if ((jTextFieldReferencia2Delete.getText()==""|| jTextFieldReferencia2Delete.getText().isEmpty())||
                 (jTextFieldReferencia1Delete.equals("")|| jTextFieldReferencia1Delete.getText().isEmpty())){
             jButtonBorrar.setEnabled(false);
             }else{
@@ -1720,14 +1737,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextFieldReferencia1DeleteKeyReleased
 
-    private void jTextFieldReferenciaDelete2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferenciaDelete2KeyReleased
-        if ((jTextFieldReferenciaDelete2.getText()==""|| jTextFieldReferenciaDelete2.getText().isEmpty())||
+    private void jTextFieldReferencia2DeleteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferencia2DeleteKeyReleased
+        if ((jTextFieldReferencia2Delete.getText()==""|| jTextFieldReferencia2Delete.getText().isEmpty())||
                 (jTextFieldReferencia1Delete.equals("")|| jTextFieldReferencia1Delete.getText().isEmpty())){
             jButtonBorrar.setEnabled(false);
         }else{
             jButtonBorrar.setEnabled(true);
         }
-    }//GEN-LAST:event_jTextFieldReferenciaDelete2KeyReleased
+    }//GEN-LAST:event_jTextFieldReferencia2DeleteKeyReleased
 
     private void jTextFieldReferenciaUpdateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferenciaUpdateKeyReleased
         activarDesactivarBotonActualizar();
@@ -1742,7 +1759,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jComboBoxColumnaDelete.setSelectedItem("dni");
             jComboBoxColumnaDelete2.setVisible(false);
             
-            jTextFieldReferenciaDelete2.setVisible(false);
+            jTextFieldReferencia2Delete.setVisible(false);
             
         }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("empresa")){
             jComboBoxColumnaDelete.setSelectedItem("nom");
@@ -1752,7 +1769,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jLabelReferencia2Delete.setVisible(false);
             jLabelColumnaDelete2.setVisible(false);
                      
-            jTextFieldReferenciaDelete2.setVisible(false);
+            jTextFieldReferencia2Delete.setVisible(false);
             
         }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("users")){
              jComboBoxColumnaDelete.setSelectedItem("dni");
@@ -1760,7 +1777,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
              jLabelReferencia2Delete.setVisible(false);
              jLabelColumnaDelete2.setVisible(false);
              jComboBoxColumnaDelete2.setVisible(false);
-             jTextFieldReferenciaDelete2.setVisible(false);
+             jTextFieldReferencia2Delete.setVisible(false);
              
         }else if (jComboBoxTablaDelete.getSelectedItem().toString().equals("jornada")){
              jComboBoxColumnaDelete.setSelectedItem("dni");
@@ -1771,7 +1788,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
              jLabelReferencia2Delete.setVisible(true);
              jLabelColumnaDelete2.setVisible(true);
              
-             jTextFieldReferenciaDelete2.setVisible(true);
+             jTextFieldReferencia2Delete.setVisible(true);
              
              jButtonBorrar.setEnabled(false);
         }
@@ -1893,13 +1910,18 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                             +",nomempresaNuevo,"+jTextFieldNomEmpresa1.getText()+",departamentNuevo,"+jTextFieldDepartament1.getText()
                             +",codicardNuevo,"+jTextFieldCodicard1.getText()+",mailNuevo,"+jTextFieldMail1.getText()+",telephonNuevo,"+jTextFieldTelephon1.getText()
                                 +",dni,"+jTextFieldReferenciaUpdate.getText();
+                        
+                    }else if (delete){
+                        palabraAbuscar = "dni,"+jTextFieldReferencia1Delete.getText();
                     }
+                    
                     else{
                         if (jCheckBoxBuscarVariosFiltros.isSelected()){
                         palabraAbuscar = "nom,"+jTextFieldNom2.getText()+",apellido,"+jTextFieldApellido2.getText();
                         }
                     }                
                     break;
+                    
                 case "users":
                     nombreTabla = "1";
                     if (insert){
@@ -1908,10 +1930,13 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                         
                     }else if (update){
                         palabraAbuscar = "passNuevo," + jTextFieldPass1.getText() + ",numtipeNuevo,"+jTextFieldNumtipe1.getText()
-                                +",login,"+jTextFieldReferenciaUpdate.getText()
-                            ;
+                                +",login,"+jTextFieldReferenciaUpdate.getText();
+                        
+                    }else if (delete){
+                        palabraAbuscar = "dni,"+jTextFieldReferencia1Delete.getText();
                     }
                     break;
+                    
                 case "empresa":
                     nombreTabla = "2";
                     if (insert){
@@ -1920,17 +1945,24 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     } else if (update){
                         palabraAbuscar = "nomNuevo,"+jTextFieldNom1.getText()+",addressNuevo,"+jTextFieldAddress1.getText()
                                 +",telephonNuevo,"+jTextFieldTelephon1.getText()+",nom,"+jTextFieldReferenciaUpdate.getText();
+                    }else if (delete){
+                        palabraAbuscar = "nom,"+jTextFieldReferencia1Delete.getText();
                     }
                     break;
+                    
                 case "jornada":
                     nombreTabla = "3";
                     if (insert){
                         palabraAbuscar = "dni,"+jTextFieldDni.getText();
                         
                     }else if (update){
-                        palabraAbuscar = "dni,"+jTextFieldDni1.getText();
+                        palabraAbuscar = "dni,"+jTextFieldReferenciaUpdate.getText();
                         
-                    }else{
+                    }else if (delete){
+                        palabraAbuscar = "dni,"+jTextFieldReferencia1Delete.getText()+",fecha,"+jTextFieldReferencia2Delete.getText();
+                        
+                    }
+                    else{
                         if (jCheckBoxBuscarVariosFiltros.isSelected()){
                         palabraAbuscar = "nom,"+jTextFieldNom2.getText()+",apellido,"+jTextFieldApellido2.getText();
                         }
@@ -1938,11 +1970,17 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     break;
             }
             
-            switch (columna){
+            if (columna!=null){
+                switch (columna){
                 case "todas":
                     columna = "0";
                     break;
+                default:
+                    columna = "0";
+                    break;
+                }
             }
+            
             
             switch (orden){
                 case "Si":
@@ -1963,7 +2001,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 palabra = codigo + "," + crud + "," + nombreTabla + "," + palabraAbuscar + "," + orden;
                 jTextAreaInsert.append("Enviado al server: "+palabra+"\n");
             }else if (update){
-                palabra = codigo + "," + crud + "," + nombreTabla + "," + palabraAbuscar + "," + orden;
+                palabra = codigo + "," + 2 + "," + nombreTabla + "," + palabraAbuscar + "," + orden;
+                jTextAreaUpdate.append("Enviado al server: "+palabra+"\n");
+            }else if (delete){
+                palabra = codigo + "," + 3 + "," + nombreTabla + "," + palabraAbuscar + "," + orden;
                 jTextAreaUpdate.append("Enviado al server: "+palabra+"\n");
             }else{
                 palabra = codigo + "," + crud + "," + nombreTabla + "," + columna + "," + palabraAbuscar + "," + orden;
@@ -2326,6 +2367,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldDni1.setEnabled(false);
             jTextFieldApellido1.setEnabled(false);
             jTextFieldNomEmpresa1.setEnabled(false);
+            jTextFieldNomEmpresa1.setBackground(Color.white);
             jTextFieldDepartament1.setEnabled(false);
             jTextFieldCodicard1.setEnabled(false);
             jTextFieldMail1.setEnabled(false);
@@ -2340,6 +2382,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldNom1.setEnabled(true);
             jTextFieldApellido1.setEnabled(true);
             jTextFieldNomEmpresa1.setEnabled(true);
+            jTextFieldNomEmpresa1.setBackground(Color.red);
             jTextFieldDepartament1.setEnabled(true);
             jTextFieldCodicard1.setEnabled(true);
             jTextFieldMail1.setEnabled(true);
@@ -2350,14 +2393,15 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldPass1.setEnabled(false);
             jTextFieldNumtipe1.setEnabled(false);
         }else if (jRadioButtonJornadaActualizar.isSelected()){
-            jComboBoxColumnaUpdate.setSelectedItem("todas");
-            jTextFieldDni.setEnabled(true);
+            jComboBoxColumnaUpdate.setSelectedItem("dni");       
             jTextFieldReferenciaUpdate.setEnabled(true);
             
+            jTextFieldDni1.setEnabled(false);
             jTextFieldCodicard1.setEnabled(false);
             jTextFieldNom1.setEnabled(false);
             jTextFieldApellido1.setEnabled(false);
             jTextFieldNomEmpresa1.setEnabled(false);
+            jTextFieldNomEmpresa1.setBackground(Color.white);
             jTextFieldDepartament1.setEnabled(false);    
             jTextFieldMail1.setEnabled(false);
             jTextFieldTelephon1.setEnabled(false);        
@@ -2366,18 +2410,19 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             jTextFieldPass1.setEnabled(false);
             jTextFieldNumtipe1.setEnabled(false);
         }else if (jRadioButtonUsersActualizar.isSelected()){
-            jComboBoxColumnaUpdate.setSelectedItem("login");
+            jComboBoxColumnaUpdate.setSelectedItem("login");          
             
-            jTextFieldLogin1.setEnabled(true);
             jTextFieldPass1.setEnabled(true);
             jTextFieldNumtipe1.setEnabled(true);
             jTextFieldReferenciaUpdate.setEnabled(true);
             
+            jTextFieldLogin1.setEnabled(false);
             jTextFieldDni1.setEnabled(false);
             jTextFieldCodicard1.setEnabled(false);       
             jTextFieldNom1.setEnabled(false);
             jTextFieldApellido1.setEnabled(false);
             jTextFieldNomEmpresa1.setEnabled(false);
+            jTextFieldNomEmpresa1.setBackground(Color.white);
             jTextFieldDepartament1.setEnabled(false);    
             jTextFieldMail1.setEnabled(false);
             jTextFieldTelephon1.setEnabled(false);        
@@ -2449,22 +2494,27 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         if (jRadioButtonEmpresaActualizar.isSelected()){       
             jLabelCodicard1.setEnabled(false);
             jLabelNumtipe1.setEnabled(false);
+            jLabelInfoActualizarEmpleado.setVisible(false);
             
         }else if (jRadioButtonEmpleadoActualizar.isSelected()){
             jLabelCodicard1.setEnabled(true);
             jLabelNumtipe1.setEnabled(false);
+            jLabelInfoActualizarEmpleado.setVisible(true);
             
         }else if (jRadioButtonJornadaActualizar.isSelected()){
             jLabelCodicard1.setEnabled(false);
             jLabelNumtipe1.setEnabled(false);
+            jLabelInfoActualizarEmpleado.setVisible(false);
             
         }else if (jRadioButtonUsersActualizar.isSelected()){
             jLabelCodicard1.setEnabled(false);
             jLabelNumtipe1.setEnabled(true);
+            jLabelInfoActualizarEmpleado.setVisible(false);
             
         }else{
             jLabelCodicard1.setEnabled(false);
             jLabelNumtipe1.setEnabled(false);
+            jLabelInfoActualizarEmpleado.setVisible(false);
         }
     }
 
@@ -2509,6 +2559,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelColumnaInsert;
     private javax.swing.JLabel jLabelDescripcion;
     private javax.swing.JLabel jLabelHREntrada;
+    private javax.swing.JLabel jLabelInfoActualizarEmpleado;
     private javax.swing.JLabel jLabelNombre2;
     private javax.swing.JLabel jLabelNumtipe;
     private javax.swing.JLabel jLabelNumtipe1;
@@ -2585,7 +2636,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPass;
     private javax.swing.JTextField jTextFieldPass1;
     private javax.swing.JTextField jTextFieldReferencia1Delete;
-    private javax.swing.JTextField jTextFieldReferenciaDelete2;
+    private javax.swing.JTextField jTextFieldReferencia2Delete;
     private javax.swing.JTextField jTextFieldReferenciaUpdate;
     private javax.swing.JTextField jTextFieldTelephon;
     private javax.swing.JTextField jTextFieldTelephon1;
