@@ -66,7 +66,7 @@ public class Delete {
 
         if (receivedData instanceof List) {
             List<Empleados> deleteEmpleados = (List<Empleados>) receivedData;
-            jTextAreaDelete.append("\nJornada modificada correctamente:");
+            jTextAreaDelete.append("\nEmpleado borrado correctamente:");
             Empleados empleado = deleteEmpleados.get(0);
             jTextAreaDelete.append("\nDni: " + datoDni);
             jTextAreaDelete.append("\nNom: " + empleado.getNom());
@@ -137,7 +137,7 @@ public class Delete {
 
         if (receivedData instanceof List) {
             List<Users> deleteUsers = (List<Users>) receivedData;
-            jTextAreaDelete.append("\nJornada modificada correctamente:");
+            jTextAreaDelete.append("\nUser borrado correctamente:");
             Users user = deleteUsers.get(0);
             jTextAreaDelete.append("\nDni: " + datoDni);
             jTextAreaDelete.append("\nLogin: " + user.getLogin());
@@ -203,7 +203,7 @@ public class Delete {
 
         if (receivedData instanceof List) {
             List<Empresa> deleteEmpresa = (List<Empresa>) receivedData;
-            jTextAreaDelete.append("\nJornada modificada correctamente:");
+            jTextAreaDelete.append("\nEmpresa borrada correctamente:");
             Empresa empresa = deleteEmpresa.get(0);
             jTextAreaDelete.append("\nNombre: " + datoNom);
             jTextAreaDelete.append("\nDireccion: " + empresa.getAddress());
@@ -272,7 +272,7 @@ public class Delete {
 
         if (receivedData instanceof List) {
             List<Jornada> deleteJornada = (List<Jornada>) receivedData;
-            jTextAreaDelete.append("\nJornada eliminada correctamente:");
+            jTextAreaDelete.append("\nJornada borrada correctamente:");
             Jornada jornada = deleteJornada.get(0);
             jTextAreaDelete.append("\nDni: " + datoDni);
             jTextAreaDelete.append("\nNom: " + jornada.getNom());

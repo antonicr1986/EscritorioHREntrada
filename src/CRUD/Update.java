@@ -83,7 +83,7 @@ public class Update {
                 jTextAreaUpdate.append("\nNombre empresa: " + datoNomnuevo + "\n"
                         + "Direccion: " + datoAddressNuevo + "\n"
                         + "Telefono: " + datoTelephonNuevo+ "\n");
-                jTextAreaUpdate.append("____________________________________________________________________");
+                jTextAreaUpdate.append("____________________________________________________________________\n");
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
@@ -157,7 +157,7 @@ public class Update {
                 jTextAreaUpdate.append("\nLogin: " + datoLogin);
                 jTextAreaUpdate.append("\nPass: " + datoPassNuevo);
                 jTextAreaUpdate.append("\nNumTipe: " + datoNumtipeNuevo);
-                jTextAreaUpdate.append("\n____________________________________________________________________");
+                jTextAreaUpdate.append("\n____________________________________________________________________\n");
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
@@ -270,7 +270,7 @@ public class Update {
                 jTextAreaUpdate.append("Codigo tarjeta: " + datoCodicardNuevo +"\n");
                 jTextAreaUpdate.append("Mail: " + datoMailNuevo +"\n");
                 jTextAreaUpdate.append("Telefono: " + datoTelephonNuevo +"\n");
-                jTextAreaUpdate.append("____________________________________________________________________");
+                jTextAreaUpdate.append("____________________________________________________________________\n");
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
@@ -342,7 +342,7 @@ public class Update {
                 jTextAreaUpdate.append("\nTotal: " + jornada.getTotal());
                 jTextAreaUpdate.append("\nFecha: " + jornada.getFecha());
                 jTextAreaUpdate.append("\nCodigo tarjeta: " + jornada.getCodicard());
-                jTextAreaUpdate.append("\n____________________________________________________________________");
+                jTextAreaUpdate.append("\n____________________________________________________________________\n");
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
