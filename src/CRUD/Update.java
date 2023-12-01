@@ -87,7 +87,7 @@ public class Update {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaUpdate.append(errorMessage+ "\n");
+                jTextAreaUpdate.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
             }
@@ -106,7 +106,8 @@ public class Update {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.lang.ClassNotFoundException
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     */       
     
     public static void updateUser(String []insertEmpresas,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
@@ -129,7 +130,7 @@ public class Update {
             jTextAreaUpdate.append("numtipeNuev: " + numtipeNuevo +"\n");
             jTextAreaUpdate.append("datoNumtipeNuevo: " + datoNumtipeNuevo +"\n");
             jTextAreaUpdate.append("login: " + login +"\n");
-            jTextAreaUpdate.append("datoLogin: " + datoLogin +"\n");
+            jTextAreaUpdate.append("datoLogin: " + datoLogin +"\n\n");
             jTextAreaUpdate.append("orden: " + orden +"\n");
             jTextAreaUpdate.append(
                     "____________________________________________________________________\n");
@@ -161,7 +162,7 @@ public class Update {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaUpdate.append(errorMessage+ "\n");
+                jTextAreaUpdate.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
             }
@@ -182,7 +183,8 @@ public class Update {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.lang.ClassNotFoundException
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     */       
     
     public static void updateEmpleado(String updateEmpleado[],String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
@@ -274,7 +276,7 @@ public class Update {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaUpdate.append(errorMessage+ "\n");
+                jTextAreaUpdate.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
             }
@@ -295,7 +297,8 @@ public class Update {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.lang.ClassNotFoundException
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     */       
     
     public static void updateJornada(String[] frase,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
@@ -346,7 +349,7 @@ public class Update {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaUpdate.append(errorMessage+ "\n");
+                jTextAreaUpdate.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaUpdate.append("\nDatos inesperados recibidos del servidor");
             }

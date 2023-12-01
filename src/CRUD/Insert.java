@@ -29,8 +29,9 @@ public class Insert {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -88,7 +89,7 @@ public class Insert {
                     perEnt.getObjectInputFilter();
                 } else if (receivedData instanceof String) {
                     String errorMessage = (String) receivedData;
-                    jTextAreaInsert.append(errorMessage+ "\n");
+                    jTextAreaInsert.append(errorMessage+ "\n____________________________________________________________________\n");
                 } else {
                     jTextAreaInsert.append("Datos inesperados recibidos del servidor");
                 }
@@ -107,8 +108,9 @@ public class Insert {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -171,7 +173,7 @@ public class Insert {
                     perEnt.getObjectInputFilter();
                 } else if (receivedData instanceof String) {
                     String errorMessage = (String) receivedData;
-                    jTextAreaInsert.append(errorMessage + "\n\n");
+                    jTextAreaInsert.append(errorMessage + "\n____________________________________________________________________\n");
 
                 } else {
                     jTextAreaInsert.append("Datos inesperados recibidos del servidor");
@@ -191,8 +193,9 @@ public class Insert {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -278,8 +281,9 @@ public class Insert {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -447,8 +451,9 @@ public class Insert {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -501,8 +506,8 @@ public class Insert {
             codigoUserRecibido = "0";
         }
 
-        if (crud.equals("1")) {
-            if (nombreTabla.equals("0")) {
+        if (crud.equals("1")) { //creud Insert
+            if (nombreTabla.equals("0")) { //nombreTabla empleados
 
                 escriptor.write(palabra);
                 escriptor.newLine();
@@ -512,11 +517,13 @@ public class Insert {
 
                 List<Empleados> insertEmpleados = new ArrayList<>();
 
-                perEnt = new ObjectInputStream(socket.getInputStream());
-                insertEmpleados = (ArrayList) perEnt.readObject();
-                 jTextAreaInsert.append(("\n____________________________________________________________________" 
+                perEnt = new ObjectInputStream(socket.getInputStream());             
+                Object receivedData = perEnt.readObject();
+                
+                if (receivedData instanceof List) {
+                     jTextAreaInsert.append(("\n____________________________________________________________________" 
                          + "\nEmpleado creado correctamente, sus datos son: \n"));
-                 jTextAreaInsert.append("Dni: " + datoDni + "\n"
+                    jTextAreaInsert.append("Dni: " + datoDni + "\n"
                         + "Nombre: " + datoNom + "\n"
                         + "Apellido: " + datoApellido + "\n"
                         + "Nombre empresa: " + datoNomempresa + "\n"
@@ -526,6 +533,13 @@ public class Insert {
                         + "Telefono: " + datoTelephon + "\n"
                         +"____________________________________________________________________\n");
                 perEnt.getObjectInputFilter();
+
+                } else if (receivedData instanceof String) {
+                    String errorMessage = (String) receivedData;
+                    jTextAreaInsert.append(errorMessage+ "\n____________________________________________________________________\n");
+                } else {
+                    jTextAreaInsert.append("Datos inesperados recibidos del servidor");
+                }            
             }
         }
     }
@@ -542,8 +556,9 @@ public class Insert {
      * @param socket Objeto tipo Socket para la conexión
      * @param jTextAreaInsert textArea en el que mostraremos los datos al usuario por la aplicación gráfica
      * 
-     * @throws java.io.IOException
-     * @throws java.lang.ClassNotFoundException
+     * @throws IOException Gestión de excepciones de entrada/salida. 
+     * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
      */
     public static void operacionesConInsertJornada(String nombreTabla, String columna, String palabra, 
             String codigoUserRecibido, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaInsert) throws IOException, ClassNotFoundException{
@@ -580,7 +595,7 @@ public class Insert {
                 }
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaInsert.append(errorMessage+ "\n");
+                jTextAreaInsert.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaInsert.append("Datos inesperados recibidos del servidor\n");
             }

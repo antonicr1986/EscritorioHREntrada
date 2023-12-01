@@ -31,8 +31,9 @@ public class Select {
     * @param socket Socket utilizado para la conexion con el server
     * @param jTextAreaSelect JTextArea del area de busqueda
     * 
-    * @throws IOException Descripción de la excepción lanzada. 
-    * @throws java.lang.ClassNotFoundException 
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java. 
     */
     
     public static void operacionesConSelect ( String columna, String palabra, String palabraAbuscar, String nombreTabla,
@@ -80,8 +81,9 @@ public class Select {
     * @param perEnt Objeto que nos llega desde el servidor
     * @param jTextAreaSelect JTextArea del area de busqueda
     * 
-    * @throws IOException Descripción de la excepción lanzada. 
-    * @throws java.lang.ClassNotFoundException 
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java. 
     * 
     */
     
@@ -112,7 +114,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage);
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -141,7 +143,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -171,7 +173,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -200,7 +202,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -229,7 +231,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                 jTextAreaSelect.append(errorMessage+ "\n");
+                 jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                  jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -258,7 +260,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             }else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -288,7 +290,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -318,7 +320,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -339,8 +341,9 @@ public class Select {
     * @param perEnt Objeto que nos llega desde el servidor
     * @param jTextAreaSelect JTextArea del area de busqueda
     * 
-    * @throws IOException Descripción de la excepción lanzada. 
-    * @throws java.lang.ClassNotFoundException 
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java. 
     * 
     */
     
@@ -365,7 +368,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -390,7 +393,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -415,7 +418,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                 jTextAreaSelect.append(errorMessage+ "\n");
+                 jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                  jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -436,8 +439,9 @@ public class Select {
     * @param perEnt Objeto que nos llega desde el servidor
     * @param jTextAreaSelect JTextArea del area de busqueda
     * 
-    * @throws IOException Descripción de la excepción lanzada. 
-    * @throws java.lang.ClassNotFoundException 
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java. 
     * 
     */
     
@@ -463,7 +467,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -488,7 +492,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -509,8 +513,9 @@ public class Select {
     * @param perEnt Objeto que nos llega desde el servidor
     * @param jTextAreaSelect JTextArea del area de busqueda
     * 
-    * @throws IOException Descripción de la excepción lanzada. 
-    * @throws java.lang.ClassNotFoundException 
+    * @throws IOException Gestión de excepciones de entrada/salida.  
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java. 
     * 
     */
     
@@ -540,7 +545,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                 jTextAreaSelect.append(errorMessage+ "\n");
+                 jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                  jTextAreaSelect.append("Datos inesperados recibidos del servidor");
             }
@@ -570,7 +575,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -600,7 +605,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -631,7 +636,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             }else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -660,7 +665,7 @@ public class Select {
                 perEnt.getObjectInputFilter();
             } else if (receivedData instanceof String) {
                 String errorMessage = (String) receivedData;
-                jTextAreaSelect.append(errorMessage+ "\n");
+                jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
             } else {
                 jTextAreaSelect.append("\nDatos inesperados recibidos del servidor");
             }
@@ -680,8 +685,9 @@ public class Select {
     * @param socket Socket utilizado para la conexion con el server
     * @param jTextAreaSelect JTextArea del area de busqueda
     * 
-    * @throws IOException Descripción de la excepción lanzada. 
-    * @throws java.lang.ClassNotFoundException 
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java. 
     * 
     */
     
@@ -796,8 +802,9 @@ public class Select {
     * @param socket Socket utilizado para la conexion con el server
     * @param jTextAreaSelect JTextArea del area de busqueda
     * 
-    * @throws IOException Descripción de la excepción lanzada. 
-    * @throws java.lang.ClassNotFoundException 
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java. 
     */
     
     public static void operacionesConNomYApellidos7 ( String[] NomApellido, String palabra, BufferedWriter escriptor, Socket socket, JTextArea jTextAreaSelect)throws IOException, ClassNotFoundException{
@@ -855,7 +862,7 @@ public class Select {
                     perEnt.getObjectInputFilter();
                 } else if (receivedData instanceof String) {
                     String errorMessage = (String) receivedData;
-                    jTextAreaSelect.append(errorMessage+ "\n");
+                    jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
                 } else {
                     jTextAreaSelect.append("Datos inesperados recibidos del servidor");
                 }
@@ -886,7 +893,7 @@ public class Select {
                     perEnt.getObjectInputFilter();
                 } else if (receivedData instanceof String) {
                     String errorMessage = (String) receivedData;
-                    jTextAreaSelect.append(errorMessage+ "\n");
+                    jTextAreaSelect.append(errorMessage+ "\n____________________________________________________________________\n");
                 } else {
                     jTextAreaSelect.append("Datos inesperados recibidos del servidor");
                 }

@@ -15,6 +15,13 @@ public class Empresa implements Serializable{
     private String address;
     private String telephon;
 
+    /**
+     *
+     * @param nom Nombre de la empresa
+     * @param address Dirección de la empresa
+     * @param telephon Teléfono de la empresa
+     */
+    
     public Empresa(String nom, String address, String telephon) {
         this.nom = nom;
         this.address = address;

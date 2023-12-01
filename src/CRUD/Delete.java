@@ -27,8 +27,9 @@ public class Delete {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaDelete textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -81,7 +82,7 @@ public class Delete {
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage+ "\n");
+            jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -98,8 +99,9 @@ public class Delete {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaDelete textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -147,7 +149,7 @@ public class Delete {
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage+ "\n");
+            jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -164,8 +166,9 @@ public class Delete {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaDelete textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -212,7 +215,7 @@ public class Delete {
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage+ "\n");
+            jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -229,8 +232,9 @@ public class Delete {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaDelete textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.IOException
-    * @throws java.lang.ClassNotFoundException
+    * @throws IOException Gestión de excepciones de entrada/salida. 
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     * 
     */
     
@@ -287,7 +291,7 @@ public class Delete {
             perEnt.getObjectInputFilter();
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage+ "\n");
+            jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }

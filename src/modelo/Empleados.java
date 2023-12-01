@@ -8,6 +8,7 @@ import java.io.Serializable;
  * 
  * Clase para crear objetos de tipo Empleados con todos sus atributos
  */
+
 public class Empleados implements Serializable{
     private static final long serialVersionUID = 6529685098267757690L;
     
@@ -20,6 +21,19 @@ public class Empleados implements Serializable{
     private String mail;
     private String telephon;
 
+    /**
+     * Constructor para objetos de la clase empleado
+     *
+     * @param dni Dni del empleado
+     * @param nom Nombre del empleado
+     * @param apellido Apellido del empleado
+     * @param nomempresa Nombre de la empresa a la que pertenece el empleado
+     * @param departament Departamento al que pertenece el empleado
+     * @param codicard Numero de tarjeta del empleado
+     * @param mail E-mail del empleado
+     * @param telephon Teléfono del empleado
+     */
+    
     public Empleados(String dni, String nom, String apellido, String nomempresa, String departament, String codicard, String mail, String telephon) {
         this.dni = dni;
         this.nom = nom;

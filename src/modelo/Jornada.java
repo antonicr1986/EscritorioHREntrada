@@ -1,7 +1,5 @@
 package modelo;
 import java.io.Serializable;
-import java.time.*;
-import java.sql.*;
 
 /**
  *
@@ -21,6 +19,18 @@ public class Jornada implements Serializable{
     private String total;
     private String fecha;
 
+    /**
+     * Constructor para objetos de la clase jornada
+     *
+     * @param dni Dni del empleado
+     * @param nom Nombre del empleado
+     * @param apellido Apellido del empleado
+     * @param horaentrada Hora entrada del empleado en su jornada
+     * @param horasalida Hora salida del empleado en su jornada
+     * @param total Total tiempo jornada laboral
+     * @param fecha Fecha de ejecución de la jornada laboral
+     */
+    
     public Jornada(String dni, String nom, String apellido, String horaentrada, String horasalida, String total, String fecha) {
         this.dni = dni;
         this.nom = nom;
