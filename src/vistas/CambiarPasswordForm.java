@@ -21,7 +21,8 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
 
     private JComboBox jComboBoxTipoOperacion;
     private FormVentanasUsuario ventana;
-    private String rutaImagen = "C:\\Users\\anton\\OneDrive\\Escritorio\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    private String directorioActual = System.getProperty("user.dir");
+    private String rutaImagen = directorioActual + "/img/HREntradaIcono.jpg";
     private String user;
     private String []insertEmpresas;
     private BufferedWriter escriptor;

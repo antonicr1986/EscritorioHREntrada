@@ -32,7 +32,8 @@ public class MainForm extends javax.swing.JFrame {
     }
     
    
-    private String rutaImagen = "C:\\Users\\anton\\OneDrive\\Escritorio\\M13\\EscritorioHREntrada\\img\\HREntradaIcono.jpg";
+    private String directorioActual = System.getProperty("user.dir");
+    private String rutaImagen = directorioActual + "/img/HREntradaIcono.jpg";
 
     public static Socket getSocket() {
         return socket;
