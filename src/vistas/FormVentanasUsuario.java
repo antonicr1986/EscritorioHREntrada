@@ -721,6 +721,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jTextFieldNumtipe.setText("numtipe");
         jTextFieldNumtipe.setEnabled(false);
+        jTextFieldNumtipe.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNumtipeKeyReleased(evt);
+            }
+        });
 
         jTextFieldAddress.setText("address");
         jTextFieldAddress.setEnabled(false);
@@ -975,6 +980,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jTextFieldNumtipe1.setText("numtipeNuevo");
         jTextFieldNumtipe1.setEnabled(false);
+        jTextFieldNumtipe1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldNumtipe1KeyReleased(evt);
+            }
+        });
 
         jLabelNumtipe1.setText("0 = admin, 1 = usuario");
 
@@ -1585,6 +1595,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         activarDesactivarLabelsAñadir();
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
+        comprobarInsertUsersNumTipeCorrecto();
+        
+        
     }//GEN-LAST:event_jRadioButtonUsersInsertActionPerformed
 
     /**
@@ -1600,6 +1613,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         activarDesactivarLabelsAñadir();
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
+        comprobarInsertUsersNumTipeCorrecto();
     }//GEN-LAST:event_jRadioButtonJornadaInsertActionPerformed
 
     /**
@@ -1615,6 +1629,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         activarDesactivarLabelsAñadir();
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
+        comprobarInsertUsersNumTipeCorrecto();
     }//GEN-LAST:event_jRadioButtonEmpleadoInsertActionPerformed
 
     /**
@@ -1629,6 +1644,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         activarDesactivarLabelsAñadir();
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
+        comprobarInsertUsersNumTipeCorrecto();
     }//GEN-LAST:event_jRadioButtonEmpresaInsertActionPerformed
 
     /**
@@ -1678,8 +1694,55 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         limpiarTextfieldPalabra();
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
+        comprobarSelectUsersNumTipeCorrecto();
+          
+        
     }//GEN-LAST:event_jComboBoxColumnaActionPerformed
 
+    private void comprobarSelectUsersNumTipeCorrecto(){
+        if (jComboBoxColumna.getSelectedItem()!=null){
+            if (jComboBoxColumna.getSelectedItem().toString().equals("numtipe")){
+                //JOptionPane.showMessageDialog(null,"ColumnaActionPerformed+numtipe");            
+               
+                if(jTextFieldPalabra.getText().equals("0")||jTextFieldPalabra.getText().equals("1")){
+                     jButtonBuscar.setEnabled(true);
+                }else{
+                    jButtonBuscar.setEnabled(false);
+                    jTextAreaSelect.setText("");
+                    jTextAreaSelect.append("Introduce 0 para un usuario tipo admin o 1 para un usuario normal\n");
+                }
+            }
+        }
+    }
+    
+    private void comprobarInsertUsersNumTipeCorrecto(){
+        if (jRadioButtonUsersInsert.isSelected()){
+                //JOptionPane.showMessageDialog(null,"ColumnaActionPerformed+numtipe");            
+               
+            if(jTextFieldNumtipe.getText().equals("0")||jTextFieldNumtipe.getText().equals("1")){
+                 jButtonAñadirATabla.setEnabled(true);
+            }else{
+                jButtonAñadirATabla.setEnabled(false);
+                jTextAreaInsert.setText("");
+                jTextAreaInsert.append("Introduce 0 para un usuario tipo admin o 1 para un usuario normal\n");
+            }       
+        }
+    }
+    
+     private void comprobarUpdateUsersNumTipeCorrecto(){
+        if (jRadioButtonUsersActualizar.isSelected()){
+                //JOptionPane.showMessageDialog(null,"ColumnaActionPerformed+numtipe");            
+               
+            if(jTextFieldNumtipe1.getText().equals("0")||jTextFieldNumtipe1.getText().equals("1")){
+                activarDesactivarBotonActualizar();
+            }else{
+                jButtonActualizarTabla.setEnabled(false);
+                jTextAreaUpdate.setText("");
+                jTextAreaUpdate.append("Introduce 0 para un usuario tipo admin o 1 para un usuario normal\n");
+            }       
+        }
+    }
+    
     private void jCheckBoxBuscarVariosFiltrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBuscarVariosFiltrosActionPerformed
         
         buscarPorVariosFiltrosONo();
@@ -1692,6 +1755,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private void jTextFieldPalabraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPalabraKeyReleased
          buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
+        comprobarSelectUsersNumTipeCorrecto();
     }//GEN-LAST:event_jTextFieldPalabraKeyReleased
 
     private void jTextFieldNom2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNom2KeyReleased
@@ -1773,8 +1837,19 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
     private void jTextFieldReferenciaUpdateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferenciaUpdateKeyReleased
         activarDesactivarBotonActualizar();
+        comprobarUpdateUsersNumTipeCorrecto();
     }//GEN-LAST:event_jTextFieldReferenciaUpdateKeyReleased
 
+    private void jTextFieldNumtipeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumtipeKeyReleased
+        comprobarInsertUsersNumTipeCorrecto();
+    }//GEN-LAST:event_jTextFieldNumtipeKeyReleased
+
+    private void jTextFieldNumtipe1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumtipe1KeyReleased
+         comprobarUpdateUsersNumTipeCorrecto();        
+    }//GEN-LAST:event_jTextFieldNumtipe1KeyReleased
+
+    
+    
     private void modificarComboBoxColumnasBorrar(){
         if (jComboBoxTablaDelete.getSelectedItem().toString().equals("empleados")){         
             jLabelReferencia1Delete.setEnabled(true);

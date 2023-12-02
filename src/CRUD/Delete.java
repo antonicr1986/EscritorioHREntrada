@@ -213,6 +213,7 @@ public class Delete {
             jTextAreaDelete.append("\nTelefono: " + empresa.getTelephon());
             jTextAreaDelete.append("\n____________________________________________________________________");
             perEnt.getObjectInputFilter();
+            
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
             jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");
@@ -289,6 +290,7 @@ public class Delete {
             jTextAreaDelete.append("\n____________________________________________________________________\n");
             
             perEnt.getObjectInputFilter();
+            
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
             jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");

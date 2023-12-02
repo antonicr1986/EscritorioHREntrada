@@ -723,6 +723,9 @@
                     <Property name="text" type="java.lang.String" value="numtipe"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumtipeKeyReleased"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldAddress">
                   <Properties>
@@ -1182,6 +1185,9 @@
                     <Property name="text" type="java.lang.String" value="numtipeNuevo"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumtipe1KeyReleased"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelNumtipe1">
                   <Properties>
