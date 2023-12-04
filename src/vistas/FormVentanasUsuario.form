@@ -30,19 +30,19 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="jTabbedPane1" min="-2" pref="976" max="-2" attributes="0"/>
+              <Component id="jTabbedPane" min="-2" pref="976" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jTabbedPane" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="jTabbedPane">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1200, 1200]"/>
@@ -471,7 +471,7 @@
                               <Component id="jLabelSeleccionaTablaAñadir" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
-                                  <Component id="jLabelUserCode3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelUserCodeInsert" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabelCodigo3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
@@ -539,7 +539,7 @@
                                   <Component id="jScrollPane4" min="-2" pref="671" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="203" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -551,7 +551,7 @@
                                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelCodigo3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelUserCode3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelUserCodeInsert" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelCamposAIntroducir" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
@@ -645,7 +645,7 @@
                     <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelUserCode3">
+                <Component class="javax.swing.JLabel" name="jLabelUserCodeInsert">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabelUserCode"/>
                   </Properties>
@@ -858,7 +858,7 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabelCodigoInsert" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                          <Component id="jLabelUserCodeInsert" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelUserCodeUpdate" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -907,11 +907,11 @@
                                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                       <Component id="jTextFieldCodicard1" alignment="1" max="32767" attributes="0"/>
                                                       <Component id="jTextFieldNom1" alignment="1" max="32767" attributes="0"/>
-                                                      <Component id="jTextFieldLogin1" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldLoginUpdate" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jTextFieldPass1" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldPassUpdate" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                                                       <Component id="jTextFieldMail1" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                                                       <Component id="jTextFieldApellido1" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                                                   </Group>
@@ -923,8 +923,8 @@
                                               <Component id="jTextFieldNomEmpresa1" min="-2" pref="125" max="-2" attributes="0"/>
                                               <Component id="jTextFieldTelephon1" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
                                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="jTextFieldNumtipe1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabelNumtipe1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldNumtipeUpdate" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="jLabelNumtipeUpdate" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -952,7 +952,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelUserCodeInsert" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelUserCodeUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelCodigoInsert" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -1007,13 +1007,13 @@
                                   <Component id="jLabelCodicard1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextFieldLogin1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldPass1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldNumtipe1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldLoginUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldPassUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldNumtipeUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextFieldAddress1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jLabelNumtipe1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNumtipeUpdate" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1093,7 +1093,7 @@
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldReferenciaUpdateKeyReleased"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelUserCodeInsert">
+                <Component class="javax.swing.JLabel" name="jLabelUserCodeUpdate">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabelUserCode"/>
                   </Properties>
@@ -1144,7 +1144,7 @@
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldLogin1">
+                <Component class="javax.swing.JTextField" name="jTextFieldLoginUpdate">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="loginNuevo"/>
                     <Property name="enabled" type="boolean" value="false"/>
@@ -1162,7 +1162,7 @@
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldPass1">
+                <Component class="javax.swing.JTextField" name="jTextFieldPassUpdate">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="passNuevo"/>
                     <Property name="enabled" type="boolean" value="false"/>
@@ -1180,16 +1180,16 @@
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldNumtipe1">
+                <Component class="javax.swing.JTextField" name="jTextFieldNumtipeUpdate">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="numtipeNuevo"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumtipe1KeyReleased"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumtipeUpdateKeyReleased"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabelNumtipe1">
+                <Component class="javax.swing.JLabel" name="jLabelNumtipeUpdate">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="0 = admin, 1 = usuario"/>
                   </Properties>
@@ -1577,7 +1577,7 @@
                           <Component id="jButtonCambiarContraseña" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonLogout" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="758" max="32767" attributes="0"/>
+                      <EmptySpace pref="828" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1653,7 +1653,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jLabel_ImagenOtros" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="721" max="32767" attributes="0"/>
+                      <EmptySpace pref="809" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1704,7 +1704,7 @@
                           <Component id="jLabelDescripcion" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelHREntrada" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="395" max="32767" attributes="0"/>
+                      <EmptySpace pref="483" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

@@ -19,6 +19,7 @@ import javax.swing.JTextArea;
  */
 public class CambiarPasswordForm extends javax.swing.JFrame {
 
+    private String codigoUserRecibido;
     private JComboBox jComboBoxTipoOperacion;
     private FormVentanasUsuario ventana;
     private String directorioActual = System.getProperty("user.dir");
@@ -30,6 +31,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
     private Socket socket;
     private JTextArea jTextAreaUpdate;
     
+    private boolean cambioPass = true;
     private boolean insert = true;
     private boolean  select = false;
     private boolean update = false;
@@ -195,31 +197,10 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
                 
        // Compara las cadenas
         if (passwordString1.equals(passwordString2)) {      
-            try {
-                JOptionPane.showMessageDialog(this, "Las contraseñas son iguales.");
-                insert = true;
-
-                select = false;
-                update = false;
-                delete = false;
-
-                jComboBoxTipoOperacion.setSelectedItem("insert");
-
-                /*if (jRadioButtonEmpresa.isSelected()){
-                    nombreTabla = "empresa";
-                }else if (jRadioButtonEmpleado.isSelected()){
-                    nombreTabla = "empleados";
-                }else if (jRadioButtonJornada.isSelected()){
-                    nombreTabla = "jornada";
-                }else if (jRadioButtonUsers.isSelected()){
-                    nombreTabla = "users";
-                }*/
-                ventana.ejecutarAccion();
-                
-                Update.updateUser(insertEmpresas, rutaImagen, escriptor, perEnt, socket, jTextAreaUpdate);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(CambiarPasswordForm.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ventana.setCambioPass(true);                   
+            ventana.setPasswordCambioPass (jPasswordField1.getText());              
+            ventana.ejecutarAccion();            
+            this.dispose();
             
         } else {
             JOptionPane.showMessageDialog(null, "Las contraseñas no son iguales.");
