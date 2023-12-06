@@ -2117,9 +2117,16 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 jTextAreaUpdate.append("Enviado al server: "+palabra+"\n");
                 
             }else if (cambioPass){
+                int numTipe;
+                if (codigo !=null && codigo.charAt(0) == 'A'){
+                    numTipe = 0;
+                }else{
+                    numTipe = 1;
+                }
                 palabra = codigo +","+2+","+1+",passNuevo,"+passwordCambioPass
-                        +",numtipeNuevo,"+1+",login,"+ user+","+0;
-                jTextAreaUpdate.append("Enviado al server: "+palabra+"\n");
+                        +",numtipeNuevo,"+ numTipe+",login,"+ user+","+0;
+                    jTextAreaUpdate.append("Enviado al server: "+palabra+"\n");
+                
             }
             else if (delete){
                 //JOptionPane.showMessageDialog(null,"PRimera interaccion con delete ");
