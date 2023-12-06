@@ -27,6 +27,8 @@ import CRUD.Select;
 import CRUD.Insert;
 import CRUD.Update;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.File;
 import javax.swing.JComboBox;
 
 /**
@@ -445,6 +447,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jPanelGestionUsuario = new javax.swing.JPanel();
         jButtonLogout = new javax.swing.JButton();
         jButtonCambiarContraseña = new javax.swing.JButton();
+        jButtonManualUsuario = new javax.swing.JButton();
         jPanelOtros = new javax.swing.JPanel();
         jLabel_ImagenOtros = new javax.swing.JLabel();
         jPanelAcercaDe = new javax.swing.JPanel();
@@ -1369,6 +1372,14 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
+        jButtonManualUsuario.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jButtonManualUsuario.setText("Acceder a manual de usuario de la aplicación");
+        jButtonManualUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManualUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelGestionUsuarioLayout = new javax.swing.GroupLayout(jPanelGestionUsuario);
         jPanelGestionUsuario.setLayout(jPanelGestionUsuarioLayout);
         jPanelGestionUsuarioLayout.setHorizontalGroup(
@@ -1376,17 +1387,20 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             .addGroup(jPanelGestionUsuarioLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addGroup(jPanelGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonCambiarContraseña)
-                    .addComponent(jButtonLogout))
-                .addContainerGap(828, Short.MAX_VALUE))
+                    .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonManualUsuario)
+                    .addComponent(jButtonCambiarContraseña))
+                .addContainerGap(581, Short.MAX_VALUE))
         );
         jPanelGestionUsuarioLayout.setVerticalGroup(
             jPanelGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGestionUsuarioLayout.createSequentialGroup()
                 .addGap(98, 98, 98)
                 .addComponent(jButtonCambiarContraseña)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 353, Short.MAX_VALUE)
-                .addComponent(jButtonLogout)
+                .addGap(72, 72, 72)
+                .addComponent(jButtonManualUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
+                .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
 
@@ -1803,6 +1817,27 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         ejecutarAccion();
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
+    private void jButtonManualUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManualUsuarioActionPerformed
+        abrirManualDeUsuario();
+    }//GEN-LAST:event_jButtonManualUsuarioActionPerformed
+
+    private static void abrirManualDeUsuario() {
+        String nombreArchivo = "manualUsuario.txt";
+        String rutaArchivo = System.getProperty("user.dir") + File.separator + nombreArchivo;
+
+        File archivo = new File(rutaArchivo);
+
+        if (archivo.exists()) {
+            try {
+                Desktop.getDesktop().open(archivo);
+            } catch (IOException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al abrir el archivo: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "El archivo " + nombreArchivo + " no existe en la carpeta raíz del proyecto.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     
     
     private void comprobarSelectUsersNumTipeCorrecto(){
@@ -1960,9 +1995,10 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     * a métodos para buscar, añadir, borrar, actualizar datos mediante conexión con 
     * socket con el servidor
     * 
+    * @throws EOFException
     */
     
-     public void ejecutarAccion(){
+     public void ejecutarAccion() {
         try {
             // TODO add your handling code here:
             socket = MainForm.getSocket();
@@ -2692,6 +2728,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonCambiarContraseña;
     private javax.swing.JButton jButtonLogout;
+    private javax.swing.JButton jButtonManualUsuario;
     private javax.swing.JCheckBox jCheckBoxBuscarVariosFiltros;
     private javax.swing.JComboBox<String> jComboBoxColumna;
     private javax.swing.JComboBox<String> jComboBoxColumnaDelete;

@@ -139,14 +139,21 @@ public class Delete {
 
         if (receivedData instanceof List) {
             List<Users> deleteUsers = (List<Users>) receivedData;
-            jTextAreaDelete.append("\nUser borrado correctamente:");
-            Users user = deleteUsers.get(0);
-            jTextAreaDelete.append("\nDni: " + datoDni);
-            jTextAreaDelete.append("\nLogin: " + user.getLogin());
-            jTextAreaDelete.append("\nNumTipe: " + user.getNumtipe());
-            jTextAreaDelete.append("\n____________________________________________________________________");
+            jTextAreaDelete.append("\n\nUser borrado correctamente:");
             
-            perEnt.getObjectInputFilter();
+            if (!deleteUsers.isEmpty()) {
+                Users user = deleteUsers.get(0);
+                jTextAreaDelete.append("\nDni: " + datoDni);
+                jTextAreaDelete.append("\nLogin: " + user.getLogin());
+                jTextAreaDelete.append("\nNumTipe: " + user.getNumtipe());
+                jTextAreaDelete.append("\n____________________________________________________________________");
+
+                perEnt.getObjectInputFilter();
+            } else {
+                jTextAreaDelete.append("\nLa lista de usuarios a borrar está vacía.\n");
+            }         
+            jTextAreaDelete.append("\nNúmero de usuarios en deleteUsers: " + deleteUsers.size());
+            
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
             jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");

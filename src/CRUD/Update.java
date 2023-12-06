@@ -1,6 +1,7 @@
 package CRUD;
 
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.Socket;
@@ -106,11 +107,12 @@ public class Update {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
+    * @throws java.io.EOFException
     * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
     * de la clase o con la versión de java.
     */       
     
-    public static void updateUser(String []insertEmpresas,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
+    public static void updateUser(String []insertEmpresas,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws EOFException, ClassNotFoundException{
         try {
             String codigoUserRecibido = insertEmpresas[0];
             String crud = insertEmpresas[1];
@@ -150,7 +152,7 @@ public class Update {
             jTextAreaUpdate.append("\nEl usuario con codigo: " + codigoUserRecibido
                     + "\nenvia los datos siguientes: " + palabra + "\n");
             
-            perEnt = new ObjectInputStream(socket.getInputStream());
+            perEnt = new ObjectInputStream(socket.getInputStream());//TODO fallo al hacer un insert user y luego cambiar la contraseña en el usuario logueado
             Object receivedData = perEnt.readObject();
             
             if (receivedData instanceof List) {
