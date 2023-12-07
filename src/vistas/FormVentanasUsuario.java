@@ -448,6 +448,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jButtonLogout = new javax.swing.JButton();
         jButtonCambiarContraseña = new javax.swing.JButton();
         jButtonManualUsuario = new javax.swing.JButton();
+        jLabel_ImagenGestionUsuario = new javax.swing.JLabel();
         jPanelOtros = new javax.swing.JPanel();
         jLabel_ImagenOtros = new javax.swing.JLabel();
         jPanelAcercaDe = new javax.swing.JPanel();
@@ -1352,7 +1353,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Borrar", jPanelBorrar);
 
-        jPanelGestionUsuario.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelGestionUsuario.setBackground(new java.awt.Color(255, 255, 255));
 
         jButtonLogout.setBackground(new java.awt.Color(255, 255, 255));
         jButtonLogout.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -1380,6 +1381,11 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             }
         });
 
+        jLabel_ImagenGestionUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/HREntraGrande.jpg"))); // NOI18N
+        jLabel_ImagenGestionUsuario.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel_ImagenGestionUsuario.setMaximumSize(new java.awt.Dimension(400, 350));
+        jLabel_ImagenGestionUsuario.setMinimumSize(new java.awt.Dimension(400, 350));
+
         javax.swing.GroupLayout jPanelGestionUsuarioLayout = new javax.swing.GroupLayout(jPanelGestionUsuario);
         jPanelGestionUsuario.setLayout(jPanelGestionUsuarioLayout);
         jPanelGestionUsuarioLayout.setHorizontalGroup(
@@ -1390,17 +1396,24 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                     .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonManualUsuario)
                     .addComponent(jButtonCambiarContraseña))
-                .addContainerGap(581, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jLabel_ImagenGestionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
         jPanelGestionUsuarioLayout.setVerticalGroup(
             jPanelGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelGestionUsuarioLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(jButtonCambiarContraseña)
-                .addGap(72, 72, 72)
-                .addComponent(jButtonManualUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 235, Short.MAX_VALUE)
-                .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelGestionUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelGestionUsuarioLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jButtonCambiarContraseña)
+                        .addGap(72, 72, 72)
+                        .addComponent(jButtonManualUsuario)
+                        .addGap(235, 235, 235)
+                        .addComponent(jButtonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelGestionUsuarioLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel_ImagenGestionUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(43, 43, 43))
         );
 
@@ -1433,7 +1446,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Otros", jPanelOtros);
 
-        jPanelAcercaDe.setBackground(new java.awt.Color(153, 153, 153));
+        jPanelAcercaDe.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelHREntrada.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabelHREntrada.setText("HREntrada ©");
@@ -1822,7 +1835,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonManualUsuarioActionPerformed
 
     private static void abrirManualDeUsuario() {
-        String nombreArchivo = "manualUsuario.txt";
+        String nombreArchivo = "manual.pdf";
         String rutaArchivo = System.getProperty("user.dir") + File.separator + nombreArchivo;
 
         File archivo = new File(rutaArchivo);
@@ -2783,6 +2796,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelVariosFiltrosNoPosible;
     private javax.swing.JLabel jLabelVersion;
     private javax.swing.JLabel jLabel_Imagen;
+    private javax.swing.JLabel jLabel_ImagenGestionUsuario;
     private javax.swing.JLabel jLabel_ImagenOtros;
     private javax.swing.JPanel jPanelAcercaDe;
     private javax.swing.JPanel jPanelActualizar;
