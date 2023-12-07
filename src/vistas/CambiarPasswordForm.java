@@ -196,8 +196,12 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         String passwordString2 = new String(password2);
                 
        // Compara las cadenas
-        if (passwordString1.equals(passwordString2)) {      
-            ventana.setCambioPass(true);                   
+        if (passwordString1.equals(passwordString2)) { 
+            ventana.setCambioPass(true);   
+            ventana.setSelect(false);
+            ventana.setInsert(false);
+            ventana.setUpdate(false);
+            ventana.setDelete(false);
             ventana.setPasswordCambioPass (jPasswordField1.getText());              
             ventana.ejecutarAccion();            
             this.dispose();

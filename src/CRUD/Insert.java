@@ -588,7 +588,7 @@ public class Insert {
                                 +"Fecha: " + jornada.getFecha() + "\n"
                                 +"____________________________________________________________________\n");
                     } else {
-                         jTextAreaInsert.append("Datos inesperados recibidos del servidor");
+                         jTextAreaInsert.append("\nDatos inesperados recibidos del servidor");
 
                     }
                     perEnt.getObjectInputFilter();

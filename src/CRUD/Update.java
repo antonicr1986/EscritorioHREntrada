@@ -115,7 +115,8 @@ public class Update {
     public static void updateUser(String []insertEmpresas,String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws EOFException, ClassNotFoundException{
         try {
             String codigoUserRecibido = insertEmpresas[0];
-            String crud = insertEmpresas[1];
+            //String crud = insertEmpresas[1];
+            String crud = "2";
             String nombreTabla = insertEmpresas[2];
             String passNuevo = insertEmpresas[3];
             String datoPassNuevo = insertEmpresas[4];
