@@ -29,7 +29,7 @@ public class ConexionSocket {
     * Método que comprueba que el login és correcto o no y si lo es comprueba que tipo de usuario
     * se ha logeado para crear un título o otro al crear un objeto del tipo FormVentanasUsuario
     *
-    * @param mainForm
+    * @param mainForm objeto del tipo MainForm
     * @param usuarioFormPestañas objeto del tipo FormVentanasUsuario que usaremos para
     * crear la ventana del menú principal de la aplicación una vez iniciada sesión 
     * @param jTextFieldIPServidor campo de texto para introducir la ip del server

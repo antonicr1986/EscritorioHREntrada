@@ -29,8 +29,8 @@ public class Update {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaUpdate Area de texto donde mostraremos informacion al usuario al hacer o intentar un update
     * 
-    * @throws java.lang.ClassNotFoundException
-    *
+    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
+    * de la clase o con la versión de java.
     */       
     
     public static void updateEmpresa(String NomApellido[],String palabra, BufferedWriter escriptor, ObjectInputStream perEnt,Socket socket, JTextArea jTextAreaUpdate) throws ClassNotFoundException{
@@ -50,15 +50,10 @@ public class Update {
             jTextAreaUpdate.append("\ncodigoUserRecibido: " + codigoUserRecibido +"\n");
             jTextAreaUpdate.append("crud: " + crud +"\n");
             jTextAreaUpdate.append("nombreTabla: " + nombreTabla +"\n");
-            jTextAreaUpdate.append("nomNuevo: " + nomNuevo +"\n");
             jTextAreaUpdate.append("datoNomnuevo: " + datoNomnuevo +"\n");
-            jTextAreaUpdate.append("address: " + addressNuevo +"\n");
             jTextAreaUpdate.append("datoAddress: " + datoAddressNuevo +"\n");
-            jTextAreaUpdate.append("telephon: " + telephonNuevo +"\n");
             jTextAreaUpdate.append("datoTelephon: " + datoTelephonNuevo +"\n");
-            jTextAreaUpdate.append("nom: " + nom +"\n");
             jTextAreaUpdate.append("datoNom: " + datoNom +"\n");
-            jTextAreaUpdate.append("orden: " + orden +"\n");
             jTextAreaUpdate.append(
                     "____________________________________________________________________\n");
             
@@ -107,7 +102,8 @@ public class Update {
     * @param socket Objeto tipo Socket para la conexión
     * @param jTextAreaUpdate textArea en el que mostraremos los datos al usuario por la aplicación gráfica
     * 
-    * @throws java.io.EOFException
+    * @throws EOFException para gestionar cuando intentamos datos de una sequencia ya alcanzamos el final
+    * antes de lo esperado
     * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
     * de la clase o con la versión de java.
     */       
@@ -128,13 +124,9 @@ public class Update {
             jTextAreaUpdate.append("\ncodigoUserRecibido: " + codigoUserRecibido +"\n");
             jTextAreaUpdate.append("crud: " + crud +"\n");
             jTextAreaUpdate.append("nombreTabla: " + nombreTabla +"\n");
-            jTextAreaUpdate.append("passNuevo: " + passNuevo +"\n");
             jTextAreaUpdate.append("datoPassNuevo: " + datoPassNuevo +"\n");
-            jTextAreaUpdate.append("numtipeNuev: " + numtipeNuevo +"\n");
             jTextAreaUpdate.append("datoNumtipeNuevo: " + datoNumtipeNuevo +"\n");
-            jTextAreaUpdate.append("login: " + login +"\n");
             jTextAreaUpdate.append("datoLogin: " + datoLogin +"\n\n");
-            jTextAreaUpdate.append("orden: " + orden +"\n");
             jTextAreaUpdate.append(
                     "____________________________________________________________________\n");
             
@@ -218,25 +210,15 @@ public class Update {
             jTextAreaUpdate.append("\ncodigoUserRecibido: " + codigoUserRecibido +"\n");
             jTextAreaUpdate.append("crud: " + crud +"\n");
             jTextAreaUpdate.append("nombreTabla: " + nombreTabla +"\n");
-            jTextAreaUpdate.append("dniNuevo: " + dniNuevo +"\n");
             jTextAreaUpdate.append("datoDniNuevo: " + datoDniNuevo +"\n");
-            jTextAreaUpdate.append("nomNuevo: " + nomNuevo +"\n");
             jTextAreaUpdate.append("datoNomNuevo: " + datoNomNuevo +"\n");
-            jTextAreaUpdate.append("apellidoNuevo: " + apellidoNuevo +"\n");
             jTextAreaUpdate.append("datoApellidoNuevo: " + datoApellidoNuevo +"\n");
-            jTextAreaUpdate.append("nomempresaNuevo: " + nomempresaNuevo +"\n");
             jTextAreaUpdate.append("datoNomempresaNuevo: " + datoNomempresaNuevo +"\n");
-            jTextAreaUpdate.append("departamentNuevo: " + departamentNuevo +"\n");
             jTextAreaUpdate.append("datoDepartament: " + datoDepartamentNuevo +"\n");
-            jTextAreaUpdate.append("codicardNuevo: " + codicardNuevo +"\n");
             jTextAreaUpdate.append("datoCodicardNuevo: " + datoCodicardNuevo +"\n");
-            jTextAreaUpdate.append("mailNuevo: " + mailNuevo +"\n");
             jTextAreaUpdate.append("datoMailNuevo: " + datoMailNuevo +"\n");
-            jTextAreaUpdate.append("telephon: " + telephonNuevo +"\n");
             jTextAreaUpdate.append("datoTelephon: " + datoTelephonNuevo +"\n");
-            jTextAreaUpdate.append("dni: " + dni +"\n");
             jTextAreaUpdate.append("datoDni: " + datoDni +"\n");
-            jTextAreaUpdate.append("orden: " + orden +"\n");
             jTextAreaUpdate.append(
                     "____________________________________________________________________\n");
             
@@ -266,7 +248,7 @@ public class Update {
 
             if (receivedData instanceof List) {
                 List<Empresa> updateEmpresa = (List<Empresa>) receivedData;
-                jTextAreaUpdate.append("\nEmpleado modificado correctamente:");
+                jTextAreaUpdate.append("\nEmpleado actualizado correctamente:");
                 jTextAreaUpdate.append("\nDni: " + datoDniNuevo +"\n");
                 jTextAreaUpdate.append("Nombre: " + datoNomNuevo +"\n");
                 jTextAreaUpdate.append("Apellido: " + datoApellidoNuevo +"\n");
@@ -315,9 +297,7 @@ public class Update {
             jTextAreaUpdate.append("\ncodigoUserRecibido: " + codigoUserRecibido);
             jTextAreaUpdate.append("\ncrud: " + crud);
             jTextAreaUpdate.append("\nnombreTabla: " + nombreTabla);
-            jTextAreaUpdate.append("\ndni: " + dni);
             jTextAreaUpdate.append("\ndatoDni: " + datoDni);
-            jTextAreaUpdate.append("\norden: " + orden);
             jTextAreaUpdate.append(
                     "\n____________________________________________________________________");
 
@@ -338,7 +318,7 @@ public class Update {
 
             if (receivedData instanceof List) {
                 List<Jornada> updateJornada = (List<Jornada>) receivedData;
-                System.out.println("\nJornada modificada correctamente:");
+                jTextAreaUpdate.append("\nJornada actualizada correctamente:");
                 Jornada jornada = updateJornada.get(0);
                 jTextAreaUpdate.append("\nDni: " + datoDni);
                 jTextAreaUpdate.append("\nNombre: " + jornada.getNom());

@@ -57,7 +57,6 @@ public class Insert {
             +"datoApellido: " + datoAddress + "\n"
             +"telephon: " + telephon + "\n"
             +"datoTelephon: " + datoTelephon + "\n"
-            +"orden: " + orden + "\n"
             +"____________________________________________________________________" + "\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + nom + "," + datoNom + "," + address
@@ -132,15 +131,10 @@ public class Insert {
             +"codigoUserRecibido: " + codigoUserRecibido + "\n"
             +"crud: " + crud + "\n"
             +"nombreTabla: " + nombreTabla + "\n"
-            +"login: " + login + "\n"
             +"datoLogin: " + datoLogin + "\n"
-            +"pass: " + pass + "\n"
             +"datoPass: " + datoPass + "\n"
-            +"numTipe: " + numTipe + "\n"
             +"datoNumTipe: " + datoNumTipe + "\n"
-            +"dni: " + dni + "\n"
             +"datoDni: " + datoDni + "\n"
-            +"orden: " + orden + "\n"
             +"____________________________________________________________________\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + login + "," + datoLogin + "," + pass
@@ -221,19 +215,12 @@ public class Insert {
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
                 + "crud: " + crud + "\n" 
                 +"nombreTabla: " + nombreTabla + "\n" 
-                +"dni: " + dni + "\n" 
-                + "datoDni: " + datoDni +  "\n" 
-                +"nom: " + nom + "\n" 
+                + "datoDni: " + datoDni +  "\n"  
                 + "datoNom: " + datoNom + "\n" 
-                + "apellido: " + apellido + "\n" 
                 + "datoApellido: " + datoApellido + "\n" 
-                + "nomempresa: " + nomempresa + "\n" 
                 +"datoNomempresa: " + datoNomempresa + "\n" 
-                + "departament: " + departament + "\n" 
-                +"datoDepartament: " + datoDepartament + "\n" 
-                + "codicard: " + codicard + "\n" 
+                +"datoDepartament: " + datoDepartament + "\n"  
                 +"datoCodicar: " + datoCodicard + "\n" 
-                + "orden: " + orden + "\n" 
                 + "____________________________________________________________________\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
@@ -314,19 +301,12 @@ public class Insert {
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
                 + "crud: " + crud + "\n" 
                 +"nombreTabla: " + nombreTabla + "\n" 
-                +"dni: " + dni + "\n" 
                 + "datoDni: " + datoDni +  "\n" 
-                +"nom: " + nom + "\n" 
                 + "datoNom: " + datoNom + "\n" 
-                + "apellido: " + apellido + "\n" 
                 + "datoApellido: " + datoApellido + "\n" 
-                + "nomempresa: " + nomempresa + "\n" 
                 +"datoNomempresa: " + datoNomempresa + "\n" 
-                + "departament: " + departament + "\n" 
                 +"datoDepartament: " + datoDepartament + "\n" 
-                + "codicard: " + codicard + "\n" 
-                +"datoCodicar: " + datoCodicard + "\n" 
-                + "orden: " + orden + "\n" 
+                +"datoCodicard: " + datoCodicard + "\n" 
                 + "____________________________________________________________________\n");
 
             palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
@@ -387,20 +367,13 @@ public class Insert {
             jTextAreaInsert.append("____________________________________________________________________"+ "\n" 
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
                 + "crud: " + crud + "\n" 
-                +"nombreTabla: " + nombreTabla + "\n" 
-                +"dni: " + dni + "\n" 
+                + "nombreTabla: " + nombreTabla + "\n" 
                 + "datoDni: " + datoDni +  "\n" 
-                +"nom: " + nom + "\n" 
                 + "datoNom: " + datoNom + "\n" 
-                + "apellido: " + apellido + "\n" 
                 + "datoApellido: " + datoApellido + "\n" 
-                + "nomempresa: " + nomempresa + "\n" 
-                +"datoNomempresa: " + datoNomempresa + "\n" 
-                + "departament: " + departament + "\n" 
-                +"datoDepartament: " + datoDepartament + "\n" 
-                + "codicard: " + codicard + "\n" 
-                +"datoCodicar: " + datoCodicard + "\n" 
-                + "orden: " + orden + "\n" 
+                + "datoNomempresa: " + datoNomempresa + "\n"  
+                + "datoDepartament: " + datoDepartament + "\n" 
+                + "datoCodicard: " + datoCodicard + "\n" 
                 + "____________________________________________________________________\n");
 
             palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido
@@ -483,19 +456,12 @@ public class Insert {
                 +"codigoUserRecibido: " + codigoUserRecibido + "\n" 
                 + "crud: " + crud + "\n" 
                 +"nombreTabla: " + nombreTabla + "\n" 
-                +"dni: " + dni + "\n" 
                 + "datoDni: " + datoDni +  "\n" 
-                +"nom: " + nom + "\n" 
                 + "datoNom: " + datoNom + "\n" 
-                + "apellido: " + apellido + "\n" 
                 + "datoApellido: " + datoApellido + "\n" 
-                + "nomempresa: " + nomempresa + "\n" 
-                +"datoNomempresa: " + datoNomempresa + "\n" 
-                + "departament: " + departament + "\n" 
-                +"datoDepartament: " + datoDepartament + "\n" 
-                + "codicard: " + codicard + "\n" 
-                +"datoCodicar: " + datoCodicard + "\n" 
-                + "orden: " + orden + "\n" 
+                + "datoNomempresa: " + datoNomempresa + "\n" 
+                + "datoDepartament: " + datoDepartament + "\n" 
+                + "datoCodicar: " + datoCodicard + "\n" 
                 + "____________________________________________________________________\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + dni + "," + datoDni + "," + nom + "," + datoNom + "," + apellido

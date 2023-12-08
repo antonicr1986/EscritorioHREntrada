@@ -823,11 +823,8 @@ public class Select {
             +"codigoUserRecibido: " + codigoUserRecibido + "\n"
             +"crud: " + crud + "\n"
             +"nombreTabla: " + nombreTabla + "\n"
-            +"nom: " + nom + "\n"
             +"datoNom: " + datoNom + "\n"
-            +"apellido: " + apellido + "\n"
             +"datoApellido: " + datoApellido + "\n"
-            +"orden: " + orden + "\n"
             +"____________________________________________________________________" + "\n");
 
         palabra = codigoUserRecibido + "," + crud + "," + nombreTabla + "," + nom + "," + datoNom + "," + apellido + "," + datoApellido + "," + orden;

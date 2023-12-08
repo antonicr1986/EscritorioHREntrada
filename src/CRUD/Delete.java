@@ -46,7 +46,6 @@ public class Delete {
         jTextAreaDelete.append("\nnombreTabla: " + nombreTabla);
         jTextAreaDelete.append("\ndni: " + dni);
         jTextAreaDelete.append("\ndatoDni: " + datoDni);
-        jTextAreaDelete.append("\norden: " + orden);
         jTextAreaDelete.append(
                 "\n____________________________________________________________________");
 
@@ -68,21 +67,25 @@ public class Delete {
         if (receivedData instanceof List) {
             List<Empleados> deleteEmpleados = (List<Empleados>) receivedData;
             jTextAreaDelete.append("\nEmpleado borrado correctamente:");
-            Empleados empleado = deleteEmpleados.get(0);
-            jTextAreaDelete.append("\nDni: " + datoDni);
-            jTextAreaDelete.append("\nNom: " + empleado.getNom());
-            jTextAreaDelete.append("\nApellido: " + empleado.getApellido());
-            jTextAreaDelete.append("\nNom empresa: " + empleado.getNomempresa());
-            jTextAreaDelete.append("\nDepartament: " + empleado.getDepartament());
-            jTextAreaDelete.append("\nCodicard: " + empleado.getCodicard());
-            jTextAreaDelete.append("\nMail: " + empleado.getMail());
-            jTextAreaDelete.append("\nTelefono: " + empleado.getTelephon());
-            jTextAreaDelete.append("\n____________________________________________________________________");
-            
-            perEnt.getObjectInputFilter();
-        } else if (receivedData instanceof String) {
+            if (!deleteEmpleados.isEmpty()) {
+                Empleados empleado = deleteEmpleados.get(0);
+                jTextAreaDelete.append("\nDni: " + datoDni);
+                jTextAreaDelete.append("\nNom: " + empleado.getNom());
+                jTextAreaDelete.append("\nApellido: " + empleado.getApellido());
+                jTextAreaDelete.append("\nNom empresa: " + empleado.getNomempresa());
+                jTextAreaDelete.append("\nDepartament: " + empleado.getDepartament());
+                jTextAreaDelete.append("\nCodicard: " + empleado.getCodicard());
+                jTextAreaDelete.append("\nMail: " + empleado.getMail());
+                jTextAreaDelete.append("\nTelefono: " + empleado.getTelephon());
+                jTextAreaDelete.append("\n____________________________________________________________________");
+
+                perEnt.getObjectInputFilter();
+            }else{
+                jTextAreaDelete.append("\n\nEl empleado que quiere elimnar no existe.");
+            }
+        }else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");
+            jTextAreaDelete.append("\n"+errorMessage+ "\n____________________________________________________________________\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -115,10 +118,8 @@ public class Delete {
 
         jTextAreaDelete.append("\ncodigoUserRecibido: " + codigoUserRecibido);
         jTextAreaDelete.append("\ncrud: " + crud);
-        jTextAreaDelete.append("\nnombreTabla: " + nombreTabla);
-        jTextAreaDelete.append("\ndni: " + dni);
-        jTextAreaDelete.append("\ndatoDni: " + datoDni);
-        jTextAreaDelete.append("\norden: " + orden);
+        jTextAreaDelete.append("\nNombreTabla: " + nombreTabla);
+        jTextAreaDelete.append("\nDni: " + datoDni);
         jTextAreaDelete.append(
                 "\n____________________________________________________________________");
 
@@ -150,13 +151,14 @@ public class Delete {
 
                 perEnt.getObjectInputFilter();
             } else {
-                jTextAreaDelete.append("\nEl user que quiere borrar no existe.\n");
+                jTextAreaDelete.append("\n\nEl user que quiere borrar no existe."
+                        + "\n____________________________________________________________________\n");
             }         
-            jTextAreaDelete.append("\nNúmero de usuarios en deleteUsers: " + deleteUsers.size());
             
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");
+            jTextAreaDelete.append("\n"+errorMessage+ 
+                    "\n____________________________________________________________________\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -190,9 +192,7 @@ public class Delete {
         jTextAreaDelete.append("\ncodigoUserRecibido: " + codigoUserRecibido);
         jTextAreaDelete.append("\ncrud: " + crud);
         jTextAreaDelete.append("\nnombreTabla: " + nombreTabla);
-        jTextAreaDelete.append("\nnom: " + nom);
         jTextAreaDelete.append("\ndatoNom: " + datoNom);
-        jTextAreaDelete.append("\norden: " + orden);
         jTextAreaDelete.append(
                 "\n____________________________________________________________________");
 
@@ -213,17 +213,22 @@ public class Delete {
 
         if (receivedData instanceof List) {
             List<Empresa> deleteEmpresa = (List<Empresa>) receivedData;
-            jTextAreaDelete.append("\nEmpresa borrada correctamente:");
-            Empresa empresa = deleteEmpresa.get(0);
-            jTextAreaDelete.append("\nNombre: " + datoNom);
-            jTextAreaDelete.append("\nDireccion: " + empresa.getAddress());
-            jTextAreaDelete.append("\nTelefono: " + empresa.getTelephon());
-            jTextAreaDelete.append("\n____________________________________________________________________");
-            perEnt.getObjectInputFilter();
-            
+            if (!deleteEmpresa.isEmpty()){
+                jTextAreaDelete.append("\nEmpresa borrada correctamente:");
+                Empresa empresa = deleteEmpresa.get(0);
+                jTextAreaDelete.append("\nNombre: " + datoNom);
+                jTextAreaDelete.append("\nDireccion: " + empresa.getAddress());
+                jTextAreaDelete.append("\nTelefono: " + empresa.getTelephon());
+                jTextAreaDelete.append("\n____________________________________________________________________");
+                perEnt.getObjectInputFilter();
+            }else{
+                 jTextAreaDelete.append("\n\nLa empresa que quiere borrar no existe."
+                        + "\n____________________________________________________________________\n");
+            }       
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
-            jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");
+            jTextAreaDelete.append(errorMessage
+                    + "\n____________________________________________________________________\n");
         } else {
             jTextAreaDelete.append("\nDatos no esperados recibidos del servidor");
         }
@@ -256,14 +261,11 @@ public class Delete {
         String datoFecha = frase [6];
         String orden = frase[7];
 
-        jTextAreaDelete.append("\ncodigoUserRecibido: " + codigoUserRecibido);
-        jTextAreaDelete.append("\ncrud: " + crud);
-        jTextAreaDelete.append("\nnombreTabla: " + nombreTabla);
-        jTextAreaDelete.append("\ndni: " + dni);
-        jTextAreaDelete.append("\ndatoDni: " + datoDni);
-        jTextAreaDelete.append("\nfecha: " + fecha);
-        jTextAreaDelete.append("\ndatoFecha: " + datoFecha);
-        jTextAreaDelete.append("\norden: " + orden);
+        jTextAreaDelete.append("\nCodigoUserRecibido: " + codigoUserRecibido);
+        jTextAreaDelete.append("\nCrud: " + crud);
+        jTextAreaDelete.append("\nNombreTabla: " + nombreTabla);
+        jTextAreaDelete.append("\nDni: " + datoDni);
+        jTextAreaDelete.append("\nFecha: " + datoFecha);
         jTextAreaDelete.append(
                 "\n____________________________________________________________________");
 
@@ -284,20 +286,24 @@ public class Delete {
 
         if (receivedData instanceof List) {
             List<Jornada> deleteJornada = (List<Jornada>) receivedData;
-            jTextAreaDelete.append("\nJornada borrada correctamente:");
-            Jornada jornada = deleteJornada.get(0);
-            jTextAreaDelete.append("\nDni: " + datoDni);
-            jTextAreaDelete.append("\nNom: " + jornada.getNom());
-            jTextAreaDelete.append("\nApellido: " + jornada.getApellido());
-            jTextAreaDelete.append("\nCodicard: " + jornada.getCodicard());
-            jTextAreaDelete.append("\nHoraEntrada: " + jornada.getHoraentrada());
-            jTextAreaDelete.append("\nHoraSalida: " + jornada.getHorasalida());
-            jTextAreaDelete.append("\nTotal: " + jornada.getTotal());
-            jTextAreaDelete.append("\nFecha: " + jornada.getFecha());
-            jTextAreaDelete.append("\n____________________________________________________________________\n");
-            
-            perEnt.getObjectInputFilter();
-            
+            if (!deleteJornada.isEmpty()){
+                jTextAreaDelete.append("\nJornada borrada correctamente:");
+                Jornada jornada = deleteJornada.get(0);
+                jTextAreaDelete.append("\nDni: " + datoDni);
+                jTextAreaDelete.append("\nNom: " + jornada.getNom());
+                jTextAreaDelete.append("\nApellido: " + jornada.getApellido());
+                jTextAreaDelete.append("\nCodicard: " + jornada.getCodicard());
+                jTextAreaDelete.append("\nHoraEntrada: " + jornada.getHoraentrada());
+                jTextAreaDelete.append("\nHoraSalida: " + jornada.getHorasalida());
+                jTextAreaDelete.append("\nTotal: " + jornada.getTotal());
+                jTextAreaDelete.append("\nFecha: " + jornada.getFecha());
+                jTextAreaDelete.append("\n____________________________________________________________________\n");
+
+                perEnt.getObjectInputFilter();
+            }else{
+                 jTextAreaDelete.append("\n\nLa jornada que quiere borrar no existe."
+                        + "\n____________________________________________________________________\n");
+            }          
         } else if (receivedData instanceof String) {
             String errorMessage = (String) receivedData;
             jTextAreaDelete.append(errorMessage+ "\n____________________________________________________________________\n");

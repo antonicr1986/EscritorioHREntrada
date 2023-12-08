@@ -42,6 +42,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
      * Creates new form CambiarPasswordForm
      * Añadiremos características iniciales como la posición centrada, el título y el icono personalizados
      * 
+     * @param jComboBoxTipoOperacion desplegable de la ventana con el tipo de operacion CRUD a realizar
      * @param ventana Ventana del tipo FormVentanasUsuario que tendremos abierta mientras creamos la nueva ventana
      * @param user És un string con el nombre del usuario que haya iniciado sesión que pasaremos
      * por parámetro al crear un tipo de ventanas de este

@@ -2026,7 +2026,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     * a métodos para buscar, añadir, borrar, actualizar datos mediante conexión con 
     * socket con el servidor
     * 
-    * @throws EOFException
     */
     
      public void ejecutarAccion() {
@@ -2240,7 +2239,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 jTextAreaSelect.append("El codigo es erroneo");
 
                 } else if (frase[5].equals("0") || frase[5].equals("1")) {//Tanto si ordenamos como no ordenamos se cumplira este else if
-                    JOptionPane.showMessageDialog(null, "SELECT y se cumple frase5equals0 or 1");
+                    JOptionPane.showMessageDialog(null, "SELECT o INSERT y se cumple frase5equals0 or 1");
 
                     codigoUserRecibido = frase[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
                     crud = frase[1];
