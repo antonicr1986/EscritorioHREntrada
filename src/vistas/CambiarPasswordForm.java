@@ -65,6 +65,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         
         setLocationRelativeTo(null);
         setTitle("Cambiar contraseña usuario: "+user);
+        setResizable(false);
         initComponents();
         
         jButtonConfirmarNuevaContraseña.setEnabled(false);
