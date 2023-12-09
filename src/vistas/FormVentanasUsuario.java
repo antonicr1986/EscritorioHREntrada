@@ -465,8 +465,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jButtonCambiarContraseña = new javax.swing.JButton();
         jButtonManualUsuario = new javax.swing.JButton();
         jLabel_ImagenGestionUsuario = new javax.swing.JLabel();
-        jPanelOtros = new javax.swing.JPanel();
-        jLabel_ImagenOtros = new javax.swing.JLabel();
         jPanelAcercaDe = new javax.swing.JPanel();
         jLabelHREntrada = new javax.swing.JLabel();
         jLabelDescripcion = new javax.swing.JLabel();
@@ -1435,33 +1433,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Gestión usuario", jPanelGestionUsuario);
 
-        jPanelOtros.setBackground(new java.awt.Color(153, 153, 153));
-        jPanelOtros.setMaximumSize(new java.awt.Dimension(1200, 1000));
-        jPanelOtros.setMinimumSize(new java.awt.Dimension(950, 500));
-        jPanelOtros.setPreferredSize(new java.awt.Dimension(950, 500));
-
-        jLabel_ImagenOtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/HREntrada.jpg"))); // NOI18N
-        jLabel_ImagenOtros.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        javax.swing.GroupLayout jPanelOtrosLayout = new javax.swing.GroupLayout(jPanelOtros);
-        jPanelOtros.setLayout(jPanelOtrosLayout);
-        jPanelOtrosLayout.setHorizontalGroup(
-            jPanelOtrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelOtrosLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel_ImagenOtros)
-                .addContainerGap(809, Short.MAX_VALUE))
-        );
-        jPanelOtrosLayout.setVerticalGroup(
-            jPanelOtrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOtrosLayout.createSequentialGroup()
-                .addContainerGap(284, Short.MAX_VALUE)
-                .addComponent(jLabel_ImagenOtros)
-                .addGap(60, 60, 60))
-        );
-
-        jTabbedPane.addTab("Otros", jPanelOtros);
-
         jPanelAcercaDe.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelHREntrada.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -1521,11 +1492,15 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jTabbedPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonManualUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManualUsuarioActionPerformed
+        abrirManualDeUsuario();
+    }//GEN-LAST:event_jButtonManualUsuarioActionPerformed
 
     /**
     * Método que al ejecutarse abre una ventana del tipo CambiarPasswordForm
@@ -1551,7 +1526,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
         Logout.logout(this);
-
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 
     private void jTextFieldReferencia2DeleteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldReferencia2DeleteKeyReleased
@@ -1699,7 +1673,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         activarDesactivarTextFieldsAñadir();
         cambiarTextoActivarDesactivarLabelInfoAñadir();
         comprobarInsertUsersNumTipeCorrecto();
-
     }//GEN-LAST:event_jRadioButtonUsersInsertActionPerformed
 
     /**
@@ -1817,7 +1790,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         buscarPorVariosFiltrosONo();
         activarDesactivarBotonBusqueda();
         comprobarSelectUsersNumTipeCorrecto();
-
     }//GEN-LAST:event_jComboBoxColumnaActionPerformed
 
     private void jComboBoxTablasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTablasActionPerformed
@@ -1844,13 +1816,9 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         cambioPass = false;
 
         jComboBoxTipoOperacion.setSelectedItem("select");//***
-        
+
         ejecutarAccion();
     }//GEN-LAST:event_jButtonBuscarActionPerformed
-
-    private void jButtonManualUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManualUsuarioActionPerformed
-        abrirManualDeUsuario();
-    }//GEN-LAST:event_jButtonManualUsuarioActionPerformed
 
     private static void abrirManualDeUsuario() {
         String nombreArchivo = "manual.pdf";
@@ -2816,7 +2784,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelVersion;
     private javax.swing.JLabel jLabel_Imagen;
     private javax.swing.JLabel jLabel_ImagenGestionUsuario;
-    private javax.swing.JLabel jLabel_ImagenOtros;
     private javax.swing.JPanel jPanelAcercaDe;
     private javax.swing.JPanel jPanelActualizar;
     private javax.swing.JPanel jPanelAñadir;
@@ -2826,7 +2793,6 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelBusqueda2;
     private javax.swing.JPanel jPanelBusqueda3;
     private javax.swing.JPanel jPanelGestionUsuario;
-    private javax.swing.JPanel jPanelOtros;
     private javax.swing.JPanel jPanelVariosFiltros;
     private javax.swing.JRadioButton jRadioButtonEmpleadoActualizar;
     private javax.swing.JRadioButton jRadioButtonEmpleadoInsert;

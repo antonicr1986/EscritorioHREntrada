@@ -74,7 +74,6 @@ public class Update {
             Object receivedData = perEnt.readObject();
 
             if (receivedData instanceof List) {
-                List<Empresa> updateEmpresa = (List<Empresa>) receivedData;
                 jTextAreaUpdate.append("\nNombre de empresa modificado correctamente:");
                 jTextAreaUpdate.append("\nNombre empresa: " + datoNomnuevo + "\n"
                         + "Direccion: " + datoAddressNuevo + "\n"
@@ -247,7 +246,6 @@ public class Update {
             Object receivedData = perEnt.readObject();
 
             if (receivedData instanceof List) {
-                List<Empresa> updateEmpresa = (List<Empresa>) receivedData;
                 jTextAreaUpdate.append("\nEmpleado actualizado correctamente:");
                 jTextAreaUpdate.append("\nDni: " + datoDniNuevo +"\n");
                 jTextAreaUpdate.append("Nombre: " + datoNomNuevo +"\n");
