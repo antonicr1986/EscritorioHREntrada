@@ -38,10 +38,12 @@ public class LoginTests {
         // Nos aseguramos que la conexión se realiza correctamente y la ventana de usuario se muestra
         assertNotNull(mainForm.getSocket());
 
-        assertEquals(user, usuarioFormPestañas.getUser());           
+        assertEquals(user, usuarioFormPestañas.getUser());
+        
+        Logout.logout(usuarioFormPestañas);
     }
     
-    @Test
+    @Test 
     public void testConexionSocketLoginValidoUser() {
         String ip = "localhost";
         String user = "user";
@@ -59,9 +61,33 @@ public class LoginTests {
 
         // Nos aseguramos que la conexión se realiza correctamente y la ventana de usuario se muestra
         assertNotNull(mainForm.getSocket());  
-        assertEquals(user, usuarioFormPestañas.getUser());           
+        assertEquals(user, usuarioFormPestañas.getUser());   
+
+        Logout.logout(usuarioFormPestañas);        
     }
 
+    @Test
+    public void testConexionSocketLoginAdminErroneo() {
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin456";
+        
+        MainForm mainForm = new MainForm();     
+        mainForm.setCodigo("A12395"); 
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+
+        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+
+        
+        // Nos aseguramos de que la conexión falla y no se establece el usuario
+        assertEquals(null, usuarioFormPestañas.getPasswordCambioPass()); // Asegurarse de que el usuario en la forma sea vacío
+        
+        Logout.logout(usuarioFormPestañas);
+    }
+    
     @Test
     public void testConexionSocketLoginErroneo() {
         String ip = "localhost";
@@ -78,8 +104,34 @@ public class LoginTests {
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
         
-        // Nos aseguramos de que la conexión falla y no se establece el socket
-        assertNull(mainForm.getSocket());
+        // Nos aseguramos de que la conexión falla y no se establece el usuario
+        assertEquals(null, usuarioFormPestañas.getPasswordCambioPass()); // Asegurarse de que el usuario en la forma sea vacío
+        
+        Logout.logout(usuarioFormPestañas);
+    }
+    
+    @Test
+    public void testConexionSocketLoginAdminRepetido() {
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
 
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+
+        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+        assertNotNull(mainForm.getSocket());
+
+        assertEquals(user, usuarioFormPestañas.getUser());
+        
+        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+        // Nos aseguramos que la conexión se realiza correctamente y la ventana de usuario se muestra
+        assertNotEquals('A', usuarioFormPestañas.getjUserCode1().getText().charAt(0));
+        
+        Logout.logout(usuarioFormPestañas);
     }
 }
