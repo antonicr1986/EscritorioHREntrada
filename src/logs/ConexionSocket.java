@@ -11,6 +11,8 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -41,8 +43,18 @@ public class ConexionSocket {
         boolean salir = false;
 
         try {
-            //IMPLEMENTA
-            MainForm.setSocket(new Socket(jTextFieldIPServidor.getText(), 8888));
+            //Configuracion del truststore y contraseña
+            System.setProperty("javax.net.ssl.trustStore", "certif/client/clientTrustedCerts.jks");
+            System.setProperty("javax.net.ssl.trustStorePassword", "254535fd32_A");
+            
+            //Creamos fabrica de sockets SSL
+            SSLSocketFactory sslSocketFactory = (SSLSocketFactory) SSLSocketFactory
+                  .getDefault();
+            
+            //Creamos socket SSL
+            SSLSocket sslSocket  = (SSLSocket) sslSocketFactory.createSocket(jTextFieldIPServidor.getText(),8888);
+            
+            MainForm.setSocket(sslSocket);
 
             BufferedReader lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));//flujo lectura del server
             BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));//flujo envio al server

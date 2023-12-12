@@ -17,11 +17,13 @@ import logs.ConexionSocket;
  */
 public class MainForm extends javax.swing.JFrame {
 
+    private final String DIRECTORIOACTUAL = System.getProperty("user.dir");
+    private final String RUTAIMAGEN = DIRECTORIOACTUAL + "/img/HREntradaIcono.jpg";
+    
     private String palabra = "";
     private static Socket socket;
-    private static MainForm mainForm;
-    
-    private String codigo;
+    private static MainForm mainForm;  
+    private String codigo;  
 
     public String getCodigo() {
         return codigo;
@@ -30,10 +32,6 @@ public class MainForm extends javax.swing.JFrame {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    
-   
-    private String directorioActual = System.getProperty("user.dir");
-    private String rutaImagen = directorioActual + "/img/HREntradaIcono.jpg";
 
     public static Socket getSocket() {
         return socket;
@@ -67,7 +65,7 @@ public class MainForm extends javax.swing.JFrame {
         jButtonConfirmar.setEnabled(false);
         jPasswordField.setEnabled(false);  
         
-        ImageIcon icono = new ImageIcon(rutaImagen);
+        ImageIcon icono = new ImageIcon(RUTAIMAGEN);
         setIconImage(icono.getImage());
     }
 

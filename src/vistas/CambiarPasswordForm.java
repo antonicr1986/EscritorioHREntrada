@@ -19,24 +19,18 @@ import javax.swing.JTextArea;
  */
 public class CambiarPasswordForm extends javax.swing.JFrame {
 
+    private final String DIRECTORIOACTUAL = System.getProperty("user.dir");
+    private final String RUTAIMAGEN = DIRECTORIOACTUAL + "/img/HREntradaIcono.jpg";
+    
     private String codigoUserRecibido;
     private JComboBox jComboBoxTipoOperacion;
     private FormVentanasUsuario ventana;
-    private String directorioActual = System.getProperty("user.dir");
-    private String rutaImagen = directorioActual + "/img/HREntradaIcono.jpg";
     private String user;
     private String []insertEmpresas;
     private BufferedWriter escriptor;
     private ObjectInputStream perEnt;
     private Socket socket;
-    private JTextArea jTextAreaUpdate;
-    
-    private boolean cambioPass = true;
-    private boolean insert = true;
-    private boolean  select = false;
-    private boolean update = false;
-    private boolean delete = false;
-    
+    private JTextArea jTextAreaUpdate;  
     
     /**
      * Creates new form CambiarPasswordForm
@@ -72,7 +66,7 @@ public class CambiarPasswordForm extends javax.swing.JFrame {
         jCheckBoxVerContraseñas.setEnabled(false);
         
         //Añadir icono
-        ImageIcon icono = new ImageIcon(rutaImagen);
+        ImageIcon icono = new ImageIcon(RUTAIMAGEN);
         setIconImage(icono.getImage());
     }
 

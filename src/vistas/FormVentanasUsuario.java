@@ -39,24 +39,22 @@ import javax.swing.JComboBox;
  */
 public class FormVentanasUsuario extends javax.swing.JFrame {
 
-    private Socket socket;    
-    private String insertEmpresas[];
+    private final String DIRECTORIOACTUAL = System.getProperty("user.dir");
+    private final String RUTAIMAGEN = DIRECTORIOACTUAL + "/img/HREntradaIcono.jpg";
     
+    private Socket socket;    
+    private String insertEmpresas[];    
     private BufferedReader lector;
     private BufferedWriter escriptor;
     private ObjectInputStream perEnt;
     private String codigoUserRecibido;
-    private static String user;
-    private String directorioActual = System.getProperty("user.dir");
-    private String rutaImagen = directorioActual + "/img/HREntradaIcono.jpg";
-    
+    private static String user;   
     private String codigo;   
     private String crud;
     private String nombreTabla;
     private String columna;
     private String palabra ="";
-    private String orden;    
-    
+    private String orden;   
     private String passwordCambioPass;
 
     public String getPasswordCambioPass() {
@@ -230,7 +228,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
         jTextAreaUpdate.setEditable(false);
         
         //Añadir icono
-        ImageIcon icono = new ImageIcon(rutaImagen);
+        ImageIcon icono = new ImageIcon(RUTAIMAGEN);
         setIconImage(icono.getImage());
 
         buttonGroup.add(jRadioButtonEmpresaInsert);
