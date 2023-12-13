@@ -22,38 +22,193 @@ import vistas.MainForm;
  */
 
 public class SelectTests {
-    private Select select;
-    private StringWriter stringWriter;
     private BufferedReader lector;
     private BufferedWriter escriptor;
     private JTextArea textArea;
     private Socket socket;
     
     @Test
-    public void testMostrarTablaSinFiltro() throws IOException, ClassNotFoundException {
+    public void testMostrarTablaEmpleadosSinFiltro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
+        String codigo = "A12354";
+        String columna = "dni";
+        String palabra = codigo+",0,0,"+columna+",0,0";
+        String palabraAbuscar = "12345678A";
+        String nombreTabla = "0";//tabla empleados
+
+        
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Select.mostrarTablaSinFiltro(columna, palabra, palabraAbuscar,nombreTabla, escriptor, codigo, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Dni: 12345678A"));//Dni: 12345678A
+        }catch(IOException | ClassNotFoundException ex){
+            System.out.println("Exception: "+ex.getMessage());
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }      
+    }
+    
+    @Test
+    public void testMostrarTablaEmpresaSinFiltro() throws IOException, ClassNotFoundException {
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
+        String codigo = "A12354";
+        String columna = "dni";
+        String palabra = codigo+",0,2,"+columna+",0,0";
+        String palabraAbuscar = "12345678A";
+        String nombreTabla = "2";//tabla empresa
+
+        
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Select.mostrarTablaSinFiltro(columna, palabra, palabraAbuscar,nombreTabla, escriptor, codigo, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Nombre empresa: HREntrada"));
+        }catch(IOException | ClassNotFoundException ex){
+            System.out.println("Exception: "+ex.getMessage());
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }      
+    }
+    
+   @Test
+    public void testMostrarTablaUsersSinFiltro() throws IOException, ClassNotFoundException {
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
+        String codigo = "A12354";
+        String columna = "dni";
+        String palabra = codigo+",0,1,"+columna+",0,0";
+        String palabraAbuscar = "12345678A";
+        String nombreTabla = "1";//tabla users
+
+        
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Select.mostrarTablaSinFiltro(columna, palabra, palabraAbuscar,nombreTabla, escriptor, codigo, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("DNI: 12345678A"));
+        }catch(IOException | ClassNotFoundException ex){
+            System.out.println("Exception: "+ex.getMessage());
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }      
+    }
+
+    @Test
+    public void testMostrarTablaJornadaSinFiltro() throws IOException, ClassNotFoundException {
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
+        String codigo = "A12354";
+        String columna = "dni";
+        
+        String palabraAbuscar = "12345678A";
+        String nombreTabla = "3";//tabla jornada
+        String palabra = codigo+",0,"+nombreTabla+","+columna+",0,0";
+
+        
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Select.mostrarTablaSinFiltro(columna, palabra, palabraAbuscar,nombreTabla, escriptor, codigo, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Dni: 12345679B"));
+        }catch(IOException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }      
+    }
+    
+    @Test
+    public void testMostrarTablaUsers1Filtro() throws IOException, ClassNotFoundException {
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
+        String nombreTabla = "1";//tabla users
+        String columna = "dni";
+        String codigoUser = "A12354";
+        String palabraAbuscar = "12345678A";
+        String palabra = codigoUser+",0,"+nombreTabla+","+columna+","+palabraAbuscar+",0";     
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigoUser); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
 
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = mainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        Select.mostrarTablaSinFiltro("dni", "12345678A", "operacion", "0", escriptor, "usuario", socket, textArea);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
-        // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Select.mostrarTablaUsers1Filtro(nombreTabla, columna, codigoUser, palabra, palabraAbuscar, escriptor, textArea, null, socket);
+
+            // Verificamos que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains(palabraAbuscar));
+        }catch(IOException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }  
     }
     
     @Test
@@ -61,51 +216,36 @@ public class SelectTests {
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
+        String nombreTabla = "0";//tabla empleados
+        String columna = "dni";
+        String codigoUser = "A12354";
+        String palabraAbuscar = "12345678A";
+        String palabra = codigoUser+",0,"+nombreTabla+","+columna+","+palabraAbuscar+",0";
+        
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigoUser); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
 
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = mainForm.getSocket();
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        Select.mostrarTablaEmpleados1Filtro("0", "dni", "usuario", "123", "operacion", escriptor, textArea, null, socket);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
-        // Verificamos que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
-    }
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
 
-    @Test
-    public void testMostrarTablaUsers1Filtro() throws IOException, ClassNotFoundException {
-        String ip = "localhost";
-        String user = "admin";
-        String password = "admin";
+            Select.mostrarTablaEmpleados1Filtro(nombreTabla, columna, codigoUser, palabra, palabraAbuscar, escriptor, textArea, null, socket);
 
-        MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
-        JTextField jTextFieldIPServidor = new JTextField(ip);
-        JTextField jTextFieldUsuario = new JTextField(user);
-        JPasswordField jPasswordField = new JPasswordField(password);
-        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = mainForm.getSocket();
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        Select.mostrarTablaUsers1Filtro("1", "dni", "usuario", "123", "operacion", escriptor, textArea, null, socket);
-
-        // Verificamos que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
+            // Verificamos que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains(palabraAbuscar));
+            
+        }catch(IOException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }  
     }
     
     @Test
@@ -113,7 +253,12 @@ public class SelectTests {
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
+        String nombreTabla = "2";//tabla empresa
+        String columna = "nom";
         String codigo = "A12354";
+        String palabraAbuscar = "HREntrada";
+        String palabra = codigo+",0,"+nombreTabla+","+columna+","+palabraAbuscar+",0";
+        
 
         MainForm mainForm = new MainForm();
         mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
@@ -122,17 +267,22 @@ public class SelectTests {
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
 
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = mainForm.getSocket();
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        Select.mostrarTablaEmpresa1Filtro("2", "nom", codigo, "Grandvalira", "operacion", escriptor, textArea, null, socket);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
-        // Verificamos que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Grandvalira"));
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Select.mostrarTablaEmpresa1Filtro(nombreTabla, columna, codigo, palabra, palabraAbuscar, escriptor, textArea, null, socket);
+
+            // Verificamos que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains(palabraAbuscar));
         
-        Logout.logout(usuarioFormPestañas);
+        }catch(IOException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }  
     }
     
     @Test
@@ -140,7 +290,11 @@ public class SelectTests {
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
+        String nombreTabla = "3";//tabla jornada
+        String columna = "dni";
         String codigo = "A12354";
+        String palabraAbuscar = "12345679B";
+        String palabra = codigo+",0,"+nombreTabla+","+columna+","+palabraAbuscar+",0";     
 
         MainForm mainForm = new MainForm();
         mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
@@ -149,16 +303,57 @@ public class SelectTests {
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
 
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = mainForm.getSocket();
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        Select.mostrarTablaJornada1Filtro("3", "dni", codigo, "12345679B", "operacion", escriptor, textArea, null, socket);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
-        // Verificamos que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("12345679B"));
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Select.mostrarTablaJornada1Filtro(nombreTabla, columna, codigo, palabra, palabraAbuscar, escriptor, textArea, null, socket);
+
+            // Verificamos que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains(palabraAbuscar));
         
-        Logout.logout(usuarioFormPestañas);
+        }catch(IOException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        } 
+    }
+    
+    @Test
+    public void testMostrarTablaJornada1FiltroTextoErroneo() throws IOException, ClassNotFoundException {
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
+        String nombreTabla = "3";//tabla jornada
+        String columna = "dni";
+        String codigo = "A12354";
+        String palabraAbuscar = "12345679B";
+        String palabra = codigo+",0,"+nombreTabla+","+columna+","+palabraAbuscar+",0";     
+
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Select.mostrarTablaJornada1Filtro(nombreTabla, columna, codigo, palabra, palabraAbuscar, escriptor, textArea, null, socket);
+
+            // Verificamos que el resultado esperado se encuentra en el textArea
+            assertTrue(!textArea.getText().contains(palabraAbuscar));
+        
+        }catch(IOException | ClassNotFoundException ex){
+            ex.printStackTrace();
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        } 
     }
 }

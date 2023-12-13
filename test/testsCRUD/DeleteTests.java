@@ -39,16 +39,19 @@ public class DeleteTests {
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
-        String palabra = "";
-        String NomApellido[]={"",""};
+        String codigo = "A12354";
+        String datoDni = "12345678X";
+        String palabra = codigo+",3,2,dni,"+datoDni+",0";
+        String NomApellido[]={codigo,"3","2","dni",datoDni,"0"};
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
+        textArea = usuarioFormPestañas.getjTextAreaDelete();
+        
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         socket = mainForm.getSocket();
@@ -72,16 +75,19 @@ public class DeleteTests {
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
-        String palabra = "";
-        String NomApellido[]={"",""};
+        String codigo = "A12354";
+        String datoDni = "12345678X";
+        String palabra = codigo+",3,0,dni,"+datoDni+",0";
+        String NomApellido[]={codigo,"3","0","dni",datoDni,"0"};
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
+        textArea = usuarioFormPestañas.getjTextAreaDelete();
+        
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         socket = MainForm.getSocket();
@@ -101,16 +107,19 @@ public class DeleteTests {
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
-        String palabra = "";
-        String NomApellido[]={"",""};
+        String codigo = "A12354";
+        String datoDni = "12345678X";
+        String palabra = codigo+",3,1,dni,"+datoDni+",0";
+        String NomApellido[]={codigo,"3","1","dni",datoDni,"0"};
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
+        textArea = usuarioFormPestañas.getjTextAreaDelete();
+        
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         socket = MainForm.getSocket();
@@ -130,16 +139,20 @@ public class DeleteTests {
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
-        String palabra = "";
-        String NomApellido[]={"",""};
+        String codigo = "A12354";
+        String datoDni = "12345678X";
+        String datoFecha = "13/12/2023";
+        String palabra = codigo+",3,3,dni,"+datoDni+",fecha,"+datoFecha+",0";
+        String NomApellido[]={codigo,"3","3","dni",datoDni,"fecha",datoFecha,"0"};
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
+        textArea = usuarioFormPestañas.getjTextAreaDelete();
+        
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         socket = mainForm.getSocket();

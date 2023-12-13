@@ -1,6 +1,5 @@
 package testsCRUD;
 
-import CRUD.Select;
 import CRUD.Update;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -38,17 +37,23 @@ public class UpdateTests {
     public void testActualizarTablaEmpresa() throws IOException, ClassNotFoundException {
         String ip = "localhost";
         String user = "admin";
-        String password = "admin";
-        String palabra = "";
-        String NomApellido[]={"",""};
+        String password = "admin";          
+        String codigo = "A12354";
+        String nomNuevo = "nombreNuevo";
+        String direccionNueva = "direccionNueva";
+        String telefonoNuevo = "936620102";
+        String nombre = "EmpresaPrueba";
+        String NomApellido[]={codigo,"2","2","nomNuevo",nomNuevo,"addressNuevo",direccionNueva,"telephonNuevo",telefonoNuevo,"nom",nombre,"0"};
+        String palabra = codigo+",2,2,nomNuevo,"+nomNuevo+",addressNuevo,"+direccionNueva+",telephonNuevo,"+telefonoNuevo+",nom,"+nombre+",0";
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
+        textArea = usuarioFormPestañas.getjTextAreaUpdate();
+        
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         socket = mainForm.getSocket();
@@ -67,16 +72,24 @@ public class UpdateTests {
     public void testActualizarTablaEmpleados() throws IOException, ClassNotFoundException {
         String ip = "localhost";
         String user = "admin";
-        String password = "admin";
-        String updateEmpleado[]={"",""};
+        String password = "admin";          
+        String codigo = "A12354";
+        String nomNuevo = "nombreNuevo";
+        String direccionNueva = "direccionNueva";
+        String telefonoNuevo = "936620102";
+        String nombre = "EmpresaPrueba";
+        String updateEmpleado[]={codigo,"2","2","nomNuevo",nomNuevo,"addressNuevo",direccionNueva,"telephonNuevo",telefonoNuevo,"nom",nombre,"0"};
+        
+        String palabra = codigo+",2,2,nomNuevo,"+nomNuevo+",addressNuevo,"+direccionNueva+",telephonNuevo,"+telefonoNuevo+",nom,"+nombre+",0";
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
+        textArea = usuarioFormPestañas.getjTextAreaUpdate();
+        
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         socket = mainForm.getSocket();
@@ -95,16 +108,23 @@ public class UpdateTests {
     public void testActualizarTablaUsers() throws IOException, ClassNotFoundException {
         String ip = "localhost";
         String user = "admin";
-        String password = "admin";
-        String insertEmpresas []={"",""};
+        String password = "admin";          
+        String codigo = "A12354";
+        String nomNuevo = "nombreNuevo";
+        String direccionNueva = "direccionNueva";
+        String telefonoNuevo = "936620102";
+        String nombre = "EmpresaPrueba";
+        String insertEmpresas[]={codigo,"2","2","nomNuevo",nomNuevo,"addressNuevo",direccionNueva,"telephonNuevo",telefonoNuevo,"nom",nombre,"0"};
+        String palabra = codigo+",2,2,nomNuevo,"+nomNuevo+",addressNuevo,"+direccionNueva+",telephonNuevo,"+telefonoNuevo+",nom,"+nombre+",0";
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
+        textArea = usuarioFormPestañas.getjTextAreaUpdate();
+        
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         socket = mainForm.getSocket();
@@ -123,16 +143,23 @@ public class UpdateTests {
     public void testActualizarTablaJornada() throws IOException, ClassNotFoundException {
         String ip = "localhost";
         String user = "admin";
-        String password = "admin";
-        String frase []={"",""};
+        String password = "admin";          
+        String codigo = "A12354";
+        String nomNuevo = "nombreNuevo";
+        String direccionNueva = "direccionNueva";
+        String telefonoNuevo = "936620102";
+        String nombre = "EmpresaPrueba";
+        String frase[]={codigo,"2","2","nomNuevo",nomNuevo,"addressNuevo",direccionNueva,"telephonNuevo",telefonoNuevo,"nom",nombre,"0"};
+        String palabra = codigo+",2,2,nomNuevo,"+nomNuevo+",addressNuevo,"+direccionNueva+",telephonNuevo,"+telefonoNuevo+",nom,"+nombre+",0";
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
+        textArea = usuarioFormPestañas.getjTextAreaUpdate();
+        
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         socket = mainForm.getSocket();

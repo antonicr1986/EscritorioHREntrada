@@ -21,7 +21,6 @@ import vistas.MainForm;
 
 public class InsertTests {
     
-    private StringWriter stringWriter;
     private BufferedWriter escriptor;
     private Socket socket;
     private JTextArea jTextAreaInsert;
@@ -31,51 +30,118 @@ public class InsertTests {
     public void testOperacionesConInsertEmpresas() throws IOException, ClassNotFoundException {
         // Configuramos el entorno para las pruebas
         String[] insertEmpresas = {"A34567","1","2","nom","Toyota","address","ElPrat","telephon","34933568956","0"};
-        String palabra = "A34567,1,2,nom,Toyota,address,ElPrat,telephon,34933568956,0";      
-        
+        String palabra = "A34567,1,2,nom,Toyota,address,ElPrat,telephon,34933568956,0";            
         String ip = "localhost";
         String user = "admin";
         String password = "admin";
+        String codigo = "A12354";
 
         MainForm mainForm = new MainForm();
-        mainForm.setCodigo("A12354"); // Código de usuario válido para la prueba
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
-
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+        jTextAreaInsert = usuarioFormPestañas.getjTextAreaInsert();
         
+        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
         socket = mainForm.getSocket();
         escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
         
         //Método a testear
         Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
 
-        //Verificaion
-        String resultadoEsperado = "Me falta poner resultado esperado aqui"; 
-        assertTrue(stringWriter.toString().contains(resultadoEsperado));
+        //Verificacion
+        String resultadoEsperado = "Empresa creada correctamente"; 
+        assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
     }
 
     @Test
     public void testOperacionesConInsertUsuarios() throws IOException, ClassNotFoundException {
         // Configuramos el entorno para las pruebas
-        String[] insertUsuarios = {"A34567","1","2","nom","Seat","address","ElPrat","telephon","34930000956","0"};
-        String palabra = "A34567,1,2,nom,Seat,address,ElPrat,telephon,34930000956,0";
-        StringWriter stringWriter = new StringWriter();
-        BufferedWriter escriptor = new BufferedWriter(stringWriter);
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream("mockedData".getBytes());
-        ObjectInputStream perEnt = new ObjectInputStream(byteArrayInputStream);
-        Socket socket = new Socket(); 
-        JTextArea jTextAreaInsert = new JTextArea();
-
+        String[] insertUsuarios = {"A34567","1","1","login","usuario","pass","1234","numtipe","1","dni","67123456X","0"};
+        String palabra = "A34567,1,1,login,usuario,pass,1234,numtipe,1,dni,67123456X,0";     
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
+        String codigo = "A12354";
+        
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        jTextAreaInsert = usuarioFormPestañas.getjTextAreaInsert();
+        
+        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);      
+        socket = mainForm.getSocket();
+        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+        
         //Método a testear
         Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
 
         // Verificacion
-        String resultadoEsperado = "Me falta poner resultado esperado aqui"; 
-        assertTrue(stringWriter.toString().contains(resultadoEsperado));
-
+        String resultadoEsperado = "Usuario creado correctamente"; 
+        assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
     }
 
+    @Test
+    public void testOperacionesConInsertEmpleados() throws IOException, ClassNotFoundException {
+        // Configuramos el entorno para las pruebas
+        String[] insertEmpresas = {"A34567","1","0","nom","Toyota","address","ElPrat","telephon","34933568956","0"};
+        String palabra = "A34567,1,0,nom,Toyota,address,ElPrat,telephon,34933568956,0";            
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
+        String codigo = "A12354";
+
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        jTextAreaInsert = usuarioFormPestañas.getjTextAreaInsert();
+
+        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
+        socket = mainForm.getSocket();
+        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+        
+        //Método a testear
+        Insert.operacionesConInsertEmpleado19(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+
+        //Verificacion
+        String resultadoEsperado = "Empleado creado correctamente"; 
+        assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+    }
+    
+    @Test
+    public void testOperacionesConInsertJornada() throws IOException, ClassNotFoundException {
+        // Configuramos el entorno para las pruebas
+        String palabra = "A34567,1,3,dni,53313513L,0";            
+        String ip = "localhost";
+        String user = "admin";
+        String password = "admin";
+        String codigo = "A12354";
+
+        MainForm mainForm = new MainForm();
+        mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
+        JTextField jTextFieldIPServidor = new JTextField(ip);
+        JTextField jTextFieldUsuario = new JTextField(user);
+        JPasswordField jPasswordField = new JPasswordField(password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        jTextAreaInsert = usuarioFormPestañas.getjTextAreaInsert();
+
+        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
+        socket = mainForm.getSocket();
+        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+        
+        //Método a testear
+        Insert.operacionesConInsertJornada(palabra, codigo, palabra, codigo, escriptor, perEnt, socket, jTextAreaInsert);
+
+        //Verificacion
+        String resultadoEsperado = "Jornada creada correctamente"; 
+        assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+    }
 }

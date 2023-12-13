@@ -56,7 +56,28 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     private String palabra ="";
     private String orden;   
     private String passwordCambioPass;
+    
+    private boolean insert = false;
+    private boolean update = false;
+    private boolean cambioPass = false;
+    private boolean delete = false;
 
+    public JTextArea getjTextAreaDelete() {
+        return jTextAreaDelete;
+    }
+
+    public void setjTextAreaDelete(JTextArea jTextAreaDelete) {
+        this.jTextAreaDelete = jTextAreaDelete;
+    }
+
+    public JTextArea getjTextAreaUpdate() {
+        return jTextAreaUpdate;
+    }
+
+    public void setjTextAreaUpdate(JTextArea jTextAreaUpdate) {
+        this.jTextAreaUpdate = jTextAreaUpdate;
+    }
+    
     public String getPasswordCambioPass() {
         return passwordCambioPass;
     }
@@ -82,10 +103,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     public void setDelete(boolean delete) {
         this.delete = delete;
     }
-    private boolean insert = false;
-    private boolean update = false;
-    private boolean cambioPass = false;
-
+    
     public boolean isCambioPass() {
         return cambioPass;
     }
@@ -93,7 +111,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
     public void setCambioPass(boolean cambioPass) {
         this.cambioPass = cambioPass;
     }
-    private boolean delete = false;
+    
 
     public static String getUser() {
         return user;
