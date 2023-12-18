@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.io.*;
 import CRUD.Select;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.swing.JPasswordField;
@@ -58,7 +60,7 @@ public class SelectTests {
             // Verifica que el resultado esperado se encuentra en el textArea
             assertTrue(textArea.getText().contains("Dni: 12345678A"));//Dni: 12345678A
         }catch(IOException | ClassNotFoundException ex){
-            System.out.println("Exception: "+ex.getMessage());
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         }      
@@ -95,7 +97,7 @@ public class SelectTests {
             // Verifica que el resultado esperado se encuentra en el textArea
             assertTrue(textArea.getText().contains("Nombre empresa: HREntrada"));
         }catch(IOException | ClassNotFoundException ex){
-            System.out.println("Exception: "+ex.getMessage());
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         }      
@@ -132,7 +134,7 @@ public class SelectTests {
             // Verifica que el resultado esperado se encuentra en el textArea
             assertTrue(textArea.getText().contains("DNI: 12345678A"));
         }catch(IOException | ClassNotFoundException ex){
-            System.out.println("Exception: "+ex.getMessage());
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         }      
@@ -170,7 +172,7 @@ public class SelectTests {
             // Verifica que el resultado esperado se encuentra en el textArea
             assertTrue(textArea.getText().contains("Dni: 12345679B"));
         }catch(IOException | ClassNotFoundException ex){
-            ex.printStackTrace();
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         }      
@@ -205,7 +207,7 @@ public class SelectTests {
             // Verificamos que el resultado esperado se encuentra en el textArea
             assertTrue(textArea.getText().contains(palabraAbuscar));
         }catch(IOException | ClassNotFoundException ex){
-            ex.printStackTrace();
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         }  
@@ -242,7 +244,7 @@ public class SelectTests {
             assertTrue(textArea.getText().contains(palabraAbuscar));
             
         }catch(IOException | ClassNotFoundException ex){
-            ex.printStackTrace();
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         }  
@@ -279,7 +281,7 @@ public class SelectTests {
             assertTrue(textArea.getText().contains(palabraAbuscar));
         
         }catch(IOException | ClassNotFoundException ex){
-            ex.printStackTrace();
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         }  
@@ -315,7 +317,7 @@ public class SelectTests {
             assertTrue(textArea.getText().contains(palabraAbuscar));
         
         }catch(IOException | ClassNotFoundException ex){
-            ex.printStackTrace();
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         } 
@@ -351,7 +353,7 @@ public class SelectTests {
             assertTrue(!textArea.getText().contains(palabraAbuscar));
         
         }catch(IOException | ClassNotFoundException ex){
-            ex.printStackTrace();
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         } 

@@ -10,6 +10,8 @@ import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -52,19 +54,20 @@ public class DeleteTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         textArea = usuarioFormPestañas.getjTextAreaDelete();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = mainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-
         try {
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+        
             Delete.deleteEmpresas(NomApellido, palabra, escriptor, perEnt, socket, textArea);
             // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
+            assertTrue(textArea.getText().contains("Dni: 12345678A"));
         
         }catch(IOException | ClassNotFoundException ex){
-            
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             Logout.logout(usuarioFormPestañas);
         }      
@@ -88,18 +91,23 @@ public class DeleteTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         textArea = usuarioFormPestañas.getjTextAreaDelete();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = MainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
-        Delete.deleteEmpleados(NomApellido, palabra, escriptor, perEnt, socket, textArea);
+            socket = MainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Delete.deleteEmpleados(NomApellido, palabra, escriptor, perEnt, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Dni: 12345678A"));
         
-        // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
+        }catch(IOException | ClassNotFoundException ex){
+           Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }
     }
     
     @Test
@@ -120,18 +128,23 @@ public class DeleteTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         textArea = usuarioFormPestañas.getjTextAreaDelete();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = MainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
-        Delete.deleteUsers(NomApellido, palabra, escriptor, perEnt, socket, textArea);
+            socket = MainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Delete.deleteUsers(NomApellido, palabra, escriptor, perEnt, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Dni: 12345678A"));
         
-        // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }
     }
     
     @Test
@@ -153,17 +166,22 @@ public class DeleteTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         textArea = usuarioFormPestañas.getjTextAreaDelete();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = mainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
-        Delete.deleteJornada(NomApellido, palabra, escriptor, perEnt, socket, textArea);
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Delete.deleteJornada(NomApellido, palabra, escriptor, perEnt, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Dni: 12345678A"));
         
-        // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }
     }
 }

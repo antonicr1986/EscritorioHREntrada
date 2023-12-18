@@ -119,16 +119,16 @@ public class ConexionSocket {
             }
         }catch (ConnectException e) {
            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);
-           MainForm.setSocket(null);
+           //MainForm.setSocket(null);
         } catch (UnknownHostException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
-            MainForm.setSocket(null);
+            //MainForm.setSocket(null);
         } catch (IOException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
-            MainForm.setSocket(null);
+            //MainForm.setSocket(null);
         }catch (Exception e) {   
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, e);
-            MainForm.setSocket(null);
+            //MainForm.setSocket(null);
         }
     }
 }

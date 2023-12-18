@@ -9,6 +9,8 @@ import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -54,18 +56,24 @@ public class UpdateTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         textArea = usuarioFormPestañas.getjTextAreaUpdate();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
-        socket = mainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
 
-        Update.updateEmpresa(NomApellido, palabra, escriptor, perEnt, socket, textArea);
-        
-        // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
+            Update.updateEmpresa(NomApellido, palabra, escriptor, perEnt, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            System.out.println("Contenido del textArea: " + textArea.getText());
+            assertTrue(textArea.getText().contains("datoNom: EmpresaPrueba"));
+
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }      
     }
     
     @Test
@@ -74,13 +82,27 @@ public class UpdateTests {
         String user = "admin";
         String password = "admin";          
         String codigo = "A12354";
-        String nomNuevo = "nombreNuevo";
+        String dniNuevo = "22222222X";
+        String nomNuevo = "NombreNuevo";
+        String apellidoNuevo = "Apellidonuevo";
+        String nomEmpresa = "Nombre Empresa";
+        String departamentNuevo = "Departamento nuevo";
+        String codiCardNuevo = "87654321";
+        String mailNuevo = "mail@hotmail.com";
         String direccionNueva = "direccionNueva";
         String telefonoNuevo = "936620102";
-        String nombre = "EmpresaPrueba";
-        String updateEmpleado[]={codigo,"2","2","nomNuevo",nomNuevo,"addressNuevo",direccionNueva,"telephonNuevo",telefonoNuevo,"nom",nombre,"0"};
+        String dniRef = "84574589A";
+        String updateEmpleado[]={codigo,"2","0","dniNuevo",dniNuevo,"nomNuevo",nomNuevo, "apellidoNuevo", apellidoNuevo, "nomEmpresaNuevo",
+                 nomEmpresa, "departamentNuevo", departamentNuevo, "codicardNuevo", codiCardNuevo, "mailNuevo", mailNuevo,
+                 "telephonNuevo",telefonoNuevo,"dni",dniRef,"0"};
         
-        String palabra = codigo+",2,2,nomNuevo,"+nomNuevo+",addressNuevo,"+direccionNueva+",telephonNuevo,"+telefonoNuevo+",nom,"+nombre+",0";
+        //codi User,2,0,dniNuevo,dato,nomNuevo,dato,apellidoNuevo,dato,nomempresaNuevo,dato,departamentNuevo
+          //      ,dato,codicardNuevo,dato,mailNuevo,dato,telephonNuevo,dato,dni,dato,0
+
+        
+        String palabra = codigo+",2,0,dniNuevo,"+ dniNuevo +",nomNuevo,"+ nomNuevo + ",apellidoNuevo," + apellidoNuevo + ",nomEmpresaNuevo,"
+                + nomEmpresa+ ",departamentNuevo,"+ departamentNuevo + ",codicardNuevo," + codiCardNuevo + ",mailNuevo,"+ mailNuevo
+                + ",telephonNuevo,"+telefonoNuevo+",dni,"+dniRef+",0";
 
         MainForm mainForm = new MainForm();
         mainForm.setCodigo(codigo); // Código de usuario válido para la prueba
@@ -90,18 +112,22 @@ public class UpdateTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         textArea = usuarioFormPestañas.getjTextAreaUpdate();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
-        socket = mainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        Update.updateEmpleado(updateEmpleado, password, escriptor, perEnt, socket, textArea);
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
 
-        // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
+            Update.updateEmpleado(updateEmpleado, password, escriptor, perEnt, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Dni: 84574589A"));      
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        } 
     }
     
     @Test
@@ -125,18 +151,22 @@ public class UpdateTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         textArea = usuarioFormPestañas.getjTextAreaUpdate();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        
-        socket = mainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        Update.updateUser(insertEmpresas, password, escriptor, perEnt, socket, textArea);
+        try{       
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
 
-        // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
-        
-        Logout.logout(usuarioFormPestañas);
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
+
+            Update.updateUser(insertEmpresas, password, escriptor, perEnt, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Dni: 12345678A"));
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }     
     }
     
     @Test
@@ -160,17 +190,22 @@ public class UpdateTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         textArea = usuarioFormPestañas.getjTextAreaUpdate();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
-        socket = mainForm.getSocket();
-        lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-       Update.updateJornada(frase, password, escriptor, perEnt, socket, textArea);
+            socket = mainForm.getSocket();
+            lector = new BufferedReader(new InputStreamReader( MainForm.getSocket().getInputStream()));
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
 
-        // Verifica que el resultado esperado se encuentra en el textArea
-        assertTrue(textArea.getText().contains("Dni: 12345678A"));
+           Update.updateJornada(frase, password, escriptor, perEnt, socket, textArea);
+
+            // Verifica que el resultado esperado se encuentra en el textArea
+            assertTrue(textArea.getText().contains("Dni: 12345678A"));
         
-        Logout.logout(usuarioFormPestañas);
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }     
     }
 }

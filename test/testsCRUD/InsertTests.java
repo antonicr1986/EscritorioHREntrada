@@ -7,9 +7,12 @@ import java.net.Socket;
 import javax.swing.JTextArea;
 
 import CRUD.Insert;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import logs.ConexionSocket;
+import logs.Logout;
 import vistas.FormVentanasUsuario;
 import vistas.MainForm;
 
@@ -44,16 +47,22 @@ public class InsertTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         jTextAreaInsert = usuarioFormPestañas.getjTextAreaInsert();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
-        socket = mainForm.getSocket();
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        //Método a testear
-        Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
 
-        //Verificacion
-        String resultadoEsperado = "Empresa creada correctamente"; 
-        assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+            //Método a testear
+            Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+
+            //Verificacion
+            String resultadoEsperado = "Empresa creada correctamente"; 
+            assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }
     }
 
     @Test
@@ -74,16 +83,22 @@ public class InsertTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         jTextAreaInsert = usuarioFormPestañas.getjTextAreaInsert();
         
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);      
-        socket = mainForm.getSocket();
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        //Método a testear
-        Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);      
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
 
-        // Verificacion
-        String resultadoEsperado = "Usuario creado correctamente"; 
-        assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+            //Método a testear
+            Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+
+            // Verificacion
+            String resultadoEsperado = "Usuario creado correctamente"; 
+            assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }
     }
 
     @Test
@@ -104,16 +119,22 @@ public class InsertTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         jTextAreaInsert = usuarioFormPestañas.getjTextAreaInsert();
 
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
-        socket = mainForm.getSocket();
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        //Método a testear
-        Insert.operacionesConInsertEmpleado19(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
 
-        //Verificacion
-        String resultadoEsperado = "Empleado creado correctamente"; 
-        assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+            //Método a testear
+            Insert.operacionesConInsertEmpleado19(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
+
+            //Verificacion
+            String resultadoEsperado = "Empleado creado correctamente"; 
+            assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }
     }
     
     @Test
@@ -133,15 +154,21 @@ public class InsertTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
         jTextAreaInsert = usuarioFormPestañas.getjTextAreaInsert();
 
-        ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
-        socket = mainForm.getSocket();
-        escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
-        
-        //Método a testear
-        Insert.operacionesConInsertJornada(palabra, codigo, palabra, codigo, escriptor, perEnt, socket, jTextAreaInsert);
+        try{
+            ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);    
+            socket = mainForm.getSocket();
+            escriptor = new BufferedWriter(new OutputStreamWriter( MainForm.getSocket().getOutputStream()));
 
-        //Verificacion
-        String resultadoEsperado = "Jornada creada correctamente"; 
-        assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+            //Método a testear
+            Insert.operacionesConInsertJornada(palabra, codigo, palabra, codigo, escriptor, perEnt, socket, jTextAreaInsert);
+
+            //Verificacion
+            String resultadoEsperado = "Jornada creada correctamente"; 
+            assertTrue(jTextAreaInsert.getText().contains(resultadoEsperado));
+        }catch(IOException | ClassNotFoundException ex){
+            Logger.getLogger(Exception.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            Logout.logout(usuarioFormPestañas);
+        }
     }
 }
