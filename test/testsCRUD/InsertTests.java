@@ -29,6 +29,12 @@ public class InsertTests {
     private JTextArea jTextAreaInsert;
     private ObjectInputStream perEnt;
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método operacionesConInsertEmpresas en la clase Insert.
+    * 
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testOperacionesConInsertEmpresas() throws IOException, ClassNotFoundException {
         // Configuramos el entorno para las pruebas
@@ -65,6 +71,12 @@ public class InsertTests {
         }
     }
 
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método operacionesConInsertUsuarios en la clase Insert.
+    * 
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testOperacionesConInsertUsuarios() throws IOException, ClassNotFoundException {
         // Configuramos el entorno para las pruebas
@@ -101,6 +113,12 @@ public class InsertTests {
         }
     }
 
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método operacionesConInsertEmpleados en la clase Insert.
+    * 
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testOperacionesConInsertEmpleados() throws IOException, ClassNotFoundException {
         // Configuramos el entorno para las pruebas
@@ -137,6 +155,12 @@ public class InsertTests {
         }
     }
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método operacionesConInsertJornada en la clase Insert.
+    * 
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testOperacionesConInsertJornada() throws IOException, ClassNotFoundException {
         // Configuramos el entorno para las pruebas

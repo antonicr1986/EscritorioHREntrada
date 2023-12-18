@@ -19,6 +19,9 @@ import vistas.*;
  */
 
 public class LoginTests {
+    /**
+     * Prueba la conexión del socket para un inicio de sesión válido como administrador.
+     */
     @Test
     public void testConexionSocketLoginValidoAdmin() {
         String ip = "localhost";
@@ -43,6 +46,9 @@ public class LoginTests {
         Logout.logout(usuarioFormPestañas);
     }
     
+    /**
+     * Prueba la conexión del socket para un inicio de sesión válido como usuario.
+     */
     @Test 
     public void testConexionSocketLoginValidoUser() {
         String ip = "localhost";
@@ -66,6 +72,9 @@ public class LoginTests {
         Logout.logout(usuarioFormPestañas);        
     }
 
+    /**
+     * Prueba la conexión del socket para un inicio de sesión fallido como administrador.
+     */
     @Test
     public void testConexionSocketLoginAdminErroneo() {
         String ip = "localhost";
@@ -80,7 +89,6 @@ public class LoginTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
 
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-
         
         // Nos aseguramos de que la conexión falla y no se establece el usuario
         assertEquals(null, usuarioFormPestañas.getPasswordCambioPass()); // Asegurarse de que el usuario en la forma sea vacío
@@ -88,6 +96,9 @@ public class LoginTests {
         Logout.logout(usuarioFormPestañas);
     }
     
+    /**
+     * Prueba la conexión del socket para un inicio de sesión fallido como usuario.
+     */
     @Test
     public void testConexionSocketLoginErroneo() {
         String ip = "localhost";
@@ -102,7 +113,6 @@ public class LoginTests {
         FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
 
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-
         
         // Nos aseguramos de que la conexión falla y no se establece el usuario
         assertEquals(null, usuarioFormPestañas.getPasswordCambioPass()); // Asegurarse de que el usuario en la forma sea vacío
@@ -110,6 +120,9 @@ public class LoginTests {
         Logout.logout(usuarioFormPestañas);
     }
     
+     /**
+     * Prueba la conexión del socket para un inicio de sesión repetido como administrador.
+     */
     @Test
     public void testConexionSocketLoginAdminRepetido() {
         String ip = "localhost";
@@ -129,7 +142,8 @@ public class LoginTests {
         assertEquals(user, usuarioFormPestañas.getUser());
         
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
-        // Nos aseguramos que la conexión se realiza correctamente y la ventana de usuario se muestra
+        // Nos aseguramos que la conexión se realiza correctamente y 
+        //que el codigo de usuario no contiene una 'A' en su primera posicion
         assertNotEquals('A', usuarioFormPestañas.getjUserCode1().getText().charAt(0));
         
         Logout.logout(usuarioFormPestañas);

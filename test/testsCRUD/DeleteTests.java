@@ -23,7 +23,7 @@ import vistas.FormVentanasUsuario;
 import vistas.MainForm;
 
 /**
-*Clase para comprobar operaciones tipo Delete
+ * Clase para comprobar operaciones tipo Delete
  * 
  * @author Antonio Company Rodriguez
  */
@@ -36,6 +36,12 @@ public class DeleteTests {
     private Socket socket;
     private ObjectInputStream perEnt;
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método deleteEmpresas en la clase Delete.
+    *
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testBorrarTablaEmpresa() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -73,6 +79,12 @@ public class DeleteTests {
         }      
     }
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método deleteEmpleados en la clase Delete.
+    *
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testBorrarTablaEmpleados() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -110,6 +122,12 @@ public class DeleteTests {
         }
     }
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método deleteUsers en la clase Delete.
+    *
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testBorrarTablaUsers() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -147,6 +165,12 @@ public class DeleteTests {
         }
     }
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método deleteJornada en la clase Delete.
+    *
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testBorrarTablaJornada() throws IOException, ClassNotFoundException {
         String ip = "localhost";

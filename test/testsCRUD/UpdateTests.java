@@ -35,6 +35,12 @@ public class UpdateTests {
     private Socket socket;
     private ObjectInputStream perEnt;
     
+    /**
+    * Clase de pruebas para verificar las operaciones de updateEmpresa.
+    *
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testActualizarTablaEmpresa() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -76,6 +82,12 @@ public class UpdateTests {
         }      
     }
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método updateEmpleado en la clase Update.
+    *
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testActualizarTablaEmpleados() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -130,6 +142,12 @@ public class UpdateTests {
         } 
     }
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método updateUser en la clase Update.
+    *
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testActualizarTablaUsers() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -169,6 +187,12 @@ public class UpdateTests {
         }     
     }
     
+    /**
+    * Clase de pruebas JUnit para verificar las operaciones con el método updateJornada en la clase Update.
+    *
+    * @throws IOException Si ocurre un error de entrada/salida.
+    * @throws ClassNotFoundException Si no se encuentra la clase especificada.
+    */
     @Test
     public void testActualizarTablaJornada() throws IOException, ClassNotFoundException {
         String ip = "localhost";

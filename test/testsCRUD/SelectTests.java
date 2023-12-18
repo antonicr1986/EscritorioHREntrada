@@ -29,6 +29,12 @@ public class SelectTests {
     private JTextArea textArea;
     private Socket socket;
     
+    /**
+     * Prueba para mostrar la tabla de empleados sin filtro.
+     *
+     * @throws IOException Excepcion de tipo entrada salida.
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
     @Test
     public void testMostrarTablaEmpleadosSinFiltro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -66,6 +72,13 @@ public class SelectTests {
         }      
     }
     
+    
+    /**
+     * Prueba para mostrar la tabla de empresas sin filtro.
+     *
+     * @throws IOException Excepction de tipo entrada salida
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
     @Test
     public void testMostrarTablaEmpresaSinFiltro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -103,6 +116,12 @@ public class SelectTests {
         }      
     }
     
+    /**
+     * Prueba para mostrar la tabla de usuarios sin filtro.
+     *
+     * @throws IOException Excepcion de tipo entrada salida.
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
    @Test
     public void testMostrarTablaUsersSinFiltro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -140,6 +159,12 @@ public class SelectTests {
         }      
     }
 
+    /**
+     * Prueba para mostrar la tabla de jornada sin filtro.
+     *
+     * @throws IOException Excepcion de tipo entrada salida.
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
     @Test
     public void testMostrarTablaJornadaSinFiltro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -178,6 +203,12 @@ public class SelectTests {
         }      
     }
     
+    /**
+     * Prueba para mostrar la tabla de usuarios con un filtro.
+     *
+     * @throws IOException Excepcion de tipo entrada salida.
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
     @Test
     public void testMostrarTablaUsers1Filtro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -213,6 +244,12 @@ public class SelectTests {
         }  
     }
     
+    /**
+     * Prueba para mostrar la tabla de empleados con un filtro.
+     *
+     * @throws IOException Excepcion de tipo entrada salida.
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
     @Test
     public void testMostrarTablaEmpleados1Filtro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -250,6 +287,12 @@ public class SelectTests {
         }  
     }
     
+    /**
+     * Prueba para mostrar la tabla de empresas con un filtro.
+     *
+     * @throws IOException Excepcion de tipo entrada salida.
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
     @Test
     public void testMostrarTablaEmpresa1Filtro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -287,6 +330,12 @@ public class SelectTests {
         }  
     }
     
+    /**
+     * Prueba para mostrar la tabla de jornada con un filtro.
+     *
+     * @throws IOException Excepcion de tipo entrada salida.
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
     @Test
     public void testMostrarTablaJornada1Filtro() throws IOException, ClassNotFoundException {
         String ip = "localhost";
@@ -323,6 +372,12 @@ public class SelectTests {
         } 
     }
     
+    /**
+     * Prueba para mostrar la tabla de jornada con un filtro y texto erróneo.
+     *
+     * @throws IOException Excepcion de tipo entrada salida.
+     * @throws ClassNotFoundException Lanzada cuando la clase especificada no ha sido encontrada.
+     */
     @Test
     public void testMostrarTablaJornada1FiltroTextoErroneo() throws IOException, ClassNotFoundException {
         String ip = "localhost";
