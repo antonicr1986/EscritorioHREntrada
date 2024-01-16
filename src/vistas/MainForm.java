@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import logs.ConexionSocket;
+import javax.net.ssl.SSLSocket;
 
 /**
  *
@@ -22,8 +23,18 @@ public class MainForm extends javax.swing.JFrame {
     
     private String palabra = "";
     private static Socket socket;
+    private static SSLSocket sslSocket;
+    
     private static MainForm mainForm;  
-    private String codigo;  
+    private String codigo;
+
+    public static SSLSocket getSslSocket() {
+        return sslSocket;
+    }
+
+    public static void setSslSocket(SSLSocket sslSocket) {
+        MainForm.sslSocket = sslSocket;
+    }      
 
     public String getCodigo() {
         return codigo;

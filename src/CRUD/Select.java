@@ -3,6 +3,8 @@ package CRUD;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
@@ -685,16 +687,13 @@ public class Select {
     * @param socket Socket utilizado para la conexion con el server
     * @param jTextAreaSelect JTextArea del area de busqueda
     * 
-    * @throws IOException Gestión de excepciones de entrada/salida. 
-    * @throws ClassNotFoundException para gestionar error de clase no incluida en el classpath, problemas con el nombre
-    * de la clase o con la versión de java. 
-    * 
     */
     
-    public static void mostrarTablaSinFiltro (String columna, String palabra, String palabraAbuscar, String nombreTabla, BufferedWriter escriptor, String codigoUserRecibido, Socket socket, JTextArea jTextAreaSelect) throws IOException, ClassNotFoundException{
+    public static void mostrarTablaSinFiltro (String columna, String palabra, String palabraAbuscar, String nombreTabla, BufferedWriter escriptor, String codigoUserRecibido, Socket socket, JTextArea jTextAreaSelect) throws IOException, ClassNotFoundException {
         ObjectInputStream perEnt=null;
         
-        switch (nombreTabla) {
+        try{
+            switch (nombreTabla) {
             case "0": //Tabla empleados
                 //ahora si enviamos al server los datos que queremos, sin errores
                 escriptor.write(palabra);
@@ -789,8 +788,14 @@ public class Select {
                 }
                 perEnt.getObjectInputFilter();
                 break;
+            }     
+        } finally {
+            if (perEnt != null) {
+                perEnt.close();
             }
         }
+    }
+        
     
     /**
     * Método que gestiona las busquedas con filtro doble de campos nom y apellidos y muestra

@@ -2223,7 +2223,7 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 jTextAreaSelect.append("El codigo es erroneo");
 
                 } else if (frase[5].equals("0") || frase[5].equals("1")) {//Tanto si ordenamos como no ordenamos se cumplira este else if
-                    JOptionPane.showMessageDialog(null, "SELECT o INSERT y se cumple frase5equals0 or 1");
+                    //JOptionPane.showMessageDialog(null, "SELECT o INSERT y se cumple frase5equals0 or 1");
 
                     codigoUserRecibido = frase[0]; //el codigo recibido tiene que ser el mismo que le hemos asignado
                     crud = frase[1];
@@ -2262,24 +2262,24 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
                 //INSERT
                 }else if (insert){
                     if (insertEmpresas[9].equals("0") || insertEmpresas[9].equals("1")) {
-                        JOptionPane.showMessageDialog(null, "insertEmpresas");
+                        //JOptionPane.showMessageDialog(null, "insertEmpresas");
                         Insert.operacionesConInsertEmpresas(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaInsert);
 
                     } else if (insertUsuarios[11].equals("0") || insertUsuarios[11].equals("1")) {
-                        JOptionPane.showMessageDialog(null, "insertUsuarios");
+                        //JOptionPane.showMessageDialog(null, "insertUsuarios");
                         Insert.operacionesConInsertUsuarios(insertUsuarios, palabra, escriptor, perEnt, socket, jTextAreaInsert);
 
                     } else if (insertEmpleadoMailTelf[15].equals("0") || insertEmpleadoMailTelf[15].equals("1")) {
-                        JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf15");
+                        //JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf15");
                         Insert.operacionesConInsertEmpleadoMailTelf(insertEmpleadoMailTelf, palabra, escriptor, perEnt,
                                 socket, jTextAreaInsert);
 
                     }else if (insertEmpleadoMT[17].equals("0") || insertEmpleadoMT[17].equals("1") ) {
-                        JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf17");
+                        //JOptionPane.showMessageDialog(null, "insertEmpleadoMailTelf17");
                         Insert.operacionsConInsertEmpleadoMT17y15(insertEmpleadoMT, palabra, escriptor, perEnt, socket, jTextAreaInsert);
 
                     } else if (insertEmpleado[19].equals("0") || insertEmpleado[19].equals("1")) { 
-                        JOptionPane.showMessageDialog(null, "insertEmpleado19");
+                        //JOptionPane.showMessageDialog(null, "insertEmpleado19");
                         Insert.operacionesConInsertEmpleado19(insertEmpleado, palabra, escriptor, perEnt, socket, jTextAreaInsert);
                     }  
                 }
@@ -2289,46 +2289,46 @@ public class FormVentanasUsuario extends javax.swing.JFrame {
             if (update){
                 JOptionPane.showMessageDialog(null, "Update");
                 if (updateEmpleado[1].equals("2") && updateEmpleado[2].equals("0") && updateEmpleado[3].equals("dniNuevo")) {
-                    JOptionPane.showMessageDialog(null, "updateEmpleado");
+                    //JOptionPane.showMessageDialog(null, "updateEmpleado");
                     Update.updateEmpleado(updateEmpleado, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
 
                 }else if (insertEmpresas[1].equals("2") && insertEmpresas[2].equals("1") && insertEmpresas[3].equals("passNuevo")) {
-                    JOptionPane.showMessageDialog(null, "updateUser");
+                    //JOptionPane.showMessageDialog(null, "updateUser");
                     Update.updateUser(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
 
                 }else if (NomApellido[1].equals("2") && NomApellido[2].equals("2") && NomApellido[3].equals("nomNuevo") && NomApellido[9].equals("nom")) {    
-                    JOptionPane.showMessageDialog(null, "updateEmpresa");
+                    //JOptionPane.showMessageDialog(null, "updateEmpresa");
                     Update.updateEmpresa(NomApellido, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
                 
                 }else if (frase[1].equals("2") && frase[2].equals("3") && frase[3].equals("dni")) {
-                    JOptionPane.showMessageDialog(null, "updateJornada");
+                    //JOptionPane.showMessageDialog(null, "updateJornada");
                     Update.updateJornada(updateEmpleado, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
                 }
             
             }else if (cambioPass){
-                JOptionPane.showMessageDialog(null, "cambioPass");
+                //JOptionPane.showMessageDialog(null, "cambioPass");
                 Update.updateUser(insertEmpresas, palabra, escriptor, perEnt, socket, jTextAreaUpdate);
-                JOptionPane.showMessageDialog(null, "parametros updateUser(): \ninsertEmpresas: "+ insertEmpresas +"\npalabra: " + palabra 
-                        + "\nescriptor: "+ escriptor + "\nperEnt: " + perEnt + "\nsocket: " + socket);
+                //JOptionPane.showMessageDialog(null, "parametros updateUser(): \ninsertEmpresas: "+ insertEmpresas +"\npalabra: " + palabra 
+                       // + "\nescriptor: "+ escriptor + "\nperEnt: " + perEnt + "\nsocket: " + socket);
                 JOptionPane.showMessageDialog(null, "CONTRASEÑA CAMBIADA CORRECTAMENTE, PRÓXIMO LOGIN REALIZELO CON LA NUEVA CONTRASEÑA.");
                 
             //DELETES
             }else if (delete){
-                JOptionPane.showMessageDialog(null, "Delete");
+                //JOptionPane.showMessageDialog(null, "Delete");
                 if (frase[1].equals("3") && frase[2].equals("2") && frase[3].equals("nom")){
-                    JOptionPane.showMessageDialog(null, "deleteEmpresa");
+                    //JOptionPane.showMessageDialog(null, "deleteEmpresa");
                     Delete.deleteEmpresas(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
                     
                 }else if (frase[1].equals("3") && frase[2].equals("0") && frase[3].equals("dni")){
-                    JOptionPane.showMessageDialog(null, "deleteEmpleados");
+                    //JOptionPane.showMessageDialog(null, "deleteEmpleados");
                     Delete.deleteEmpleados(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
                 
                 }else if (frase[1].equals("3") && frase[2].equals("1") && frase[3].equals("dni")){
-                    JOptionPane.showMessageDialog(null, "deleteUsers");
+                    //JOptionPane.showMessageDialog(null, "deleteUsers");
                     Delete.deleteUsers(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
                 
                 }else if (frase[1].equals("3") && frase[2].equals("3") && frase[3].equals("dni") && frase [5].equals("fecha")){
-                    JOptionPane.showMessageDialog(null, "deleteJornada");
+                    //JOptionPane.showMessageDialog(null, "deleteJornada");
                     Delete.deleteJornada(frase, palabra, escriptor, perEnt, socket, jTextAreaDelete);
                 
                 }

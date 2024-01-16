@@ -89,7 +89,7 @@ public class ConexionSocket {
                 //MainForm.setSocket(null);
                 MainForm.getSocket().close();
             } else if (mensajeServer.equalsIgnoreCase("-2")) {
-                JOptionPane.showMessageDialog(null,".El usuario ya esta conectado");//vemos el código
+                //JOptionPane.showMessageDialog(null,"El usuario ya esta conectado");//vemos el código
                 salir = true;
                 lector.close();
                 escriptor.close();

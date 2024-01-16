@@ -80,18 +80,19 @@ public class LoginTests {
         String ip = "localhost";
         String user = "admin";
         String password = "admin456";
+        String codigo = "A12395";
         
         MainForm mainForm = new MainForm();     
-        mainForm.setCodigo("A12395"); 
+        mainForm.setCodigo(codigo); 
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
-        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(codigo,user);
 
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         
         // Nos aseguramos de que la conexión falla y no se establece el usuario
-        assertEquals(null, usuarioFormPestañas.getPasswordCambioPass()); // Asegurarse de que el usuario en la forma sea vacío
+        assertNull(usuarioFormPestañas.getPasswordCambioPass()); // Asegurarse de que el usuario en la forma sea vacío
         
         Logout.logout(usuarioFormPestañas);
     }
@@ -104,13 +105,14 @@ public class LoginTests {
         String ip = "localhost";
         String user = "user";
         String password = "user456";
+        String codigo = "U12395";
         
         MainForm mainForm = new MainForm();     
-        mainForm.setCodigo("U12395"); 
+        mainForm.setCodigo(codigo); 
         JTextField jTextFieldIPServidor = new JTextField(ip);
         JTextField jTextFieldUsuario = new JTextField(user);
         JPasswordField jPasswordField = new JPasswordField(password);
-        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(user,password);
+        FormVentanasUsuario usuarioFormPestañas = new FormVentanasUsuario(codigo,user);
 
         ConexionSocket.conexionSocket(mainForm, usuarioFormPestañas, jTextFieldIPServidor, jTextFieldUsuario, jPasswordField);
         

@@ -5,10 +5,11 @@
         <group>
             <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/test/testsCRUD/SelectTests.java</file>
             <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/src/vistas/FormVentanasUsuario.java</file>
-            <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/src/vistas/MainForm.java</file>
+            <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/test/LoginLogoutTest/LoginTests.java</file>
+            <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/src/CRUD/Delete.java</file>
             <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/test/testsCRUD/DeleteTests.java</file>
-            <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/test/testsCRUD/UpdateTests.java</file>
             <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/test/testsCRUD/InsertTests.java</file>
+            <file>file:/C:/Users/anton/Desktop/M13/EscritorioHREntrada/test/testsCRUD/UpdateTests.java</file>
         </group>
     </open-files>
 </project-private>

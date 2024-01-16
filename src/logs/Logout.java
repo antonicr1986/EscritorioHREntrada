@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.net.ssl.SSLSocket;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import vistas.MainForm;
@@ -53,19 +54,29 @@ public class Logout {
     * @param formUsuario objeto del tipo FormVentanasUsuario que usaremos para
     * cerrar la ventana que tengamos abierta de este tipo de Forms 
     * 
-    */
-    
+    */  
     public static void logout(FormVentanasUsuario formUsuario){
         try {        
-            //IMPLEMENTA
-            Socket socket = MainForm.getSocket();       
-            
-            if (socket != null && socket.isConnected()) {  
-                
+            Socket socket = MainForm.getSocket();   
+            SSLSocket sslSocket = MainForm.getSslSocket(); // Asegúrate de tener un método similar para obtener el socket SSL.          
+            BufferedReader lector =null;
+            BufferedWriter escriptor = null;
+            if (socket != null && socket.isConnected()) {
+                 //JOptionPane.showMessageDialog(null, 
+                   //          "if socket normal");
                 // Obtener flujos de entrada y salida.
-                BufferedReader lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                BufferedWriter escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            
+                lector = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                //JOptionPane.showMessageDialog(null, 
+                  //           "despues asignar lector");
+                escriptor = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            }else if (sslSocket != null && sslSocket.isConnected()) {
+                // Obtener flujos de entrada y salida.
+                lector = new BufferedReader(new InputStreamReader(sslSocket.getInputStream()));
+                escriptor = new BufferedWriter(new OutputStreamWriter(sslSocket.getOutputStream()));
+            }else{
+                 JOptionPane.showMessageDialog(null,"Problemas con la conexión al socket.");  
+                 return;
+            }
                 // Aquí enviamos la señal de "logout" al servidor.
                 String logoutSignal = "exit";
                 escriptor.write(logoutSignal);
@@ -91,11 +102,7 @@ public class Logout {
                 mainForm.setVisible(true);     
                 mainForm.setPalabra(palabra);
 
-                //JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"\nPalabra: "+mainForm.getPalabra());     
-            }
-            else{
-                 JOptionPane.showMessageDialog(null,"Problemas con la conexión al socket.");     
-            }
+                //JOptionPane.showMessageDialog(null,"Palabra: "+ palabra+"\nPalabra: "+mainForm.getPalabra());               
          } catch (IOException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
