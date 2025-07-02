@@ -36,12 +36,21 @@ Este sistema completo se compone de tres partes:
 
 ## 🖼️ Capturas de pantalla
 
-> Inicio de sesión ![image](https://github.com/user-attachments/assets/73798bee-4ad9-42b8-a1c5-279679f123a1)
+-VENTANA DE LOGIN
+
+![image](https://github.com/user-attachments/assets/73798bee-4ad9-42b8-a1c5-279679f123a1)
  
-> - Panel de fichaje  
-> - Listado de registros  
-> - Filtro por fechas
+-INTERFAZ PRINCIPAL CON SUS PESTAÑAS
 
-```markdown
-![Vista general](./screenshots/vista-principal.png)
+![Interfaz principal](screenshots/pBusqueda.jpg)
 
+![Interfaz principal](screenshots/pAnadir.jpg)
+
+
+-GESTIÓN DE USUARIO
+
+![Pestaña gestión usuario](screenshots/pGestionUsuario.jpg)
+
+-PESTAÑA ACERCA DE
+
+![Acerca de la app](screenshots/pAcercaDe.jpg)
