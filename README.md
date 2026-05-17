@@ -1,4 +1,4 @@
-Proyecto final de CFGS DAM
+# 🎓 Proyecto final de CFGS DAM
 
 Aplicación de escritorio desarrollada como parte del proyecto final del Grado Superior de Desarrollo de Aplicaciones Multiplataforma. Esta herramienta permite gestionar el control de horas laborales de los trabajadores en una empresa.
 
@@ -6,8 +6,8 @@ Aplicación de escritorio desarrollada como parte del proyecto final del Grado S
 
 Este sistema completo se compone de tres partes:
 - 🖥️ **Aplicación de Escritorio (este repositorio)**: interfaz para el personal administrativo para visualizar, consultar y exportar registros de horas.
-- 🌐 **Servidor central** recibe, almacena y proporciona los datos vía conexión remota. [Enlace al servidor del proyecto](https://github.com/Trope16121980/ServerHREntrada)
-- 📱 **Aplicación Android** permite al trabajador usar la app desde el móvil. [Enlace a la parte mobil del proyecto]( https://github.com/davidval2022/HREntradaClienteApp-)
+- 🌐 **Servidor central**: recibe, almacena y proporciona los datos vía conexión remota. [Enlace al servidor del proyecto](https://github.com/Trope16121980/ServerHREntrada)
+- 📱 **Aplicación Android**: permite al trabajador usar la app desde el móvil. [Enlace a la parte móvil del proyecto]( https://github.com/davidval2022/HREntradaClienteApp-)
 
 > ⚠️ Este repositorio contiene exclusivamente la aplicación de escritorio.
 
