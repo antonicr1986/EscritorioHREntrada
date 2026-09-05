@@ -1,0 +1,20 @@
+# Hallazgos historicos ya resueltos.
+#
+# Estas lineas silencian fugas concretas que SIGUEN en el historial de git y
+# que no se pueden borrar sin reescribirlo. No es esconderlas: es dejar
+# constancia de cuales son y que se hizo con ellas, y conseguir que el
+# pipeline vuelva a verde para que cualquier fuga NUEVA destaque enseguida.
+#
+# --------------------------------------------------------------------------
+# Usuario y contrasena de PostgreSQL escritos a mano en ConexionBDLocal.java
+# (linea 32). Commit e0cfb803, 11 de octubre de 2023.
+#
+# La conexion apuntaba a un servidor local (el campo de IP estaba vacio), no
+# a nada accesible desde internet. El fichero se elimino despues, pero sigue
+# en el historial.
+#
+# ACCION TOMADA (5 sep 2026): revisado y documentado. Si esa contrasena se
+# usa en algun servidor real, debe cambiarse.
+# --------------------------------------------------------------------------
+e0cfb803625a44212c725fa7cd60d18f3d287a6e:src/login/ConexionBDLocal.java:hardcoded-credential:32
+e0cfb803625a44212c725fa7cd60d18f3d287a6e:src/login/ConexionBDLocal.java:connection-string-password:32
